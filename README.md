@@ -20,7 +20,7 @@ To get started with the **FaceONNX**, it is recommended to look at the repositor
 <p align="center"><img width="80%" src="FaceONNX/examples/face_detection.jpg" /></p>
 <p align="center"><b>Figure 2.</b> Face detection</p>  
 
-<p align="center"><img width="80%" src="FaceONNX/examples/face_landmarks.jpg" /></p>
+<p align="center"><img width="80%" src="FaceONNX/examples/face_landmarks_extraction.jpg" /></p>
 <p align="center"><b>Figure 2.</b> Face landmarks extraction</p>  
 
 # License
