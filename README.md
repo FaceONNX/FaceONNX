@@ -15,7 +15,7 @@ Use nuget package manager to add [**FaceONNX**](https://www.nuget.org/packages/F
 PM> Install-Package FaceONNX -Version 1.0.0.3
 ```
 
-To get started with the **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
+To get started with **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
 
 <p align="center"><img width="50%" src="FaceONNX/examples/face_detection.jpg" /><img width="50%" src="FaceONNX/examples/face_landmarks.jpg" /></p>
 <p align="center"><b>Figure 1.</b> Face detection (left), face landmarks extraction (right)</p>  
