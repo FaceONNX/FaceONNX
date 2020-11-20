@@ -9,7 +9,7 @@ Face analytics library based on deep neural networks and ONNX runtime.
 * embeddings comparison and etc.  
 
 # Installation
-To add FaceONNX to your own project use [**nuget**](https://www.nuget.org/packages/FaceONNX/) package manager
+Use nuget package manager to add [**FaceONNX**](https://www.nuget.org/packages/FaceONNX/) to your project
 ```
 PM> Install-Package FaceONNX -Version 1.0.0.3
 ```
