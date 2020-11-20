@@ -17,11 +17,8 @@ PM> Install-Package FaceONNX -Version 1.0.0.3
 
 To get started with the **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
 
-<p align="center"><img width="80%" src="FaceONNX/examples/face_detection.jpg" /></p>
-<p align="center"><b>Figure 2.</b> Face detection</p>  
-
-<p align="center"><img width="80%" src="FaceONNX/examples/face_landmarks_extraction.jpg" /></p>
-<p align="center"><b>Figure 2.</b> Face landmarks extraction</p>  
+<p align="center"><img width="80%" src="FaceONNX/examples/face_detection.jpg" /><img width="80%" src="FaceONNX/examples/face_landmarks_extraction.jpg" /></p>
+<p align="center"><b>Figure 1.</b> Face detection (lef), face landmarks extraction (right)</p>  
 
 # License
 **MIT**
