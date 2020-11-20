@@ -9,14 +9,19 @@ Face analytics library based on deep neural networks and [**ONNX**](https://onnx
 * beauty prediction,
 * embeddings comparison and etc.  
 
-# Installation
+# How to Use
 Use nuget package manager to add [**FaceONNX**](https://www.nuget.org/packages/FaceONNX/) to your project
 ```
 PM> Install-Package FaceONNX -Version 1.0.0.3
 ```
 
-# How to Use
-Will be soon...
+To get started with the **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
+
+<p align="center"><img width="80%" src="FaceONNX/examples/face_detection.jpg" /></p>  
+<p align="center"><b>Figure 2.</b> Face detection</p>  
+
+<p align="center"><img width="80%" src="FaceONNX/examples/face_landmarks.jpg" /></p>  
+<p align="center"><b>Figure 2.</b> Face landmarks extraction</p>  
 
 # License
 **MIT**
