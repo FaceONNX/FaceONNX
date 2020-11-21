@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,10 +35,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FaceONNX, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FaceONNX.1.0.0.3\lib\netstandard2.0\FaceONNX.dll</HintPath>
+    <Reference Include="FaceONNX, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FaceONNX.1.0.0.5\lib\netstandard2.0\FaceONNX.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ML.OnnxRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f27f157f0a5b7bb6, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ML.OnnxRuntime.Managed.1.5.2\lib\netstandard1.1\Microsoft.ML.OnnxRuntime.dll</HintPath>

@@ -8,20 +8,27 @@ namespace FaceLandmarksExtraction
 {
     public partial class Form1 : Form
     {
-        FaceDetectorLight faceDetectorLight;
-        FaceLandmarksExtractor faceLandmarksExtractor;
+        FaceDetectorLight _faceDetectorLight;
+        FaceLandmarksExtractor _faceLandmarksExtractor;
 
         public Form1()
         {
             InitializeComponent();
             DragDrop += Form1_DragDrop;
             DragEnter += Form1_DragEnter;
+            FormClosing += Form1_FormClosing;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
-            faceLandmarksExtractor = new FaceLandmarksExtractor();
+            _faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
+            _faceLandmarksExtractor = new FaceLandmarksExtractor();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _faceDetectorLight.Dispose();
+            _faceLandmarksExtractor.Dispose();
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
@@ -36,19 +43,18 @@ namespace FaceLandmarksExtraction
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             var file = ((string[])e.Data.GetData(DataFormats.FileDrop, true))[0];
-            Bitmap image = new Bitmap(file);
-
-            var faces = faceDetectorLight.Forward(image);
+            var image = new Bitmap(file);
+            var faces = _faceDetectorLight.Forward(image);
 
             foreach (var face in faces)
             {
                 var color = GetRandomColor();
-                var depth = 4;
-
+                var depth = image.Height / 150 + 1;
                 var pen = new Pen(color, depth);
-                var points = faceLandmarksExtractor.Forward(image, face).First();
+                var points = _faceLandmarksExtractor.Forward(image, face).First();
+
                 Imaging.Draw(image, pen, face);
-                Imaging.Draw(image, pen, depth, points);
+                Imaging.Draw(image, pen, points);
             }
 
             BackgroundImage = image;

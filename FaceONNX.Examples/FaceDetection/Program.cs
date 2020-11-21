@@ -11,13 +11,13 @@ namespace FaceDetection
         {
             Console.WriteLine("FaceONNX: Face detection");
             var files = Directory.GetFiles(@"..\..\..\images");
-            var path = "results";
+            var path = @"..\..\..\results";
 
-            FaceDetectorLight faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
+            using var faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
             Directory.CreateDirectory(path);
 
             Console.WriteLine($"Processing {files.Length} images");
-            var pen = new Pen(Color.Yellow, 1);
+            var pen = new Pen(Color.Yellow, 3);
 
             foreach (var file in files)
             {

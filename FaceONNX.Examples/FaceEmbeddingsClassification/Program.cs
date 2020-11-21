@@ -8,47 +8,59 @@ namespace FaceEmbeddingsClassification
 {
     class Program
     {
+        static FaceDetectorLight _faceDetectorLight;
+        static FaceLandmarksExtractor _faceLandmarksExtractor;
+        static FaceEmbedder _faceEmbedder;
+
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
             var fits = Directory.GetFiles(@"..\..\..\images\fit");
-            var faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
-            var faceEmbedder = new FaceEmbedder();
-            var embeddings = new Embeddings(0.35f);
+            _faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
+            _faceLandmarksExtractor = new FaceLandmarksExtractor();
+            _faceEmbedder = new FaceEmbedder();
+            var embeddings = new Embeddings();
 
             foreach (var fit in fits)
             {
                 using var bitmap = new Bitmap(fit);
-                var face = faceDetectorLight.Forward(bitmap);
-                var embedding = faceEmbedder.Forward(bitmap, face);
+                var embedding = GetEmbedding(bitmap);
                 var name = Path.GetFileNameWithoutExtension(fit);
-                embeddings.Add(embedding.First(), name);
+                embeddings.Add(embedding, name);
                 Directory.CreateDirectory(name);
             }
 
             Console.WriteLine($"Embeddings count: {embeddings.Count}");
-
-            var files = Directory.GetFiles(@"..\..\..\images\score");
-            Console.WriteLine($"Processing {files.Length} images");
-
-            foreach (var file in files)
+            var scores = Directory.GetFiles(@"..\..\..\images\score");
+            Console.WriteLine($"Processing {scores.Length} images");
+            
+            foreach (var score in scores)
             {
-                using var bitmap = new Bitmap(file);
-                var face = faceDetectorLight.Forward(bitmap);
+                using var bitmap = new Bitmap(score);
+                var embedding = GetEmbedding(bitmap);
+                var proto = embeddings.FromSimilarity(embedding);
+                var label = proto.Item1;
+                var similarity = proto.Item2;
+                var filename = Path.GetFileName(score);
 
-                if (face.Length > 0)
-                {
-                    var embedding = faceEmbedder.Forward(bitmap, face);
-                    var proto = embeddings.FromSimilarity(embedding.First());
-
-                    var filename = Path.GetFileName(file);
-                    bitmap.Save(Path.Combine(proto, filename));
-                    Console.WriteLine($"Image: {filename} --> classified as {proto}");
-                }
+                Console.WriteLine($"Image: {filename} --> classified as {label} with similarity {similarity}");
             }
+
+            _faceDetectorLight.Dispose();
+            _faceLandmarksExtractor.Dispose();
+            _faceEmbedder.Dispose();
 
             Console.WriteLine("Done.");
             Console.ReadKey();
+        }
+
+        static float[] GetEmbedding(Bitmap image)
+        {
+            var faces = _faceDetectorLight.Forward(image);
+            using var cropped = Imaging.Crop(image, faces.First());
+            var points = _faceLandmarksExtractor.Forward(cropped);
+
+            return _faceEmbedder.Forward(_faceLandmarksExtractor.Align(cropped, points));
         }
     }
 }

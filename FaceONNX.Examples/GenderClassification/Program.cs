@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using FaceONNX;
 
 namespace GenderClassification
@@ -11,7 +12,7 @@ namespace GenderClassification
         {
             Console.WriteLine("FaceONNX: Gender classification");
             var files = Directory.GetFiles(@"..\..\..\images");
-            var faceGenderClassifier = new FaceGenderClassifier();
+            using var faceGenderClassifier = new FaceGenderClassifier();
             var labels = FaceGenderClassifier.Labels;
 
             foreach (var label in labels)
@@ -29,8 +30,7 @@ namespace GenderClassification
                 var filename = Path.GetFileName(file);
                 var label = labels[gender];
 
-                File.Copy(file, Path.Combine(label, filename), true);
-                Console.WriteLine($"Image: {filename} --> classified as {label}");
+                Console.WriteLine($"Image: {filename} --> classified as {label} with probability {output.Max()}");
             }
 
             Console.WriteLine("Done.");
