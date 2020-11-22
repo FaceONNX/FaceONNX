@@ -4,9 +4,10 @@ Face analytics library based on deep neural networks and [**ONNX**](https://onnx
 # About
 **FaceONNX** is a face analytics library for [**.NET platform**](https://dotnet.microsoft.com/). It containts ready-made deep neural networks for face
 * detection and landmarks extraction,
+* semantic segmentation,
 * gender and race classification,
 * age and emotions classification,
-* beauty prediction,
+* beauty estimation,
 * embeddings comparison and etc.  
 
 # How to Use
