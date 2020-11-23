@@ -17,17 +17,17 @@ namespace FaceDetection
             Directory.CreateDirectory(path);
 
             Console.WriteLine($"Processing {files.Length} images");
-            var pen = new Pen(Color.Yellow, 3);
 
             foreach (var file in files)
             {
                 using var bitmap = new Bitmap(file);
                 var output = faceDetectorLight.Forward(bitmap);
+                var pen = new Pen(Color.Yellow, bitmap.Height / 200 + 1);
                 Imaging.Draw(bitmap, pen, output);
 
                 var filename = Path.GetFileName(file);
                 bitmap.Save(Path.Combine(path, filename));
-                Console.WriteLine($"Image: {filename} --> detected {output.Length} faces");
+                Console.WriteLine($"Image: [{filename}] --> detected [{output.Length}] faces");
             }
 
             Console.WriteLine("Done.");

@@ -16,7 +16,7 @@ namespace FaceEmbeddingsClassification
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
             var fits = Directory.GetFiles(@"..\..\..\images\fit");
-            _faceDetectorLight = new FaceDetectorLight(0.75f, 0.25f);
+            _faceDetectorLight = new FaceDetectorLight();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
             var embeddings = new Embeddings();
@@ -27,7 +27,6 @@ namespace FaceEmbeddingsClassification
                 var embedding = GetEmbedding(bitmap);
                 var name = Path.GetFileNameWithoutExtension(fit);
                 embeddings.Add(embedding, name);
-                Directory.CreateDirectory(name);
             }
 
             Console.WriteLine($"Embeddings count: {embeddings.Count}");
@@ -43,7 +42,7 @@ namespace FaceEmbeddingsClassification
                 var similarity = proto.Item2;
                 var filename = Path.GetFileName(score);
 
-                Console.WriteLine($"Image: {filename} --> classified as {label} with similarity {similarity}");
+                Console.WriteLine($"Image: [{filename}] --> classified as [{label}] with similarity [{similarity}]");
             }
 
             _faceDetectorLight.Dispose();
@@ -59,8 +58,8 @@ namespace FaceEmbeddingsClassification
             var faces = _faceDetectorLight.Forward(image);
             using var cropped = Imaging.Crop(image, faces.First());
             var points = _faceLandmarksExtractor.Forward(cropped);
-
-            return _faceEmbedder.Forward(_faceLandmarksExtractor.Align(cropped, points));
+            using var aligned = FaceLandmarksExtractor.Align(cropped, points);
+            return _faceEmbedder.Forward(aligned);
         }
     }
 }

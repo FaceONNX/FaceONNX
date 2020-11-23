@@ -3,20 +3,20 @@ using System;
 using System.Drawing;
 using System.IO;
 
-namespace FaceLandmarksExtraction
+namespace FaceSemanticSegmentation
 {
     class Program
     {
         static void Main()
         {
-            Console.WriteLine("FaceONNX: Face landmarks extraction");
+            Console.WriteLine("FaceONNX: Face semantic segmentation");
             var files = Directory.GetFiles(@"..\..\..\images");
             var path = @"..\..\..\results";
 
             using var faceDetector = new FaceDetector();
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceParser = new FaceParser();
             Directory.CreateDirectory(path);
-            
+
             Console.WriteLine($"Processing {files.Length} images");
 
             foreach (var file in files)
@@ -24,17 +24,16 @@ namespace FaceLandmarksExtraction
                 using var bitmap = new Bitmap(file);
                 var filename = Path.GetFileName(file);
                 var faces = faceDetector.Forward(bitmap);
-                var pen = new Pen(Color.Yellow, bitmap.Height / 200 + 1);
                 Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");
 
                 foreach (var face in faces)
                 {
-                    var points = faceLandmarksExtractor.Forward(bitmap, face);
-                    
-                    foreach (var point in points)
+                    var labels = faceParser.Forward(bitmap, face);
+
+                    foreach (var label in labels)
                     {
-                        Imaging.Draw(bitmap, pen, point);
-                        bitmap.Save(Path.Combine(path, filename));
+                        using var segmentated = FaceParser.ToBitmap(label);
+                        segmentated.Save(Path.Combine(path, filename));
                     }
                 }
             }

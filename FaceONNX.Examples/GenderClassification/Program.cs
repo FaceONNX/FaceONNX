@@ -20,7 +20,7 @@ namespace GenderClassification
                 Directory.CreateDirectory(label);
             }
 
-            Console.WriteLine($"Classifying {files.Length} images");
+            Console.WriteLine($"Processing {files.Length} images");
 
             foreach (var file in files)
             {
@@ -30,7 +30,7 @@ namespace GenderClassification
                 var filename = Path.GetFileName(file);
                 var label = labels[gender];
 
-                Console.WriteLine($"Image: {filename} --> classified as {label} with probability {output.Max()}");
+                Console.WriteLine($"Image: [{filename}] --> classified as [{label}] with probability [{output.Max()}]");
             }
 
             Console.WriteLine("Done.");
