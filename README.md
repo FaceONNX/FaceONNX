@@ -6,7 +6,7 @@ Face analytics library based on deep neural networks and [**ONNX**](https://onnx
 * detection and landmarks extraction,
 * semantic segmentation,
 * gender and race classification,
-* age and emotions classification,
+* age and emotion classification,
 * beauty estimation,
 * embeddings comparison and etc.  
 
