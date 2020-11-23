@@ -1,5 +1,5 @@
 # Face detection
-Build and start [**FaceDetection.csproj**](FaceDetection) project to produce face detection results
+Build and start [**FaceDetection.csproj**](FaceDetection) to produce face detection results
 ```batch
 FaceONNX: Face detection
 Processing 4 images
@@ -14,7 +14,7 @@ Done.
 <p align="center"><b>Figure 1.</b> Results for oscar2.jpg</p>  
 
 # Face embeddings classification
-Build and start [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) project to classify 6 faces to Brad Pitt, Nicole Kidman and Sarah Paulson
+Build and start [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) to classify 6 faces as Brad Pitt, Nicole Kidman or Sarah Paulson
 ```batch
 FaceONNX: Face embeddings classification
 Embeddings count: 3
