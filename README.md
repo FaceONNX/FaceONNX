@@ -16,4 +16,4 @@ To get started with **FaceONNX**, it is recommended to look at the repository wi
 Use nuget package manager to install [**FaceONNX**](https://www.nuget.org/packages/FaceONNX/) to your own project or download it from [**releases**](releases).
 
 # License
-FaceONNX is released under the [**MIT**](LICENSE) license.
+**FaceONNX** is released under the [**MIT**](LICENSE) license.
