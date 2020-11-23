@@ -1,5 +1,3 @@
-# FaceONNX examples
-
 # Face detection
 Build and start [**FaceDetection.csproj**](FaceDetection) project to produce face detection results
 ```batch
