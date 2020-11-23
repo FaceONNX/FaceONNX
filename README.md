@@ -13,7 +13,7 @@ Face analytics library based on deep neural networks and [**ONNX**](https://onnx
 
 # How to Use
 To get started with **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
-Use nuget package manager to add [**FaceONNX**](https://www.nuget.org/packages/FaceONNX/) to your own project.
+Use nuget package manager to install [**FaceONNX**](https://www.nuget.org/packages/FaceONNX/) to your own project or download it from [**releases**](releases).
 
 # License
 FaceONNX is released under the [**MIT**](LICENSE) license.
