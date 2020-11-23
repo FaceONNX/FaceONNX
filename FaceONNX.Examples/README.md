@@ -1,3 +1,6 @@
+<p align="center"><img width="25%" src="../FaceONNX/FaceONNX.png" /></p>
+<p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
+
 # Emotion & beauty estimation
 Build and run [**EmotionAndBeautyEstimation.csproj**](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
 ```batch
