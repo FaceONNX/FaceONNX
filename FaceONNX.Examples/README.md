@@ -22,7 +22,7 @@ Image: [CM742.jpg] --> detected [1] faces
 Image: [CM750.jpg] --> detected [1] faces
         [Face #1]: --> classified as [neutral] emotion and [6,1/10.0] beauty
 ```
-<p align="center"><img width="35%" src="EmotionAndBeautyEstimation/results/CF600.jpg" /><img width="35%" src="EmotionAndBeautyEstimation/results/oCM726.jpg" /></p>
+<p align="center"><img width="35%" src="EmotionAndBeautyEstimation/results/CF600.jpg" /><img width="35%" src="EmotionAndBeautyEstimation/results/CM726.jpg" /></p>
 <p align="center"><b>Figure 1.</b> Results for Scarlett Johansson and Callan McAuliffe photos.jpg</p>  
 
 
