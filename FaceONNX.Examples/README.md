@@ -39,7 +39,7 @@ Image: [selfie2.jpg] --> detected [18] faces
 <p align="center"><b>Figure 2.</b> Results for oscar2.jpg</p>  
 
 # Face embeddings classification
-Build and run [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) to classify 9 faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
+Build and run [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
 ```batch
 Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0,96517545]
 Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0,8623285]
@@ -53,7 +53,7 @@ Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0,841927
 ```
 
 # Face landmarks extraction
-Build and run [**FaceLandmarksExtraction.csproj**](FaceLandmarksExtraction) to produce face landmarks for 3 images.
+Build and run [**FaceLandmarksExtraction.csproj**](FaceLandmarksExtraction) to produce faces landmarks.
 ```batch
 Image: [bruce.jpg] --> detected [1] faces
 Image: [jake.jpg] --> detected [1] faces
@@ -63,7 +63,7 @@ Image: [kid.jpg] --> detected [1] faces
 <p align="center"><b>Figure 3.</b> Results for kid.jpg</p>  
 
 # Face semantic segmentation
-Build and run [**FaceSemanticSegmentation.csproj**](FaceSemanticSegmentation) to produce face segmentation maps for 3 images.
+Build and run [**FaceSemanticSegmentation.csproj**](FaceSemanticSegmentation) to produce faces segmentation maps.
 ```batch
 Image: [brad.jpg] --> detected [1] faces
 Image: [michael.jpg] --> detected [1] faces
@@ -73,7 +73,7 @@ Image: [nicole.jpg] --> detected [1] faces
 <p align="center"><b>Figure 4.</b> Original image brad.jpg and face segmentation map</p>  
 
 # Gender classification
-Build and run [**GenderClassification.csproj**](GenderClassification) to classify 10 images as "Male" or "Female".
+Build and run [**GenderClassification.csproj**](GenderClassification) to classify faces as "Male" or "Female".
 ```batch
 Image: [CF600.jpg] --> classified as [Female] with probability [1]
 Image: [CF601.jpg] --> classified as [Female] with probability [1]
@@ -88,7 +88,7 @@ Image: [CM750.jpg] --> classified as [Female] with probability [0,99997663]
 ```
 
 # Race and age classification
-Build and run [**RaceAndAgeClassification.csproj**](RaceAndAgeClassification) to classify 5 images by race and age.
+Build and run [**RaceAndAgeClassification.csproj**](RaceAndAgeClassification) to classify faces by race and age.
 ```batch
 Image: [baby.jpg] --> detected [1] faces
         [Face #1]: --> classified as [White] race and [<2] age
