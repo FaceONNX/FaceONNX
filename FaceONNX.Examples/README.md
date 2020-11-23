@@ -41,5 +41,5 @@ Image: [brad.jpg] --> detected [1] faces
 Image: [michael.jpg] --> detected [1] faces
 Image: [nicole.jpg] --> detected [1] faces
 ```
-<p align="center"><img width="70%" src="FaceSemanticSegmentation/results/brad.jpg" /></p>
-<p align="center"><b>Figure 3.</b> Results for brad.jpg</p>  
+<p align="center"><img width="35%" src="FaceSemanticSegmentation/images/brad.jpg"/><img width="35%" src="FaceSemanticSegmentation/results/brad.jpg" /></p>
+<p align="center"><b>Figure 3.</b> Original image brad.jpg and its segmentation map</p>  
