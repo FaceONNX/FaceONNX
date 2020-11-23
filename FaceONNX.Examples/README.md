@@ -1,35 +1,6 @@
 <p align="center"><img width="25%" src="../FaceONNX/FaceONNX.png" /></p>
 <p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
-# Emotion & beauty estimation
-Build and run [**EmotionAndBeautyEstimation.csproj**](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
-```batch
-Image: [CF600.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [8,3/10.0] beauty
-Image: [CF601.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [6,6/10.0] beauty
-Image: [CF602.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
-Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,8/10.0] beauty
-Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [7,1/10.0] beauty
-Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,8/10.0] beauty
-Image: [CM726.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [6,3/10.0] beauty
-Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,6/10.0] beauty
-Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
-Image: [CM750.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [6,1/10.0] beauty
-```
-<p align="center"><img width="30%" src="EmotionAndBeautyEstimation/results/CF600.jpg" /><img width="30%" src="EmotionAndBeautyEstimation/results/CM726.jpg" /></p>
-<p align="center"><img width="30%" src="EmotionAndBeautyEstimation/results/CF601.jpg" /><img width="30%" src="EmotionAndBeautyEstimation/results/CM722.jpg" /></p>
-<p align="center"><b>Figure 1.</b> Results of emotion classification and beauty estimation</p>  
-
-
 # Face detection
 Build and run [**FaceDetection.csproj**](FaceDetection) to produce face detection results.
 ```batch
@@ -40,7 +11,7 @@ Image: [selfie2.jpg] --> detected [18] faces
 ```
 
 <p align="center"><img width="70%" src="FaceDetection/results/oscar2.jpg" /></p>
-<p align="center"><b>Figure 2.</b> Results for oscar2.jpg</p>  
+<p align="center"><b>Figure 1.</b> Results for oscar2.jpg</p>  
 
 # Face embeddings classification
 Build and run [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
@@ -64,7 +35,7 @@ Image: [jake.jpg] --> detected [1] faces
 Image: [kid.jpg] --> detected [1] faces
 ```
 <p align="center"><img width="70%" src="FaceLandmarksExtraction/results/kid.jpg" /></p>
-<p align="center"><b>Figure 3.</b> Results for kid.jpg</p>  
+<p align="center"><b>Figure 2.</b> Results for kid.jpg</p>  
 
 # Face semantic segmentation
 Build and run [**FaceSemanticSegmentation.csproj**](FaceSemanticSegmentation) to produce faces segmentation maps.
@@ -74,7 +45,7 @@ Image: [michael.jpg] --> detected [1] faces
 Image: [nicole.jpg] --> detected [1] faces
 ```
 <p align="center"><img width="35%" src="FaceSemanticSegmentation/images/brad.jpg"/><img width="35%" src="FaceSemanticSegmentation/results/brad.jpg" /></p>
-<p align="center"><b>Figure 4.</b> Original image brad.jpg and face segmentation map</p>  
+<p align="center"><b>Figure 3.</b> Original image brad.jpg and face segmentation map</p>  
 
 # Gender classification
 Build and run [**GenderClassification.csproj**](GenderClassification) to classify faces as "Male" or "Female".
@@ -107,3 +78,31 @@ Image: [morgan.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Black] race and [>60] age
 Done.
 ```
+
+# Emotion & beauty estimation
+Build and run [**EmotionAndBeautyEstimation.csproj**](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
+```batch
+Image: [CF600.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [happiness] emotion and [8,3/10.0] beauty
+Image: [CF601.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [happiness] emotion and [6,6/10.0] beauty
+Image: [CF602.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
+Image: [CF603.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [happiness] emotion and [7,8/10.0] beauty
+Image: [CF604.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [7,1/10.0] beauty
+Image: [CM722.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [8,8/10.0] beauty
+Image: [CM726.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [6,3/10.0] beauty
+Image: [CM739.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [happiness] emotion and [7,6/10.0] beauty
+Image: [CM742.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
+Image: [CM750.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [6,1/10.0] beauty
+```
+<p align="center"><img width="30%" src="EmotionAndBeautyEstimation/results/CF600.jpg" /><img width="30%" src="EmotionAndBeautyEstimation/results/CM726.jpg" /></p>
+<p align="center"><img width="30%" src="EmotionAndBeautyEstimation/results/CF601.jpg" /><img width="30%" src="EmotionAndBeautyEstimation/results/CM722.jpg" /></p>
+<p align="center"><b>Figure 4.</b> Results of emotion classification and beauty estimation</p>  
