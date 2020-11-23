@@ -1,7 +1,7 @@
 <p align="center"><img width="25%" src="FaceONNX/FaceONNX.png" /></p>
 <p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
-# About
+# FaceONNX
 **FaceONNX** is a face analytics library for [**.NET platform**](https://dotnet.microsoft.com/) based on [**ONNX**](https://onnx.ai/) runtime. It containts ready-made deep neural networks for face
 * detection and landmarks extraction,
 * semantic segmentation,
