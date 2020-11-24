@@ -12,7 +12,7 @@
 
 # How to Use
 To get started with **FaceONNX**, it is recommended to look at the repository with [**examples**](FaceONNX.Examples).  
-Use [**nuget**](https://www.nuget.org/packages/FaceONNX/) package manager to install **FaceONNX** to your own project or download it from [**releases**](releases).
+Use [**nuget**](https://www.nuget.org/packages/FaceONNX/) package manager to install **FaceONNX** to your own project or download it from releases.
 
 # License
 **FaceONNX** is released under the [**MIT**](LICENSE) license.
