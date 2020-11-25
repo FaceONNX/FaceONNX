@@ -1,1 +1,1 @@
-# ONNX models of FaceONNX are not provided in Git.
+# Models of FaceONNX are not provided in Git.
