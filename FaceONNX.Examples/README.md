@@ -50,41 +50,42 @@ Image: [nicole.jpg] --> detected [1] faces
 # Gender classification
 Build and run [**GenderClassification.csproj**](GenderClassification) to classify faces as "Male" or "Female".
 ```batch
-Image: [CF600.jpg] --> classified as [Female] with probability [1]
-Image: [CF601.jpg] --> classified as [Female] with probability [1]
-Image: [CF602.jpg] --> classified as [Female] with probability [1]
-Image: [CF603.jpg] --> classified as [Female] with probability [0,99999154]
-Image: [CF604.jpg] --> classified as [Female] with probability [0,9968484]
-Image: [CM722.jpg] --> classified as [Male] with probability [1]
-Image: [CM726.jpg] --> classified as [Male] with probability [0,9999999]
-Image: [CM739.jpg] --> classified as [Male] with probability [1]
-Image: [CM742.jpg] --> classified as [Male] with probability [1]
-Image: [CM750.jpg] --> classified as [Female] with probability [0,99997663]
+Image: [CF600.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Female] gender with probability [1]
+Image: [CF601.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Female] gender with probability [1]
+Image: [CF602.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Female] gender with probability [1]
+Image: [CF603.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Female] gender with probability [0,99999154]
+Image: [CF604.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Female] gender with probability [0,9968484]
+Image: [CM722.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Male] gender with probability [1]
+Image: [CM725.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Male] gender with probability [1]
+Image: [CM726.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Male] gender with probability [0,9999999]
+Image: [CM739.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Male] gender with probability [1]
+Image: [CM742.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Male] gender with probability [1]
 ```
 
 # Race and age classification
 Build and run [**RaceAndAgeClassification.csproj**](RaceAndAgeClassification) to classify faces by race and age.
 ```batch
-Image: [CF600.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [1]
-Image: [CF601.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [1]
-Image: [CF602.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [1]
-Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [0,99999154]
-Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [0,9968484]
-Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [0] gender with probability [1]
-Image: [CM726.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [0] gender with probability [0,9999999]
-Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [0] gender with probability [1]
-Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [0] gender with probability [1]
-Image: [CM750.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [1] gender with probability [0,99997663]
+Image: [baby.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [White] race and [<2] age
+Image: [bruce.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Asian] race and [25-37] age
+Image: [jolie_brad.jpg] --> detected [2] faces
+        [Face #1]: --> classified as [White] race and [25-37] age
+        [Face #2]: --> classified as [White] race and [38-47] age
+Image: [kid.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [White] race and [3-7] age
+Image: [morgan.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [Black] race and [>60] age
 ```
 <p align="center"><img width="70%" src="RaceAndAgeClassification/results/jolie_brad.jpg" /></p>
 <p align="center"><b>Figure 4.</b> Results of race and age classification</p>  
@@ -99,17 +100,17 @@ Image: [CF601.jpg] --> detected [1] faces
 Image: [CF602.jpg] --> detected [1] faces
         [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
 Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,8/10.0] beauty
+        [Face #1]: --> classified as [happiness] emotion and [7,9/10.0] beauty
 Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [7,1/10.0] beauty
+        [Face #1]: --> classified as [neutral] emotion and [7,3/10.0] beauty
 Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,8/10.0] beauty
+        [Face #1]: --> classified as [neutral] emotion and [8,9/10.0] beauty
+Image: [CM725.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [neutral] emotion and [5,8/10.0] beauty
 Image: [CM726.jpg] --> detected [1] faces
         [Face #1]: --> classified as [neutral] emotion and [6,3/10.0] beauty
 Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,6/10.0] beauty
+        [Face #1]: --> classified as [happiness] emotion and [7,5/10.0] beauty
 Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
-Image: [CM750.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [6,1/10.0] beauty
+        [Face #1]: --> classified as [neutral] emotion and [8/10.0] beauty
 ```
