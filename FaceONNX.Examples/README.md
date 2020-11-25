@@ -65,18 +65,26 @@ Image: [CM750.jpg] --> classified as [Female] with probability [0,99997663]
 # Race and age classification
 Build and run [**RaceAndAgeClassification.csproj**](RaceAndAgeClassification) to classify faces by race and age.
 ```batch
-Image: [baby.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [White] race and [<2] age
-Image: [bruce.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Asian] race and [25-37] age
-Image: [jolie_brad.jpg] --> detected [2] faces
-        [Face #1]: --> classified as [White] race and [25-37] age
-        [Face #2]: --> classified as [White] race and [38-47] age
-Image: [kid.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [White] race and [3-7] age
-Image: [morgan.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Black] race and [>60] age
-Done.
+Image: [CF600.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [1]
+Image: [CF601.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [1]
+Image: [CF602.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [1]
+Image: [CF603.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [0,99999154]
+Image: [CF604.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [0,9968484]
+Image: [CM722.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [0] gender with probability [1]
+Image: [CM726.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [0] gender with probability [0,9999999]
+Image: [CM739.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [0] gender with probability [1]
+Image: [CM742.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [0] gender with probability [1]
+Image: [CM750.jpg] --> detected [1] faces
+        [Face #1]: --> classified as [1] gender with probability [0,99997663]
 ```
 <p align="center"><img width="70%" src="RaceAndAgeClassification/results/jolie_brad.jpg" /></p>
 <p align="center"><b>Figure 4.</b> Results of race and age classification</p>  
