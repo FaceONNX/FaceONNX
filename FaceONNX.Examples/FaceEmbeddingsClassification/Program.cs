@@ -1,4 +1,5 @@
 ﻿using FaceONNX;
+using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;

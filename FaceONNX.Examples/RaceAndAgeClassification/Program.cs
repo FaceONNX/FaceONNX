@@ -1,4 +1,5 @@
 ﻿using FaceONNX;
+using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
@@ -17,12 +18,18 @@ namespace RaceAndAgeClassification
             Console.WriteLine("FaceONNX: Race and age classification");
             var files = Directory.GetFiles(@"..\..\..\images");
             var path = @"..\..\..\results";
+            Directory.CreateDirectory(path);
 
             _faceDetectorLight = new FaceDetectorLight();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceRaceClassifier = new FaceRaceClassifier();
             _faceAgeClassifier = new FaceAgeClassifier();
-            Directory.CreateDirectory(path);
+            var painter = new Painter()
+            {
+                PointPen = new Pen(Color.Yellow, 4),
+                Transparency = 0,
+                TextFont = new Font("Arial", 24)
+            };
 
             Console.WriteLine($"Processing {files.Length} images");
 
@@ -37,13 +44,17 @@ namespace RaceAndAgeClassification
 
                 foreach (var face in faces)
                 {
-                    var pen = new Pen(Color.Yellow, bitmap.Height / 200 + 1);
-                    var font = new Font("Arial", 24);
-
                     Console.Write($"\t[Face #{i++}]: ");
 
                     var labels = GetRaceAndAge(bitmap, face);
-                    Imaging.Draw(bitmap, pen, font, new Rectangle[] { face }, labels);
+
+                    var paintData = new PaintData()
+                    {
+                        Rectangle = face,
+                        Labels = labels
+                    };
+
+                    painter.Draw(bitmap, paintData);
                 }
 
                 bitmap.Save(Path.Combine(path, filename));
