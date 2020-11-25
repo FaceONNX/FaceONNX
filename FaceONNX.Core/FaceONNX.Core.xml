@@ -1,0 +1,712 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FaceONNX.Core</name>
+    </assembly>
+    <members>
+        <member name="T:FaceONNX.Core.Embeddings">
+            <summary>
+            Defines the embeddings database.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.#ctor">
+            <summary>
+            Initializes the embeddings database.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.#ctor(System.Collections.Generic.List{System.Single[]},System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes the embeddings database.
+            </summary>
+            <param name="vectors">Vectors</param>
+            <param name="labels">Labels</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Add(System.Single[],System.String)">
+            <summary>
+            Adds embedding to embeddings database.
+            </summary>
+            <param name="vector">Vector</param>
+            <param name="label">Label</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Remove(System.Int32)">
+            <summary>
+            Removes embedding from embeddings database.
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Remove(System.String)">
+            <summary>
+            Removes embedding from embeddings database.
+            </summary>
+            <param name="label">Label</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Clear">
+            <summary>
+            Clears embeddings database.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Count">
+            <summary>
+            Returns embeddings database count.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Vectors">
+            <summary>
+            Gets or sets vectors.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Labels">
+            <summary>
+            Gets or sets labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.FromDistance(System.Single[])">
+            <summary>
+            Score vector from database by Euclidean distance.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Label</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.FromSimilarity(System.Single[])">
+            <summary>
+            Score vector from database by cosine similarity.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Label and value</returns>
+        </member>
+        <member name="T:FaceONNX.Core.Imaging">
+            <summary>
+            Using for imaging.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Lock24bpp(System.Drawing.Bitmap)">
+            <summary>
+            Blocks Bitmap in system memory.
+            </summary>
+            <param name="b">Bitmap</param>
+            <returns>Bitmap data</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Unlock(System.Drawing.Bitmap,System.Drawing.Imaging.BitmapData)">
+            <summary>
+            Unblocks Bitmap in system memory.
+            </summary>
+            <param name="b">Bitmap</param>
+            <param name="bmData">Bitmap data</param>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.CreateBitmap(System.Drawing.Size,System.Drawing.Color)">
+            <summary>
+            Returns new bitmap.
+            </summary>
+            <param name="size">Size</param>
+            <param name="color">Color</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Merge(System.Drawing.Bitmap,System.Drawing.Bitmap,System.Drawing.Rectangle)">
+            <summary>
+            Merges two images.
+            </summary>
+            <param name="background">Background image</param>
+            <param name="foreground">Foreground image</param>
+            <param name="rectangle">Rectangle</param>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Crop(System.Drawing.Bitmap,System.Drawing.Rectangle)">
+            <summary>
+            Returns cropped image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="rectangle">Rectangle</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Range(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fixes value in range.
+            </summary>
+            <param name="x">Value</param>
+            <param name="min">Min</param>
+            <param name="max">Max</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Resize(System.Drawing.Bitmap,System.Drawing.Size)">
+            <summary>
+            Returns resized image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="size">Size</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Resize(System.Drawing.Bitmap,System.Drawing.Size,System.Drawing.Color)">
+            <summary>
+            Returns resized image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="size">Size</param>
+            <param name="color">Border color</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Rotate(System.Drawing.Bitmap,System.Single,System.Drawing.Color)">
+            <summary>
+            Returns rotated image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="angle">Angle</param>
+            <param name="color">Background color</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.FlipX(System.Drawing.Bitmap)">
+            <summary>
+            Returns flipped by X image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.FlipY(System.Drawing.Bitmap)">
+            <summary>
+            Returns flipped by Y image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.FlipXY(System.Drawing.Bitmap)">
+            <summary>
+            Returns flipped by XY image.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Area(System.Drawing.Size)">
+            <summary>
+            Returns size area.
+            </summary>
+            <param name="size">Size</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Area(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle area.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Max(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the maximum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.Min(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the minimum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.ToBox(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.ToBox(System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="scale">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.ToBox(System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangles">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.ToBox(System.Single,System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box with image size.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <param name="factor">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Imaging.IoU(System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Implements IoU operator.
+            </summary>
+            <param name="a">First rectangle</param>
+            <param name="b">Second rectangle</param>
+            <returns>Value</returns>
+        </member>
+        <member name="T:FaceONNX.Core.Onnx">
+            <summary>
+            Onnx tensor class.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.ToByteTensor(System.Drawing.Bitmap,System.Boolean)">
+            <summary>
+            Converts a Bitmap to an BGR tensor arrays.
+            </summary>
+            <param name="Data">Bitmap</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>RGB tensor arrays</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.ToByteTensor(System.Drawing.Imaging.BitmapData,System.Boolean)">
+            <summary>
+            Converts a Bitmap to an BGR tensor arrays.
+            </summary>
+            <param name="bmData">Bitmap data</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>RGB tensor arrays</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.ToFloatTensor(System.Drawing.Bitmap,System.Boolean)">
+            <summary>
+            Converts a Bitmap to an BGR tensor arrays.
+            </summary>
+            <param name="Data">Bitmap</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>RGB tensor arrays</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.ToFloatTensor(System.Drawing.Imaging.BitmapData,System.Boolean)">
+            <summary>
+            Converts a Bitmap to an BGR tensor arrays.
+            </summary>
+            <param name="bmData">Bitmap data</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>RGB tensor arrays</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.FromByteTensor(System.Byte[][],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts a BGR tensor arrays to Bitmap.
+            </summary>
+            <param name="tensor">Tensor arrays</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.FromFloatTensor(System.Single[][],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts a BGR tensor arrays to Bitmap.
+            </summary>
+            <param name="tensor">Tensor arrays</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="rgb">RGB or BGR</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Merge(System.Byte[][],System.Boolean)">
+            <summary>
+            Merges image tensors to single tensor.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <param name="slice">Slice or not</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Merge(System.Single[][],System.Boolean)">
+            <summary>
+            Merges image tensors to single tensor.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <param name="slice">Slice or not</param>
+            <returns>Float array</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Average(System.Byte[][])">
+            <summary>
+            Averages image tensors to single tensor.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Average(System.Single[][])">
+            <summary>
+            Averages image tensors to single tensor.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Operator(System.Single[][],System.Single[],FaceONNX.Core.Onnx.IOperator)">
+            <summary>
+            Implements operator function.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <param name="b">Vector</param>
+            <param name="_operator">Operator</param>
+        </member>
+        <member name="M:FaceONNX.Core.Onnx.Operator(System.Single[][],System.Single,FaceONNX.Core.Onnx.IOperator)">
+            <summary>
+            Implements operator function.
+            </summary>
+            <param name="image">RGB tensor arrays</param>
+            <param name="b">Value</param>
+            <param name="_operator">Operator</param>
+        </member>
+        <member name="T:FaceONNX.Core.Onnx.IOperator">
+            <summary>
+            Operator.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Value</param>
+            <returns></returns>
+        </member>
+        <member name="T:FaceONNX.Core.PaintData">
+            <summary>
+            Defines paint data.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.PaintData.#ctor">
+            <summary>
+            Initializes paint data.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.PaintData.Title">
+            <summary>
+            Gets or sets title.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.PaintData.Rectangle">
+            <summary>
+            Gets or sets rectangle.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.PaintData.Labels">
+            <summary>
+            Gets or sets labels.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.PaintData.Points">
+            <summary>
+            Gets or sets points.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.Core.Painter">
+            <summary>
+            Defines inference painter.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Painter.BoxPen">
+            <summary>
+            Gets or sets box pen.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Painter.PointPen">
+            <summary>
+            Gets or sets point pen.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Painter.TextFont">
+            <summary>
+            Gets or sets text font.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Painter.TextColor">
+            <summary>
+            Gets or sets text color.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Painter.Transparency">
+            <summary>
+            Gets or sets box transparency.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.#ctor">
+            <summary>
+            Initializes inference painter.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,FaceONNX.Core.PaintData)">
+            <summary>
+            Draws tracking and recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="paintData">Paint data</param>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,System.String,System.Drawing.Rectangle[])">
+            <summary>
+            Draws tracking and recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="title">Title</param>
+            <param name="rectangles">Rectangles</param>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,System.Drawing.Point[])">
+            <summary>
+            Draws tracking and recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="points">Points</param>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,System.Drawing.Rectangle[],System.String[][])">
+            <summary>
+            Draws tracking and recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="rectangles">Rectangles</param>
+            <param name="labels">Labels</param>
+        </member>
+        <member name="M:FaceONNX.Core.Painter.GetLabel(System.Drawing.Graphics,System.Drawing.Font,System.Drawing.Rectangle,System.String[])">
+            <summary>
+            Returns label string.
+            </summary>
+            <param name="g">Graphics</param>
+            <param name="font">Font</param>
+            <param name="rectangle">Rectangle</param>
+            <param name="unit">Unit string</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:FaceONNX.Core.Vector">
+            <summary>
+            Using for vector operations.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Abs(System.Single[],System.Boolean)">
+            <summary>
+            Returns vector module.
+            </summary>
+            <param name="vector">Vector</param>
+            <param name="squared">Squared or not</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Abs(System.Single[][],System.Boolean)">
+            <summary>
+            Returns matrix module.
+            </summary>
+            <param name="matrix">Matrix</param>
+            <param name="squared">Squared or not</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Sum(System.Single[])">
+            <summary>
+            Returns sum of vector.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Sum(System.Single[][])">
+            <summary>
+            Returns sum of matrix.
+            </summary>
+            <param name="matrix">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Add(System.Single[],System.Single[])">
+            <summary>
+            Returns summary of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Add(System.Single[][],System.Single[][])">
+            <summary>
+            Returns summary of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Sub(System.Single[],System.Single[])">
+            <summary>
+            Returns difference of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Sub(System.Single[][],System.Single[][])">
+            <summary>
+            Returns difference of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Loss(System.Single[],System.Single[])">
+            <summary>
+            Returns loss function of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Loss(System.Single[][],System.Single[][])">
+            <summary>
+            Returns loss function of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Accuracy(System.Single[],System.Single[])">
+            <summary>
+            Returns accuracy function of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Accuracy(System.Single[][],System.Single[][])">
+            <summary>
+            Returns accuracy function of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Similarity(System.Single[],System.Single[])">
+            <summary>
+            Returns similarity function of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Similarity(System.Single[][],System.Single[][])">
+            <summary>
+            Returns similarity function of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Mean(System.Single[],System.Single[])">
+            <summary>
+            Returns mean vector of two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Mean(System.Single[][],System.Single[][])">
+            <summary>
+            Returns mean matrix of two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Mean(System.Single[])">
+            <summary>
+            Returns mean value of vector.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Mean(System.Single[][])">
+            <summary>
+            Returns mean value of matrix.
+            </summary>
+            <param name="matrix">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Distance(System.Single[],System.Single[])">
+            <summary>
+            Returns distance between two vectors.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Distance(System.Single[][],System.Single[][])">
+            <summary>
+            Returns distance between two matrices.
+            </summary>
+            <param name="a">Matrix</param>
+            <param name="b">Matrix</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Distance(System.Single[][],System.Single[])">
+            <summary>
+            Returns distances between matrix and vector.
+            </summary>
+            <param name="matrix">Matrix</param>
+            <param name="vector">Vector</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Resize(System.Single[],System.Int32)">
+            <summary>
+            Resizes a vector.
+            </summary>
+            <param name="vector">Vector</param>
+            <param name="length">Length</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Resize(System.Single[][],System.Int32)">
+            <summary>
+            Resizes a matrix.
+            </summary>
+            <param name="matrix">Matrix</param>
+            <param name="length">Length</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Solve(System.Single[][],System.Single[])">
+            <summary>
+            Returns a vector corresponding to the solution of a system of linear algebraic equations: "Ax = b".
+            </summary>
+            <param name="A">Square matrix</param>
+            <param name="b">Vector</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Argmax(System.Single[])">
+            <summary>
+            Returns argmax of vector.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Argmin(System.Single[])">
+            <summary>
+            Returns argmax of vector.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Add(System.Single[],System.Single)">
+            <summary>
+            Returns summary of vector and numeric.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Value</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Sub(System.Single[],System.Single)">
+            <summary>
+            Returns summary of vector and numeric.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Value</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Mul(System.Single[],System.Single)">
+            <summary>
+            Returns multiplication of vector and numeric.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Value</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Div(System.Single[],System.Single)">
+            <summary>
+            Divides vector by the numeric.
+            </summary>
+            <param name="a">Vector</param>
+            <param name="b">Value</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Exp(System.Single[])">
+            <summary>
+            Returns exp of vector.
+            </summary>
+            <param name="a">Vector</param>
+            <returns>Vector</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Vector.Log(System.Single[])">
+            <summary>
+            Returns log of vector.
+            </summary>
+            <param name="a">Vector</param>
+            <returns>Vector</returns>
+        </member>
+    </members>
+</doc>

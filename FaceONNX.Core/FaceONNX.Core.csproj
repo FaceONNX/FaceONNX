@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.1.1</Version>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <Authors>Valery Asiryan</Authors>
+    <Company>Valery Asiryan</Company>
+    <Description>FaceONNX core library for tensor processing and drawing recognition results.</Description>
+    <Copyright>Valery Asiryan, © 2020</Copyright>
+    <PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
+    <PackageTags>onnx core tensor processing imaging drawing</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryType>Open-source</RepositoryType>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageIcon>FaceONNX.png</PackageIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>C:\Users\User\Desktop\howcuteami\csharp\FaceONNX.Core\FaceONNX.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="FaceONNX.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
