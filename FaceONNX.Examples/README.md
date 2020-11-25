@@ -105,6 +105,3 @@ Image: [CM742.jpg] --> detected [1] faces
 Image: [CM750.jpg] --> detected [1] faces
         [Face #1]: --> classified as [neutral] emotion and [6,1/10.0] beauty
 ```
-
-<p align="center"><img width="40%" src="EmotionAndBeautyEstimation/results/CF601.jpg" /><img width="40%" src="EmotionAndBeautyEstimation/results/CF600.jpg" /></p>
-<p align="center"><b>Figure 5.</b> Results of emotion classification and beauty estimation</p>  
