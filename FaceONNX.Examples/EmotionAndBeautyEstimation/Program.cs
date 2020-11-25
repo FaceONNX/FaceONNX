@@ -25,27 +25,14 @@ namespace EmotionAndBeautyEstimation
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmotionClassifier = new FaceEmotionClassifier();
             _faceBautyClassifier = new FaceBautyClassifier();
-            var painter = new Painter()
-            {
-                BoxPen = new Pen(Color.Red, 4),
-                Transparency = 0,
-                TextFont = new Font("Arial", 12)
-            };
 
             Console.WriteLine($"Processing {files.Length} images");
 
             foreach (var file in files)
             {
                 using var bitmap = new Bitmap(file);
-                var size = bitmap.Size;
-                var offset = 100;
-                using var template = Imaging.CreateBitmap(
-                    new Size(size.Width + offset, size.Height + offset), 
-                    Color.White);
-
-                template.Merge(bitmap, new Rectangle(offset / 2, offset / 2, bitmap.Size.Width, bitmap.Size.Height));
                 var filename = Path.GetFileName(file);
-                var faces = _faceDetectorLight.Forward(template);
+                var faces = _faceDetectorLight.Forward(bitmap);
                 int i = 1;
 
                 Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");
@@ -54,18 +41,8 @@ namespace EmotionAndBeautyEstimation
                 {
                     Console.Write($"\t[Face #{i++}]: ");
 
-                    var labels = GetEmotionAndBeauty(template, face);
-
-                    var paintData = new PaintData()
-                    {
-                        Labels = labels,
-                        Rectangle = face
-                    };
-
-                    painter.Draw(template, paintData);
+                    var labels = GetEmotionAndBeauty(bitmap, face);
                 }
-
-                template.Save(Path.Combine(path, filename));
             }
 
             _faceDetectorLight.Dispose();

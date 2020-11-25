@@ -13,6 +13,7 @@ namespace GenderClassification
         {
             Console.WriteLine("FaceONNX: Gender classification");
             var files = Directory.GetFiles(@"..\..\..\images");
+            using var faceDetectorLight = new FaceDetectorLight();
             using var faceGenderClassifier = new FaceGenderClassifier();
             var labels = FaceGenderClassifier.Labels;
 
@@ -26,12 +27,22 @@ namespace GenderClassification
             foreach (var file in files)
             {
                 using var bitmap = new Bitmap(file);
-                var output = faceGenderClassifier.Forward(bitmap);
-                var gender = Vector.Argmax(output);
                 var filename = Path.GetFileName(file);
-                var label = labels[gender];
+                var faces = faceDetectorLight.Forward(bitmap);
+                int i = 1;
 
-                Console.WriteLine($"Image: [{filename}] --> classified as [{label}] with probability [{output.Max()}]");
+                Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");
+
+                foreach (var face in faces)
+                {
+                    Console.Write($"\t[Face #{i++}]: ");
+
+                    var output = faceGenderClassifier.Forward(bitmap);
+                    var gender = Vector.Argmax(output);
+                    var label = labels[gender];
+
+                    Console.WriteLine($"--> classified as [{label}] gender with probability [{output.Max()}]");
+                }
             }
 
             Console.WriteLine("Done.");
