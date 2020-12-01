@@ -11,7 +11,7 @@
 * embeddings comparison and etc.  
 
 # How to Use
-You can build **FaceONNX** from sources use nuget package manager
+You can build **FaceONNX** from sources use nuget package manager.
 | Assembly | Type | Version | Package |
 |:-------------|:-------------|:--------------|:--------------|
 | FaceONNX | CPU | [1.0.1.2](FaceONNX/FaceONNX.csproj) | [Nuget](https://www.nuget.org/packages/FaceONNX/) |
