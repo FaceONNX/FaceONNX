@@ -11,13 +11,13 @@
 * embeddings comparison and etc.  
 
 # How to Use
-You can build FaceONNX from sources use nuget package manager
+You can build **FaceONNX** from sources use nuget package manager
 | Type | Version | Package |
 |:-------------|:--------------|:--------------|
 | CPU | [1.0.1.2](FaceONNX/FaceONNX.csproj) | [Nuget](https://www.nuget.org/packages/FaceONNX/) |
 | GPU | [1.0.1.2](FaceONNX/FaceONNX.Gpu.csproj)| [Nuget](https://www.nuget.org/packages/FaceONNX.Gpu/) |
 
-To get started with FaceONNX, it is recommended to look at the repository with [examples](FaceONNX.Examples).  
+To get started with **FaceONNX**, it is recommended to look at the repository with [examples](FaceONNX.Examples).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
