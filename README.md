@@ -16,7 +16,7 @@ You can build **FaceONNX** from sources use nuget package manager
 |:-------------|:-------------|:--------------|:--------------|
 | FaceONNX | CPU | [1.0.1.2](FaceONNX/FaceONNX.csproj) | [Nuget](https://www.nuget.org/packages/FaceONNX/) |
 | FaceONNX.Gpu | GPU | [1.0.1.2](FaceONNX/FaceONNX.Gpu.csproj)| [Nuget](https://www.nuget.org/packages/FaceONNX.Gpu/) |
-| FaceONNX.Core | - | [1.0.1.2](FaceONNX.Core/FaceONNX.Core.csproj)| [Nuget](https://www.nuget.org/packages/FaceONNX.Core/) |
+| FaceONNX.Core |  | [1.0.1.2](FaceONNX.Core/FaceONNX.Core.csproj)| [Nuget](https://www.nuget.org/packages/FaceONNX.Core/) |
 
 To get started with **FaceONNX**, it is recommended to look at the repository with [examples](FaceONNX.Examples).  
 
