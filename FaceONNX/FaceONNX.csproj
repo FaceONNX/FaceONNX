@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX</AssemblyName>
     <LangVersion>8.0</LangVersion>
-    <Version>1.0.1.1</Version>
+    <Version>1.0.1.2</Version>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -12,15 +12,15 @@
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX</PackageId>
     <Product>FaceONNX</Product>
-    <AssemblyVersion>1.0.1.1</AssemblyVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>face detection recognition age gender beauty classification onnx neural-networks</PackageTags>
+    <AssemblyVersion>1.0.1.2</AssemblyVersion>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
     <RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>FaceONNX.png</PackageIcon>
-    <FileVersion>1.0.1.1</FileVersion>
+    <FileVersion>1.0.1.2</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
@@ -35,10 +35,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="face\FaceLandmarks98Points.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="FaceONNX.Core" Version="1.0.1.2" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.5.2" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
   </ItemGroup>
@@ -59,27 +56,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="models\age_googlenet.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\beauty_resnet18.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\emotion_cnn.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\face_detector_320.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\face_detector_640.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\gender_googlenet.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="models\sphereface_20.onnx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
     <None Include="FaceONNX.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -88,10 +64,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\FaceONNX.Core\FaceONNX.Core.csproj" />
   </ItemGroup>
 
 </Project>
