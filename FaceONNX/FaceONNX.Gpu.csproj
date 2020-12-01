@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>FaceONNX.Gpu</AssemblyName>
+    <LangVersion>8.0</LangVersion>
+    <Version>1.0.1.2</Version>
+    <Authors>Valery Asiryan</Authors>
+    <Company>Valery Asiryan</Company>
+    <Description>Face analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
+    <Copyright>Valery Asiryan, © 2020</Copyright>
+    <RepositoryType>Open-source</RepositoryType>
+    <PackageId>FaceONNX.Gpu</PackageId>
+    <Product>FaceONNX.Gpu</Product>
+    <AssemblyVersion>1.0.1.2</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks gpu</PackageTags>
+    <RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageIcon>FaceONNX.png</PackageIcon>
+    <FileVersion>1.0.1.2</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RootNamespace>FaceONNX</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>C:\Users\User\Desktop\howcuteami\csharp\FaceONNX\FaceONNX.xml</DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FaceONNX.Core" Version="1.0.1.2" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.5.2" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="FaceONNX.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
