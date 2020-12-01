@@ -116,7 +116,7 @@ Image: [CM742.jpg] --> detected [1] faces
 ```
 
 # GPU Perfomance tests
-GPU Perfomance tests with CUDA 10.2 and cuDNN 8.0.3.
+GPU Perfomance tests with CUDA 10.2 and cuDNN 8.0.3 on NVIDIA GeForce GTX 1050 Ti.
 ```
 FPS test for [FaceONNX.FaceDetector]
 Initializing GPU device [0]
