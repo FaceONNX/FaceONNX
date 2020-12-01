@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceDetection", "FaceDetect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaceAndAgeClassification", "RaceAndAgeClassification\RaceAndAgeClassification.csproj", "{8DE4ABB1-BB13-44C5-86F0-BEDBFFFEEDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceSemanticSegmentation", "FaceSemanticSegmentation\FaceSemanticSegmentation.csproj", "{3376634D-58DC-4ABF-AB36-5CB808E119CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceSemanticSegmentation", "FaceSemanticSegmentation\FaceSemanticSegmentation.csproj", "{3376634D-58DC-4ABF-AB36-5CB808E119CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceLandmarksExtraction", "FaceLandmarksExtraction\FaceLandmarksExtraction.csproj", "{4CCC4E52-1FE3-4C79-95F9-E974ED84B611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceLandmarksExtraction", "FaceLandmarksExtraction\FaceLandmarksExtraction.csproj", "{4CCC4E52-1FE3-4C79-95F9-E974ED84B611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmotionAndBeautyEstimation", "EmotionAndBeautyEstimation\EmotionAndBeautyEstimation.csproj", "{E1F50B4E-511B-40C0-90A8-94575ABA71ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmotionAndBeautyEstimation", "EmotionAndBeautyEstimation\EmotionAndBeautyEstimation.csproj", "{E1F50B4E-511B-40C0-90A8-94575ABA71ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPUPerfomanceTests", "GPUPerfomanceTests\GPUPerfomanceTests.csproj", "{357203B1-E86F-4A1A-94C4-035031B10E83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,14 @@ Global
 		{E1F50B4E-511B-40C0-90A8-94575ABA71ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1F50B4E-511B-40C0-90A8-94575ABA71ED}.Release|x86.ActiveCfg = Release|Any CPU
 		{E1F50B4E-511B-40C0-90A8-94575ABA71ED}.Release|x86.Build.0 = Release|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Debug|x86.Build.0 = Debug|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Release|x86.ActiveCfg = Release|Any CPU
+		{357203B1-E86F-4A1A-94C4-035031B10E83}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
