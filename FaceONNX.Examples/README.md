@@ -11,7 +11,7 @@ Image: [selfie2.jpg] --> detected [18] faces
 ```
 
 <p align="center"><img width="70%" src="FaceDetection/results/oscar2.jpg" /></p>
-<p align="center"><b>Figure 1.</b> Results for oscar2.jpg</p>  
+<p align="center"><b>Figure 1.</b> Results for <i>oscar2.jpg</i></p>  
 
 # Face embeddings classification
 Build and run [**FaceEmbeddingsClassification.csproj**](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
@@ -35,7 +35,7 @@ Image: [jake.jpg] --> detected [1] faces
 Image: [kid.jpg] --> detected [1] faces
 ```
 <p align="center"><img width="70%" src="FaceLandmarksExtraction/results/kid.jpg" /></p>
-<p align="center"><b>Figure 2.</b> Results for kid.jpg</p>  
+<p align="center"><b>Figure 2.</b> Results for <i>kid.jpg</i></p>  
 
 # Face semantic segmentation
 Build and run [**FaceSemanticSegmentation.csproj**](FaceSemanticSegmentation) to produce faces segmentation maps.
@@ -88,7 +88,7 @@ Image: [morgan.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Black] race and [>60] age
 ```
 <p align="center"><img width="70%" src="RaceAndAgeClassification/results/jolie_brad.jpg" /></p>
-<p align="center"><b>Figure 4.</b> Results for jolie_brad.jpg</p>  
+<p align="center"><b>Figure 4.</b> Results for <i>jolie_brad.jpg</i></p>  
 
 # Emotion & beauty estimation
 Build and run [**EmotionAndBeautyEstimation.csproj**](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
