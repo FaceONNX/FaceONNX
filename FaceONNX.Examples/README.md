@@ -45,7 +45,7 @@ Image: [michael.jpg] --> detected [1] faces
 Image: [nicole.jpg] --> detected [1] faces
 ```
 <p align="center"><img width="35%" src="FaceSemanticSegmentation/images/brad.jpg"/><img width="35%" src="FaceSemanticSegmentation/results/brad.jpg" /></p>
-<p align="center"><b>Figure 3.</b> Original image brad.jpg and face segmentation map</p>  
+<p align="center"><b>Figure 3.</b> Original image <i>brad.jpg</i> and its face segmentation map</p>  
 
 # Gender classification
 Build and run [**GenderClassification.csproj**](GenderClassification) to classify faces as "Male" or "Female".
