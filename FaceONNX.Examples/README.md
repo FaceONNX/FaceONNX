@@ -88,7 +88,7 @@ Image: [morgan.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Black] race and [>60] age
 ```
 <p align="center"><img width="70%" src="RaceAndAgeClassification/results/jolie_brad.jpg" /></p>
-<p align="center"><b>Figure 4.</b> Results of race and age classification</p>  
+<p align="center"><b>Figure 4.</b> Results for jolie_brad.jpg</p>  
 
 # Emotion & beauty estimation
 Build and run [**EmotionAndBeautyEstimation.csproj**](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
