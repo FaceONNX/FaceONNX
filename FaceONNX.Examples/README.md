@@ -114,3 +114,19 @@ Image: [CM739.jpg] --> detected [1] faces
 Image: [CM742.jpg] --> detected [1] faces
         [Face #1]: --> classified as [neutral] emotion and [8/10.0] beauty
 ```
+
+# GPU Perfomance tests
+GPU Perfomance tests with CUDA 10.2 and cuDNN 8.0.3.
+```
+FPS test for [FaceONNX.FaceDetector]
+Initializing GPU device [0]
+Finished in [1657] mls.
+Running FPS test for [1000] iterations
+FPS --> [16,14961]
+
+FPS test for [FaceONNX.FaceDetectorLight]
+Initializing GPU device [0]
+Finished in [656] mls.
+Running FPS test for [1000] iterations
+FPS --> [36,65555]
+```
