@@ -148,7 +148,7 @@
   <data name="race_googlenet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\models\race_googlenet.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="resnet50_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\models\resnet50_256.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="recognition_resnet27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\models\recognition_resnet27.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

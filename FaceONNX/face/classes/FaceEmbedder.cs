@@ -26,7 +26,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceEmbedder()
 		{
-			_session = new InferenceSession(Properties.Resources.resnet50_256);
+			_session = new InferenceSession(Properties.Resources.recognition_resnet27);
 		}
 		/// <summary>
 		/// Initializes face embedder.
@@ -34,7 +34,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceEmbedder(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.resnet50_256, options);
+			_session = new InferenceSession(Properties.Resources.recognition_resnet27, options);
 		}
 		/// <summary>
 		/// Returns face recognition results.
@@ -62,7 +62,7 @@ namespace FaceONNX
 		/// <returns>Array</returns>
 		public float[] Forward(Bitmap image)
 		{
-			var size = new Size(224, 224);
+			var size = new Size(128, 128);
 			using var clone = Imaging.Resize(image, size);
 			int width = clone.Width;
 			int height = clone.Height;
@@ -72,9 +72,8 @@ namespace FaceONNX
 			// pre-processing
 			var dimentions = new int[] { 1, 3, height, width };
 			var tensors = clone.ToFloatTensor(false);
-			tensors.Operator(new float[] { 91.4953f, 103.8827f, 131.0912f }, Vector.Sub);
-			//tensors.Operator(new float[] { 127.5f, 127.5f, 127.5f }, Vector.Sub);
-			//tensors.Operator(255, Vector.Div);
+			tensors.Operator(new float[] { 127.5f, 127.5f, 127.5f }, Vector.Sub);
+			tensors.Operator(128, Vector.Div);
 			var inputData = tensors.Merge(true);
 
 			// session run
@@ -89,7 +88,6 @@ namespace FaceONNX
 			{
 				result.Dispose();
 			}
-			clone.Dispose();
 
 			return confidences;
 		}

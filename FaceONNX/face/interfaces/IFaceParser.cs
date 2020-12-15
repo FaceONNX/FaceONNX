@@ -14,13 +14,17 @@ namespace FaceONNX
         /// <param name="image">Image</param>
         /// <param name="rectangles">Rectangles</param>
         /// <returns>Array</returns>
-        public float[][][,] Forward(Bitmap image, params Rectangle[] rectangles);
+        float[][][,] Forward(Bitmap image, params Rectangle[] rectangles);
         /// <summary>
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Bitmap</param>
         /// <returns>Array</returns>
-        public unsafe float[][,] Forward(Bitmap image);
+        float[][,] Forward(Bitmap image);
+        /// <summary>
+        /// Disposes face segmentation parser.
+        /// </summary>
+        void Dispose();
         #endregion
     }
 }

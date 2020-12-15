@@ -13,7 +13,11 @@ namespace FaceONNX
         /// </summary>
         /// <param name="image">Bitmap</param>
         /// <returns>Rectangles</returns>
-        public Rectangle[] Forward(Bitmap image);
+        Rectangle[] Forward(Bitmap image);
+        /// <summary>
+        /// Disposes face detector.
+        /// </summary>
+        void Dispose();
         #endregion
     }
 }

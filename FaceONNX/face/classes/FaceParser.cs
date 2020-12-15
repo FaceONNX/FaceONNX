@@ -61,7 +61,7 @@ namespace FaceONNX
         /// </summary>
         /// <param name="image">Bitmap</param>
         /// <returns>Array</returns>
-        public unsafe float[][,] Forward(Bitmap image)
+        public float[][,] Forward(Bitmap image)
         {
             var size = new Size(512, 512);
             using var clone = Imaging.Resize(image, size);

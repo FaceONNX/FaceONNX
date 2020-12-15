@@ -14,13 +14,17 @@ namespace FaceONNX
         /// <param name="image">Image</param>
         /// <param name="rectangles">Rectangles</param>
         /// <returns>Point</returns>
-        public Point[][] Forward(Bitmap image, params Rectangle[] rectangles);
+        Point[][] Forward(Bitmap image, params Rectangle[] rectangles);
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
 		/// <param name="image">Bitmap</param>
 		/// <returns>Point</returns>
-		public Point[] Forward(Bitmap image);
+		Point[] Forward(Bitmap image);
+		/// <summary>
+		/// Disposes face landmarks extractor.
+		/// </summary>
+		void Dispose();
 		#endregion
 	}
 }
