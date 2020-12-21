@@ -7,9 +7,6 @@
 *.userosscache
 *.sln.docstates
 
-#exclude FoodAI build files
-Sms.NeuroSDK*/
-
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -199,13 +196,3 @@ Installer/Installer/output/
 *.VC.opendb
 .vs/
 .idea/
-InstallerNew/Output/*
-#*.exe
-InstallerNew/AppServerOutput/*
-/Terminal/Sms.Terminal/Sms.Server/wwwroot/dist/main.js
-/Terminal/Sms.Terminal/Sms.Terminal.Launcher/Sms.Terminal.Launcher.UWP/BundleArtifacts/x64.txt
-/Terminal/Sms.Terminal/Sms.Terminal.Launcher/Sms.Terminal.Launcher.UWP/BundleArtifacts/x86.txt
-/Terminal/Sms.Terminal/Sms.Terminal.Launcher/Sms.Terminal.Launcher.UWP/Package.appxmanifest
-/Terminal/Sms.Terminal/Sms.Cloud.Portal/wwwroot/dist/*
-/Terminal/Sms.Terminal/Sms.Cloud.Portal.Web/.vscode
-*.Development.User.json
