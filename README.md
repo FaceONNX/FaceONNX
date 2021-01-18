@@ -9,6 +9,7 @@
 * age and emotion classification,
 * beauty estimation,
 * embeddings comparison and etc.  
+  
 **FaceONNX** basically oriented for [.NET platform](tree/main/netstandard)(C#), but it has [Python](tree/main/python) realization.  
 
 # How to Use
