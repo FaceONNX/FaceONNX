@@ -10,7 +10,7 @@
 * beauty estimation,
 * embeddings comparison and etc.  
   
-**FaceONNX** basically oriented for [.NET platform](tree/main/netstandard)(C#), but it has [Python](tree/main/python) realization.  
+**FaceONNX** basically oriented for [.NET platform](tree/main/netstandard) (C#), but it has [Python](tree/main/python) realization.  
 
 # How to Use
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
