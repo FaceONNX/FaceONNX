@@ -2,7 +2,7 @@
 <p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
 # FaceONNX
-To build **FaceONNX** from resources for Python support follow this steps
+To build **FaceONNX** from sources for Python support follow this steps
 ```
 git clone https://github.com/asiryan/FaceONNX
 ```
