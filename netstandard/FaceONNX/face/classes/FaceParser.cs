@@ -150,7 +150,7 @@ namespace FaceONNX
                     }
 
                     // transform
-                    var color = Labels[index].Item2;
+                    var color = Labels[index];
                     p[k + 2] = color.R;
                     p[k + 1] = color.G;
                     p[k + 0] = color.B;
@@ -163,27 +163,27 @@ namespace FaceONNX
         /// <summary>
         /// Returns the labels.
         /// </summary>
-        public static (string, Color)[] Labels = new (string, Color)[]
+        public static Color[] Labels = new Color[]
         {
-            ("skin", Color.FromArgb(0, 0, 0)),
-            ("nose", Color.FromArgb(204, 0, 0)),
-            ("eye_g", Color.FromArgb(76, 153, 0)),
-            ("l_eye", Color.FromArgb(204, 204, 0)),
-            ("r_eye", Color.FromArgb(51, 51, 255)),
-            ("l_brow", Color.FromArgb(204, 0, 204)),
-            ("r_brow", Color.FromArgb(0, 255, 255)),
-            ("l_ear", Color.FromArgb(51, 255, 255)),
-            ("r_ear", Color.FromArgb(102, 51, 0)),
-            ("mouth", Color.FromArgb(255, 0, 0)),
-            ("u_lip", Color.FromArgb(102, 204, 0)),
-            ("l_lip", Color.FromArgb(255, 255, 0)),
-            ("hair", Color.FromArgb(0, 0, 153)),
-            ("hat", Color.FromArgb(0, 0, 204)),
-            ("ear_r", Color.FromArgb(255, 51, 153)),
-            ("neck_l", Color.FromArgb(0, 204, 204)),
-            ("neck", Color.FromArgb(0, 51, 0)),
-            ("cloth", Color.FromArgb(255, 153, 51)),
-            ("unknown", Color.FromArgb(0, 204, 0))
+            Color.FromArgb(0, 0, 0),
+            Color.FromArgb(204, 0, 0),
+            Color.FromArgb(76, 153, 0),
+            Color.FromArgb(204, 204, 0),
+            Color.FromArgb(51, 51, 255),
+            Color.FromArgb(204, 0, 204),
+            Color.FromArgb(0, 255, 255),
+            Color.FromArgb(51, 255, 255),
+            Color.FromArgb(102, 51, 0),
+            Color.FromArgb(255, 0, 0),
+            Color.FromArgb(102, 204, 0),
+            Color.FromArgb(255, 255, 0),
+            Color.FromArgb(0, 0, 153),
+            Color.FromArgb(0, 0, 204),
+            Color.FromArgb(255, 51, 153),
+            Color.FromArgb(0, 204, 204),
+            Color.FromArgb(0, 51, 0),
+            Color.FromArgb(255, 153, 51),
+            Color.FromArgb(0, 204, 0)
         };
         #endregion
 
