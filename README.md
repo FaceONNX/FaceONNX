@@ -10,7 +10,7 @@
 * beauty estimation,
 * embeddings comparison and etc.  
   
-**FaceONNX** is very basically oriented for [.NET platform](netstandard) (C#), but it has [Python](python) realization.  
+**FaceONNX** is basically oriented for [.NET platform](netstandard) (C#), but it has [Python](python) realization.  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
