@@ -11,7 +11,7 @@ You can build **FaceONNX** from sources or install to your own project using nug
 To get started with **FaceONNX**, it is recommended to look at the repository with [examples](FaceONNX.Examples).  
 
 # FaceONNX.Core
-**FaceONNX.Core** is a small sub-library for tensor processing and drawing recognition results.
+**FaceONNX.Core** is a small sub-library for tensor processing and drawing recognition results. It is avaliable on [NuGet](https://www.nuget.org/packages/FaceONNX.Core) too.
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
