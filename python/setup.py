@@ -37,7 +37,6 @@ setuptools.setup(
       NAME: ['*.onnx', os.path.join(this, './models/*.onnx')],
     },
     include_package_data=True,
-    zip_safe=True,
     classifiers=[
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT',
