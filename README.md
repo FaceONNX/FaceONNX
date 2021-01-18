@@ -11,10 +11,10 @@
 * embeddings comparison and etc.  
   
 **FaceONNX** is very basically oriented for [.NET platform](https://dotnet.microsoft.com/) (C#), but it has [Python](https://www.python.org/) realization.  
-| Platform | Type | Version |
-|:-------------|:-------------|:--------------|
-| C# | .NET Standard 2.0 | [1.0.3.1](netstandard) |
-| Python | 3+ (only) | [1.0.3.1](python) |
+| Platform | Version | Sources | Package |
+|:-------------|:-------------|:--------------|:--------------|
+| C# | .NET Standard 2.0 | [1.0.3.1](netstandard) | NuGet |
+| Python | 3+ (only) | [1.0.3.1](python) | PyPi |
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
