@@ -10,7 +10,7 @@
 * beauty estimation,
 * embeddings comparison and etc.  
   
-**FaceONNX** is basically oriented on [C#](netstandard), but now it has [Python](python) realization.  
+**FaceONNX** is basically focused on [C#](netstandard), but now it has [Python](python) realization.  
 
 # Models
 **FaceONNX** is an open-source software. If you want to build **FaceONNX** from sources or use some features separately you can download already-made models from [Google.Drive](https://drive.google.com/drive/folders/1gh1E0yWqgzRX3Cxsp_EtZ2BAVOxyVAPb?usp=sharing).  
