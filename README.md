@@ -13,8 +13,8 @@
 **FaceONNX** is very basically oriented for [.NET platform](https://dotnet.microsoft.com/) (C#), but it has [Python](https://www.python.org/) realization.  
 | Platform | Type | Version |
 |:-------------|:-------------|:--------------|
-| C# (.NET) | CPU/GPU | [1.0.3.1](netstandard) |
-| Python | CPU/GPU | [1.0.3.1](python) |
+| C# | .NET Standard 2.0 | [1.0.3.1](netstandard) |
+| Python | Python 3+ | [1.0.3.1](python) |
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
