@@ -14,7 +14,7 @@
 | Platform | Type | Version |
 |:-------------|:-------------|:--------------|
 | C# | .NET Standard 2.0 | [1.0.3.1](netstandard) |
-| Python | Python 3+ | [1.0.3.1](python) |
+| Python | 3+ (only) | [1.0.3.1](python) |
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
