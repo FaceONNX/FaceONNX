@@ -15,7 +15,7 @@ Python interface
 ```python
 import faceonnx
 ```
-Python version of **FaceONNX** does not contains special tools for processing tensors, applying functions and painting recongition results. This is due to the fact that the python version uses **opencv-python** and **numpy**.  
+Python version of **FaceONNX** does not contains special tools for processing tensors, applying functions and painting recongition results. This is due to the fact that the python version uses opencv-python** and numpy.  
 To get started with **FaceONNX**, it is recommended to look at the repository with [examples](examples).  
 
 # License
