@@ -13,7 +13,7 @@
 **FaceONNX** is basically oriented for [.NET platform](netstandard) (C#), but it has [Python](python) realization.  
 
 # Models
-**FaceONNX** is a open-source software. If you want to use some models separately you can download it from [Google.Drive](https://drive.google.com/drive/folders/1gh1E0yWqgzRX3Cxsp_EtZ2BAVOxyVAPb?usp=sharing).  
+**FaceONNX** is an open-source software. If you want to use some models separately you can download it from [Google.Drive](https://drive.google.com/drive/folders/1gh1E0yWqgzRX3Cxsp_EtZ2BAVOxyVAPb?usp=sharing).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
