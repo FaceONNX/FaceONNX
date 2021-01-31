@@ -6,7 +6,7 @@ You can build **FaceONNX** from sources or install to your own project using nug
 | Assembly | Specification | Platform | Version | Package |
 |:-------------|:-------------|:-------------|:--------------|:--------------|
 | FaceONNX | .NET Standard 2.0 | CPU | [1.0.3.1](FaceONNX/FaceONNX.csproj) | [NuGet](https://www.nuget.org/packages/FaceONNX/) |
-| FaceONNX.Gpu | GPU | [1.0.3.1](FaceONNX/FaceONNX.Gpu.csproj)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) |
+| FaceONNX.Gpu | .NET Standard 2.0 | GPU | [1.0.3.1](FaceONNX/FaceONNX.Gpu.csproj)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) |
 
 To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
 
