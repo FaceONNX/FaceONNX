@@ -1,54 +1,57 @@
 import numpy as np
 
 class Embeddings:
+
     def __init__(self):
-        """[summary]
+        """
+        Initializes the embeddings database.
         """
         self.Vectors = []
         self.Labels = []
 
     def Add(self, vector, label):
-        """[summary]
-
+        """
+        Adds embedding to embeddings database.
         Args:
-            vector ([type]): [description]
-            label ([type]): [description]
+            vector: Vector
+            label: Label
         """
         self.Vectors.append(vector)
         self.Labels.append(label)
 
     def Remove(self, label):
-        """[summary]
-
+        """
+        Removes embedding from embeddings database.
         Args:
-            label ([type]): [description]
+            label: Label
         """
         index = self.Labels.index(label)
         _ = self.Vectors.pop(index)
         _ = self.Labels.pop(index)
 
     def Clear(self):
-        """[summary]
+        """
+        Clears embeddings database.
         """
         self.Vectors.clear()
         self.Labels.clear()
 
     def Count(self):
-        """[summary]
-
+        """
+        Returns embeddings database count.
         Returns:
-            [type]: [description]
+            Count
         """
         return len(self.Vectors)
 
     def FromDistance(self, vector):
-        """[summary]
-
+        """
+        Score vector from database by Euclidean distance.
         Args:
-            vector ([type]): [description]
+            vector: Vector
 
         Returns:
-            [type]: [description]
+            Label
         """
         length = self.Count()
         minimum = 2147483647
@@ -66,13 +69,13 @@ class Embeddings:
         return label, minimum
         
     def FromSimilarity(self, vector):
-        """[summary]
-
+        """
+        Score vector from database by cosine similarity.
         Args:
-            vector ([type]): [description]
+            vector: Vector
 
         Returns:
-            [type]: [description]
+            Label
         """
         length = self.Count()
         maximum = -2147483648

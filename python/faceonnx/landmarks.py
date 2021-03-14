@@ -2,15 +2,15 @@ import numpy as np
 import math
 
 def GetAngle(left, right, support):
-    """[summary]
-
+    """
+    Return angle of the three points.
     Args:
-        left ([type]): [description]
-        right ([type]): [description]
-        support ([type]): [description]
+        left: Left point
+        right: Right point
+        support: Supported point
 
     Returns:
-        [type]: [description]
+        Angle
     """
     kk = 1 if (left[1] > right[1]) else -1
 
@@ -24,25 +24,25 @@ def GetAngle(left, right, support):
     return kk * (180.0 - math.acos(cos) * 57.3)
 
 def GetSupportPoint(left, right):
-    """[summary]
-
+    """
+    Returns supported point.
     Args:
-        left ([type]): [description]
-        right ([type]): [description]
+        left: Left point
+        right: Right point
 
     Returns:
-        [type]: [description]
+        Point
     """
     return right[0], left[1]
 
 def GetMeanPoint(points):
-    """[summary]
-
+    """
+    Returns mean point.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Point
     """
     point = (0, 0)
     length = len(point)
@@ -56,13 +56,13 @@ def GetMeanPoint(points):
     return point
 
 def GetRectangle(points):
-    """[summary]
-
+    """
+    Returns rectangle from face points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Rectangle
     """
     length = points.Length
     xmin = 2147483647
@@ -86,13 +86,13 @@ def GetRectangle(points):
         return [xmin, ymin, xmax - xmin, ymax - ymin]
 
 def GetRightEye(points):
-    """[summary]
-
+    """
+    Returns right eye points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -102,13 +102,13 @@ def GetRightEye(points):
     return eye
 
 def GetLeftEye(points):
-    """[summary]
-
+    """
+    Returns left eye points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -118,13 +118,13 @@ def GetLeftEye(points):
     return eye
 
 def GetMouth(points):
-    """[summary]
-
+    """
+    Returns mouth points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -134,13 +134,13 @@ def GetMouth(points):
     return eye
 
 def GetFace(points):
-    """[summary]
-
+    """
+    Returns face points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -150,13 +150,13 @@ def GetFace(points):
     return eye
 
 def GetLeftBrow(points):
-    """[summary]
-
+    """
+    Returns left brow points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -166,13 +166,13 @@ def GetLeftBrow(points):
     return eye
 
 def GetRightBrow(points):
-    """[summary]
-
+    """
+    Returns right brow points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 
@@ -182,13 +182,13 @@ def GetRightBrow(points):
     return eye
 
 def GetNose(points):
-    """[summary]
-
+    """
+    Returns nose points.
     Args:
-        points ([type]): [description]
+        points: Points
 
     Returns:
-        [type]: [description]
+        Points
     """
     eye = []
 

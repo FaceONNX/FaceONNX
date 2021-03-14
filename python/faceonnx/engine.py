@@ -12,11 +12,12 @@ models_path = os.path.join(this, "models")
 class FaceDetectorLight:
 
     def __init__(self, confidenceThreshold = 0.95, nmsThreshold = 0.5, sessionOptions = None):
-        """[summary]
-
+        """
+        Initializes face detector.
         Args:
-            confidenceThreshold (float, optional): [description]. Defaults to 0.95.
-            nmsThreshold (float, optional): [description]. Defaults to 0.5.
+            confidenceThreshold: Confidence threshold (defaults to 0.95)
+            nmsThreshold: NonMaxSuppression threshold (defaults to 0.5)
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_detector_320.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
@@ -25,13 +26,13 @@ class FaceDetectorLight:
         self.nmsThreshold = nmsThreshold
 
     def Forward(self, image):
-        """[summary]
-
+        """
+        Returns face detection results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Rectangles
         """
         input_name = self.session.get_inputs()[0].name
         h, w, _ = image.shape
@@ -56,11 +57,12 @@ class FaceDetectorLight:
 class FaceDetector:
 
     def __init__(self, confidenceThreshold = 0.95, nmsThreshold = 0.5, sessionOptions = None):
-        """[summary]
-
+        """
+        Initializes face detector.
         Args:
-            confidenceThreshold (float, optional): [description]. Defaults to 0.95.
-            nmsThreshold (float, optional): [description]. Defaults to 0.5.
+            confidenceThreshold: Confidence threshold (defaults to 0.95)
+            nmsThreshold: NonMaxSuppression threshold (defaults to 0.5)
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_detector_640.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
@@ -69,13 +71,13 @@ class FaceDetector:
         self.nmsThreshold = nmsThreshold
 
     def Forward(self, image):
-        """[summary]
-
+        """
+        Returns face detection results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Rectangles
         """
         h, w, _ = image.shape
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -98,29 +100,32 @@ class FaceDetector:
 
 class FaceAgeClassifier:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = ["(0-2)", "(3-7)", "(8-14)", "(15-24)", "(25-37)", "(38-47)", "(48-59)", "(60-100)"]
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face age classifier.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "age_googlenet.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -136,13 +141,13 @@ class FaceAgeClassifier:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (224, 224))
         img_mean = np.array([104, 117, 123])
@@ -156,21 +161,24 @@ class FaceAgeClassifier:
 class FaceBeautyClassifier:
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face beauty classifier.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "beauty_resnet18.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -186,13 +194,13 @@ class FaceBeautyClassifier:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (224, 224))
         img_mean = np.array([104, 117, 123])
@@ -206,21 +214,24 @@ class FaceBeautyClassifier:
 class FaceEmbedder:
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face embedder.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "recognition_resnet27.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -236,13 +247,13 @@ class FaceEmbedder:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (128, 128))
         img_mean = np.array([127.5, 127.5, 127.5])
@@ -255,29 +266,32 @@ class FaceEmbedder:
 
 class FaceEmotionClassifier:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = ["neutral", "happiness", "surprise", "sadness", "anger", "disguest", "fear"]
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face emotion classifier.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "emotion_cnn.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -293,19 +307,17 @@ class FaceEmotionClassifier:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (48, 48))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         img = img / 256.0
-        #print(img.shape)
-        #img = np.transpose(img, [2, 0, 1])
         img = np.expand_dims(img, axis=0)
         img = np.expand_dims(img, axis=0)
         img = img.astype(np.float32)
@@ -314,29 +326,32 @@ class FaceEmotionClassifier:
 
 class FaceRaceClassifier:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = ["White", "Black", "Asian", "Indian"]
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face race classifier.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "race_googlenet.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -352,13 +367,13 @@ class FaceRaceClassifier:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (224, 224))
         img_mean = np.array([104, 117, 123])
@@ -371,29 +386,32 @@ class FaceRaceClassifier:
 
 class FaceGenderClassifier:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = ["Male", "Female"]
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face gender classifier.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "gender_googlenet.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -409,13 +427,13 @@ class FaceGenderClassifier:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         img = Resize(image, (224, 224))
         img_mean = np.array([104, 117, 123])
@@ -428,28 +446,25 @@ class FaceGenderClassifier:
 
 class FaceLandmarksExtractor:
 
-    """[summary]
-
-    Returns:
-        [type]: [description]
-    """
-
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face landmarks extractor.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "landmarks_68_pfld.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -470,13 +485,13 @@ class FaceLandmarksExtractor:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         h, w, _ = image.shape
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -508,10 +523,10 @@ class FaceLandmarksExtractor:
 
 class FaceParser:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = np.array([
                     (0,  0,  0),
@@ -536,21 +551,24 @@ class FaceParser:
                     dtype=np.uint8)
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face parser.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_512.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -571,13 +589,13 @@ class FaceParser:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         h, w, _ = image.shape
         size = (512, 512)
@@ -600,6 +618,14 @@ class FaceParser:
         return probabilities
 
     def ToBitmap(self, masks):
+        """
+        Returns bitmap from masks.
+        Args:
+            masks: Masks
+
+        Returns:
+            image: Bitmap
+        """
         s, h, w = masks.shape
         image = np.zeros((h, w, 3))
 
@@ -620,10 +646,10 @@ class FaceParser:
 
 class FaceParserLight:
 
-    """[summary]
-
+    """
+    Returns the labels.
     Returns:
-        [type]: [description]
+        Labels
     """
     Labels = np.array([
                     (0,  0,  0),
@@ -648,21 +674,24 @@ class FaceParserLight:
                     dtype=np.uint8)
 
     def __init__(self, sessionOptions = None):
-        """[summary]
+        """
+        Initializes face parser.
+        Args:
+            sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_256.onnx")
         self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.input_name = self.session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
-            rectanges ([type]): [description]
+            image: Bitmap
+            rectanges: Rectangles
 
         Returns:
-            [type]: [description]
+            Array
         """
 
         if rectangles is None:
@@ -683,13 +712,13 @@ class FaceParserLight:
             return outputs
 
     def __Forward(self, image):
-        """[summary]
-
+        """
+        Returns face recognition results.
         Args:
-            image ([type]): [description]
+            image: Bitmap
 
         Returns:
-            [type]: [description]
+            Array
         """
         h, w, _ = image.shape
         size = (256, 256)
@@ -708,10 +737,18 @@ class FaceParserLight:
         maximum = np.max(confidences)
         minimum = np.min(confidences)
         probabilities = (confidences - minimum) / (maximum - minimum)
-
+        
         return probabilities
 
     def ToBitmap(self, masks):
+        """
+        Returns bitmap from masks.
+        Args:
+            masks: Masks
+
+        Returns:
+            image: Bitmap
+        """
         s, h, w = masks.shape
         image = np.zeros((h, w, 3))
 

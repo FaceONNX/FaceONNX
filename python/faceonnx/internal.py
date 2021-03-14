@@ -2,7 +2,7 @@ import numpy as np
 
 def Detector(width, height, confidences, boxes, prob_threshold, iou_threshold=0.5, top_k=-1):
     """
-    Select boxes that contain human faces
+    Selects boxes that contain human faces.
     Args:
         width: original image width
         height: original image height
@@ -46,7 +46,7 @@ def Detector(width, height, confidences, boxes, prob_threshold, iou_threshold=0.
     
 def __area_of(left_top, right_bottom):
     """
-    Compute the areas of rectangles given two corners.
+    Computes the areas of rectangles given two corners.
     Args:
         left_top (N, 2): left top corner.
         right_bottom (N, 2): right bottom corner.
@@ -58,7 +58,7 @@ def __area_of(left_top, right_bottom):
 
 def __iou_of(boxes0, boxes1, eps=1e-5):
     """
-    Return intersection-over-union (Jaccard index) of boxes.
+    Returns intersection-over-union (Jaccard index) of boxes.
     Args:
         boxes0 (N, 4): ground truth boxes.
         boxes1 (N or 1, 4): predicted boxes.
@@ -76,7 +76,7 @@ def __iou_of(boxes0, boxes1, eps=1e-5):
 
 def __hard_nms(box_scores, iou_threshold, top_k=-1, candidate_size=200):
     """
-    Perform hard non-maximum-supression to filter out boxes with iou greater
+    Performs hard non-maximum-supression to filter out boxes with iou greater
     than threshold
     Args:
         box_scores (N, 5): boxes in corner-form and probabilities.

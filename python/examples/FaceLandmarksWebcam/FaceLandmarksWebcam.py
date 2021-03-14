@@ -30,7 +30,7 @@ while(True):
         for (x, y) in landmark:
             cv2.circle(frame, (x, y), 5, color)
 
-    cv2.imshow('FaceONNX: Face landmarks extraction (webcamera test)', frame)
+    cv2.imshow('FaceONNX: Face landmarks extraction', frame)
 
     # Press 'q' to quit
     if cv2.waitKey(1) == ord('q'):
