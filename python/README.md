@@ -5,8 +5,7 @@
 To build **FaceONNX** from sources for Python support follow this steps
 ```
 git clone https://github.com/asiryan/FaceONNX
-```
-Download models from [Google.Drive](https://drive.google.com/drive/folders/1gh1E0yWqgzRX3Cxsp_EtZ2BAVOxyVAPb?usp=sharing) and place them to your [models folder](faceonnx/models).  
+``` 
 Install **FaceONNX** to your Python environment.  
 ```
 python setup.py install
