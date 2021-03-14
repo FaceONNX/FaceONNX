@@ -3,17 +3,21 @@ from faceonnx import FaceDetectorLight
 import numpy
 import os
 
-print("FaceONNX: Face detection")
 root = "images"
-files = os.listdir(root)
 path = "results"
+
+print("FaceONNX: Face detection")
+files = os.listdir(root)
 
 if (os.path.exists(path) is False):
     os.mkdir(path)
 
+# Initialize FaceDetectorLight
 faceDetectorLight = FaceDetectorLight(0.95, 0.25)
 print(f"Processing {len(files)} images")
 
+# Apply FaceDetectorLight to the files
+# and draw inference results
 for file in files:
     image = cv2.imread(os.path.join(root, file))
     boxes = faceDetectorLight.Forward(image)

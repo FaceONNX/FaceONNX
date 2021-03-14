@@ -4,6 +4,7 @@ import numpy
 import os
 import onnxruntime as ort
 
+# Initialize FaceDetectorLight and FaceLandmarksExtractor
 faceDetectorLight = FaceDetectorLight(0.95, 0.25)
 faceLandmarksExtractor = FaceLandmarksExtractor()
 
@@ -11,12 +12,16 @@ faceLandmarksExtractor = FaceLandmarksExtractor()
 color = (255, 255, 0)
 video = cv2.VideoCapture(0)
 
+# Start webcam
 while(True):
 
+    # Get frame and apply 
+    # FaceDetectorLight and FaceLandmarksExtractor
     ret, frame = video.read()
     boxes = faceDetectorLight.Forward(frame)
     landmarks = faceLandmarksExtractor.Forward(frame, boxes)
 
+    # Draw inference results
     for i in range(len(boxes)):
         box = boxes[i]
         landmark = landmarks[i]
