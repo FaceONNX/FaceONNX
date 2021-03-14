@@ -1,5 +1,6 @@
 import setuptools
 import os
+from faceonnx.models import download
 
 # package metadata
 NAME = 'faceonnx'
@@ -11,6 +12,9 @@ PYTHON = '>=3.5'
 
 # directory
 this = os.path.dirname(__file__)
+
+# download models
+download(this)
 
 # readme
 with open(os.path.join(this, 'README.md'), encoding='utf-8') as f:

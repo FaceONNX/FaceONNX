@@ -1,2 +1,5 @@
 # ONNX models
 *.onnx
+
+# pypirc
+*.pypirc
