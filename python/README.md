@@ -6,7 +6,7 @@ To build **FaceONNX** from sources for Python support follow this steps
 ```
 git clone https://github.com/asiryan/FaceONNX
 ``` 
-Install **FaceONNX** to your Python environment.  
+Install **FaceONNX** to your Python environment  
 ```
 python setup.py install
 ```
