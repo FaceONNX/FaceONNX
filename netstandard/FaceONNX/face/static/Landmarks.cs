@@ -154,7 +154,7 @@ namespace FaceONNX
             return tongue;
         }
         /// <summary>
-        /// Returns tongue points.
+        /// Returns face points.
         /// </summary>
         /// <param name="points">Points</param>
         /// <returns>Points</returns>
