@@ -1,4 +1,4 @@
-import numpy as np
+import numpy
 
 class Embeddings:
 
@@ -59,7 +59,7 @@ class Embeddings:
 
         for i in range(length):
             v = self.Vectors[i]
-            d = np.linalg.norm(v - vector)
+            d = numpy.linalg.norm(v - vector)
 
             if (d < minimum):
                 index = i
@@ -83,9 +83,9 @@ class Embeddings:
 
         for i in range(length):
             v = self.Vectors[i]
-            a = np.linalg.norm(v)
-            b = np.linalg.norm(vector)
-            s = np.dot(v, vector) / (a * b)
+            a = numpy.linalg.norm(v)
+            b = numpy.linalg.norm(vector)
+            s = numpy.dot(v, vector) / (a * b)
 
             if (s > maximum):
                 index = i

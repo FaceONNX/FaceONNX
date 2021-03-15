@@ -1,4 +1,3 @@
-import numpy as np
 import math
 
 def GetAngle(left, right, support):

@@ -1,13 +1,13 @@
 import onnxruntime
-import numpy as np
+import numpy
 import cv2
 import os
 from .imaging import Rotate, Resize, Crop, ToBox
 from .landmarks import GetMeanPoint, GetSupportPoint, GetAngle, GetLeftEye, GetRightEye
 
 # main
-this = os.path.dirname(__file__)
-models_path = os.path.join(this, "models")
+__this = os.path.dirname(__file__)
+models_path = os.path.join(__this, "models")
 
 class FaceDetectorLight:
 
@@ -20,8 +20,8 @@ class FaceDetectorLight:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_detector_320.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
         self.confidenceThreshold = confidenceThreshold
         self.nmsThreshold = nmsThreshold
 
@@ -34,19 +34,18 @@ class FaceDetectorLight:
         Returns:
             Rectangles
         """
-        input_name = self.session.get_inputs()[0].name
         h, w, _ = image.shape
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (320, 240))
-        img_mean = np.array([127, 127, 127])
+        img_mean = numpy.array([127, 127, 127])
         img = (img - img_mean) / 128
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
-        confidences, boxes = self.session.run(None, {self.input_name: img})
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
+        confidences, boxes = self.__session.run(None, {self.__input_name: img})
 
         from .internal import Detector
-        rectangles, labels, probs = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
+        rectangles, labels, probes = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
 
         # scale to face box
         for i in range(len(rectangles)):
@@ -65,8 +64,8 @@ class FaceDetector:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_detector_640.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
         self.confidenceThreshold = confidenceThreshold
         self.nmsThreshold = nmsThreshold
 
@@ -82,15 +81,15 @@ class FaceDetector:
         h, w, _ = image.shape
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (640, 480))
-        img_mean = np.array([127, 127, 127])
+        img_mean = numpy.array([127, 127, 127])
         img = (img - img_mean) / 128
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
-        confidences, boxes = self.session.run(None, {self.input_name: img})
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
+        confidences, boxes = self.__session.run(None, {self.__input_name: img})
 
         from .internal import Detector
-        boxes, labels, probs = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
+        boxes, labels, probes = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
 
         # scale to face box
         for i in range(len(boxes)):
@@ -114,8 +113,8 @@ class FaceAgeClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "age_googlenet.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -150,13 +149,14 @@ class FaceAgeClassifier:
             Array
         """
         img = Resize(image, (224, 224))
-        img_mean = np.array([104, 117, 123])
+        img_mean = numpy.array([104, 117, 123])
         img = img - img_mean
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return self.session.run(None, {self.input_name: img})[0][0]
+        return self.__session.run(None, {self.__input_name: img})[0][0]
+
 
 class FaceBeautyClassifier:
 
@@ -167,8 +167,8 @@ class FaceBeautyClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "beauty_resnet18.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -203,13 +203,13 @@ class FaceBeautyClassifier:
             Array
         """
         img = Resize(image, (224, 224))
-        img_mean = np.array([104, 117, 123])
+        img_mean = numpy.array([104, 117, 123])
         img = (img - img_mean) / 255.0
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return round(2.0 * sum(self.session.run(None, {self.input_name: img})[0][0]), 1)
+        return round(2.0 * sum(self.__session.run(None, {self.__input_name: img})[0][0]), 1)
 
 class FaceEmbedder:
 
@@ -220,8 +220,8 @@ class FaceEmbedder:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "recognition_resnet27.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -256,13 +256,13 @@ class FaceEmbedder:
             Array
         """
         img = Resize(image, (128, 128))
-        img_mean = np.array([127.5, 127.5, 127.5])
+        img_mean = numpy.array([127.5, 127.5, 127.5])
         img = (img - img_mean) / 128
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return self.session.run(None, {self.input_name: img})[0][0]
+        return self.__session.run(None, {self.__input_name: img})[0][0]
 
 class FaceEmotionClassifier:
 
@@ -280,8 +280,8 @@ class FaceEmotionClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "emotion_cnn.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -318,11 +318,11 @@ class FaceEmotionClassifier:
         img = Resize(image, (48, 48))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         img = img / 256.0
-        img = np.expand_dims(img, axis=0)
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.expand_dims(img, axis=0)
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return np.exp(self.session.run(None, {self.input_name: img})[0][0])
+        return numpy.exp(self.__session.run(None, {self.__input_name: img})[0][0])
 
 class FaceRaceClassifier:
 
@@ -340,8 +340,8 @@ class FaceRaceClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "race_googlenet.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -376,13 +376,13 @@ class FaceRaceClassifier:
             Array
         """
         img = Resize(image, (224, 224))
-        img_mean = np.array([104, 117, 123])
+        img_mean = numpy.array([104, 117, 123])
         img = img - img_mean
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return self.session.run(None, {self.input_name: img})[0][0]
+        return self.__session.run(None, {self.__input_name: img})[0][0]
 
 class FaceGenderClassifier:
 
@@ -400,8 +400,8 @@ class FaceGenderClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "gender_googlenet.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -436,13 +436,13 @@ class FaceGenderClassifier:
             Array
         """
         img = Resize(image, (224, 224))
-        img_mean = np.array([104, 117, 123])
+        img_mean = numpy.array([104, 117, 123])
         img = img - img_mean
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        return self.session.run(None, {self.input_name: img})[0][0]
+        return self.__session.run(None, {self.__input_name: img})[0][0]
 
 class FaceLandmarksExtractor:
 
@@ -453,8 +453,8 @@ class FaceLandmarksExtractor:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "landmarks_68_pfld.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -497,23 +497,24 @@ class FaceLandmarksExtractor:
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, (112, 112))
         img = img / 255.0
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
-        output = self.session.run(None, {self.input_name: img})[0][0]
+        output = self.__session.run(None, {self.__input_name: img})[0][0]
         points = output.reshape(-1, 2) * (w, h)
-        return points.astype(np.int32)
+        return points.astype(numpy.int32)
 
-    def Align(self, image, points):
-        """[summary]
-
+    @staticmethod
+    def Align(image, points):
+        """
+        Returns aligned face.
         Args:
-            image ([type]): [description]
-            points ([type]): [description]
+            image: Bitmap
+            points: Points
 
         Returns:
-            [type]: [description]
+            Bitmap
         """
         left = GetMeanPoint(GetLeftEye(points))
         right = GetMeanPoint(GetRightEye(points))
@@ -528,7 +529,7 @@ class FaceParser:
     Returns:
         Labels
     """
-    Labels = np.array([
+    Labels = numpy.array([
                     (0,  0,  0),
                     (204, 0,  0),
                     (76, 153, 0),
@@ -543,12 +544,12 @@ class FaceParser:
                     (255, 255, 0),
                     (0, 0, 153),
                     (0, 0, 204),
-                    (255, 51, 153), 
+                    (255, 51, 153),
                     (0, 204, 204),
                     (0, 51, 0),
                     (255, 153, 51),
-                    (0, 204, 0)], 
-                    dtype=np.uint8)
+                    (0, 204, 0)],
+                    dtype=numpy.uint8)
 
     def __init__(self, sessionOptions = None):
         """
@@ -557,8 +558,8 @@ class FaceParser:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_512.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -602,22 +603,23 @@ class FaceParser:
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, size)
         img = img / 255.0
-        img_mean = np.array([0.5, 0.5, 0.5])
+        img_mean = numpy.array([0.5, 0.5, 0.5])
         img = (img - img_mean) / img_mean
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
         # post-processing
-        confidences = self.session.run(None, {self.input_name: img})[0][0]
+        confidences = self.__session.run(None, {self.__input_name: img})[0][0]
         s = confidences.shape[0]
-        maximum = np.max(confidences)
-        minimum = np.min(confidences)
+        maximum = numpy.max(confidences)
+        minimum = numpy.min(confidences)
         probabilities = (confidences - minimum) / (maximum - minimum)
 
         return probabilities
 
-    def ToBitmap(self, masks):
+    @staticmethod
+    def ToBitmap(masks):
         """
         Returns bitmap from masks.
         Args:
@@ -627,7 +629,7 @@ class FaceParser:
             image: Bitmap
         """
         s, h, w = masks.shape
-        image = np.zeros((h, w, 3))
+        image = numpy.zeros((h, w, 3))
 
         for y in range(h):
             for x in range(w):
@@ -638,7 +640,7 @@ class FaceParser:
                     if (masks[i, y, x] > maximum):
                         maximum = masks[i, y, x]
                         index = i
-                
+
                 color = self.Labels[index]
                 image[y, x] = color[::-1]
 
@@ -651,7 +653,7 @@ class FaceParserLight:
     Returns:
         Labels
     """
-    Labels = np.array([
+    Labels = numpy.array([
                     (0,  0,  0),
                     (204, 0,  0),
                     (76, 153, 0),
@@ -666,12 +668,12 @@ class FaceParserLight:
                     (255, 255, 0),
                     (0, 0, 153),
                     (0, 0, 204),
-                    (255, 51, 153), 
+                    (255, 51, 153),
                     (0, 204, 204),
                     (0, 51, 0),
                     (255, 153, 51),
-                    (0, 204, 0)], 
-                    dtype=np.uint8)
+                    (0, 204, 0)],
+                    dtype=numpy.uint8)
 
     def __init__(self, sessionOptions = None):
         """
@@ -680,8 +682,8 @@ class FaceParserLight:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_256.onnx")
-        self.session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
-        self.input_name = self.session.get_inputs()[0].name
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
 
     def Forward(self, image, rectangles = None):
         """
@@ -725,22 +727,23 @@ class FaceParserLight:
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, size)
         img = img / 255.0
-        img_mean = np.array([0.5, 0.5, 0.5])
+        img_mean = numpy.array([0.5, 0.5, 0.5])
         img = (img - img_mean) / img_mean
-        img = np.transpose(img, [2, 0, 1])
-        img = np.expand_dims(img, axis=0)
-        img = img.astype(np.float32)
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
 
         # post-processing
-        confidences = self.session.run(None, {self.input_name: img})[0][0]
+        confidences = self.__session.run(None, {self.__input_name: img})[0][0]
         s = confidences.shape[0]
-        maximum = np.max(confidences)
-        minimum = np.min(confidences)
+        maximum = numpy.max(confidences)
+        minimum = numpy.min(confidences)
         probabilities = (confidences - minimum) / (maximum - minimum)
         
         return probabilities
 
-    def ToBitmap(self, masks):
+    @staticmethod
+    def ToBitmap(masks):
         """
         Returns bitmap from masks.
         Args:
@@ -750,7 +753,7 @@ class FaceParserLight:
             image: Bitmap
         """
         s, h, w = masks.shape
-        image = np.zeros((h, w, 3))
+        image = numpy.zeros((h, w, 3))
 
         for y in range(h):
             for x in range(w):

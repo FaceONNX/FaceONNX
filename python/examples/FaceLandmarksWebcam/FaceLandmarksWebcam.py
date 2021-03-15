@@ -1,8 +1,5 @@
 import cv2
 from faceonnx import FaceDetectorLight, FaceLandmarksExtractor
-import numpy
-import os
-import onnxruntime as ort
 
 # Initialize FaceDetectorLight and FaceLandmarksExtractor
 faceDetectorLight = FaceDetectorLight(0.95, 0.25)
@@ -13,7 +10,7 @@ color = (255, 255, 0)
 video = cv2.VideoCapture(0)
 
 # Start webcam
-while(True):
+while True:
 
     # Get frame and apply 
     # FaceDetectorLight and FaceLandmarksExtractor
