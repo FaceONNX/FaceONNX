@@ -4,6 +4,7 @@ import cv2
 import os
 from .imaging import Rotate, Resize, Crop, ToBox
 from .landmarks import GetMeanPoint, GetSupportPoint, GetAngle, GetLeftEye, GetRightEye
+from .internal import Detector
 
 # main
 __this = os.path.dirname(__file__)
@@ -43,8 +44,6 @@ class FaceDetectorLight:
         img = numpy.expand_dims(img, axis=0)
         img = img.astype(numpy.float32)
         confidences, boxes = self.__session.run(None, {self.__input_name: img})
-
-        from .internal import Detector
         rectangles, labels, probes = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
 
         # scale to face box
@@ -87,8 +86,6 @@ class FaceDetector:
         img = numpy.expand_dims(img, axis=0)
         img = img.astype(numpy.float32)
         confidences, boxes = self.__session.run(None, {self.__input_name: img})
-
-        from .internal import Detector
         boxes, labels, probes = Detector(w, h, confidences, boxes, self.confidenceThreshold, self.nmsThreshold)
 
         # scale to face box
