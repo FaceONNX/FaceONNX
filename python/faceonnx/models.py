@@ -9,7 +9,7 @@ except:
 from google_drive_downloader import GoogleDriveDownloader as g
 
 def download(path):
-    """[summary]
+    """
     Downloads ONNX models from google.drive.
     Args:
         path: Path
