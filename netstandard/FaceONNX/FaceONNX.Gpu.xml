@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>FaceONNX</name>
+        <name>FaceONNX.Gpu</name>
     </assembly>
     <members>
         <member name="T:FaceONNX.FaceAgeClassifier">

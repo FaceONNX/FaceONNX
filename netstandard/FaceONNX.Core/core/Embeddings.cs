@@ -102,7 +102,7 @@ namespace FaceONNX.Core
         /// <returns>Label</returns>
         public (string, float) FromDistance(float[] vector)
         {
-            var length = Vectors.Count;
+            var length = Count;
             var min = float.MaxValue;
             var index = -1;
             

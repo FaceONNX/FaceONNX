@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace FaceONNX.Core
 {
@@ -27,7 +28,11 @@ namespace FaceONNX.Core
         /// <summary>
         /// Gets or sets box transparency.
         /// </summary>
-        public byte Transparency { get; set; } = 64;
+        public byte Transparency { get; set; } = 0;
+        /// <summary>
+        /// Draw labels inside the box or not.
+        /// </summary>
+        public bool InsideBox { get; set; }
         /// <summary>
         /// Initializes inference painter.
         /// </summary>
@@ -40,28 +45,39 @@ namespace FaceONNX.Core
         /// </summary>
         /// <param name="image">Bitmap</param>
         /// <param name="paintData">Paint data</param>
-        public void Draw(Bitmap image, PaintData paintData)
+        public void Draw(Bitmap image, params PaintData[] paintData)
         {
-            if (!paintData.Rectangle.IsEmpty)
+            int length = paintData.Length;
+
+            for (int i = 0; i < length; i++)
             {
-                Draw(
-                    image, 
-                    paintData.Title, 
-                    paintData.Rectangle);
+                if (!paintData[i].Rectangle.IsEmpty)
+                {
+                    Draw(
+                        image,
+                        paintData[i].Title,
+                        paintData[i].Rectangle);
+                }
             }
 
-            if (paintData.Points?.Length > 0)
+            for (int i = 0; i < length; i++)
             {
-                Draw(
-                    image, 
-                    paintData.Points);
+                if (paintData[i].Points?.Length > 0)
+                {
+                    Draw(
+                        image,
+                        paintData[i].Points);
+                }
             }
 
-            if (paintData.Labels?.Length > 0)
-                Draw(
-                    image,
-                    new Rectangle[] { paintData.Rectangle },
-                    new string[][] { paintData.Labels });
+            for (int i = 0; i < length; i++)
+            {
+                if (paintData[i].Labels?.Length > 0)
+                    Draw(
+                        image,
+                        new Rectangle[] { paintData[i].Rectangle },
+                        new string[][] { paintData[i].Labels });
+            }
 
             return;
         }
@@ -79,33 +95,37 @@ namespace FaceONNX.Core
             using var graphics = Graphics.FromImage(image);
             using var textBrush = new SolidBrush(TextColor);
             using var inferenceBrush = new SolidBrush(BoxPen.Color);
-            using var inferenceTransparentBrush = new SolidBrush(
-                Color.FromArgb(
-                    Transparency,
-                    BoxPen.Color));
-
-            int length = rectangles.Length;
+            using var inferenceTransparentBrush = new SolidBrush(Color.FromArgb(Transparency, BoxPen.Color));
+            var length = rectangles.Length;
             var depth = BoxPen.Width;
 
             for (int i = 0; i < length; i++)
             {
                 var rectangle = rectangles[i];
+
                 if (rectangle.IsEmpty)
+                {
                     continue;
+                }
+                else
+                {
+                    graphics.FillRectangle(inferenceTransparentBrush, rectangle);
+                    graphics.DrawRectangle(BoxPen, rectangle);
 
-                graphics.FillRectangle(inferenceTransparentBrush, rectangle);
-                graphics.DrawRectangle(BoxPen, rectangle);
+                    if (!string.IsNullOrEmpty(title))
+                    {
+                        var faceLabel = GetLabel(graphics, TextFont, rectangle, depth, title);
+                        var w = graphics.MeasureString(faceLabel, TextFont);
+                        var t = new RectangleF(
+                            rectangle.X - depth / 2,
+                            rectangle.Y - w.Height - depth / 2,
+                            w.Width + depth,
+                            w.Height);
 
-                var faceLabel = GetLabel(graphics, TextFont, rectangle, title);
-                var w = graphics.MeasureString(faceLabel, TextFont);
-                var t = new RectangleF(
-                    rectangle.X - depth / 2,
-                    rectangle.Y - w.Height,
-                    w.Width + depth,
-                    w.Height);
-
-                graphics.FillRectangle(inferenceBrush, t);
-                graphics.DrawString(faceLabel, TextFont, textBrush, t.X + depth / 2, t.Y + depth / 2);
+                        graphics.FillRectangle(inferenceBrush, t);
+                        graphics.DrawString(faceLabel, TextFont, textBrush, t.X + depth / 2, t.Y + depth / 2);
+                    }
+                }
             }
 
             graphics.Dispose();
@@ -128,9 +148,13 @@ namespace FaceONNX.Core
                 var point = points[i];
 
                 if (point.IsEmpty)
+                {
                     continue;
-
-                g.FillEllipse(b, point.X - depth, point.Y - depth, depth, depth);
+                }
+                else
+                {
+                    g.FillEllipse(b, point.X - depth, point.Y - depth, depth, depth);
+                }
             }
 
             g.Dispose();
@@ -145,18 +169,16 @@ namespace FaceONNX.Core
         private void Draw(Bitmap image, Rectangle[] rectangles, params string[][] labels)
         {
             if (rectangles.Length != labels.Length)
+            {
                 return;
+            }
             else
             {
                 using var graphics = Graphics.FromImage(image);
                 using var textBrush = new SolidBrush(TextColor);
                 using var inferenceBrush = new SolidBrush(BoxPen.Color);
-                using var inferenceTransparentBrush = new SolidBrush(
-                    Color.FromArgb(
-                        Transparency,
-                        BoxPen.Color));
-
-                int length = rectangles.Length;
+                using var inferenceTransparentBrush = new SolidBrush(Color.FromArgb(Transparency, BoxPen.Color));
+                var length = rectangles.Length;
                 var depth = BoxPen.Width;
 
                 for (int i = 0; i < length; i++)
@@ -169,16 +191,33 @@ namespace FaceONNX.Core
                     }
                     else
                     {
-                        var label = GetLabel(graphics, TextFont, rectangle, labels[i]);
-                        var s = graphics.MeasureString(label, TextFont);
-                        var r = new RectangleF(
-                            rectangle.X - depth / 2,
-                            rectangle.Y + rectangle.Height,
-                            rectangle.Width + depth,
-                            s.Height + depth);
+                        var label = GetLabel(graphics, TextFont, rectangle, depth, labels[i]);
 
-                        graphics.FillRectangle(inferenceBrush, r);
-                        graphics.DrawString(label, TextFont, textBrush, r.X + depth / 2, r.Y + depth / 2);
+                        if (!string.IsNullOrEmpty(label))
+                        {
+                            var s = graphics.MeasureString(label, TextFont);
+                            RectangleF r;
+
+                            if (InsideBox)
+                            {
+                                r = new RectangleF(
+                                    rectangle.X + depth / 2,
+                                    rectangle.Y + depth / 2,
+                                    rectangle.Width - depth,
+                                    s.Height + depth);
+                            }
+                            else
+                            {
+                                r = new RectangleF(
+                                    rectangle.X - depth / 2,
+                                    rectangle.Y + rectangle.Height + depth / 2,
+                                    rectangle.Width + depth,
+                                    s.Height + depth);
+                            }
+
+                            graphics.FillRectangle(inferenceBrush, r);
+                            graphics.DrawString(label, TextFont, textBrush, r.X + depth / 2, r.Y + depth / 2);
+                        }
                     }
                 }
 
@@ -191,9 +230,10 @@ namespace FaceONNX.Core
         /// <param name="g">Graphics</param>
         /// <param name="font">Font</param>
         /// <param name="rectangle">Rectangle</param>
+        /// <param name="depth">Depth</param>
         /// <param name="unit">Unit string</param>
         /// <returns>String</returns>
-        private static string GetLabel(Graphics g, Font font, Rectangle rectangle, params string[] unit)
+        private static string GetLabel(Graphics g, Font font, Rectangle rectangle, float depth, params string[] unit)
         {
             var label = string.Empty;
             var count = unit.Length;
@@ -210,14 +250,14 @@ namespace FaceONNX.Core
 
                     if (g.MeasureString(line + "..", font).Width >= rectangle.Width)
                     {
-                        label += "..\n";
+                        label += $"..{Environment.NewLine}";
                         line = string.Empty;
                     }
 
                     label += subline[k];
                 }
 
-                label += (j < count - 1) ? "\n" : string.Empty;
+                label += (j < count - 1) ? Environment.NewLine : string.Empty;
             }
 
             return label;

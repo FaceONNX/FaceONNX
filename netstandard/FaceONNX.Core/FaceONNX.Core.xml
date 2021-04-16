@@ -415,7 +415,7 @@
             Initializes inference painter.
             </summary>
         </member>
-        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,FaceONNX.Core.PaintData)">
+        <member name="M:FaceONNX.Core.Painter.Draw(System.Drawing.Bitmap,FaceONNX.Core.PaintData[])">
             <summary>
             Draws tracking and recognition results.
             </summary>
