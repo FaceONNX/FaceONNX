@@ -4,7 +4,7 @@ from faceonnx.models import download
 
 # package metadata
 NAME = 'faceonnx'
-VERSION = '1.0.3.1'
+VERSION = '1.0.4.2'
 DESCRIPTION = 'Face analytics library based on deep neural networks and ONNX runtime.'
 LICENSE = 'MIT'
 GIT = 'https://github.com/asiryan/FaceONNX'
