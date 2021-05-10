@@ -20,10 +20,6 @@ download(this)
 with open(os.path.join(this, 'README.md'), encoding='utf-8') as f:
     LONG_DESCRIPTION = f.read()
 
-# requirements
-with open(os.path.join(this, 'requirements.txt'), "r") as f:
-    requirements = [_ for _ in [_.strip("\r\n ")
-                                for _ in f.readlines()] if _ is not None]
 # setup tools
 setuptools.setup(
     name=NAME,
@@ -37,7 +33,12 @@ setuptools.setup(
     author='Valery Asiryan',
     author_email='dmc5mod@yandex.ru',
     url=GIT,
-    install_requires=requirements,
+    install_requires=[
+        'numpy',
+        'opencv-python',
+        'onnx >= 1.4.0',
+        'onnxruntime >= 1.6.0'
+    ],
     package_data={
       NAME: ['*.onnx', os.path.join(this, './models/*.onnx')],
     },
