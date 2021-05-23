@@ -2,6 +2,10 @@
 <p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
 # FaceONNX
+| Assembly | Specification | OS | Platform |Version | Package | Algebra |
+|-------------|-------------|-------------|-------------|--------------|:--------------:|--------------|
+| FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | [1.0.5.1](FaceONNX) | - | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
+
 To build **FaceONNX** from sources for Python support follow this steps
 ```
 git clone https://github.com/asiryan/FaceONNX
@@ -14,7 +18,7 @@ Python interface
 ```python
 import faceonnx
 ```
-Python version of **FaceONNX** uses [opencv-python](https://opencv.org/) and [numpy](https://numpy.org/). To get started with **FaceONNX**, it is recommended to look at the folder with [examples](examples).  
+To get started with **FaceONNX**, it is recommended to look at the folder with [examples](examples).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
