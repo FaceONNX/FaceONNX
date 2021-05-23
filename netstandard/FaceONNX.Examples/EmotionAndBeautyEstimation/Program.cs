@@ -1,9 +1,10 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using UMapx.Core;
+using UMapx.Imaging;
 
 namespace EmotionAndBeautyEstimation
 {
@@ -56,11 +57,12 @@ namespace EmotionAndBeautyEstimation
 
         static string[] GetEmotionAndBeauty(Bitmap image, Rectangle face)
         {
-            using var cropped = Imaging.Crop(image, face);
+            using var cropped = BitmapTransform.Crop(image, face);
             var points = _faceLandmarksExtractor.Forward(cropped);
             using var aligned = FaceLandmarksExtractor.Align(cropped, points);
             var emotion = _faceEmotionClassifier.Forward(aligned);
-            var emotionLabel = FaceEmotionClassifier.Labels[emotion.Argmax()];
+            var max = Matrice.Max(emotion, out int argmax);
+            var emotionLabel = FaceEmotionClassifier.Labels[argmax];
             var beauty = _faceBautyClassifier.Forward(aligned);
             var beautyLabel = $"{Math.Round(2 * beauty.Max(), 1)}/10.0";
 

@@ -1,8 +1,8 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
+using UMapx.Visualization;
 
 namespace FaceLandmarksExtraction
 {
@@ -44,7 +44,8 @@ namespace FaceLandmarksExtraction
                             Title = string.Empty,
                         };
 
-                        painter.Draw(bitmap, paintData);
+                        using var graphics = Graphics.FromImage(bitmap);
+                        painter.Draw(graphics, paintData);
                         bitmap.Save(Path.Combine(path, filename));
                     }
                 }

@@ -1,9 +1,9 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using UMapx.Imaging;
 
 namespace FaceEmbeddingsClassification
 {
@@ -57,7 +57,7 @@ namespace FaceEmbeddingsClassification
         static float[] GetEmbedding(Bitmap image)
         {
             var faces = _faceDetectorLight.Forward(image);
-            using var cropped = Imaging.Crop(image, faces.First());
+            using var cropped = BitmapTransform.Crop(image, faces.First());
             var points = _faceLandmarksExtractor.Forward(cropped);
             using var aligned = FaceLandmarksExtractor.Align(cropped, points);
             return _faceEmbedder.Forward(aligned);

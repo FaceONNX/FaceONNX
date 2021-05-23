@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UMapx.Core;
 
-namespace FaceONNX.Core
+namespace FaceONNX
 {
     /// <summary>
     /// Defines the embeddings database.
@@ -137,8 +137,7 @@ namespace FaceONNX.Core
             // do job
             for (var i = 0; i < length; i++)
             {
-                // TODO:
-                var d = Distance.Euclidean(Vectors[i], vector);
+                var d = Distance.Cosine(Vectors[i], vector);
 
                 if (d > max)
                 {

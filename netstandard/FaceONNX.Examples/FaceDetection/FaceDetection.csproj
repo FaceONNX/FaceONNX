@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FaceONNX" Version="1.0.1.2" />
+    <ProjectReference Include="..\..\FaceONNX\FaceONNX.csproj" />
   </ItemGroup>
 
 </Project>

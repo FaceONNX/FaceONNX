@@ -1,8 +1,8 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
+using UMapx.Visualization;
 
 namespace FaceDetection
 {
@@ -15,7 +15,7 @@ namespace FaceDetection
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 
-            using var faceDetectorLight = new FaceDetectorLight(0.95f, 0.25f);
+            using var faceDetectorLight = new FaceDetectorLight(0.9f, 0.5f);
             var painter = new Painter()
             {
                 BoxPen = new Pen(Color.Yellow, 4),
@@ -36,7 +36,8 @@ namespace FaceDetection
                         Rectangle = rectangle,
                         Title = string.Empty
                     };
-                    painter.Draw(bitmap, paintData);
+                    using var graphics = Graphics.FromImage(bitmap);
+                    painter.Draw(graphics, paintData);
                 }
 
                 var filename = Path.GetFileName(file);

@@ -1,8 +1,10 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
+using UMapx.Core;
+using UMapx.Imaging;
+using UMapx.Visualization;
 
 namespace RaceAndAgeClassification
 {
@@ -54,7 +56,8 @@ namespace RaceAndAgeClassification
                         Labels = labels
                     };
 
-                    painter.Draw(bitmap, paintData);
+                    using var graphics = Graphics.FromImage(bitmap);
+                    painter.Draw(graphics, paintData);
                 }
 
                 bitmap.Save(Path.Combine(path, filename));
@@ -71,13 +74,15 @@ namespace RaceAndAgeClassification
 
         static string[] GetRaceAndAge(Bitmap image, Rectangle face)
         {
-            using var cropped = Imaging.Crop(image, face);
+            using var cropped = BitmapTransform.Crop(image, face);
             var points = _faceLandmarksExtractor.Forward(cropped);
             using var aligned = FaceLandmarksExtractor.Align(cropped, points);
             var race = _faceRaceClassifier.Forward(aligned);
-            var raceLabel = FaceRaceClassifier.Labels[race.Argmax()];
+            var maxRace = Matrice.Max(race, out int argmaxRace);
+            var raceLabel = FaceRaceClassifier.Labels[argmaxRace];
             var age = _faceAgeClassifier.Forward(aligned);
-            var ageLabel = FaceAgeClassifier.Labels[age.Argmax()];
+            var maxAge = Matrice.Max(age, out int argmaxAge);
+            var ageLabel = FaceAgeClassifier.Labels[argmaxAge];
 
             Console.WriteLine($"--> classified as [{raceLabel}] race and [{ageLabel}] age");
 

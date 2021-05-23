@@ -1,9 +1,9 @@
 ﻿using FaceONNX;
-using FaceONNX.Core;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using UMapx.Core;
 
 namespace GenderClassification
 {
@@ -38,7 +38,7 @@ namespace GenderClassification
                     Console.Write($"\t[Face #{i++}]: ");
 
                     var output = faceGenderClassifier.Forward(bitmap);
-                    var gender = Vector.Argmax(output);
+                    var max = Matrice.Max(output, out int gender);
                     var label = labels[gender];
 
                     Console.WriteLine($"--> classified as [{label}] gender with probability [{output.Max()}]");

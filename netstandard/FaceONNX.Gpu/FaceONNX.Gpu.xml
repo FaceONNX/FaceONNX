@@ -717,70 +717,70 @@
             Disposes face segmentation parser.
             </summary>
         </member>
-        <member name="T:FaceONNX.Core.Embeddings">
+        <member name="T:FaceONNX.Embeddings">
             <summary>
             Defines the embeddings database.
             </summary>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.#ctor">
+        <member name="M:FaceONNX.Embeddings.#ctor">
             <summary>
             Initializes the embeddings database.
             </summary>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.#ctor(System.Collections.Generic.List{System.Single[]},System.Collections.Generic.List{System.String})">
+        <member name="M:FaceONNX.Embeddings.#ctor(System.Collections.Generic.List{System.Single[]},System.Collections.Generic.List{System.String})">
             <summary>
             Initializes the embeddings database.
             </summary>
             <param name="vectors">Vectors</param>
             <param name="labels">Labels</param>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.Add(System.Single[],System.String)">
+        <member name="M:FaceONNX.Embeddings.Add(System.Single[],System.String)">
             <summary>
             Adds embedding to embeddings database.
             </summary>
             <param name="vector">Vector</param>
             <param name="label">Label</param>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.Remove(System.Int32)">
+        <member name="M:FaceONNX.Embeddings.Remove(System.Int32)">
             <summary>
             Removes embedding from embeddings database.
             </summary>
             <param name="index">Index</param>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.Remove(System.String)">
+        <member name="M:FaceONNX.Embeddings.Remove(System.String)">
             <summary>
             Removes embedding from embeddings database.
             </summary>
             <param name="label">Label</param>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.Clear">
+        <member name="M:FaceONNX.Embeddings.Clear">
             <summary>
             Clears embeddings database.
             </summary>
         </member>
-        <member name="P:FaceONNX.Core.Embeddings.Count">
+        <member name="P:FaceONNX.Embeddings.Count">
             <summary>
             Returns embeddings database count.
             </summary>
         </member>
-        <member name="P:FaceONNX.Core.Embeddings.Vectors">
+        <member name="P:FaceONNX.Embeddings.Vectors">
             <summary>
             Gets or sets vectors.
             </summary>
         </member>
-        <member name="P:FaceONNX.Core.Embeddings.Labels">
+        <member name="P:FaceONNX.Embeddings.Labels">
             <summary>
             Gets or sets labels.
             </summary>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.FromDistance(System.Single[])">
+        <member name="M:FaceONNX.Embeddings.FromDistance(System.Single[])">
             <summary>
             Score vector from database by Euclidean distance.
             </summary>
             <param name="vector">Vector</param>
             <returns>Label</returns>
         </member>
-        <member name="M:FaceONNX.Core.Embeddings.FromSimilarity(System.Single[])">
+        <member name="M:FaceONNX.Embeddings.FromSimilarity(System.Single[])">
             <summary>
             Score vector from database by cosine similarity.
             </summary>
