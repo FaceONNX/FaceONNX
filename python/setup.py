@@ -3,7 +3,7 @@ import os
 
 # package metadata
 NAME = 'faceonnx'
-VERSION = '1.0.4.2'
+VERSION = '1.0.5.1'
 DESCRIPTION = 'Face analytics library based on deep neural networks and ONNX runtime.'
 LICENSE = 'MIT'
 GIT = 'https://github.com/asiryan/FaceONNX'
@@ -41,6 +41,7 @@ def download(path):
     g.download_file_from_google_drive(file_id='1qgM6ZqMyB60FYlzzxNDyUefifLS0lhag', dest_path=f'.{path}/faceonnx/models/landmarks_68_pfld.onnx')
     g.download_file_from_google_drive(file_id='1b5KC_qG-mTSCkM2vW4VsThETzRkmc7Fa', dest_path=f'.{path}/faceonnx/models/race_googlenet.onnx')
     g.download_file_from_google_drive(file_id='1ijbMt1LETLQc6GDGAtEJx8ggEGenyM7m', dest_path=f'.{path}/faceonnx/models/recognition_resnet27.onnx')
+    g.download_file_from_google_drive(file_id='1PHGb4d0ews2jNBGBaYZ4HWNJzph00oJa', dest_path=f'.{path}/faceonnx/models/mask_googlenet_slim.onnx')
 
 download(this)
 

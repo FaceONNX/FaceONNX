@@ -407,6 +407,57 @@
             Dispose void.
             </summary>
         </member>
+        <member name="T:FaceONNX.FaceMaskClassifier">
+            <summary>
+            Defines face mask classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.#ctor">
+            <summary>
+            Initializes face mask classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face mask classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
         <member name="T:FaceONNX.FaceParser">
             <summary>
             Defines face segmentation parser.
@@ -666,6 +717,147 @@
             Disposes face segmentation parser.
             </summary>
         </member>
+        <member name="T:FaceONNX.Core.Embeddings">
+            <summary>
+            Defines the embeddings database.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.#ctor">
+            <summary>
+            Initializes the embeddings database.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.#ctor(System.Collections.Generic.List{System.Single[]},System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes the embeddings database.
+            </summary>
+            <param name="vectors">Vectors</param>
+            <param name="labels">Labels</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Add(System.Single[],System.String)">
+            <summary>
+            Adds embedding to embeddings database.
+            </summary>
+            <param name="vector">Vector</param>
+            <param name="label">Label</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Remove(System.Int32)">
+            <summary>
+            Removes embedding from embeddings database.
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Remove(System.String)">
+            <summary>
+            Removes embedding from embeddings database.
+            </summary>
+            <param name="label">Label</param>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.Clear">
+            <summary>
+            Clears embeddings database.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Count">
+            <summary>
+            Returns embeddings database count.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Vectors">
+            <summary>
+            Gets or sets vectors.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Core.Embeddings.Labels">
+            <summary>
+            Gets or sets labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.FromDistance(System.Single[])">
+            <summary>
+            Score vector from database by Euclidean distance.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Label</returns>
+        </member>
+        <member name="M:FaceONNX.Core.Embeddings.FromSimilarity(System.Single[])">
+            <summary>
+            Score vector from database by cosine similarity.
+            </summary>
+            <param name="vector">Vector</param>
+            <returns>Label and value</returns>
+        </member>
+        <member name="T:FaceONNX.Imaging">
+            <summary>
+            Using for imaging.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Imaging.Area(System.Drawing.Size)">
+            <summary>
+            Returns size area.
+            </summary>
+            <param name="size">Size</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.Area(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle area.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.Max(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the maximum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.Min(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the minimum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="scale">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangles">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.ToBox(System.Single,System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box with image size.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <param name="factor">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Imaging.IoU(System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Implements IoU operator.
+            </summary>
+            <param name="a">First rectangle</param>
+            <param name="b">Second rectangle</param>
+            <returns>Value</returns>
+        </member>
         <member name="T:FaceONNX.Landmarks">
             <summary>
             Using for face points operations.
@@ -808,6 +1000,11 @@
             </summary>
         </member>
         <member name="P:FaceONNX.Properties.Resources.landmarks_68_pfld">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Properties.Resources.mask_googlenet_slim">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

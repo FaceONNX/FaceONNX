@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UMapx.Core;
 
 namespace FaceONNX.Core
 {
@@ -109,7 +110,7 @@ namespace FaceONNX.Core
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Vectors[i].Distance(vector);
+                var d = Distance.Euclidean(Vectors[i], vector);
 
                 if (d < min)
                 {
@@ -136,7 +137,8 @@ namespace FaceONNX.Core
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Vectors[i].Similarity(vector);
+                // TODO:
+                var d = Distance.Euclidean(Vectors[i], vector);
 
                 if (d > max)
                 {

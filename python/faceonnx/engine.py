@@ -208,6 +208,67 @@ class FaceBeautyClassifier:
 
         return round(2.0 * sum(self.__session.run(None, {self.__input_name: img})[0][0]), 1)
 
+class FaceMaskClassifier:
+
+    """
+    Returns the labels.
+    Returns:
+        Labels
+    """
+    Labels = ["Mask", "No mask"]
+
+    def __init__(self, sessionOptions = None):
+        """
+        Initializes face mask classifier.
+        Args:
+            sessionOptions: Session options.
+        """
+        onnx_path = os.path.join(models_path, "mask_googlenet_slim.onnx")
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
+
+    def Forward(self, image, rectangles = None):
+        """
+        Returns face recognition results.
+        Args:
+            image: Bitmap
+            rectanges: Rectangles
+
+        Returns:
+            Array
+        """
+
+        if rectangles is None:
+            return self.__Forward(image)
+
+        else:
+            outputs = []
+
+            for rectangle in rectangles:
+                cropped = Crop(image, rectangle)
+                outputs.append(self.__Forward(cropped))
+
+            return outputs
+
+    def __Forward(self, image):
+        """
+        Returns face recognition results.
+        Args:
+            image: Bitmap
+
+        Returns:
+            Array
+        """
+        img = Resize(image, (224, 224))
+        img_mean = numpy.array([104, 117, 123])
+        img = img - img_mean
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
+
+        return self.__session.run(None, {self.__input_name: img})[0][0]
+
+
 class FaceEmbedder:
 
     def __init__(self, sessionOptions = None):

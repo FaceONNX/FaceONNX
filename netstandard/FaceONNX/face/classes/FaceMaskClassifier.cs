@@ -10,9 +10,9 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face age classifier.
+    /// Defines face mask classifier.
     /// </summary>
-    public class FaceAgeClassifier : IFaceClassifier, IDisposable
+    public class FaceMaskClassifier : IFaceClassifier, IDisposable
 	{
 		#region Private data
 		/// <summary>
@@ -23,24 +23,24 @@ namespace FaceONNX
 
 		#region Class components
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes face mask classifier.
 		/// </summary>
-		public FaceAgeClassifier()
+		public FaceMaskClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.age_googlenet);
+			_session = new InferenceSession(Properties.Resources.mask_googlenet_slim);
 		}
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes face mask classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceAgeClassifier(SessionOptions options)
+		public FaceMaskClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.age_googlenet, options);
+			_session = new InferenceSession(Properties.Resources.mask_googlenet_slim, options);
 		}
 		/// <summary>
 		/// Returns the labels.
 		/// </summary>
-		public static string[] Labels = new string[] { "<2", "3-7", "8-14", "15-24", "25-37", "38-47", "48-59", ">60" };
+		public static string[] Labels = new string[] { "Mask", "No mask" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
