@@ -8,7 +8,7 @@ You can build **FaceONNX** from sources or install to your own project using nug
 | FaceONNX | .NET Standard 2.0 | Cross-platform | CPU | [1.0.5.1](FaceONNX) | [NuGet](https://www.nuget.org/packages/FaceONNX/) |
 | FaceONNX.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) |
 
-Python version of **FaceONNX** uses [UMapx](https://github.com/asiryan/UMapx). To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
+C# version of **FaceONNX** uses [UMapx](https://github.com/asiryan/UMapx). To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
