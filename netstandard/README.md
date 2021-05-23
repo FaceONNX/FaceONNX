@@ -3,12 +3,12 @@
 
 # FaceONNX
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
-| Assembly | Specification | OS | Platform |Version | Package |
-|-------------|-------------|-------------|-------------|--------------|--------------|
-| FaceONNX | .NET Standard 2.0 | Cross-platform | CPU | [1.0.5.1](FaceONNX) | [NuGet](https://www.nuget.org/packages/FaceONNX/) |
-| FaceONNX.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) |
+| Assembly | Specification | OS | Platform |Version | Package | Algebra |
+|-------------|-------------|-------------|-------------|--------------|--------------|--------------|
+| FaceONNX | .NET Standard 2.0 | Cross-platform | CPU | [1.0.5.1](FaceONNX) | [NuGet](https://www.nuget.org/packages/FaceONNX/) | [UMapx](https://github.com/asiryan/UMapx) |
+| FaceONNX.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
 
-C# version of **FaceONNX** uses [UMapx](https://github.com/asiryan/UMapx). To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
+To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
