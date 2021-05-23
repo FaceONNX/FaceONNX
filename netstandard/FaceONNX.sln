@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPUPerfomanceTests", "FaceO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaceAndAgeClassification", "FaceONNX.Examples\RaceAndAgeClassification\RaceAndAgeClassification.csproj", "{887024D9-7E1B-4483-98FB-0FEE8C6F3321}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceMaskDetectionWebcam", "FaceONNX.Examples\FaceMaskDetectionWebcam\FaceMaskDetectionWebcam.csproj", "{3C14501D-141B-4509-B990-F7CDBF781E39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{887024D9-7E1B-4483-98FB-0FEE8C6F3321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887024D9-7E1B-4483-98FB-0FEE8C6F3321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887024D9-7E1B-4483-98FB-0FEE8C6F3321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C14501D-141B-4509-B990-F7CDBF781E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C14501D-141B-4509-B990-F7CDBF781E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C14501D-141B-4509-B990-F7CDBF781E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C14501D-141B-4509-B990-F7CDBF781E39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{296A6AD1-62BB-47D4-A7B5-A878B4A00BF2} = {DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}
 		{0DB1A13C-142D-43FB-948B-CCCBC3709482} = {DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}
 		{887024D9-7E1B-4483-98FB-0FEE8C6F3321} = {DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}
+		{3C14501D-141B-4509-B990-F7CDBF781E39} = {DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8F882E-960E-4B12-A393-9E938B33E5A7}
