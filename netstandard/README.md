@@ -6,8 +6,8 @@ You can build **FaceONNX** from sources or install to your own project using nug
 | Assembly | Specification | OS | Platform |Version | Package | Algebra |
 |-------------|-------------|-------------|-------------|--------------|--------------|--------------|
 | FaceONNX | .NET Standard 2.0 | Cross-platform | CPU | [1.0.5.1](FaceONNX) | [NuGet](https://www.nuget.org/packages/FaceONNX/) | [UMapx](https://github.com/asiryan/UMapx) |
-| FaceONNX.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
 | FaceONNX.Addons | .NET Standard 2.0 | Cross-platform | CPU | [1.0.5.1](FaceONNX.Addos) | [NuGet](https://www.nuget.org/packages/FaceONNX.Addons/) | [UMapx](https://github.com/asiryan/UMapx) |
+| FaceONNX.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
 | FaceONNX.Addons.Gpu | .NET Standard 2.0 | Cross-platform | GPU | [1.0.5.1](FaceONNX.Addons.Gpu)| [NuGet](https://www.nuget.org/packages/FaceONNX.Addons.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
 
 
