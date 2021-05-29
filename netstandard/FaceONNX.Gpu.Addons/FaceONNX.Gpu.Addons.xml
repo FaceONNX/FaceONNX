@@ -446,58 +446,58 @@
             Disposes face segmentation parser.
             </summary>
         </member>
-        <member name="T:FaceONNX.Addons.Properties.Resources">
+        <member name="T:FaceONNX.Gpu.Addons.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.ResourceManager">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.Culture">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.age_googlenet">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.age_googlenet">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.beauty_resnet18">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.beauty_resnet18">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.emotion_cnn">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.emotion_cnn">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.face_unet_256">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.face_unet_256">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.face_unet_512">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.face_unet_512">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.gender_googlenet">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.gender_googlenet">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.mask_googlenet_slim">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.mask_googlenet_slim">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.race_googlenet">
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.race_googlenet">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
