@@ -1,7 +1,4 @@
-<p align="center"><img width="25%" src="FaceONNX.png" /></p>
-<p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
-
-# FaceONNX
+# FaceONNX (Python)
 | Assembly | Specification | OS | Platform | Package | Algebra |
 |-------------|-------------|-------------|-------------|:--------------:|--------------|
 | FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | [PyPI](https://pypi.org/project/faceonnx/) | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
