@@ -8,7 +8,8 @@
 * gender and race classification,
 * age and emotion classification,
 * beauty estimation,
-* embeddings comparison and etc.  
+* embeddings comparison,
+* COVID-19 mask detection and etc.  
   
 **FaceONNX** is basically focused on [C#](netstandard), but now it has [Python](python) implementation.  
 
