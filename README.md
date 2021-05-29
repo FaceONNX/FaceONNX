@@ -11,7 +11,7 @@
 * embeddings comparison,
 * COVID-19 mask detection and etc.  
   
-**FaceONNX** is basically focused on [C#](netstandard), but now it has [Python](python) implementation.  
+**FaceONNX** is basically focused on [C#](netstandard), but it has [Python](python) implementation.  
 
 # Models
 **FaceONNX** is an open-source software. If you want to build **FaceONNX** from sources or use some features separately you can download already-made models from [Google.Drive](https://drive.google.com/drive/folders/1zfzHNeGju1r1-5vishZ--uaQNSorA0SJ?usp=sharing).  
