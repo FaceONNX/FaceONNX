@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FaceONNX.Addons</name>
+    </assembly>
+    <members>
+        <member name="T:FaceONNX.FaceAgeClassifier">
+            <summary>
+            Defines face age classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceAgeClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.#ctor">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceAgeClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceAgeClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceBautyClassifier">
+            <summary>
+            Defines face beauty classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceBautyClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceBautyClassifier.#ctor">
+            <summary>
+            Initializes face beauty classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceBautyClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face beauty classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="M:FaceONNX.FaceBautyClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceBautyClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceBautyClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceBautyClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceEmotionClassifier">
+            <summary>
+            Defines face age classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceEmotionClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.#ctor">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceEmotionClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceEmotionClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceGenderClassifier">
+            <summary>
+            Defines face gender classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceGenderClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.#ctor">
+            <summary>
+            Initializes face gender classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face gender classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceGenderClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceGenderClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceMaskClassifier">
+            <summary>
+            Defines face mask classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.#ctor">
+            <summary>
+            Initializes face mask classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face mask classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceMaskClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceMaskClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceParser">
+            <summary>
+            Defines face segmentation parser.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceParser._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParser.#ctor">
+            <summary>
+            Initializes face segmentation parser.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParser.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face segmentation parser.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="M:FaceONNX.FaceParser.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceParser.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceParser.ToBitmap(System.Single[0:,0:][])">
+            <summary>
+            Returns bitmap from masks.
+            </summary>
+            <param name="masks">Masks</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="F:FaceONNX.FaceParser.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceParser._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParser.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceParserLight">
+            <summary>
+            Defines face segmentation parser.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceParserLight._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.#ctor">
+            <summary>
+            Initializes face segmentation parser.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face segmentation parser.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.ToBitmap(System.Single[0:,0:][])">
+            <summary>
+            Returns bitmap from masks.
+            </summary>
+            <param name="masks">Masks</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="F:FaceONNX.FaceParserLight.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceParserLight._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceParserLight.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceRaceClassifier">
+            <summary>
+            Defines face race classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceRaceClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceRaceClassifier.#ctor">
+            <summary>
+            Initializes face race classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceRaceClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face race classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceRaceClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceRaceClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.FaceRaceClassifier.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="F:FaceONNX.FaceRaceClassifier._disposed">
+            <summary>
+            Disposed or not.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceRaceClassifier.Dispose">
+            <summary>
+            Dispose void.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.IFaceParser">
+            <summary>
+            Defines face segmentation parser.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.IFaceParser.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image</param>
+            <param name="rectangles">Rectangles</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.IFaceParser.Forward(System.Drawing.Bitmap)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:FaceONNX.IFaceParser.Dispose">
+            <summary>
+            Disposes face segmentation parser.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.Gpu.Addons.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.age_googlenet">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.beauty_resnet18">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.emotion_cnn">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.face_unet_256">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.face_unet_512">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.gender_googlenet">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.mask_googlenet_slim">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Gpu.Addons.Properties.Resources.race_googlenet">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+    </members>
+</doc>
