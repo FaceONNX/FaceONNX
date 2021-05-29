@@ -6,14 +6,22 @@
 |-------------|-------------|-------------|-------------|:--------------:|--------------|
 | FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | [PyPI](https://pypi.org/project/faceonnx/) | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
 
-To build **FaceONNX** from sources for Python support follow this steps
+Install from pypi
+```
+pip install caffe2onnx
+```
+  
+Install latest from github  
+```
+pip install git+https://github.com/asiryan/FaceONNX
+```
+  
+Build and install latest from source  
 ```
 git clone https://github.com/asiryan/FaceONNX
-``` 
-Install **FaceONNX** to your Python environment  
-```
 python setup.py install
 ```
+  
 Python interface  
 ```python
 import faceonnx
