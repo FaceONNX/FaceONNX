@@ -24,7 +24,7 @@ Python interface
 ```python
 import faceonnx
 ```
-To get started with **FaceONNX**, it is recommended to look at the folder with [examples](examples).  
+To get started with **FaceONNX**, it is recommended to look at the folder with [examples](https://github.com/asiryan/FaceONNX/tree/main/python/examples).  
 
 # License
-**FaceONNX** is released under the [MIT](LICENSE) license.
+**FaceONNX** is released under the [MIT](https://github.com/asiryan/FaceONNX/blob/main/python/LICENSE) license.
