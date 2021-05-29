@@ -9,7 +9,7 @@
 # Installation
 Install from pypi
 ```
-pip install caffe2onnx
+pip install faceonnx
 ```
   
 Install latest from github  
