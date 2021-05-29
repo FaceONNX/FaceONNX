@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX", "FaceONNX\FaceON
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu", "FaceONNX.Gpu\FaceONNX.Gpu.csproj", "{D072660A-831F-46DF-9ECB-C83610A681EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceONNX.Addons", "FaceONNX.Addons\FaceONNX.Addons.csproj", "{60B372D5-D608-44D5-B7AF-18BC3670F58C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons", "FaceONNX.Addons\FaceONNX.Addons.csproj", "{60B372D5-D608-44D5-B7AF-18BC3670F58C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu.Addons", "FaceONNX.Gpu.Addons\FaceONNX.Gpu.Addons.csproj", "{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons.Gpu", "FaceONNX.Addons.Gpu\FaceONNX.Addons.Gpu.csproj", "{E540BA12-7A41-48A4-83FB-9712930C94E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E540BA12-7A41-48A4-83FB-9712930C94E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E540BA12-7A41-48A4-83FB-9712930C94E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E540BA12-7A41-48A4-83FB-9712930C94E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E540BA12-7A41-48A4-83FB-9712930C94E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
