@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Gpu.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face race classifier.
+    /// Defines face age classifier.
     /// </summary>
-    public class FaceRaceClassifier : IFaceClassifier, IDisposable
+    public class FaceEmotionClassifier : IFaceClassifier, IDisposable
 	{
 		#region Private data
 		/// <summary>
@@ -23,24 +24,24 @@ namespace FaceONNX
 
 		#region Class components
 		/// <summary>
-		/// Initializes face race classifier.
+		/// Initializes face age classifier.
 		/// </summary>
-		public FaceRaceClassifier()
+		public FaceEmotionClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.race_googlenet);
+			_session = new InferenceSession(Resources.emotion_cnn);
 		}
 		/// <summary>
-		/// Initializes face race classifier.
+		/// Initializes face age classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceRaceClassifier(SessionOptions options)
+		public FaceEmotionClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.race_googlenet, options);
+			_session = new InferenceSession(Resources.emotion_cnn, options);
 		}
 		/// <summary>
 		/// Returns the labels.
 		/// </summary>
-		public static string[] Labels = new string[] { "White", "Black", "Asian", "Indian" };
+		public static string[] Labels = new string[] { "neutral", "happiness", "surprise", "sadness", "anger", "disguest", "fear" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
@@ -67,7 +68,7 @@ namespace FaceONNX
 		/// <returns>Array</returns>
 		public float[] Forward(Bitmap image)
 		{
-			var size = new Size(224, 224);
+			var size = new Size(48, 48);
 			using var clone = BitmapTransform.Resize(image, size);
 			int width = clone.Width;
 			int height = clone.Height;
@@ -75,17 +76,17 @@ namespace FaceONNX
 			var name = inputMeta.Keys.ToArray()[0];
 
 			// pre-processing
-			var dimentions = new int[] { 1, 3, height, width };
-			var tensors = clone.ToFloatTensor(false);
-			tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
-			var inputData = tensors.Merge(true);
+			var dimentions = new int[] { 1, 1, height, width };
+			var tensors = clone.ToFloatTensor(true);
+			tensors.Compute(256, Matrice.Div);
+			var inputData = tensors.Average();
 
 			// session run
 			var t = new DenseTensor<float>(inputData, dimentions);
 			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
 			var results = _session.Run(inputs).ToArray();
 			var length = results.Length;
-			var confidences = results[length - 1].AsTensor<float>().ToArray();
+			var confidences = Matrice.Compute(results[length - 1].AsTensor<float>().ToArray(), Maths.Exp);
 
 			// dispose
 			foreach (var result in results)

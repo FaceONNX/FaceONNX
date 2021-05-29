@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceMaskClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.mask_googlenet_slim);
+			_session = new InferenceSession(Resources.mask_googlenet_slim);
 		}
 		/// <summary>
 		/// Initializes face mask classifier.
@@ -35,7 +36,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceMaskClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.mask_googlenet_slim, options);
+			_session = new InferenceSession(Resources.mask_googlenet_slim, options);
 		}
 		/// <summary>
 		/// Returns the labels.

@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Gpu.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face race classifier.
+    /// Defines face age classifier.
     /// </summary>
-    public class FaceRaceClassifier : IFaceClassifier, IDisposable
+    public class FaceAgeClassifier : IFaceClassifier, IDisposable
 	{
 		#region Private data
 		/// <summary>
@@ -23,24 +24,24 @@ namespace FaceONNX
 
 		#region Class components
 		/// <summary>
-		/// Initializes face race classifier.
+		/// Initializes face age classifier.
 		/// </summary>
-		public FaceRaceClassifier()
+		public FaceAgeClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.race_googlenet);
+			_session = new InferenceSession(Resources.age_googlenet);
 		}
 		/// <summary>
-		/// Initializes face race classifier.
+		/// Initializes face age classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceRaceClassifier(SessionOptions options)
+		public FaceAgeClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.race_googlenet, options);
+			_session = new InferenceSession(Resources.age_googlenet, options);
 		}
 		/// <summary>
 		/// Returns the labels.
 		/// </summary>
-		public static string[] Labels = new string[] { "White", "Black", "Asian", "Indian" };
+		public static string[] Labels = new string[] { "<2", "3-7", "8-14", "15-24", "25-37", "38-47", "48-59", ">60" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
@@ -48,18 +49,19 @@ namespace FaceONNX
 		/// <param name="rectangles">Rectangles</param>
 		/// <returns>Array</returns>
 		public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
-		{
+        {
 			int length = rectangles.Length;
 			float[][] vector = new float[length][];
 
 			for (int i = 0; i < length; i++)
-			{
-				using var cropped = BitmapTransform.Crop(image, rectangles[i]);
+            {
+				var rectangle = rectangles[i];
+				using var cropped = BitmapTransform.Crop(image, rectangle);
 				vector[i] = Forward(cropped);
-			}
+            }
 
 			return vector;
-		}
+        }
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>

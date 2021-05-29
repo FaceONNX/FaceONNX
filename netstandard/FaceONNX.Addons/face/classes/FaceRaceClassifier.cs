@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face gender classifier.
+    /// Defines face race classifier.
     /// </summary>
-    public class FaceGenderClassifier : IFaceClassifier, IDisposable
+    public class FaceRaceClassifier : IFaceClassifier, IDisposable
 	{
 		#region Private data
 		/// <summary>
@@ -23,24 +24,24 @@ namespace FaceONNX
 
 		#region Class components
 		/// <summary>
-		/// Initializes face gender classifier.
+		/// Initializes face race classifier.
 		/// </summary>
-		public FaceGenderClassifier()
+		public FaceRaceClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.gender_googlenet);
+			_session = new InferenceSession(Resources.race_googlenet);
 		}
 		/// <summary>
-		/// Initializes face gender classifier.
+		/// Initializes face race classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceGenderClassifier(SessionOptions options)
+		public FaceRaceClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.gender_googlenet, options);
+			_session = new InferenceSession(Resources.race_googlenet, options);
 		}
 		/// <summary>
 		/// Returns the labels.
 		/// </summary>
-		public static string[] Labels = new string[] { "Male", "Female" };
+		public static string[] Labels = new string[] { "White", "Black", "Asian", "Indian" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
@@ -54,8 +55,7 @@ namespace FaceONNX
 
 			for (int i = 0; i < length; i++)
 			{
-				var rectangle = rectangles[i];
-				using var cropped = BitmapTransform.Crop(image, rectangle);
+				using var cropped = BitmapTransform.Crop(image, rectangles[i]);
 				vector[i] = Forward(cropped);
 			}
 

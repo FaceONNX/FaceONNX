@@ -13,7 +13,7 @@ namespace FaceMaskDetectionWebcam
         {
             try
             {
-                var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice); int i = 0;
+                var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
                 var videoDevice = new VideoCaptureDevice(videoDevices[camindex].MonikerString);
                 var videoCapabilities = videoDevice.VideoCapabilities;
                 videoDevice.VideoResolution = videoCapabilities[resindex];

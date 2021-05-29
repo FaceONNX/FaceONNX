@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceBautyClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.beauty_resnet18);
+			_session = new InferenceSession(Resources.beauty_resnet18);
 		}
 		/// <summary>
 		/// Initializes face beauty classifier.
@@ -35,7 +36,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceBautyClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.beauty_resnet18, options);
+			_session = new InferenceSession(Resources.beauty_resnet18, options);
 		}
 		/// <summary>
 		/// Returns face recognition results.

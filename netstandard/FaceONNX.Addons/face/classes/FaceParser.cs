@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FaceONNX
         /// </summary>
         public FaceParser()
         {
-            _session = new InferenceSession(Properties.Resources.face_unet_512);
+            _session = new InferenceSession(Resources.face_unet_512);
         }
         /// <summary>
         /// Initializes face segmentation parser.
@@ -35,7 +36,7 @@ namespace FaceONNX
         /// <param name="options">Session options</param>
         public FaceParser(SessionOptions options)
         {
-            _session = new InferenceSession(Properties.Resources.face_unet_512, options);
+            _session = new InferenceSession(Resources.face_unet_512, options);
         }
         /// <summary>
         /// Returns face recognition results.

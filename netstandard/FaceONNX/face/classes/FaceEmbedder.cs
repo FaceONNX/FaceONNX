@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceEmbedder()
 		{
-			_session = new InferenceSession(Properties.Resources.recognition_resnet27);
+			_session = new InferenceSession(Resources.recognition_resnet27);
 		}
 		/// <summary>
 		/// Initializes face embedder.
@@ -35,7 +36,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceEmbedder(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.recognition_resnet27, options);
+			_session = new InferenceSession(Resources.recognition_resnet27, options);
 		}
 		/// <summary>
 		/// Returns face recognition results.

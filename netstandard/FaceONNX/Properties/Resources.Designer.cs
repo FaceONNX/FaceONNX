@@ -63,36 +63,6 @@ namespace FaceONNX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] age_googlenet {
-            get {
-                object obj = ResourceManager.GetObject("age_googlenet", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] beauty_resnet18 {
-            get {
-                object obj = ResourceManager.GetObject("beauty_resnet18", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] emotion_cnn {
-            get {
-                object obj = ResourceManager.GetObject("emotion_cnn", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] face_detector_320 {
             get {
                 object obj = ResourceManager.GetObject("face_detector_320", resourceCulture);
@@ -113,59 +83,9 @@ namespace FaceONNX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] face_unet_256 {
-            get {
-                object obj = ResourceManager.GetObject("face_unet_256", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] face_unet_512 {
-            get {
-                object obj = ResourceManager.GetObject("face_unet_512", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] gender_googlenet {
-            get {
-                object obj = ResourceManager.GetObject("gender_googlenet", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] landmarks_68_pfld {
             get {
                 object obj = ResourceManager.GetObject("landmarks_68_pfld", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] mask_googlenet_slim {
-            get {
-                object obj = ResourceManager.GetObject("mask_googlenet_slim", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] race_googlenet {
-            get {
-                object obj = ResourceManager.GetObject("race_googlenet", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceLandmarksExtractor()
 		{
-			_session = new InferenceSession(Properties.Resources.landmarks_68_pfld);
+			_session = new InferenceSession(Resources.landmarks_68_pfld);
 		}
 		/// <summary>
 		/// Initializes face landmarks extractor.
@@ -35,7 +36,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceLandmarksExtractor(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.landmarks_68_pfld, options);
+			_session = new InferenceSession(Resources.landmarks_68_pfld, options);
 		}
 		/// <summary>
 		/// Returns face landmarks.

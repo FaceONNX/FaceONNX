@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX", "FaceONNX\FaceON
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu", "FaceONNX.Gpu\FaceONNX.Gpu.csproj", "{D072660A-831F-46DF-9ECB-C83610A681EE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FaceONNX.Examples", "FaceONNX.Examples", "{DB98F844-7DE4-45A1-ADB9-3D1E363A0C1A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmotionAndBeautyEstimation", "FaceONNX.Examples\EmotionAndBeautyEstimation\EmotionAndBeautyEstimation.csproj", "{786B7C5D-1895-476D-B1D4-0AC337AEF74A}"
 EndProject
@@ -25,7 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPUPerfomanceTests", "FaceO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaceAndAgeClassification", "FaceONNX.Examples\RaceAndAgeClassification\RaceAndAgeClassification.csproj", "{887024D9-7E1B-4483-98FB-0FEE8C6F3321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceMaskDetectionWebcam", "FaceONNX.Examples\FaceMaskDetectionWebcam\FaceMaskDetectionWebcam.csproj", "{3C14501D-141B-4509-B990-F7CDBF781E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceMaskDetectionWebcam", "FaceONNX.Examples\FaceMaskDetectionWebcam\FaceMaskDetectionWebcam.csproj", "{3C14501D-141B-4509-B990-F7CDBF781E39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceONNX.Addons", "FaceONNX.Addons\FaceONNX.Addons.csproj", "{60B372D5-D608-44D5-B7AF-18BC3670F58C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu.Addons", "FaceONNX.Gpu.Addons\FaceONNX.Gpu.Addons.csproj", "{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,14 @@ Global
 		{3C14501D-141B-4509-B990-F7CDBF781E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C14501D-141B-4509-B990-F7CDBF781E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C14501D-141B-4509-B990-F7CDBF781E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60B372D5-D608-44D5-B7AF-18BC3670F58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F1488E-EDD1-43D8-BBAB-3A5C04F12DA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

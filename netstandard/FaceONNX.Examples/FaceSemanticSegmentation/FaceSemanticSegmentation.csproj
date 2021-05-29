@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\FaceONNX.Addons\FaceONNX.Addons.csproj" />
     <ProjectReference Include="..\..\FaceONNX\FaceONNX.csproj" />
   </ItemGroup>
 

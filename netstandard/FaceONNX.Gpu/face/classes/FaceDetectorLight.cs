@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace FaceONNX
 		/// <param name="nmsThreshold">NonMaxSuppression threshold</param>
 		public FaceDetectorLight(float confidenceThreshold = 0.95f, float nmsThreshold = 0.5f)
 		{
-			_session = new InferenceSession(Properties.Resources.face_detector_320);
+			_session = new InferenceSession(Resources.face_detector_320);
 			ConfidenceThreshold = confidenceThreshold;
 			NmsThreshold = nmsThreshold;
 		}
@@ -41,7 +42,7 @@ namespace FaceONNX
 		/// <param name="nmsThreshold">NonMaxSuppression threshold</param>
 		public FaceDetectorLight(SessionOptions options, float confidenceThreshold = 0.95f, float nmsThreshold = 0.5f)
 		{
-			_session = new InferenceSession(Properties.Resources.face_detector_320, options);
+			_session = new InferenceSession(Resources.face_detector_320, options);
 			ConfidenceThreshold = confidenceThreshold;
 			NmsThreshold = nmsThreshold;
 		}

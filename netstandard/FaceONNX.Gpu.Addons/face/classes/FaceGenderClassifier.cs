@@ -1,4 +1,5 @@
-﻿using Microsoft.ML.OnnxRuntime;
+﻿using FaceONNX.Gpu.Addons.Properties;
+using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face beauty classifier.
+    /// Defines face gender classifier.
     /// </summary>
-    public class FaceBautyClassifier : IFaceClassifier, IDisposable
-    {
+    public class FaceGenderClassifier : IFaceClassifier, IDisposable
+	{
 		#region Private data
 		/// <summary>
 		/// Inference session.
@@ -23,20 +24,24 @@ namespace FaceONNX
 
 		#region Class components
 		/// <summary>
-		/// Initializes face beauty classifier.
+		/// Initializes face gender classifier.
 		/// </summary>
-		public FaceBautyClassifier()
+		public FaceGenderClassifier()
 		{
-			_session = new InferenceSession(Properties.Resources.beauty_resnet18);
+			_session = new InferenceSession(Resources.gender_googlenet);
 		}
 		/// <summary>
-		/// Initializes face beauty classifier.
+		/// Initializes face gender classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceBautyClassifier(SessionOptions options)
+		public FaceGenderClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Properties.Resources.beauty_resnet18, options);
+			_session = new InferenceSession(Resources.gender_googlenet, options);
 		}
+		/// <summary>
+		/// Returns the labels.
+		/// </summary>
+		public static string[] Labels = new string[] { "Male", "Female" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
@@ -65,7 +70,7 @@ namespace FaceONNX
 		public float[] Forward(Bitmap image)
 		{
 			var size = new Size(224, 224);
-			using var clone = BitmapTransform.Resize(image, size, Color.White);
+			using var clone = BitmapTransform.Resize(image, size);
 			int width = clone.Width;
 			int height = clone.Height;
 			var inputMeta = _session.InputMetadata;
@@ -75,7 +80,6 @@ namespace FaceONNX
 			var dimentions = new int[] { 1, 3, height, width };
 			var tensors = clone.ToFloatTensor(false);
 			tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
-			tensors.Compute(255, Matrice.Div);
 			var inputData = tensors.Merge(true);
 
 			// session run
