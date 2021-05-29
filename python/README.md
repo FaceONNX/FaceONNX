@@ -4,7 +4,7 @@
 # FaceONNX
 | Assembly | Specification | OS | Platform | Package | Algebra |
 |-------------|-------------|-------------|-------------|:--------------:|--------------|
-| FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | - | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
+| FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | [PyPI](https://pypi.org/project/faceonnx/) | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
 
 To build **FaceONNX** from sources for Python support follow this steps
 ```
