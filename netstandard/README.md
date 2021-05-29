@@ -1,7 +1,4 @@
-<p align="center"><img width="25%" src="FaceONNX/FaceONNX.png" /></p>
-<p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
-
-# FaceONNX
+# FaceONNX (C#)
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
 | Assembly | Specification | OS | Platform | Package | Algebra |
 |-------------|-------------|-------------|--------------|--------------|--------------|
