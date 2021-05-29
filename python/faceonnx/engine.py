@@ -5,6 +5,7 @@ import os
 from .imaging import Rotate, Resize, Crop, ToBox
 from .landmarks import GetMeanPoint, GetSupportPoint, GetAngle, GetLeftEye, GetRightEye
 from .internal import Detector
+from google_drive_downloader import GoogleDriveDownloader as g
 
 # main
 __this = os.path.dirname(__file__)
@@ -20,7 +21,9 @@ class FaceDetectorLight:
             nmsThreshold: NonMaxSuppression threshold (defaults to 0.5)
             sessionOptions: Session options.
         """
+        
         onnx_path = os.path.join(models_path, "face_detector_320.onnx")
+        g.download_file_from_google_drive(file_id='1U6uKXWCPmxiShhCnXfBQZkl97Gm3GEJV', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
         self.confidenceThreshold = confidenceThreshold
@@ -63,6 +66,7 @@ class FaceDetector:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_detector_640.onnx")
+        g.download_file_from_google_drive(file_id='1tB7Y5l5Jf2270IisgSZ3rbCQs0-pkNIQ', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
         self.confidenceThreshold = confidenceThreshold
@@ -110,6 +114,7 @@ class FaceAgeClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "age_googlenet.onnx")
+        g.download_file_from_google_drive(file_id='1T39Qh7FA-tNbDge6PE4gN-8Ajgnmozum', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -164,6 +169,7 @@ class FaceBeautyClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "beauty_resnet18.onnx")
+        g.download_file_from_google_drive(file_id='1Eqr3KXXEFI2vhFAggknmNdmKtO0Ap_0C', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -224,6 +230,7 @@ class FaceMaskClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "mask_googlenet_slim.onnx")
+        g.download_file_from_google_drive(file_id='1PHGb4d0ews2jNBGBaYZ4HWNJzph00oJa', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -278,6 +285,7 @@ class FaceEmbedder:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "recognition_resnet27.onnx")
+        g.download_file_from_google_drive(file_id='1ijbMt1LETLQc6GDGAtEJx8ggEGenyM7m', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -338,6 +346,7 @@ class FaceEmotionClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "emotion_cnn.onnx")
+        g.download_file_from_google_drive(file_id='1Oqd-0klyn-loAnUyXdah4FN131YfDFcv', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -398,6 +407,7 @@ class FaceRaceClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "race_googlenet.onnx")
+        g.download_file_from_google_drive(file_id='1b5KC_qG-mTSCkM2vW4VsThETzRkmc7Fa', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -458,6 +468,7 @@ class FaceGenderClassifier:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "gender_googlenet.onnx")
+        g.download_file_from_google_drive(file_id='1ZsqnXunyEgxaAx9WoX5uQv_T7RWvTbTz', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -511,6 +522,7 @@ class FaceLandmarksExtractor:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "landmarks_68_pfld.onnx")
+        g.download_file_from_google_drive(file_id='1qgM6ZqMyB60FYlzzxNDyUefifLS0lhag', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -616,6 +628,7 @@ class FaceParser:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_512.onnx")
+        g.download_file_from_google_drive(file_id='1ouxERxbMSZpH6FA-y7mrgoVMuTTtig3P', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -699,7 +712,7 @@ class FaceParser:
                         maximum = masks[i, y, x]
                         index = i
 
-                color = self.Labels[index]
+                color = FaceParser.Labels[index]
                 image[y, x] = color[::-1]
 
         return image
@@ -740,6 +753,7 @@ class FaceParserLight:
             sessionOptions: Session options.
         """
         onnx_path = os.path.join(models_path, "face_unet_256.onnx")
+        g.download_file_from_google_drive(file_id='1ZyzRGsQLpEVkzIVQn1qXwdPv0gxfj0Ch', dest_path=onnx_path)
         self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
         self.__input_name = self.__session.get_inputs()[0].name
 
@@ -823,7 +837,7 @@ class FaceParserLight:
                         maximum = masks[i, y, x]
                         index = i
                 
-                color = self.Labels[index]
+                color = FaceParserLight.Labels[index]
                 image[y, x] = color[::-1]
 
         return image
