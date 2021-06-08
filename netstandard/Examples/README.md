@@ -117,17 +117,19 @@ Image: [CM742.jpg] --> detected [1] faces
 
 # GPU Perfomance tests
 Build and run [GPUPerfomanceTests.csproj](GPUPerfomanceTests) to test FaceONNX inference on GPU.  
-GPU Perfomance tests with CUDA 10.2 and cuDNN 8.0.3 on NVIDIA GeForce GTX 1050 Ti.
+GPU Perfomance tests with CUDA 10.2 and cuDNN 8.0.3 on NVIDIA GeForce GTX 1050 Ti (GPU) and Intel Core i7 9700K (CPU).
 ```
+FaceONNX: GPU Perfomance tests with CUDA provider
+
 FPS test for [FaceONNX.FaceDetector]
 Initializing GPU device [0]
-Finished in [1657] mls.
+Finished in [2828] mls.
 Running FPS test for [1000] iterations
-FPS --> [16,14961]
+FPS --> [46,242775]
 
 FPS test for [FaceONNX.FaceDetectorLight]
 Initializing GPU device [0]
-Finished in [656] mls.
+Finished in [359] mls.
 Running FPS test for [1000] iterations
-FPS --> [36,65555]
+FPS --> [142,53136]
 ```
