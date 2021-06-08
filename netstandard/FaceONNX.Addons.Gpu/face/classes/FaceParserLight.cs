@@ -1,4 +1,4 @@
-﻿using FaceONNX.Gpu.Addons.Properties;
+﻿using FaceONNX.Addons.Gpu.Properties;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;

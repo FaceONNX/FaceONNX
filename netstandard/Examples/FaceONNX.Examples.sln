@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons", "..\FaceO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu", "..\FaceONNX.Gpu\FaceONNX.Gpu.csproj", "{3AACE39B-9033-48A0-A4EE-6C9CE493BEA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu.Addons", "..\FaceONNX.Addons.Gpu\FaceONNX.Addons.Gpu.csproj", "{CF0FA68A-CBDD-48B5-83C5-2C990CCD609A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons.Gpu", "..\FaceONNX.Addons.Gpu\FaceONNX.Addons.Gpu.csproj", "{CF0FA68A-CBDD-48B5-83C5-2C990CCD609A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{5C59EADF-F2E6-4217-AB30-3D413343E510}"
 EndProject
