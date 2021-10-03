@@ -1,4 +1,4 @@
-# FaceONNX (C#)
+# FaceONNX
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
 | Assembly | Specification | OS | Platform | Package | Algebra |
 |-------------|:-------------:|:-------------:|:--------------:|:--------------:|:--------------:|

@@ -1,4 +1,4 @@
-# FaceONNX (Python)
+# FaceONNX
 | Assembly | Specification | OS | Platform | Package | Algebra |
 |-------------|:-------------:|:-------------:|:-------------:|:--------------:|:--------------:|
 | FaceONNX | Python 3.5+ | Cross-platform | CPU/GPU | [PyPI](https://pypi.org/project/faceonnx/) | [opencv](https://opencv.org/), [numpy](https://numpy.org/) |
