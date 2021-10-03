@@ -37,12 +37,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.6.0" />
-		<PackageReference Include="System.Drawing.Common" Version="5.0.0" />
-		<PackageReference Include="UMapx" Version="5.1.2.2" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>

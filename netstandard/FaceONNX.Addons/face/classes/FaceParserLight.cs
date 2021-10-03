@@ -138,7 +138,7 @@ namespace FaceONNX
                 for (int x = 0; x < width; x++)
                 {
                     int k, ystride = y * stride;
-                    k = ystride + x * 3;
+                    k = ystride + x * 4;
                     var max = float.MinValue;
                     var index = 0;
 
@@ -153,6 +153,7 @@ namespace FaceONNX
 
                     // transform
                     var color = Labels[index];
+                    p[k + 3] = color.A;
                     p[k + 2] = color.R;
                     p[k + 1] = color.G;
                     p[k + 0] = color.B;

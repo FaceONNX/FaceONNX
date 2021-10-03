@@ -41,7 +41,7 @@ namespace FaceONNX
 		/// <summary>
 		/// Returns the labels.
 		/// </summary>
-		public static string[] Labels = new string[] { "neutral", "happiness", "surprise", "sadness", "anger", "disguest", "fear" };
+		public static string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>
