@@ -4,9 +4,9 @@ using System.Drawing;
 namespace FaceONNX
 {
     /// <summary>
-    /// Using for imaging.
+    /// Using for face boxes operations.
     /// </summary>
-    public static class Imaging
+    public static class Rectangles
     {
         #region Rectangles
         /// <summary>
@@ -136,7 +136,7 @@ namespace FaceONNX
 
             for (int i = 0; i < length; i++)
             {
-                newRectangles[i] = Imaging.ToBox(rectangles[i]);
+                newRectangles[i] = Rectangles.ToBox(rectangles[i]);
             }
 
             return newRectangles;
@@ -154,7 +154,7 @@ namespace FaceONNX
 
             for (int i = 0; i < length; i++)
             {
-                newRectangles[i] = Imaging.ToBox(rectangles[i], factor);
+                newRectangles[i] = Rectangles.ToBox(rectangles[i], factor);
             }
 
             return newRectangles;

@@ -8,6 +8,53 @@ namespace FaceONNX
     /// </summary>
     public static class Landmarks
     {
+        #region Operators
+        /// <summary>
+        /// Returns processed points.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <param name="point">Point</param>
+        /// <returns>Points</returns>
+        public static Point[] Add(this Point[] points, Point point)
+        {
+            var count = points.Length;
+            var output = new Point[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = new Point
+                {
+                    X = points[i].X + point.X,
+                    Y = points[i].Y + point.Y
+                };
+            }
+
+            return output;
+        }
+        /// <summary>
+        /// Returns processed points.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <param name="point">Point</param>
+        /// <returns>Points</returns>
+        public static Point[] Sub(this Point[] points, Point point)
+        {
+            var count = points.Length;
+            var output = new Point[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = new Point
+                {
+                    X = points[i].X - point.X,
+                    Y = points[i].Y - point.Y
+                };
+            }
+
+            return output;
+        }
+        #endregion
+
         #region Special operators
         /// <summary>
         /// Return angle of the three points.

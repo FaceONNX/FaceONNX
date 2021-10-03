@@ -91,7 +91,7 @@ namespace FaceONNX
 				if (confidences[i + 1] > ConfidenceThreshold)
 				{
 					boxes_picked.Add(
-						Imaging.ToBox(
+						Rectangles.ToBox(
 							Rectangle.FromLTRB
 							(
 								(int)(boxes[j + 0] * image.Width),
@@ -112,7 +112,7 @@ namespace FaceONNX
 				for (int j = i + 1; j < length; j++)
 				{
 					var second = boxes_picked[j];
-					var iou = Imaging.IoU(first, second);
+					var iou = Rectangles.IoU(first, second);
 
 					if (iou > NmsThreshold)
 					{

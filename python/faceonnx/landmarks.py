@@ -1,5 +1,43 @@
 import math
 
+def Add(points, point):
+    """
+    Returns processed points.
+    Args:
+        points: Points
+        support: Point
+
+    Returns:
+        Points
+    """
+    output = []
+    length = len(points)
+
+    for i in range(length):
+        current = points[i]
+        output.append((current[0] + point[0], current[1] + point[1])
+
+    return output
+
+def Sub(points, point):
+    """
+    Returns processed points.
+    Args:
+        points: Points
+        support: Point
+
+    Returns:
+        Points
+    """
+    output = []
+    length = len(points)
+
+    for i in range(length):
+        current = points[i]
+        output.append((current[0] - point[0], current[1] - point[1])
+
+    return output
+
 def GetAngle(left, right, support):
     """
     Return angle of the three points.
@@ -32,7 +70,7 @@ def GetSupportPoint(left, right):
     Returns:
         Point
     """
-    return right[0], left[1]
+    return (right[0], left[1])
 
 def GetMeanPoint(points):
     """

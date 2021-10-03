@@ -2,7 +2,8 @@ import onnxruntime
 import numpy
 import cv2
 import os
-from .imaging import Rotate, Resize, Crop, ToBox
+from .rectangles import ToBox
+from .imaging import Rotate, Resize, Crop
 from .landmarks import GetMeanPoint, GetSupportPoint, GetAngle, GetLeftEye, GetRightEye
 from .internal import Detector
 from google_drive_downloader import GoogleDriveDownloader as g
@@ -337,7 +338,7 @@ class FaceEmotionClassifier:
     Returns:
         Labels
     """
-    Labels = ["neutral", "happiness", "surprise", "sadness", "anger", "disguest", "fear"]
+    Labels = ["Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear"]
 
     def __init__(self, sessionOptions = None):
         """

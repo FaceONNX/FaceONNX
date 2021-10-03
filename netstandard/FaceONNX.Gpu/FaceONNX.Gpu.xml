@@ -345,81 +345,26 @@
             <param name="vector">Vector</param>
             <returns>Label and value</returns>
         </member>
-        <member name="T:FaceONNX.Imaging">
-            <summary>
-            Using for imaging.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Imaging.Area(System.Drawing.Size)">
-            <summary>
-            Returns size area.
-            </summary>
-            <param name="size">Size</param>
-            <returns>Area</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.Area(System.Drawing.Rectangle)">
-            <summary>
-            Returns rectangle area.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Area</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.Max(System.Drawing.Rectangle[])">
-            <summary>
-            Returns the maximum rectangle.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.Min(System.Drawing.Rectangle[])">
-            <summary>
-            Returns the minimum rectangle.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle)">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle,System.Single)">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="scale">Factor</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.ToBox(System.Drawing.Rectangle[])">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangles">Rectangle</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.ToBox(System.Single,System.Drawing.Rectangle[])">
-            <summary>
-            Returns rectangle scaled to box with image size.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <param name="factor">Factor</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Imaging.IoU(System.Drawing.Rectangle,System.Drawing.Rectangle)">
-            <summary>
-            Implements IoU operator.
-            </summary>
-            <param name="a">First rectangle</param>
-            <param name="b">Second rectangle</param>
-            <returns>Value</returns>
-        </member>
         <member name="T:FaceONNX.Landmarks">
             <summary>
             Using for face points operations.
             </summary>
+        </member>
+        <member name="M:FaceONNX.Landmarks.Add(System.Drawing.Point[],System.Drawing.Point)">
+            <summary>
+            Returns processed points.
+            </summary>
+            <param name="points">Points</param>
+            <param name="point">Point</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.Sub(System.Drawing.Point[],System.Drawing.Point)">
+            <summary>
+            Returns processed points.
+            </summary>
+            <param name="points">Points</param>
+            <param name="point">Point</param>
+            <returns>Points</returns>
         </member>
         <member name="M:FaceONNX.Landmarks.GetAngle(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
             <summary>
@@ -500,6 +445,77 @@
             </summary>
             <param name="points">Points</param>
             <returns>Points</returns>
+        </member>
+        <member name="T:FaceONNX.Rectangles">
+            <summary>
+            Using for face boxes operations.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Area(System.Drawing.Size)">
+            <summary>
+            Returns size area.
+            </summary>
+            <param name="size">Size</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Area(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle area.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Area</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Max(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the maximum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Min(System.Drawing.Rectangle[])">
+            <summary>
+            Returns the minimum rectangle.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="scale">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box.
+            </summary>
+            <param name="rectangles">Rectangle</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.ToBox(System.Single,System.Drawing.Rectangle[])">
+            <summary>
+            Returns rectangle scaled to box with image size.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <param name="factor">Factor</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.IoU(System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Implements IoU operator.
+            </summary>
+            <param name="a">First rectangle</param>
+            <param name="b">Second rectangle</param>
+            <returns>Value</returns>
         </member>
         <member name="T:FaceONNX.Properties.Resources">
             <summary>
