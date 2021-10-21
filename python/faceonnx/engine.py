@@ -40,8 +40,8 @@ class FaceDetectorLight:
             Rectangles
         """
         h, w, _ = image.shape
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (320, 240))
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img_mean = numpy.array([127, 127, 127])
         img = (img - img_mean) / 128
         img = numpy.transpose(img, [2, 0, 1])
@@ -83,8 +83,8 @@ class FaceDetector:
             Rectangles
         """
         h, w, _ = image.shape
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (640, 480))
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img_mean = numpy.array([127, 127, 127])
         img = (img - img_mean) / 128
         img = numpy.transpose(img, [2, 0, 1])
@@ -565,8 +565,8 @@ class FaceLandmarksExtractor:
             Array
         """
         h, w, _ = image.shape
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, (112, 112))
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = img / 255.0
         img = numpy.transpose(img, [2, 0, 1])
         img = numpy.expand_dims(img, axis=0)
@@ -672,8 +672,8 @@ class FaceParser:
         """
         h, w, _ = image.shape
         size = (512, 512)
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, size)
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = img / 255.0
         img_mean = numpy.array([0.5, 0.5, 0.5])
         img = (img - img_mean) / img_mean
@@ -797,8 +797,8 @@ class FaceParserLight:
         """
         h, w, _ = image.shape
         size = (256, 256)
-        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = Resize(img, size)
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img = img / 255.0
         img_mean = numpy.array([0.5, 0.5, 0.5])
         img = (img - img_mean) / img_mean
