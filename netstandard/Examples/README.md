@@ -129,7 +129,6 @@ Average time --> [25,78] ms
 FPS --> [38,789757]
 Finished in [2578] ms
 
-
 Configuring FaceRecognitionTest
 Configuring CPU device
 Finished in [390] ms
