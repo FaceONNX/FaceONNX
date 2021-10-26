@@ -30,31 +30,16 @@
             <param name="nmsThreshold">NonMaxSuppression threshold</param>
         </member>
         <member name="P:FaceONNX.FaceDetector.ConfidenceThreshold">
-            <summary>
-            Gets or sets confidence threshold.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:FaceONNX.FaceDetector.NmsThreshold">
-            <summary>
-            Gets or sets NonMaxSuppression threshold.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceDetector.Forward(System.Drawing.Bitmap)">
-            <summary>
-            Returns face detection results.
-            </summary>
-            <param name="image">Bitmap</param>
-            <returns>Rectangles</returns>
-        </member>
-        <member name="F:FaceONNX.FaceDetector._disposed">
-            <summary>
-            Disposed or not.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceDetector.Dispose">
-            <summary>
-            Dispose void.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="T:FaceONNX.FaceDetectorLight">
             <summary>
@@ -82,31 +67,16 @@
             <param name="nmsThreshold">NonMaxSuppression threshold</param>
         </member>
         <member name="P:FaceONNX.FaceDetectorLight.ConfidenceThreshold">
-            <summary>
-            Gets or sets confidence threshold.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:FaceONNX.FaceDetectorLight.NmsThreshold">
-            <summary>
-            Gets or sets NonMaxSuppression threshold.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceDetectorLight.Forward(System.Drawing.Bitmap)">
-            <summary>
-            Returns face detection results.
-            </summary>
-            <param name="image">Bitmap</param>
-            <returns>Rectangles</returns>
-        </member>
-        <member name="F:FaceONNX.FaceDetectorLight._disposed">
-            <summary>
-            Disposed or not.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceDetectorLight.Dispose">
-            <summary>
-            Dispose void.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="T:FaceONNX.FaceEmbedder">
             <summary>
@@ -130,29 +100,13 @@
             <param name="options">Session options</param>
         </member>
         <member name="M:FaceONNX.FaceEmbedder.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Image</param>
-            <param name="rectangles">Rectangles</param>
-            <returns>Array</returns>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceEmbedder.Forward(System.Drawing.Bitmap)">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Bitmap</param>
-            <returns>Array</returns>
-        </member>
-        <member name="F:FaceONNX.FaceEmbedder._disposed">
-            <summary>
-            Disposed or not.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceEmbedder.Dispose">
-            <summary>
-            Dispose void.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="T:FaceONNX.FaceLandmarksExtractor">
             <summary>
@@ -176,19 +130,10 @@
             <param name="options">Session options</param>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <summary>
-            Returns face landmarks.
-            </summary>
-            <param name="image">Image</param>
-            <param name="rectangles">Rectangles</param>
-            <returns>Points</returns>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
-            <summary>
-            Returns face landmarks.
-            </summary>
-            <param name="image">Bitmap</param>
-            <returns>Points</returns>
+            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Drawing.Point[])">
             <summary>
@@ -198,15 +143,8 @@
             <param name="points">Points</param>
             <returns>Bitmap</returns>
         </member>
-        <member name="F:FaceONNX.FaceLandmarksExtractor._disposed">
-            <summary>
-            Disposed or not.
-            </summary>
-        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">
-            <summary>
-            Dispose void.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="T:FaceONNX.IFaceClassifier">
             <summary>
@@ -228,14 +166,19 @@
             <param name="image">Bitmap</param>
             <returns>Array</returns>
         </member>
-        <member name="M:FaceONNX.IFaceClassifier.Dispose">
-            <summary>
-            Disposes face classifier.
-            </summary>
-        </member>
         <member name="T:FaceONNX.IFaceDetector">
             <summary>
             Defines face detector interface.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.IFaceDetector.ConfidenceThreshold">
+            <summary>
+            Gets or sets confidence threshold.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.IFaceDetector.NmsThreshold">
+            <summary>
+            Gets or sets NonMaxSuppression threshold.
             </summary>
         </member>
         <member name="M:FaceONNX.IFaceDetector.Forward(System.Drawing.Bitmap)">
@@ -244,11 +187,6 @@
             </summary>
             <param name="image">Bitmap</param>
             <returns>Rectangles</returns>
-        </member>
-        <member name="M:FaceONNX.IFaceDetector.Dispose">
-            <summary>
-            Disposes face detector.
-            </summary>
         </member>
         <member name="T:FaceONNX.IFaceLandmarksExtractor">
             <summary>
@@ -269,11 +207,6 @@
             </summary>
             <param name="image">Bitmap</param>
             <returns>Point</returns>
-        </member>
-        <member name="M:FaceONNX.IFaceLandmarksExtractor.Dispose">
-            <summary>
-            Disposes face landmarks extractor.
-            </summary>
         </member>
         <member name="T:FaceONNX.Embeddings">
             <summary>
