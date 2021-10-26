@@ -15,7 +15,7 @@ def Add(points, point):
 
     for i in range(length):
         current = points[i]
-        output.append((current[0] + point[0], current[1] + point[1])
+        output.append(current[0] + point[0], current[1] + point[1])
 
     return output
 
@@ -34,7 +34,7 @@ def Sub(points, point):
 
     for i in range(length):
         current = points[i]
-        output.append((current[0] - point[0], current[1] - point[1])
+        output.append(current[0] - point[0], current[1] - point[1])
 
     return output
 

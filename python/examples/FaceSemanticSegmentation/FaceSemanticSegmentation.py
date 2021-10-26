@@ -1,6 +1,5 @@
 import cv2
 from faceonnx import FaceDetectorLight, FaceParser, Crop
-import numpy
 import os
 
 print("FaceONNX: Face semantic segmentation")
