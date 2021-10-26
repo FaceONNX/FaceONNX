@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face embedder.
     /// </summary>
-    public class FaceEmbedder : IFaceClassifier, IDisposable
+    public class FaceEmbedder : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
 		private readonly InferenceSession _session;
 		#endregion
 
-		#region Class components
+		#region Constructor
+
 		/// <summary>
 		/// Initializes face embedder.
 		/// </summary>
@@ -30,6 +31,7 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.recognition_resnet27);
 		}
+
 		/// <summary>
 		/// Initializes face embedder.
 		/// </summary>
@@ -38,13 +40,13 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.recognition_resnet27, options);
 		}
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Image</param>
-		/// <param name="rectangles">Rectangles</param>
-		/// <returns>Array</returns>
-		public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
+
+        #endregion
+
+        #region Methods
+
+        /// <inheritdoc/>
+        public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
 		{
 			int length = rectangles.Length;
 			float[][] vector = new float[length][];
@@ -57,11 +59,8 @@ namespace FaceONNX
 
 			return vector;
 		}
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Array</returns>
+
+		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
 			var size = new Size(128, 128);
@@ -93,24 +92,38 @@ namespace FaceONNX
 
 			return confidences;
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceEmbedder()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }

@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face landmarks extractor.
     /// </summary>
-    public class FaceLandmarksExtractor : IFaceLandmarksExtractor, IDisposable
+    public class FaceLandmarksExtractor : IFaceLandmarksExtractor
 	{
 		#region Private data
 		/// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
 		private readonly InferenceSession _session;
 		#endregion
 
-		#region Class components
+		#region Constructor
+
 		/// <summary>
 		/// Initializes face landmarks extractor.
 		/// </summary>
@@ -38,13 +39,13 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.landmarks_68_pfld, options);
 		}
-		/// <summary>
-		/// Returns face landmarks.
-		/// </summary>
-		/// <param name="image">Image</param>
-		/// <param name="rectangles">Rectangles</param>
-		/// <returns>Points</returns>
-		public Point[][] Forward(Bitmap image, params Rectangle[] rectangles)
+
+        #endregion
+
+        #region Methods
+
+        /// <inheritdoc/>
+        public Point[][] Forward(Bitmap image, params Rectangle[] rectangles)
 		{
 			var length = rectangles.Length;
 			var vector = new Point[length][];
@@ -68,11 +69,8 @@ namespace FaceONNX
 
 			return vector;
 		}
-		/// <summary>
-		/// Returns face landmarks.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Points</returns>
+
+		/// <inheritdoc/>
 		public Point[] Forward(Bitmap image)
 		{
 			var size = new Size(112, 112);
@@ -111,13 +109,18 @@ namespace FaceONNX
 
 			return points;
 		}
-		/// <summary>
-		/// Returns aligned face.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <param name="points">Points</param>
-		/// <returns>Bitmap</returns>
-		public static Bitmap Align(Bitmap image, Point[] points)
+
+        #endregion
+
+        #region Static methods
+
+        /// <summary>
+        /// Returns aligned face.
+        /// </summary>
+        /// <param name="image">Bitmap</param>
+        /// <param name="points">Points</param>
+        /// <returns>Bitmap</returns>
+        public static Bitmap Align(Bitmap image, Point[] points)
 		{
 			var left = Landmarks.GetMeanPoint(points.GetLeftEye());
 			var right = Landmarks.GetMeanPoint(points.GetRightEye());
@@ -125,24 +128,38 @@ namespace FaceONNX
 			var angle = Landmarks.GetAngle(left, right, point);
 			return BitmapTransform.Rotate(image, angle, Color.Black);
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceLandmarksExtractor()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }

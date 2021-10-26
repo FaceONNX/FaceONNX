@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face detector.
     /// </summary>
-    public class FaceDetectorLight : IFaceDetector, IDisposable
+    public class FaceDetectorLight : IFaceDetector
 	{
 		#region Private data
 		/// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
 		private readonly InferenceSession _session;
 		#endregion
 
-		#region Class components
+		#region Constructor
+
 		/// <summary>
 		/// Initializes face detector.
 		/// </summary>
@@ -34,6 +35,7 @@ namespace FaceONNX
 			ConfidenceThreshold = confidenceThreshold;
 			NmsThreshold = nmsThreshold;
 		}
+
 		/// <summary>
 		/// Initializes face detector.
 		/// </summary>
@@ -46,19 +48,22 @@ namespace FaceONNX
 			ConfidenceThreshold = confidenceThreshold;
 			NmsThreshold = nmsThreshold;
 		}
-		/// <summary>
-		/// Gets or sets confidence threshold.
-		/// </summary>
+
+		#endregion
+
+		#region Properties
+
+		/// <inheritdoc/>
 		public float ConfidenceThreshold { get; set; }
-		/// <summary>
-		/// Gets or sets NonMaxSuppression threshold.
-		/// </summary>
+
+		/// <inheritdoc/>
 		public float NmsThreshold { get; set; }
-		/// <summary>
-		/// Returns face detection results.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Rectangles</returns>
+
+		#endregion
+
+		#region Methods
+
+		/// <inheritdoc/>
 		public Rectangle[] Forward(Bitmap image)
 		{
 			var size = new Size(320, 240);
@@ -131,24 +136,38 @@ namespace FaceONNX
 
 			return boxes_picked.ToArray();
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceDetectorLight()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }

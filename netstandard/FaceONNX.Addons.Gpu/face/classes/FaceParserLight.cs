@@ -1,4 +1,4 @@
-﻿using FaceONNX.Addons.Gpu.Properties;
+﻿using FaceONNX.Addons.Properties;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face segmentation parser.
     /// </summary>
-    public class FaceParserLight : IFaceParser, IDisposable
+    public class FaceParserLight : IFaceParser
     {
         #region Private data
         /// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
         private readonly InferenceSession _session;
         #endregion
 
-        #region Class components
+        #region Constructor
+
         /// <summary>
         /// Initializes face segmentation parser.
         /// </summary>
@@ -30,6 +31,7 @@ namespace FaceONNX
         {
             _session = new InferenceSession(Resources.face_unet_256);
         }
+
         /// <summary>
         /// Initializes face segmentation parser.
         /// </summary>
@@ -38,12 +40,12 @@ namespace FaceONNX
         {
             _session = new InferenceSession(Resources.face_unet_256, options);
         }
-        /// <summary>
-        /// Returns face recognition results.
-        /// </summary>
-        /// <param name="image">Image</param>
-        /// <param name="rectangles">Rectangles</param>
-        /// <returns>Array</returns>
+
+        #endregion
+
+        #region Methods
+
+        /// <inheritdoc/>
         public float[][][,] Forward(Bitmap image, params Rectangle[] rectangles)
         {
             int length = rectangles.Length;
@@ -58,11 +60,8 @@ namespace FaceONNX
 
             return vector;
         }
-        /// <summary>
-        /// Returns face recognition results.
-        /// </summary>
-        /// <param name="image">Bitmap</param>
-        /// <returns>Array</returns>
+
+        /// <inheritdoc/>
         public float[][,] Forward(Bitmap image)
         {
             var size = new Size(256, 256);
@@ -117,6 +116,11 @@ namespace FaceONNX
 
             return array;
         }
+
+        #endregion
+
+        #region Static methods
+
         /// <summary>
         /// Returns bitmap from masks.
         /// </summary>
@@ -163,6 +167,7 @@ namespace FaceONNX
             BitmapFormat.Unlock(bitmap, bitmapData);
             return bitmap;
         }
+
         /// <summary>
         /// Returns the labels.
         /// </summary>
@@ -188,24 +193,38 @@ namespace FaceONNX
             Color.FromArgb(255, 153, 51),
             Color.FromArgb(0, 204, 0)
         };
+
         #endregion
 
-        #region Dispose
-        /// <summary>
-        /// Disposed or not.
-        /// </summary>
-        private bool _disposed = false;
-        /// <summary>
-        /// Dispose void.
-        /// </summary>
+        #region IDisposable
+
+        private bool _disposed;
+
+        /// <inheritdoc/>
         public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
         {
             if (!_disposed)
             {
-                _session.Dispose();
+                if (disposing)
+                {
+                    _session?.Dispose();
+                }
+
                 _disposed = true;
             }
         }
+
+        ~FaceParserLight()
+        {
+            Dispose(false);
+        }
+
         #endregion
     }
 }

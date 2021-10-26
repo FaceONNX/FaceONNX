@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face race classifier.
     /// </summary>
-    public class FaceRaceClassifier : IFaceClassifier, IDisposable
+    public class FaceRaceClassifier : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
 		private readonly InferenceSession _session;
 		#endregion
 
-		#region Class components
+		#region Constructor
+
 		/// <summary>
 		/// Initializes face race classifier.
 		/// </summary>
@@ -30,6 +31,7 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.race_googlenet);
 		}
+
 		/// <summary>
 		/// Initializes face race classifier.
 		/// </summary>
@@ -38,16 +40,21 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.race_googlenet, options);
 		}
-		/// <summary>
-		/// Returns the labels.
-		/// </summary>
-		public static string[] Labels = new string[] { "White", "Black", "Asian", "Indian" };
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Image</param>
-		/// <param name="rectangles">Rectangles</param>
-		/// <returns>Array</returns>
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Returns the labels.
+        /// </summary>
+        public static string[] Labels = new string[] { "White", "Black", "Asian", "Indian" };
+
+		#endregion
+
+		#region Methods
+
+		/// <inheritdoc/>
 		public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
 		{
 			int length = rectangles.Length;
@@ -61,11 +68,8 @@ namespace FaceONNX
 
 			return vector;
 		}
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Array</returns>
+
+		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
 			var size = new Size(224, 224);
@@ -96,24 +100,38 @@ namespace FaceONNX
 
 			return confidences;
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceRaceClassifier()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }

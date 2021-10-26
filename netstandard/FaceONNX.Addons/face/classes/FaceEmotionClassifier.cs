@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face age classifier.
     /// </summary>
-    public class FaceEmotionClassifier : IFaceClassifier, IDisposable
+    public class FaceEmotionClassifier : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
@@ -23,6 +23,7 @@ namespace FaceONNX
 		#endregion
 
 		#region Class components
+
 		/// <summary>
 		/// Initializes face age classifier.
 		/// </summary>
@@ -30,6 +31,7 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.emotion_cnn);
 		}
+
 		/// <summary>
 		/// Initializes face age classifier.
 		/// </summary>
@@ -38,16 +40,21 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.emotion_cnn, options);
 		}
-		/// <summary>
-		/// Returns the labels.
-		/// </summary>
-		public static string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Image</param>
-		/// <param name="rectangles">Rectangles</param>
-		/// <returns>Array</returns>
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Returns the labels.
+        /// </summary>
+        public static string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
+
+		#endregion
+
+		#region Methods
+
+		/// <inheritdoc/>
 		public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
 		{
 			int length = rectangles.Length;
@@ -61,11 +68,8 @@ namespace FaceONNX
 
 			return vector;
 		}
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Array</returns>
+
+		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
 			var size = new Size(48, 48);
@@ -96,24 +100,38 @@ namespace FaceONNX
 
 			return confidences;
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceEmotionClassifier()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }

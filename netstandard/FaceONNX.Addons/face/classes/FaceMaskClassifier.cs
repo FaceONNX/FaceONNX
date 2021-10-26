@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face mask classifier.
     /// </summary>
-    public class FaceMaskClassifier : IFaceClassifier, IDisposable
+    public class FaceMaskClassifier : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
@@ -22,7 +22,8 @@ namespace FaceONNX
 		private readonly InferenceSession _session;
 		#endregion
 
-		#region Class components
+		#region Constructor
+
 		/// <summary>
 		/// Initializes face mask classifier.
 		/// </summary>
@@ -30,6 +31,7 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.mask_googlenet_slim);
 		}
+
 		/// <summary>
 		/// Initializes face mask classifier.
 		/// </summary>
@@ -38,16 +40,21 @@ namespace FaceONNX
 		{
 			_session = new InferenceSession(Resources.mask_googlenet_slim, options);
 		}
-		/// <summary>
-		/// Returns the labels.
-		/// </summary>
-		public static string[] Labels = new string[] { "Mask", "No mask" };
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Image</param>
-		/// <param name="rectangles">Rectangles</param>
-		/// <returns>Array</returns>
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Returns the labels.
+        /// </summary>
+        public static string[] Labels = new string[] { "Mask", "No mask" };
+
+		#endregion
+
+		#region Methods
+
+		/// <inheritdoc/>
 		public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
         {
 			int length = rectangles.Length;
@@ -62,11 +69,8 @@ namespace FaceONNX
 
 			return vector;
         }
-		/// <summary>
-		/// Returns face recognition results.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <returns>Array</returns>
+
+		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
 			var size = new Size(224, 224);
@@ -97,24 +101,38 @@ namespace FaceONNX
 
 			return confidences;
 		}
+
 		#endregion
 
-		#region Dispose
-		/// <summary>
-		/// Disposed or not.
-		/// </summary>
-		private bool _disposed = false;
-		/// <summary>
-		/// Dispose void.
-		/// </summary>
+		#region IDisposable
+
+		private bool _disposed;
+
+		/// <inheritdoc/>
 		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing)
 		{
 			if (!_disposed)
 			{
-				_session.Dispose();
+				if (disposing)
+				{
+					_session?.Dispose();
+				}
+
 				_disposed = true;
 			}
 		}
+
+		~FaceMaskClassifier()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 	}
 }
