@@ -7,79 +7,56 @@ namespace GPUPerfomanceTests
 {
     class Program
     {
-        const int oneSecond = 1000;
-        const int iterations = 1000;
-        const int gpuId = 0;
-
         static void Main()
         {
-            // Session options
-            Console.WriteLine($"FaceONNX: GPU Perfomance tests with CUDA provider\n");
+            Console.WriteLine($"FaceONNX: GPU Perfomance tests with CUDA provider");
             using var bitmap = new Bitmap(@"..\..\..\images\brad.jpg");
-            var options = SessionOptions.MakeSessionOptionWithCudaProvider(gpuId);
 
-            // FPS tests
-            FaceDetectorFPSTest(options, bitmap);
-            FaceDetectorLightFPSTest(options, bitmap);
+            var iterations = 100;
+
+            FaceRecognitionTest(bitmap, true, iterations);
+            FaceRecognitionTest(bitmap, false, iterations);
         }
 
-        #region FPS tests
-        static void FaceDetectorFPSTest(SessionOptions options, Bitmap bitmap)
+        static void FaceRecognitionTest(Bitmap bitmap, bool useGPU, int iterations)
         {
-            int tic, toc, time;
-            float average;
-            var faceDetector = new FaceDetector(options);
-            Console.WriteLine($"FPS test for [{faceDetector}]");
-            Console.WriteLine($"Initializing GPU device [{gpuId}]");
-            tic = Environment.TickCount;
-            _ = faceDetector.Forward(bitmap);
-            toc = Environment.TickCount - tic;
-            Console.WriteLine($"Finished in [{toc}] mls.");
+            Console.WriteLine($"{Environment.NewLine}Configuring {nameof(FaceRecognitionTest)}");
 
-            time = 0;
-            Console.WriteLine($"Running FPS test for [{iterations}] iterations");
+            var gpuId = 0;
+            var oneSecond = 1000;
+            var time = 0;
+            var tic = Environment.TickCount;
+
+            var options = useGPU ? SessionOptions.MakeSessionOptionWithCudaProvider(gpuId) : new SessionOptions();
+            Console.WriteLine($"Configuring {(useGPU ? "GPU" : "CPU")} device");
+
+            using var faceLandmarksExtractor = new FaceLandmarksExtractor(options);
+            using var faceEmbedder = new FaceEmbedder(options);
+
+            var toc = Environment.TickCount - tic;
+            Console.WriteLine($"Finished in [{toc}] ms");
+
+            var average = default(float);
+            Console.WriteLine($"Running test for [{iterations}] iterations");
 
             for (int i = 0; i < iterations; i++)
             {
                 tic = Environment.TickCount;
-                _ = faceDetector.Forward(bitmap);
+
+                var points = faceLandmarksExtractor.Forward(bitmap);
+                using var aligned = FaceLandmarksExtractor.Align(bitmap, points);
+                var embeddings = faceEmbedder.Forward(aligned);
+
                 toc = Environment.TickCount - tic;
                 time += toc;
             }
 
             average = time / (float)iterations;
-            Console.WriteLine($"FPS --> [{oneSecond / average}]\n");
+
+            Console.WriteLine($"Average time --> [{average}] ms");
+            Console.WriteLine($"FPS --> [{oneSecond / average}]");
+            Console.WriteLine($"Finished in [{time}] ms{Environment.NewLine}");
         }
 
-        static void FaceDetectorLightFPSTest(SessionOptions options, Bitmap bitmap)
-        {
-            int tic, toc, time;
-            float average;
-            var faceDetectorLight = new FaceDetectorLight(options);
-            Console.WriteLine($"FPS test for [{faceDetectorLight}]");
-            Console.WriteLine($"Initializing GPU device [{gpuId}]");
-            tic = Environment.TickCount;
-            _ = faceDetectorLight.Forward(bitmap);
-            toc = Environment.TickCount - tic;
-            Console.WriteLine($"Finished in [{toc}] mls.");
-
-            time = 0;
-            Console.WriteLine($"Running FPS test for [{iterations}] iterations");
-
-            for (int i = 0; i < iterations; i++)
-            {
-                tic = Environment.TickCount;
-                _ = faceDetectorLight.Forward(bitmap);
-                toc = Environment.TickCount - tic;
-                time += toc;
-            }
-
-            average = time / (float)iterations;
-            Console.WriteLine($"FPS --> [{oneSecond / average}]\n");
-
-            Console.WriteLine("Done.");
-            Console.ReadKey();
-        }
-        #endregion
     }
 }
