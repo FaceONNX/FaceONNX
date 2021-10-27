@@ -123,17 +123,17 @@ FaceONNX: GPU Perfomance tests with CUDA provider
 
 Configuring FaceRecognitionTest
 Configuring GPU device
-Finished in [1109] ms
+Finished in [1093] ms
 Running test for [100] iterations
-Average time --> [25,78] ms
-FPS --> [38,789757]
-Finished in [2578] ms
+Average time --> [18,43] ms
+FPS --> [54,259357]
+Finished in [1843] ms
 
 Configuring FaceRecognitionTest
 Configuring CPU device
-Finished in [390] ms
+Finished in [391] ms
 Running test for [100] iterations
-Average time --> [127,81] ms
-FPS --> [7,824114]
-Finished in [12781] ms
+Average time --> [127,5] ms
+FPS --> [7,8431373]
+Finished in [12750] ms
 ```
