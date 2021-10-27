@@ -16,7 +16,7 @@ namespace FaceDetection
             Directory.CreateDirectory(path);
 
             using var faceDetectorLight = new FaceDetectorLight(0.75f, 0.5f);
-            var painter = new Painter()
+            using var painter = new Painter()
             {
                 BoxPen = new Pen(Color.Yellow, 4),
                 Transparency = 0,

@@ -17,7 +17,7 @@ namespace FaceLandmarksExtraction
 
             using var faceDetector = new FaceDetector();
             using var faceLandmarksExtractor = new FaceLandmarksExtractor();
-            var painter = new Painter()
+            using var painter = new Painter()
             {
                 PointPen = new Pen(Color.Yellow, 4),
                 Transparency = 0,

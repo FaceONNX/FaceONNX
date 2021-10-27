@@ -26,7 +26,8 @@ namespace RaceAndAgeClassification
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceRaceClassifier = new FaceRaceClassifier();
             _faceAgeClassifier = new FaceAgeClassifier();
-            var painter = new Painter()
+            
+            using var painter = new Painter()
             {
                 PointPen = new Pen(Color.Yellow, 4),
                 Transparency = 0,
