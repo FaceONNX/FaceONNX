@@ -48,7 +48,8 @@ namespace GPUPerfomanceTests
                 var embeddings = faceEmbedder.Forward(aligned);
 
                 toc = Environment.TickCount - tic;
-                time += toc;
+
+                if (i > 0) time += toc;
             }
 
             average = time / (float)iterations;
