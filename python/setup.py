@@ -33,7 +33,7 @@ setuptools.setup(
         'numpy',
         'opencv-python',
         'onnx >= 1.4.0',
-        'onnxruntime >= 1.6.0',
+        'onnxruntime >= 1.9.0',
         'googledrivedownloader'
     ],
     classifiers=[

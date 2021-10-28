@@ -63,7 +63,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\FaceONNX\FaceONNX.csproj" />
+	  <PackageReference Include="FaceONNX" Version="1.0.5.5" />
 	</ItemGroup>
 
 </Project>
