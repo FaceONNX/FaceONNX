@@ -37,16 +37,6 @@ Image: [kid.jpg] --> detected [1] faces
 <p align="center"><img width="70%" src="FaceLandmarksExtraction/results/kid.jpg" /></p>
 <p align="center"><b>Figure 2.</b> Results for <i>kid.jpg</i></p>  
 
-# Face semantic segmentation
-Build and run [FaceSemanticSegmentation.csproj](FaceSemanticSegmentation) to produce faces segmentation maps.
-```batch
-Image: [brad.jpg] --> detected [1] faces
-Image: [michael.jpg] --> detected [1] faces
-Image: [nicole.jpg] --> detected [1] faces
-```
-<p align="center"><img width="35%" src="FaceSemanticSegmentation/images/brad.jpg"/><img width="35%" src="FaceSemanticSegmentation/results/brad.jpg" /></p>
-<p align="center"><b>Figure 3.</b> Original image <i>brad.jpg</i> and its face segmentation map</p>  
-
 # Gender classification
 Build and run [GenderClassification.csproj](GenderClassification) to classify faces as "Male" or "Female".
 ```batch
@@ -71,24 +61,6 @@ Image: [CM739.jpg] --> detected [1] faces
 Image: [CM742.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Male] gender with probability [1]
 ```
-
-# Race and age classification
-Build and run [RaceAndAgeClassification.csproj](RaceAndAgeClassification) to classify faces by race and age.
-```batch
-Image: [baby.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [White] race and [<2] age
-Image: [bruce.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Asian] race and [25-37] age
-Image: [jolie_brad.jpg] --> detected [2] faces
-        [Face #1]: --> classified as [White] race and [25-37] age
-        [Face #2]: --> classified as [White] race and [38-47] age
-Image: [kid.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [White] race and [3-7] age
-Image: [morgan.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Black] race and [>60] age
-```
-<p align="center"><img width="70%" src="RaceAndAgeClassification/results/jolie_brad.jpg" /></p>
-<p align="center"><b>Figure 4.</b> Results for <i>jolie_brad.jpg</i></p>  
 
 # Emotion & beauty estimation
 Build and run [EmotionAndBeautyEstimation.csproj](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
