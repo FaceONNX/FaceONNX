@@ -10,7 +10,7 @@ namespace EmotionAndBeautyEstimation
 {
     class Program
     {
-        static FaceDetectorLight _faceDetectorLight;
+        static FaceDetector _faceDetector;
         static FaceLandmarksExtractor _faceLandmarksExtractor;
         static FaceEmotionClassifier _faceEmotionClassifier;
         static FaceBautyClassifier _faceBautyClassifier;
@@ -22,7 +22,7 @@ namespace EmotionAndBeautyEstimation
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 
-            _faceDetectorLight = new FaceDetectorLight();
+            _faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmotionClassifier = new FaceEmotionClassifier();
             _faceBautyClassifier = new FaceBautyClassifier();
@@ -33,7 +33,7 @@ namespace EmotionAndBeautyEstimation
             {
                 using var bitmap = new Bitmap(file);
                 var filename = Path.GetFileName(file);
-                var faces = _faceDetectorLight.Forward(bitmap);
+                var faces = _faceDetector.Forward(bitmap);
                 int i = 1;
 
                 Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");
@@ -46,7 +46,7 @@ namespace EmotionAndBeautyEstimation
                 }
             }
 
-            _faceDetectorLight.Dispose();
+            _faceDetector.Dispose();
             _faceLandmarksExtractor.Dispose();
             _faceEmotionClassifier.Dispose();
             _faceBautyClassifier.Dispose();

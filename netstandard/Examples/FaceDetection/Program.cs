@@ -15,7 +15,7 @@ namespace FaceDetection
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 
-            using var faceDetectorLight = new FaceDetectorLight(0.75f, 0.5f);
+            using var faceDetector = new FaceDetector(0.75f, 0.5f);
             using var painter = new Painter()
             {
                 BoxPen = new Pen(Color.Yellow, 4),
@@ -27,7 +27,7 @@ namespace FaceDetection
             foreach (var file in files)
             {
                 using var bitmap = new Bitmap(file);
-                var output = faceDetectorLight.Forward(bitmap);
+                var output = faceDetector.Forward(bitmap);
 
                 foreach (var rectangle in output)
                 {

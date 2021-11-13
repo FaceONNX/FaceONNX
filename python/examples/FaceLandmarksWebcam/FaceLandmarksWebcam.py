@@ -1,8 +1,8 @@
 import cv2
-from faceonnx import FaceDetectorLight, FaceLandmarksExtractor
+from faceonnx import FaceDetector, FaceLandmarksExtractor
 
-# Initialize FaceDetectorLight and FaceLandmarksExtractor
-faceDetectorLight = FaceDetectorLight(0.95, 0.25)
+# Initialize FaceDetector and FaceLandmarksExtractor
+faceDetector = FaceDetector(0.95, 0.25)
 faceLandmarksExtractor = FaceLandmarksExtractor()
 
 # Initialize webcam feed
@@ -13,9 +13,9 @@ video = cv2.VideoCapture(0)
 while True:
 
     # Get frame and apply 
-    # FaceDetectorLight and FaceLandmarksExtractor
+    # FaceDetector and FaceLandmarksExtractor
     ret, frame = video.read()
-    boxes = faceDetectorLight.Forward(frame)
+    boxes = faceDetector.Forward(frame)
     landmarks = faceLandmarksExtractor.Forward(frame, boxes)
 
     # Draw inference results

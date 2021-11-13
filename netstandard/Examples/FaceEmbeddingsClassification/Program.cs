@@ -9,7 +9,7 @@ namespace FaceEmbeddingsClassification
 {
     class Program
     {
-        static FaceDetectorLight _faceDetectorLight;
+        static FaceDetector faceDetector;
         static FaceLandmarksExtractor _faceLandmarksExtractor;
         static FaceEmbedder _faceEmbedder;
 
@@ -17,7 +17,7 @@ namespace FaceEmbeddingsClassification
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
             var fits = Directory.GetFiles(@"..\..\..\images\fit");
-            _faceDetectorLight = new FaceDetectorLight();
+            faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
             var embeddings = new Embeddings();
@@ -46,7 +46,7 @@ namespace FaceEmbeddingsClassification
                 Console.WriteLine($"Image: [{filename}] --> classified as [{label}] with similarity [{similarity}]");
             }
 
-            _faceDetectorLight.Dispose();
+            faceDetector.Dispose();
             _faceLandmarksExtractor.Dispose();
             _faceEmbedder.Dispose();
 
@@ -56,7 +56,7 @@ namespace FaceEmbeddingsClassification
 
         static float[] GetEmbedding(Bitmap image)
         {
-            var faces = _faceDetectorLight.Forward(image);
+            var faces = faceDetector.Forward(image);
             using var cropped = BitmapTransform.Crop(image, faces.First());
             var points = _faceLandmarksExtractor.Forward(cropped);
             using var aligned = FaceLandmarksExtractor.Align(cropped, points);

@@ -13,7 +13,7 @@ namespace GenderClassification
         {
             Console.WriteLine("FaceONNX: Gender classification");
             var files = Directory.GetFiles(@"..\..\..\images");
-            using var faceDetectorLight = new FaceDetectorLight();
+            using var faceDetector = new FaceDetector();
             using var faceGenderClassifier = new FaceGenderClassifier();
             var labels = FaceGenderClassifier.Labels;
 
@@ -28,7 +28,7 @@ namespace GenderClassification
             {
                 using var bitmap = new Bitmap(file);
                 var filename = Path.GetFileName(file);
-                var faces = faceDetectorLight.Forward(bitmap);
+                var faces = faceDetector.Forward(bitmap);
                 int i = 1;
 
                 Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");

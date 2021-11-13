@@ -1,5 +1,5 @@
 import cv2
-from faceonnx import FaceDetectorLight
+from faceonnx import FaceDetector
 import numpy
 import os
 
@@ -12,15 +12,15 @@ files = os.listdir(root)
 if (os.path.exists(path) is False):
     os.mkdir(path)
 
-# Initialize FaceDetectorLight
-faceDetectorLight = FaceDetectorLight(0.95, 0.25)
+# Initialize FaceDetector
+faceDetector = FaceDetector(0.95, 0.25)
 print(f"Processing {len(files)} images")
 
-# Apply FaceDetectorLight to the files
+# Apply FaceDetector to the files
 # and draw inference results
 for file in files:
     image = cv2.imread(os.path.join(root, file))
-    boxes = faceDetectorLight.Forward(image)
+    boxes = faceDetector.Forward(image)
     print(f"Image: [{file}] --> detected [{len(boxes)}] faces");
 
     for box in boxes:
