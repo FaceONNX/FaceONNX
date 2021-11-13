@@ -39,7 +39,7 @@ namespace FaceONNX.Addons.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FaceONNX.Addons.Gpu.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FaceONNX.Addons.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -96,16 +96,6 @@ namespace FaceONNX.Addons.Properties {
         internal static byte[] gender_googlenet {
             get {
                 object obj = ResourceManager.GetObject("gender_googlenet", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] race_googlenet {
-            get {
-                object obj = ResourceManager.GetObject("race_googlenet", resourceCulture);
                 return ((byte[])(obj));
             }
         }

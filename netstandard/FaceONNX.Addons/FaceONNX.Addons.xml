@@ -139,41 +139,6 @@
         <member name="M:FaceONNX.FaceGenderClassifier.Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:FaceONNX.FaceRaceClassifier">
-            <summary>
-            Defines face race classifier.
-            </summary>
-        </member>
-        <member name="F:FaceONNX.FaceRaceClassifier._session">
-            <summary>
-            Inference session.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceRaceClassifier.#ctor">
-            <summary>
-            Initializes face race classifier.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceRaceClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
-            <summary>
-            Initializes face race classifier.
-            </summary>
-            <param name="options">Session options</param>
-        </member>
-        <member name="F:FaceONNX.FaceRaceClassifier.Labels">
-            <summary>
-            Returns the labels.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceRaceClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceRaceClassifier.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceRaceClassifier.Dispose">
-            <inheritdoc/>
-        </member>
         <member name="T:FaceONNX.IFaceParser">
             <summary>
             Defines face segmentation parser.
@@ -226,11 +191,6 @@
             </summary>
         </member>
         <member name="P:FaceONNX.Addons.Properties.Resources.gender_googlenet">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.race_googlenet">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

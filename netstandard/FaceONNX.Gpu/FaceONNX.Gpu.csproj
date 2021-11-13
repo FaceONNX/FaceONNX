@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX.Gpu</AssemblyName>
     <LangVersion>8.0</LangVersion>
-    <Version>1.0.5.5</Version>
+    <Version>1.1.0.1</Version>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
@@ -12,7 +12,7 @@
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX.Gpu</PackageId>
     <Product>FaceONNX.Gpu</Product>
-    <AssemblyVersion>1.0.5.5</AssemblyVersion>
+    <AssemblyVersion>1.1.0.1</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks gpu</PackageTags>
     <RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
@@ -20,7 +20,7 @@
     <PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>FaceONNX.png</PackageIcon>
-    <FileVersion>1.0.5.5</FileVersion>
+    <FileVersion>1.1.0.1</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <RootNamespace>FaceONNX</RootNamespace>
   </PropertyGroup>

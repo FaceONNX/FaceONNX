@@ -99,15 +99,5 @@ namespace FaceONNX.Addons.Properties {
                 return ((byte[])(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] race_googlenet {
-            get {
-                object obj = ResourceManager.GetObject("race_googlenet", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
