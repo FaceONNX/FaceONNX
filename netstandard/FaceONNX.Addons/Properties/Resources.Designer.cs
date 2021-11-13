@@ -93,39 +93,9 @@ namespace FaceONNX.Addons.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] face_unet_256 {
-            get {
-                object obj = ResourceManager.GetObject("face_unet_256", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] face_unet_512 {
-            get {
-                object obj = ResourceManager.GetObject("face_unet_512", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] gender_googlenet {
             get {
                 object obj = ResourceManager.GetObject("gender_googlenet", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] mask_googlenet_slim {
-            get {
-                object obj = ResourceManager.GetObject("mask_googlenet_slim", resourceCulture);
                 return ((byte[])(obj));
             }
         }

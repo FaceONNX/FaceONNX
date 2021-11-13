@@ -127,17 +127,8 @@
   <data name="emotion_cnn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\models\emotion_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="face_unet_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\models\face_unet_256.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="face_unet_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\models\face_unet_512.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="gender_googlenet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\models\gender_googlenet.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="mask_googlenet_slim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\models\mask_googlenet_slim.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="race_googlenet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\models\race_googlenet.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

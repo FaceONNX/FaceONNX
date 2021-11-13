@@ -139,125 +139,6 @@
         <member name="M:FaceONNX.FaceGenderClassifier.Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:FaceONNX.FaceMaskClassifier">
-            <summary>
-            Defines face mask classifier.
-            </summary>
-        </member>
-        <member name="F:FaceONNX.FaceMaskClassifier._session">
-            <summary>
-            Inference session.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceMaskClassifier.#ctor">
-            <summary>
-            Initializes face mask classifier.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceMaskClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
-            <summary>
-            Initializes face mask classifier.
-            </summary>
-            <param name="options">Session options</param>
-        </member>
-        <member name="F:FaceONNX.FaceMaskClassifier.Labels">
-            <summary>
-            Returns the labels.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceMaskClassifier.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceMaskClassifier.Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="T:FaceONNX.FaceParser">
-            <summary>
-            Defines face segmentation parser.
-            </summary>
-        </member>
-        <member name="F:FaceONNX.FaceParser._session">
-            <summary>
-            Inference session.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParser.#ctor">
-            <summary>
-            Initializes face segmentation parser.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParser.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
-            <summary>
-            Initializes face segmentation parser.
-            </summary>
-            <param name="options">Session options</param>
-        </member>
-        <member name="M:FaceONNX.FaceParser.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceParser.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceParser.ToBitmap(System.Single[0:,0:][])">
-            <summary>
-            Returns bitmap from masks.
-            </summary>
-            <param name="masks">Masks</param>
-            <returns>Bitmap</returns>
-        </member>
-        <member name="F:FaceONNX.FaceParser.Labels">
-            <summary>
-            Returns the labels.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParser.Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="T:FaceONNX.FaceParserLight">
-            <summary>
-            Defines face segmentation parser.
-            </summary>
-        </member>
-        <member name="F:FaceONNX.FaceParserLight._session">
-            <summary>
-            Inference session.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.#ctor">
-            <summary>
-            Initializes face segmentation parser.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
-            <summary>
-            Initializes face segmentation parser.
-            </summary>
-            <param name="options">Session options</param>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.ToBitmap(System.Single[0:,0:][])">
-            <summary>
-            Returns bitmap from masks.
-            </summary>
-            <param name="masks">Masks</param>
-            <returns>Bitmap</returns>
-        </member>
-        <member name="F:FaceONNX.FaceParserLight.Labels">
-            <summary>
-            Returns the labels.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceParserLight.Dispose">
-            <inheritdoc/>
-        </member>
         <member name="T:FaceONNX.FaceRaceClassifier">
             <summary>
             Defines face race classifier.
@@ -344,22 +225,7 @@
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.face_unet_256">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.face_unet_512">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
-            </summary>
-        </member>
         <member name="P:FaceONNX.Addons.Properties.Resources.gender_googlenet">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.mask_googlenet_slim">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

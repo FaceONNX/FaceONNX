@@ -41,43 +41,6 @@
         <member name="M:FaceONNX.FaceDetector.Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:FaceONNX.FaceDetectorLight">
-            <summary>
-            Defines face detector.
-            </summary>
-        </member>
-        <member name="F:FaceONNX.FaceDetectorLight._session">
-            <summary>
-            Inference session.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceDetectorLight.#ctor(System.Single,System.Single)">
-            <summary>
-            Initializes face detector.
-            </summary>
-            <param name="confidenceThreshold">Confidence threshold</param>
-            <param name="nmsThreshold">NonMaxSuppression threshold</param>
-        </member>
-        <member name="M:FaceONNX.FaceDetectorLight.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions,System.Single,System.Single)">
-            <summary>
-            Initializes face detector.
-            </summary>
-            <param name="options">Session options</param>
-            <param name="confidenceThreshold">Confidence threshold</param>
-            <param name="nmsThreshold">NonMaxSuppression threshold</param>
-        </member>
-        <member name="P:FaceONNX.FaceDetectorLight.ConfidenceThreshold">
-            <inheritdoc/>
-        </member>
-        <member name="P:FaceONNX.FaceDetectorLight.NmsThreshold">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceDetectorLight.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceDetectorLight.Dispose">
-            <inheritdoc/>
-        </member>
         <member name="T:FaceONNX.FaceEmbedder">
             <summary>
             Defines face embedder.
@@ -464,11 +427,6 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Properties.Resources.face_detector_320">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
         <member name="P:FaceONNX.Properties.Resources.face_detector_640">
