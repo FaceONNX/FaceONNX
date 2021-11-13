@@ -4,9 +4,8 @@
 # FaceONNX
 **FaceONNX** is a face analytics library based on [ONNX](https://onnx.ai/) runtime. It containts ready-made deep neural networks for face
 * detection and landmarks extraction,
-* gender and race classification,
-* age and emotion classification,
-* beauty estimation,
+* gender and age classification,
+* emotion and beauty classification,
 * embeddings comparison and etc.  
   
 **FaceONNX** is basically focused on [C#](netstandard), but it has [Python](python) implementation.  
