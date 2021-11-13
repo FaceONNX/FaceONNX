@@ -7,7 +7,7 @@
 		<Version>1.1.0.1</Version>
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
-		<Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>
+		<Description>Face analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
 		<Copyright>Valery Asiryan, © 2021</Copyright>
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons.Gpu</PackageId>
@@ -63,7 +63,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FaceONNX.Gpu" Version="1.0.5.5" />
+	  <PackageReference Include="FaceONNX.Gpu" Version="1.1.0.1" />
 	</ItemGroup>
 
 </Project>
