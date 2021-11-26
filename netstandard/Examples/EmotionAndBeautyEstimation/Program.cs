@@ -13,7 +13,7 @@ namespace EmotionAndBeautyEstimation
         static FaceDetector _faceDetector;
         static FaceLandmarksExtractor _faceLandmarksExtractor;
         static FaceEmotionClassifier _faceEmotionClassifier;
-        static FaceBautyClassifier _faceBautyClassifier;
+        static FaceBeautyClassifier _faceBeautyClassifier;
 
         static void Main()
         {
@@ -25,7 +25,7 @@ namespace EmotionAndBeautyEstimation
             _faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmotionClassifier = new FaceEmotionClassifier();
-            _faceBautyClassifier = new FaceBautyClassifier();
+            _faceBeautyClassifier = new FaceBeautyClassifier();
 
             Console.WriteLine($"Processing {files.Length} images");
 
@@ -49,7 +49,7 @@ namespace EmotionAndBeautyEstimation
             _faceDetector.Dispose();
             _faceLandmarksExtractor.Dispose();
             _faceEmotionClassifier.Dispose();
-            _faceBautyClassifier.Dispose();
+            _faceBeautyClassifier.Dispose();
 
             Console.WriteLine("Done.");
             Console.ReadKey();
@@ -63,7 +63,7 @@ namespace EmotionAndBeautyEstimation
             var emotion = _faceEmotionClassifier.Forward(aligned);
             var max = Matrice.Max(emotion, out int argmax);
             var emotionLabel = FaceEmotionClassifier.Labels[argmax];
-            var beauty = _faceBautyClassifier.Forward(aligned);
+            var beauty = _faceBeautyClassifier.Forward(aligned);
             var beautyLabel = $"{Math.Round(2 * beauty.Max(), 1)}/10.0";
 
             Console.WriteLine($"--> classified as [{emotionLabel}] emotion and [{beautyLabel}] beauty");
