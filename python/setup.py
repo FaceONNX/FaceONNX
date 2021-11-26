@@ -3,7 +3,7 @@ import os
 
 # package metadata
 NAME = 'faceonnx'
-VERSION = '1.1.0.1'
+VERSION = '1.1.0.2'
 DESCRIPTION = 'Face analytics library based on deep neural networks and ONNX runtime.'
 LICENSE = 'MIT'
 GIT = 'https://github.com/asiryan/FaceONNX'
