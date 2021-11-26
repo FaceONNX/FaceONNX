@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>FaceONNX.Addons</AssemblyName>
 		<LangVersion>8.0</LangVersion>
-		<Version>1.1.0.1</Version>
+		<Version>1.1.0.2</Version>
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
 		<Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -12,7 +12,7 @@
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons</PackageId>
 		<Product>FaceONNX.Addons</Product>
-		<AssemblyVersion>1.1.0.1</AssemblyVersion>
+		<AssemblyVersion>1.1.0.2</AssemblyVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
 		<RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
@@ -20,7 +20,7 @@
 		<PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageIcon>FaceONNX.png</PackageIcon>
-		<FileVersion>1.1.0.1</FileVersion>
+		<FileVersion>1.1.0.2</FileVersion>
 		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 
@@ -30,10 +30,10 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<DocumentationFile>FaceONNX.Addons.xml</DocumentationFile>
 		<WarningLevel>1</WarningLevel>
 		<DefineConstants>TRACE</DefineConstants>
 		<Optimize>true</Optimize>
+		<DocumentationFile>C:\Users\Valery\Documents\GitHub\FaceONNX\netstandard\FaceONNX.Addons\FaceONNX.Addons.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

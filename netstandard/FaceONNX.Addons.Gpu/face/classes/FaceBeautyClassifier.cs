@@ -13,7 +13,7 @@ namespace FaceONNX
     /// <summary>
     /// Defines face beauty classifier.
     /// </summary>
-    public class FaceBautyClassifier : IFaceClassifier
+    public class FaceBeautyClassifier : IFaceClassifier
     {
 		#region Private data
 		/// <summary>
@@ -27,7 +27,7 @@ namespace FaceONNX
 		/// <summary>
 		/// Initializes face beauty classifier.
 		/// </summary>
-		public FaceBautyClassifier()
+		public FaceBeautyClassifier()
 		{
 			_session = new InferenceSession(Resources.beauty_resnet18);
 		}
@@ -36,7 +36,7 @@ namespace FaceONNX
 		/// Initializes face beauty classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceBautyClassifier(SessionOptions options)
+		public FaceBeautyClassifier(SessionOptions options)
 		{
 			_session = new InferenceSession(Resources.beauty_resnet18, options);
 		}
@@ -120,7 +120,7 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceBautyClassifier()
+		~FaceBeautyClassifier()
 		{
 			Dispose(false);
 		}

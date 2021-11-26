@@ -39,34 +39,34 @@
         <member name="M:FaceONNX.FaceAgeClassifier.Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:FaceONNX.FaceBautyClassifier">
+        <member name="T:FaceONNX.FaceBeautyClassifier">
             <summary>
             Defines face beauty classifier.
             </summary>
         </member>
-        <member name="F:FaceONNX.FaceBautyClassifier._session">
+        <member name="F:FaceONNX.FaceBeautyClassifier._session">
             <summary>
             Inference session.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceBautyClassifier.#ctor">
+        <member name="M:FaceONNX.FaceBeautyClassifier.#ctor">
             <summary>
             Initializes face beauty classifier.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceBautyClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+        <member name="M:FaceONNX.FaceBeautyClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
             Initializes face beauty classifier.
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="M:FaceONNX.FaceBautyClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceBautyClassifier.Forward(System.Drawing.Bitmap)">
+        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceBautyClassifier.Dispose">
+        <member name="M:FaceONNX.FaceBeautyClassifier.Dispose">
             <inheritdoc/>
         </member>
         <member name="T:FaceONNX.FaceEmotionClassifier">
