@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<AssemblyName>FaceONNX.Addons</AssemblyName>
+		<AssemblyName>FaceONNX.Addons.Gpu</AssemblyName>
 		<LangVersion>8.0</LangVersion>
 		<Version>1.1.0.2</Version>
 		<Authors>Valery Asiryan</Authors>
@@ -22,6 +22,7 @@
 		<PackageIcon>FaceONNX.png</PackageIcon>
 		<FileVersion>1.1.0.2</FileVersion>
 		<NeutralLanguage>en</NeutralLanguage>
+		<RootNamespace>FaceONNX.Addons</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
