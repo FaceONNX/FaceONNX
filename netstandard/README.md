@@ -12,7 +12,7 @@ C# interface
 ```c#
 using FaceONNX;
 ```
-To get started with **FaceONNX**, it is recommended to look at the folder with [examples](FaceONNX.Examples).  
+To get started with **FaceONNX**, it is recommended to look at the folder with [examples](Examples).  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
