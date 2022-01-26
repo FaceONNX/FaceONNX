@@ -139,26 +139,6 @@
         <member name="M:FaceONNX.FaceGenderClassifier.Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:FaceONNX.IFaceParser">
-            <summary>
-            Defines face segmentation parser.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.IFaceParser.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Image</param>
-            <param name="rectangles">Rectangles</param>
-            <returns>Array</returns>
-        </member>
-        <member name="M:FaceONNX.IFaceParser.Forward(System.Drawing.Bitmap)">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Bitmap</param>
-            <returns>Array</returns>
-        </member>
         <member name="T:FaceONNX.Addons.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
