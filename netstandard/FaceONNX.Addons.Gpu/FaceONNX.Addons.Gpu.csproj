@@ -8,7 +8,7 @@
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
 		<Description>Face analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
-		<Copyright>Valery Asiryan, © 2021</Copyright>
+		<Copyright>Valery Asiryan, © 2022</Copyright>
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons.Gpu</PackageId>
 		<Product>FaceONNX.Addons.Gpu</Product>
@@ -53,6 +53,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="..\FaceONNX.Models\models\onnx.addons\age_googlenet.onnx" Link="models\age_googlenet.onnx" />
+		<None Include="..\FaceONNX.Models\models\onnx.addons\beauty_resnet18.onnx" Link="models\beauty_resnet18.onnx" />
+		<None Include="..\FaceONNX.Models\models\onnx.addons\emotion_cnn.onnx" Link="models\emotion_cnn.onnx" />
+		<None Include="..\FaceONNX.Models\models\onnx.addons\gender_googlenet.onnx" Link="models\gender_googlenet.onnx" />
 		<None Include="FaceONNX.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
@@ -65,6 +69,10 @@
 
 	<ItemGroup>
 	  <PackageReference Include="FaceONNX.Gpu" Version="1.1.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="models\" />
 	</ItemGroup>
 
 </Project>
