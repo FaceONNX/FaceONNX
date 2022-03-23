@@ -1,4 +1,4 @@
-<p align="center"><img width="25%" src="docs/FaceONNX.png" /></p>
+<p align="center"><img width="25%" src="https://github.com/FaceONNX/FaceONNX/blob/main/docs/FaceONNX.png" /></p>
 <p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
 # FaceONNX
