@@ -8,7 +8,7 @@ namespace AntispoofingDepthClassification
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("FaceONNX: Antispoofing depth classification");
             var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
