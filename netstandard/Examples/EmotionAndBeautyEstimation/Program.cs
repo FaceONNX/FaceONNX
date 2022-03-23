@@ -18,7 +18,7 @@ namespace EmotionAndBeautyEstimation
         static void Main()
         {
             Console.WriteLine("FaceONNX: Emotion and beauty estimation");
-            var files = Directory.GetFiles(@"..\..\..\images");
+            var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 

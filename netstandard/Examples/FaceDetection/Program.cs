@@ -11,7 +11,7 @@ namespace FaceDetection
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face detection");
-            var files = Directory.GetFiles(@"..\..\..\images");
+            var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 

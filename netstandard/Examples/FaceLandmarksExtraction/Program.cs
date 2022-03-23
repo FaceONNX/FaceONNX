@@ -11,7 +11,7 @@ namespace FaceLandmarksExtraction
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face landmarks extraction");
-            var files = Directory.GetFiles(@"..\..\..\images");
+            var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 

@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenderClassification", "Gen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPUPerfomanceTests", "GPUPerfomanceTests\GPUPerfomanceTests.csproj", "{6D804ED3-C514-47BF-8078-964549AD86C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntispoofingDepthClassification", "AntispoofingDepthClassification\AntispoofingDepthClassification.csproj", "{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{6D804ED3-C514-47BF-8078-964549AD86C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D804ED3-C514-47BF-8078-964549AD86C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D804ED3-C514-47BF-8078-964549AD86C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{923EA2C6-2407-41C4-9B7F-7C04C932BF2C} = {5C59EADF-F2E6-4217-AB30-3D413343E510}
 		{A43CDC23-3BA5-4C78-AB99-BDBF0A429DE8} = {5C59EADF-F2E6-4217-AB30-3D413343E510}
 		{6D804ED3-C514-47BF-8078-964549AD86C7} = {5C59EADF-F2E6-4217-AB30-3D413343E510}
+		{23EF2DA5-29C3-4623-9007-CBB936BF6CB8} = {5C59EADF-F2E6-4217-AB30-3D413343E510}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8F882E-960E-4B12-A393-9E938B33E5A7}

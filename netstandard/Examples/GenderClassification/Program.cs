@@ -12,15 +12,10 @@ namespace GenderClassification
         static void Main()
         {
             Console.WriteLine("FaceONNX: Gender classification");
-            var files = Directory.GetFiles(@"..\..\..\images");
+            var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             using var faceDetector = new FaceDetector();
             using var faceGenderClassifier = new FaceGenderClassifier();
             var labels = FaceGenderClassifier.Labels;
-
-            foreach (var label in labels)
-            {
-                Directory.CreateDirectory(label);
-            }
 
             Console.WriteLine($"Processing {files.Length} images");
 

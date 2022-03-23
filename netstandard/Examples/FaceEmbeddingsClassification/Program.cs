@@ -16,7 +16,7 @@ namespace FaceEmbeddingsClassification
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
-            var fits = Directory.GetFiles(@"..\..\..\images\fit");
+            var fits = Directory.GetFiles(@"..\..\..\images\fit", "*.*", SearchOption.AllDirectories);
             faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
