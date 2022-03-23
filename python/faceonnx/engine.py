@@ -55,6 +55,68 @@ class FaceDetector:
 
         return boxes
 
+class FaceDepthClassifier:
+
+    """
+    Returns the labels.
+    Returns:
+        Labels
+    """
+    Labels = ["Fake", "Real"]
+
+    def __init__(self, sessionOptions = None):
+        """
+        Initializes face depth classifier.
+        Args:
+            sessionOptions: Session options.
+        """
+        onnx_path = os.path.join(models_path, "depth_googlenet_slim.onnx")
+        g.download_file_from_google_drive(file_id='1E6fNKzGE3_JhEokgqqHDqJxwqw3UUku9', dest_path=onnx_path)
+        self.__session = onnxruntime.InferenceSession(onnx_path, sessionOptions)
+        self.__input_name = self.__session.get_inputs()[0].name
+
+    def Forward(self, image, rectangles = None):
+        """
+        Returns face recognition results.
+        Args:
+            image: Bitmap
+            rectanges: Rectangles
+
+        Returns:
+            Array
+        """
+
+        if rectangles is None:
+            return self.__Forward(image)
+
+        else:
+            outputs = []
+
+            for rectangle in rectangles:
+                cropped = Crop(image, rectangle)
+                outputs.append(self.__Forward(cropped))
+
+            return outputs
+
+    def __Forward(self, image):
+        """
+        Returns face recognition results.
+        Args:
+            image: Bitmap
+
+        Returns:
+            Array
+        """
+        img = Resize(image, (224, 224))
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        img_mean = numpy.array([127])
+        img = img - img_mean
+        img = numpy.transpose(img, [2, 0, 1])
+        img = numpy.expand_dims(img, axis=0)
+        img = img.astype(numpy.float32)
+
+        return self.__session.run(None, {self.__input_name: img})[0][0]
+
 class FaceAgeClassifier:
 
     """

@@ -4,6 +4,41 @@
         <name>FaceONNX</name>
     </assembly>
     <members>
+        <member name="T:FaceONNX.FaceDepthClassifier">
+            <summary>
+            Defines face depth classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceDepthClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.#ctor">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes face age classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="F:FaceONNX.FaceDepthClassifier.Labels">
+            <summary>
+            Returns the labels.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.Forward(System.Drawing.Bitmap)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.Dispose">
+            <inheritdoc/>
+        </member>
         <member name="T:FaceONNX.FaceDetector">
             <summary>
             Defines face detector.
@@ -427,6 +462,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Properties.Resources.depth_googlenet_slim">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
         <member name="P:FaceONNX.Properties.Resources.face_detector_640">
