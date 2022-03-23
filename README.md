@@ -24,11 +24,9 @@ using FaceONNX;
 ```
 To get started with **FaceONNX**, it is recommended to look at the folder with [examples](https://github.com/FaceONNX/FaceONNX/tree/main/netstandard/Examples).  
 
-# Models
-**FaceONNX** is an open-source software. If you want to build **FaceONNX** from sources or use some features separately you can download already-made models from [GitHub](https://github.com/FaceONNX/FaceONNX.Models) repository or [Google.Drive](https://drive.google.com/drive/folders/1zfzHNeGju1r1-5vishZ--uaQNSorA0SJ?usp=sharing) disk.  
-
 # References
-[Python implementation](https://github.com/FaceONNX/pyfaceonnx)
+[Python implementation](https://github.com/FaceONNX/pyfaceonnx)  
+[ONNX models](https://github.com/FaceONNX/FaceONNX.Models)  
 
 # License
 **FaceONNX** is released under the [MIT](LICENSE) license.
