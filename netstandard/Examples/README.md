@@ -3,7 +3,7 @@
 
 # Face detection
 Build and run [FaceDetection.csproj](FaceDetection) to produce face detection results.
-```bash
+```
 Image: [oscar.jpg] --> detected [13] faces
 Image: [oscar2.jpg] --> detected [4] faces
 Image: [selfie.jpg] --> detected [5] faces
@@ -15,7 +15,7 @@ Image: [selfie2.jpg] --> detected [18] faces
 
 # Face embeddings classification
 Build and run [FaceEmbeddingsClassification.csproj](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
-```bash
+```
 Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0,96517545]
 Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0,8623285]
 Image: [brad_3.jpg] --> classified as [Brad Pitt] with similarity [0,8151555]
@@ -29,7 +29,7 @@ Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0,841927
 
 # Antispoofing depth classification
 Build and run [AntispoofingDepthClassification.csproj](AntispoofingDepthClassification) to classify face depth as "Fake" or "Real".
-```bash
+```
 Image: [fake_1.jpeg] --> classified as [Fake] gender with probability [0.9840763]
 Image: [fake_10.jpeg] --> classified as [Fake] gender with probability [0.9999999]
 Image: [fake_2.jpeg] --> classified as [Fake] gender with probability [1]
@@ -54,7 +54,7 @@ Image: [real_9.jpeg] --> classified as [Real] gender with probability [1]
 
 # Face landmarks extraction
 Build and run [FaceLandmarksExtraction.csproj](FaceLandmarksExtraction) to produce faces landmarks.
-```bash
+```
 Image: [bruce.jpg] --> detected [1] faces
 Image: [jake.jpg] --> detected [1] faces
 Image: [kid.jpg] --> detected [1] faces
@@ -64,7 +64,7 @@ Image: [kid.jpg] --> detected [1] faces
 
 # Gender classification
 Build and run [GenderClassification.csproj](GenderClassification) to classify faces as "Male" or "Female".
-```bash
+```
 Image: [CF600.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Female] gender with probability [1]
 Image: [CF601.jpg] --> detected [1] faces
@@ -89,7 +89,7 @@ Image: [CM742.jpg] --> detected [1] faces
 
 # Emotion & beauty estimation
 Build and run [EmotionAndBeautyEstimation.csproj](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
-```bash
+```
 Image: [CF600.jpg] --> detected [1] faces
         [Face #1]: --> classified as [happiness] emotion and [8,3/10.0] beauty
 Image: [CF601.jpg] --> detected [1] faces
@@ -115,7 +115,7 @@ Image: [CM742.jpg] --> detected [1] faces
 # GPU Perfomance tests
 Build and run [GPUPerfomanceTests.csproj](GPUPerfomanceTests) to test FaceONNX inference on GPU.  
 GPU Perfomance tests with CUDA 11.0.2 and cuDNN 8.0.4.30 (Windows 10) on NVIDIA GeForce GTX 1050 Ti (GPU) and Intel Core i7 9700K (CPU).
-```bash
+```
 FaceONNX: GPU Perfomance tests with CUDA provider
 
 Configuring FaceRecognitionTest
