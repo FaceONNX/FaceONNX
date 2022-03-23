@@ -67,7 +67,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FaceONNX" Version="1.1.0.3" />
+	  <PackageReference Include="FaceONNX" Version="1.1.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
