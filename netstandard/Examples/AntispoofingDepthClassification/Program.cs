@@ -25,7 +25,7 @@ namespace AntispoofingDepthClassification
                 var max = Matrice.Max(output, out int gender);
                 var label = labels[gender];
 
-                Console.WriteLine($"Image: [{filename}] --> classified as [{label}] gender with probability [{output.Max()}]");
+                Console.WriteLine($"Image: [{filename}] --> classified as [{label}] with probability [{output.Max()}]");
             }
 
             Console.WriteLine("Done.");
