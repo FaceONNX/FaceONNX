@@ -10,14 +10,6 @@ namespace FaceONNX
     {
         #region Interface
 
-        /// <summary>
-        /// Returns face recognition results.
-        /// </summary>
-        /// <param name="image">Image</param>
-        /// <param name="rectangles">Rectangles</param>
-        /// <returns>Array</returns>
-        float[][] Forward(Bitmap image, params Rectangle[] rectangles);
-
 		/// <summary>
 		/// Returns face recognition results.
 		/// </summary>

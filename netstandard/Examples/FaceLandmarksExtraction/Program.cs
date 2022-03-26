@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using UMapx.Imaging;
 using UMapx.Visualization;
 
 namespace FaceLandmarksExtraction
@@ -34,20 +35,19 @@ namespace FaceLandmarksExtraction
 
                 foreach (var face in faces)
                 {
-                    var points = faceLandmarksExtractor.Forward(bitmap, face);
-                    
-                    foreach (var point in points)
-                    {
-                        var paintData = new PaintData()
-                        {
-                            Points = point,
-                            Title = string.Empty,
-                        };
+                    // crop face
+                    using var cropped = BitmapTransform.Crop(bitmap, face);
+                    var points = faceLandmarksExtractor.Forward(cropped);
 
-                        using var graphics = Graphics.FromImage(bitmap);
-                        painter.Draw(graphics, paintData);
-                        bitmap.Save(Path.Combine(path, filename));
-                    }
+                    var paintData = new PaintData()
+                    {
+                        Points = points.Add(face.GetPoint()),
+                        Title = string.Empty,
+                    };
+
+                    using var graphics = Graphics.FromImage(bitmap);
+                    painter.Draw(graphics, paintData);
+                    bitmap.Save(Path.Combine(path, filename));
                 }
             }
 

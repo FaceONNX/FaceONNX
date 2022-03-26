@@ -4,6 +4,40 @@
         <name>FaceONNX.Gpu</name>
     </assembly>
     <members>
+        <member name="T:FaceONNX.EyeBlinkClassifier">
+            <summary>
+            Defines eye blink classifier.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.EyeBlinkClassifier._session">
+            <summary>
+            Inference session.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.#ctor">
+            <summary>
+            Initializes eye blink classifier.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+            <summary>
+            Initializes eye blink classifier.
+            </summary>
+            <param name="options">Session options</param>
+        </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.Forward(System.Drawing.Bitmap)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.GetEyesRectangles(System.Drawing.Point[])">
+            <summary>
+            Returns left and right eye rectangles from facelandmarks.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Left and right eye rectangles</returns>
+        </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.Dispose">
+            <inheritdoc/>
+        </member>
         <member name="T:FaceONNX.FaceDepthClassifier">
             <summary>
             Defines face depth classifier.
@@ -16,12 +50,12 @@
         </member>
         <member name="M:FaceONNX.FaceDepthClassifier.#ctor">
             <summary>
-            Initializes face age classifier.
+            Initializes face depth classifier.
             </summary>
         </member>
         <member name="M:FaceONNX.FaceDepthClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
-            Initializes face age classifier.
+            Initializes face depth classifier.
             </summary>
             <param name="options">Session options</param>
         </member>
@@ -29,9 +63,6 @@
             <summary>
             Returns the labels.
             </summary>
-        </member>
-        <member name="M:FaceONNX.FaceDepthClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceDepthClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
@@ -97,9 +128,6 @@
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="M:FaceONNX.FaceEmbedder.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
         <member name="M:FaceONNX.FaceEmbedder.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
@@ -127,9 +155,6 @@
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
@@ -148,14 +173,6 @@
             <summary>
             Defines face classifier interface.
             </summary>
-        </member>
-        <member name="M:FaceONNX.IFaceClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Image</param>
-            <param name="rectangles">Rectangles</param>
-            <returns>Array</returns>
         </member>
         <member name="M:FaceONNX.IFaceClassifier.Forward(System.Drawing.Bitmap)">
             <summary>
@@ -190,14 +207,6 @@
             <summary>
             Defines face landmarks extractor interface.
             </summary>
-        </member>
-        <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <summary>
-            Returns face recognition results.
-            </summary>
-            <param name="image">Image</param>
-            <param name="rectangles">Rectangles</param>
-            <returns>Point</returns>
         </member>
         <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
             <summary>
@@ -448,6 +457,15 @@
             <param name="b">Second rectangle</param>
             <returns>Value</returns>
         </member>
+        <member name="M:FaceONNX.Rectangles.Scale(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+            Implements scale operator.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="kx">Factor for x axis</param>
+            <param name="ky">Factor for y axis</param>
+            <returns></returns>
+        </member>
         <member name="T:FaceONNX.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -465,6 +483,11 @@
             </summary>
         </member>
         <member name="P:FaceONNX.Properties.Resources.depth_googlenet_slim">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Properties.Resources.eye_blink_cnn">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

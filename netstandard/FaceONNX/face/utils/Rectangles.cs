@@ -8,7 +8,98 @@ namespace FaceONNX
     /// </summary>
     public static class Rectangles
     {
-        #region Rectangles
+        #region Operators
+
+        /// <summary>
+        /// Returns processed rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle Add(this Rectangle rectangle, Point point)
+        {
+            return new Rectangle
+            {
+                X = rectangle.X + point.X,
+                Y = rectangle.Y + point.Y,
+                Width = rectangle.Width,
+                Height = rectangle.Height
+            };
+        }
+
+        /// <summary>
+        /// Returns processed rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle Sub(this Rectangle rectangle, Point point)
+        {
+            return new Rectangle
+            {
+                X = rectangle.X - point.X,
+                Y = rectangle.Y - point.Y,
+                Width = rectangle.Width,
+                Height = rectangle.Height
+            };
+        }
+
+        /// <summary>
+        /// Returns processed rectangles.
+        /// </summary>
+        /// <param name="rectangles">Rectangles</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangles</returns>
+        public static Rectangle[] Add(this Rectangle[] rectangles, Point point)
+        {
+            var count = rectangles.Length;
+            var output = new Rectangle[count];
+            
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = rectangles[i].Add(point);
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Returns processed rectangles.
+        /// </summary>
+        /// <param name="rectangles">Rectangles</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangles</returns>
+        public static Rectangle[] Sub(this Rectangle[] rectangles, Point point)
+        {
+            var count = rectangles.Length;
+            var output = new Rectangle[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = rectangles[i].Sub(point);
+            }
+
+            return output;
+        }
+
+        #endregion
+
+        #region Special operators
+
+        /// <summary>
+        /// Returns point from rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Point</returns>
+        public static Point GetPoint(this Rectangle rectangle)
+        {
+            return new Point
+            {
+                X = rectangle.X,
+                Y = rectangle.Y
+            };
+        }
+
         /// <summary>
         /// Returns size area.
         /// </summary>
@@ -18,6 +109,7 @@ namespace FaceONNX
         {
             return size.Width * size.Height;
         }
+
         /// <summary>
         /// Returns rectangle area.
         /// </summary>
@@ -27,6 +119,7 @@ namespace FaceONNX
         {
             return rectangle.Width * rectangle.Height;
         }
+
         /// <summary>
         /// Returns the maximum rectangle.
         /// </summary>
@@ -57,6 +150,7 @@ namespace FaceONNX
             // output
             return length > 0 ? rectangles[max] : rectangle;
         }
+
         /// <summary>
         /// Returns the minimum rectangle.
         /// </summary>
@@ -87,6 +181,7 @@ namespace FaceONNX
             // output
             return length > 0 ? rectangles[min] : rectangle;
         }
+
         /// <summary>
         /// Returns rectangle scaled to box.
         /// </summary>
@@ -106,6 +201,7 @@ namespace FaceONNX
                 Height = rectangle.Height + dy
             };
         }
+
         /// <summary>
         /// Returns rectangle scaled to box.
         /// </summary>
@@ -124,6 +220,7 @@ namespace FaceONNX
                 (int)(rectangle.Height + gainY)
                 );
         }
+
         /// <summary>
         /// Returns rectangle scaled to box.
         /// </summary>
@@ -141,6 +238,7 @@ namespace FaceONNX
 
             return newRectangles;
         }
+
         /// <summary>
         /// Returns rectangle scaled to box with image size.
         /// </summary>
@@ -159,6 +257,7 @@ namespace FaceONNX
 
             return newRectangles;
         }
+
         /// <summary>
         /// Implements IoU operator.
         /// </summary>
@@ -182,6 +281,33 @@ namespace FaceONNX
 
             return interArea / (float)(boxAArea + boxBArea - interArea);
         }
+
+        /// <summary>
+        /// Implements scale operator.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <param name="kx">Factor for x axis</param>
+        /// <param name="ky">Factor for y axis</param>
+        /// <returns></returns>
+        public static Rectangle Scale(this Rectangle rectangle, float kx = 0.0f, float ky = 0.0f)
+        {
+            var x = rectangle.X;
+            var y = rectangle.Y;
+            var w = rectangle.Width;
+            var h = rectangle.Height;
+
+            var dw = (int)(w * kx);
+            var dh = (int)(h * ky);
+
+            return new Rectangle
+            {
+                X = x - dw / 2,
+                Y = y - dh / 2,
+                Width = w + dw,
+                Height = h + dh,
+            };
+        }
+
         #endregion
     }
 }

@@ -25,7 +25,7 @@ namespace FaceONNX
 		#region Constructor
 
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes face depth classifier.
 		/// </summary>
 		public FaceDepthClassifier()
 		{
@@ -33,7 +33,7 @@ namespace FaceONNX
 		}
 
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes face depth classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
 		public FaceDepthClassifier(SessionOptions options)
@@ -53,22 +53,6 @@ namespace FaceONNX
         #endregion
 
         #region Methods
-
-        /// <inheritdoc/>
-        public float[][] Forward(Bitmap image, params Rectangle[] rectangles)
-        {
-			int length = rectangles.Length;
-			float[][] vector = new float[length][];
-
-			for (int i = 0; i < length; i++)
-            {
-				var rectangle = rectangles[i];
-				using var cropped = BitmapTransform.Crop(image, rectangle);
-				vector[i] = Forward(cropped);
-            }
-
-			return vector;
-        }
 
 		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)

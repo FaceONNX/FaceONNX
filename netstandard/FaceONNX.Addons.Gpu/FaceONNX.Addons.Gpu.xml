@@ -30,9 +30,6 @@
             Returns the labels.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
         <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
@@ -59,9 +56,6 @@
             Initializes face beauty classifier.
             </summary>
             <param name="options">Session options</param>
-        </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
@@ -95,9 +89,6 @@
             Returns the labels.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
-        </member>
         <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
@@ -129,9 +120,6 @@
             <summary>
             Returns the labels.
             </summary>
-        </member>
-        <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle[])">
-            <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>

@@ -44,32 +44,6 @@ namespace FaceONNX
 
         #region Methods
 
-        /// <inheritdoc/>
-        public Point[][] Forward(Bitmap image, params Rectangle[] rectangles)
-		{
-			var length = rectangles.Length;
-			var vector = new Point[length][];
-
-			for (int i = 0; i < length; i++)
-			{
-				var rectangle = rectangles[i];
-				using var cropped = BitmapTransform.Crop(image, rectangle);
-				var points = Forward(cropped);
-				var count = points.Length;
-
-				for (int j = 0; j < points.Length; j++)
-				{
-					points[j] = new Point(
-						points[j].X + rectangle.X,
-						points[j].Y + rectangle.Y);
-				}
-
-				vector[i] = points;
-			}
-
-			return vector;
-		}
-
 		/// <inheritdoc/>
 		public Point[] Forward(Bitmap image)
 		{

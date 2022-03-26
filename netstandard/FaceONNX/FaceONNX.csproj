@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX</AssemblyName>
     <LangVersion>8.0</LangVersion>
-    <Version>1.1.0.4</Version>
+    <Version>2.0.0.1</Version>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -12,7 +12,7 @@
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX</PackageId>
     <Product>FaceONNX</Product>
-    <AssemblyVersion>1.1.0.4</AssemblyVersion>
+    <AssemblyVersion>2.0.0.1</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
     <RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
@@ -20,7 +20,7 @@
     <PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>FaceONNX.png</PackageIcon>
-    <FileVersion>1.1.0.4</FileVersion>
+    <FileVersion>2.0.0.1</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
@@ -32,7 +32,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>1</WarningLevel>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <DocumentationFile>C:\Users\Valery\Documents\GitHub\FaceONNX\netstandard\FaceONNX\FaceONNX.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -62,6 +62,7 @@
     <None Include="..\FaceONNX.Models\models\onnx\face_detector_640.onnx" Link="models\face_detector_640.onnx" />
     <None Include="..\FaceONNX.Models\models\onnx\landmarks_68_pfld.onnx" Link="models\landmarks_68_pfld.onnx" />
     <None Include="..\FaceONNX.Models\models\onnx\recognition_resnet27.onnx" Link="models\recognition_resnet27.onnx" />
+    <None Include="..\FaceONNX.Models\models\onnx\eye_blink_cnn.onnx" Link="models\eye_blink_cnn.onnx" />
     <None Include="FaceONNX.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

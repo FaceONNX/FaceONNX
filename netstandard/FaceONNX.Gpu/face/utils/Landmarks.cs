@@ -9,6 +9,7 @@ namespace FaceONNX
     public static class Landmarks
     {
         #region Operators
+
         /// <summary>
         /// Returns processed points.
         /// </summary>
@@ -31,6 +32,7 @@ namespace FaceONNX
 
             return output;
         }
+
         /// <summary>
         /// Returns processed points.
         /// </summary>
@@ -53,9 +55,11 @@ namespace FaceONNX
 
             return output;
         }
+
         #endregion
 
         #region Special operators
+
         /// <summary>
         /// Return angle of the three points.
         /// </summary>
@@ -76,6 +80,7 @@ namespace FaceONNX
             double cos = (x1 * x2 + y1 * y2) / Math.Sqrt(x1 * x1 + y1 * y1) / Math.Sqrt(x2 * x2 + y2 * y2);
             return (float)(kk * (180.0 - Math.Acos(cos) * 57.3));
         }
+
         /// <summary>
         /// Returns supported point.
         /// </summary>
@@ -86,6 +91,7 @@ namespace FaceONNX
         {
             return new Point(right.X, left.Y);
         }
+
         /// <summary>
         /// Returns mean point.
         /// </summary>
@@ -110,6 +116,7 @@ namespace FaceONNX
         #endregion
 
         #region Face operators
+
         /// <summary>
         /// Returns rectangle from face points.
         /// </summary>
@@ -117,9 +124,6 @@ namespace FaceONNX
         /// <returns>Rectangle</returns>
         public static Rectangle GetRectangle(this Point[] points)
         {
-            if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
-
             int length = points.Length;
             int xmin = int.MaxValue;
             int ymin = int.MaxValue;
@@ -143,6 +147,7 @@ namespace FaceONNX
 
             return new Rectangle(xmin, ymin, xmax - xmin, ymax - ymin);
         }
+
         /// <summary>
         /// Returns right eye points.
         /// </summary>
@@ -162,6 +167,7 @@ namespace FaceONNX
 
             return eye;
         }
+
         /// <summary>
         /// Returns left eye points.
         /// </summary>
@@ -181,6 +187,7 @@ namespace FaceONNX
 
             return eye;
         }
+
         /// <summary>
         /// Returns mouth points.
         /// </summary>
@@ -200,6 +207,7 @@ namespace FaceONNX
 
             return tongue;
         }
+
         /// <summary>
         /// Returns face points.
         /// </summary>
@@ -219,6 +227,7 @@ namespace FaceONNX
 
             return tongue;
         }
+
         /// <summary>
         /// Returns left brow points.
         /// </summary>
@@ -238,6 +247,7 @@ namespace FaceONNX
 
             return eye;
         }
+
         /// <summary>
         /// Returns right brow points.
         /// </summary>
@@ -257,6 +267,7 @@ namespace FaceONNX
 
             return eye;
         }
+
         /// <summary>
         /// Returns nose points.
         /// </summary>
@@ -276,6 +287,7 @@ namespace FaceONNX
 
             return eye;
         }
+
         #endregion
     }
 }

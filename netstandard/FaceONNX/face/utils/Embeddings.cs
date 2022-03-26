@@ -10,6 +10,7 @@ namespace FaceONNX
     public class Embeddings
     {
         #region Class components
+
         /// <summary>
         /// Initializes the embeddings database.
         /// </summary>
@@ -18,6 +19,7 @@ namespace FaceONNX
             Vectors = new List<float[]>();
             Labels = new List<string>();
         }
+
         /// <summary>
         /// Initializes the embeddings database.
         /// </summary>
@@ -31,6 +33,7 @@ namespace FaceONNX
             Vectors = vectors;
             Labels = labels;
         }
+
         /// <summary>
         /// Adds embedding to embeddings database.
         /// </summary>
@@ -41,6 +44,7 @@ namespace FaceONNX
             Vectors.Add(vector);
             Labels.Add(label);
         }
+
         /// <summary>
         /// Removes embedding from embeddings database.
         /// </summary>
@@ -50,6 +54,7 @@ namespace FaceONNX
             Vectors.RemoveAt(index);
             Labels.RemoveAt(index);
         }
+
         /// <summary>
         /// Removes embedding from embeddings database.
         /// </summary>
@@ -67,6 +72,7 @@ namespace FaceONNX
                 throw new Exception("Embedding with selected label does not exist.");
             }
         }
+
         /// <summary>
         /// Clears embeddings database.
         /// </summary>
@@ -75,6 +81,7 @@ namespace FaceONNX
             Vectors.Clear();
             Labels.Clear();
         }
+
         /// <summary>
         /// Returns embeddings database count.
         /// </summary>
@@ -85,17 +92,21 @@ namespace FaceONNX
                 return Vectors.Count;
             }
         }
+
         /// <summary>
         /// Gets or sets vectors.
         /// </summary>
         public List<float[]> Vectors { get; }
+
         /// <summary>
         /// Gets or sets labels.
         /// </summary>
         public List<string> Labels { get; }
+
         #endregion
 
         #region From database methods
+
         /// <summary>
         /// Score vector from database by Euclidean distance.
         /// </summary>
@@ -123,6 +134,7 @@ namespace FaceONNX
             var label = (index != -1) ? Labels?[index] : string.Empty;
             return (label, min);
         }
+
         /// <summary>
         /// Score vector from database by cosine similarity.
         /// </summary>
@@ -150,6 +162,7 @@ namespace FaceONNX
             var label = (index != -1) ? Labels?[index] : string.Empty;
             return (label, max);
         }
+
         #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿using FaceONNX.Addons.Properties;
+﻿using FaceONNX.Properties;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
@@ -10,45 +10,38 @@ using UMapx.Imaging;
 
 namespace FaceONNX
 {
-    /// <summary>
-    /// Defines face age classifier.
-    /// </summary>
-    public class FaceEmotionClassifier : IFaceClassifier
+	/// <summary>
+	/// Defines eye blink classifier.
+	/// </summary>
+	public class EyeBlinkClassifier : IFaceClassifier
 	{
 		#region Private data
+
 		/// <summary>
 		/// Inference session.
 		/// </summary>
 		private readonly InferenceSession _session;
+
 		#endregion
 
-		#region Class components
+		#region Constructor
 
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes eye blink classifier.
 		/// </summary>
-		public FaceEmotionClassifier()
+		public EyeBlinkClassifier()
 		{
-			_session = new InferenceSession(Resources.emotion_cnn);
+			_session = new InferenceSession(Resources.eye_blink_cnn);
 		}
 
 		/// <summary>
-		/// Initializes face age classifier.
+		/// Initializes eye blink classifier.
 		/// </summary>
 		/// <param name="options">Session options</param>
-		public FaceEmotionClassifier(SessionOptions options)
+		public EyeBlinkClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Resources.emotion_cnn, options);
+			_session = new InferenceSession(Resources.eye_blink_cnn, options);
 		}
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Returns the labels.
-        /// </summary>
-        public static string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
 
 		#endregion
 
@@ -57,7 +50,7 @@ namespace FaceONNX
 		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
-			var size = new Size(48, 48);
+			var size = new Size(34, 26);
 			using var clone = BitmapTransform.Resize(image, size);
 			int width = clone.Width;
 			int height = clone.Height;
@@ -65,9 +58,9 @@ namespace FaceONNX
 			var name = inputMeta.Keys.ToArray()[0];
 
 			// pre-processing
-			var dimentions = new int[] { 1, 1, height, width };
-			var tensors = clone.ToFloatTensor(true);
-			tensors.Compute(256, Matrice.Div);
+			var dimentions = new int[] { 1, height, width, 1 };
+			var tensors = clone.ToFloatTensor(false);
+			tensors.Compute(255.0f, Matrice.Div);
 			var inputData = tensors.Average();
 
 			// session run
@@ -75,7 +68,7 @@ namespace FaceONNX
 			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
 			var results = _session.Run(inputs).ToArray();
 			var length = results.Length;
-			var confidences = Matrice.Compute(results[length - 1].AsTensor<float>().ToArray(), Maths.Exp);
+			var confidences = results[length - 1].AsTensor<float>().ToArray();
 
 			// dispose
 			foreach (var result in results)
@@ -86,11 +79,37 @@ namespace FaceONNX
 			return confidences;
 		}
 
-		#endregion
+        #endregion
 
-		#region IDisposable
+        #region Static
 
-		private bool _disposed;
+		/// <summary>
+		/// Returns left and right eye rectangles from facelandmarks.
+		/// </summary>
+		/// <param name="points">Points</param>
+		/// <returns>Left and right eye rectangles</returns>
+		public static (Rectangle, Rectangle) GetEyesRectangles(Point[] points)
+        {
+			var factor_y = -0.3f;
+
+			var left_eye_rect = points.GetLeftEye()
+				.GetRectangle()
+				.ToBox()
+				.Scale(0.0f, factor_y);
+
+			var right_eye_rect = points.GetRightEye()
+				.GetRectangle()
+				.ToBox()
+				.Scale(0.0f, factor_y);
+
+			return (left_eye_rect, right_eye_rect);
+		}
+
+        #endregion
+
+        #region IDisposable
+
+        private bool _disposed;
 
 		/// <inheritdoc/>
 		public void Dispose()
@@ -112,7 +131,7 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceEmotionClassifier()
+		~EyeBlinkClassifier()
 		{
 			Dispose(false);
 		}

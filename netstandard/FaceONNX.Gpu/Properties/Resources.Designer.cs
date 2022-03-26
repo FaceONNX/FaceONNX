@@ -73,6 +73,16 @@ namespace FaceONNX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] eye_blink_cnn {
+            get {
+                object obj = ResourceManager.GetObject("eye_blink_cnn", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] face_detector_640 {
             get {
                 object obj = ResourceManager.GetObject("face_detector_640", resourceCulture);
