@@ -29,4 +29,4 @@ To get started with **FaceONNX**, it is recommended to look at the folder with [
 [ONNX models](https://github.com/FaceONNX/FaceONNX.Models)  
 
 # License
-**FaceONNX** is released under the [MIT](LICENSE) license.
+**FaceONNX** is released under the [MIT](https://github.com/FaceONNX/FaceONNX/blob/main/LICENSE) license.
