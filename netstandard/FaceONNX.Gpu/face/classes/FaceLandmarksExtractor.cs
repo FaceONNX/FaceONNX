@@ -84,17 +84,17 @@ namespace FaceONNX
 			return points;
 		}
 
-		#endregion
+        #endregion
 
-		#region Static methods
+        #region Static methods
 
-		/// <summary>
-		/// Returns aligned face.
-		/// </summary>
-		/// <param name="image">Bitmap</param>
-		/// <param name="points">Points</param>
-		/// <returns>Bitmap</returns>
-		public static Bitmap Align(Bitmap image, Point[] points)
+        /// <summary>
+        /// Returns aligned face.
+        /// </summary>
+        /// <param name="image">Bitmap</param>
+        /// <param name="points">Points</param>
+        /// <returns>Bitmap</returns>
+        public static Bitmap Align(Bitmap image, Point[] points)
 		{
 			var angle = GetRotationAngle(points);
 			return Align(image, angle);
@@ -107,7 +107,7 @@ namespace FaceONNX
 		/// <param name="angle">Angle</param>
 		/// <returns>Bitmap</returns>
 		public static Bitmap Align(Bitmap image, float angle)
-		{
+        {
 			return BitmapTransform.Rotate(image, angle, Color.Black);
 		}
 
@@ -117,7 +117,7 @@ namespace FaceONNX
 		/// <param name="points">Points</param>
 		/// <returns>Angle</returns>
 		public static float GetRotationAngle(Point[] points)
-		{
+        {
 			var left = Landmarks.GetMeanPoint(points.GetLeftEye());
 			var right = Landmarks.GetMeanPoint(points.GetRightEye());
 			var point = Landmarks.GetSupportedPoint(left, right);
