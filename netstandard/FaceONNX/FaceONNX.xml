@@ -166,6 +166,21 @@
             <param name="points">Points</param>
             <returns>Bitmap</returns>
         </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Single)">
+            <summary>
+            Returns aligned face.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="angle">Angle</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.GetRotationAngle(System.Drawing.Point[])">
+            <summary>
+            Returns rotation angle from points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Angle</returns>
+        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">
             <inheritdoc/>
         </member>

@@ -42,7 +42,7 @@ namespace EyeBlinkDetection
                     // crop and align face
                     using var cropped = BitmapTransform.Crop(bitmap, face);
                     var points = faceLandmarksExtractor.Forward(cropped);
-                    using var aligned = FaceLandmarksExtractor.Align(cropped, points);
+                    var angle = FaceLandmarksExtractor.GetRotationAngle(points);
 
                     // eye blink detection
                     var eyes = EyeBlinkClassifier.GetEyesRectangles(points);
