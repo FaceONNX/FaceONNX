@@ -8,7 +8,97 @@ namespace FaceONNX
     /// </summary>
     public static class Rectangles
     {
-        #region Rectangles
+        #region Operators
+
+        /// <summary>
+        /// Returns processed rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle Add(this Rectangle rectangle, Point point)
+        {
+            return new Rectangle
+            {
+                X = rectangle.X + point.X,
+                Y = rectangle.Y + point.Y,
+                Width = rectangle.Width,
+                Height = rectangle.Height
+            };
+        }
+
+        /// <summary>
+        /// Returns processed rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle Sub(this Rectangle rectangle, Point point)
+        {
+            return new Rectangle
+            {
+                X = rectangle.X - point.X,
+                Y = rectangle.Y - point.Y,
+                Width = rectangle.Width,
+                Height = rectangle.Height
+            };
+        }
+
+        /// <summary>
+        /// Returns processed rectangles.
+        /// </summary>
+        /// <param name="rectangles">Rectangles</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangles</returns>
+        public static Rectangle[] Add(this Rectangle[] rectangles, Point point)
+        {
+            var count = rectangles.Length;
+            var output = new Rectangle[count];
+            
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = rectangles[i].Add(point);
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Returns processed rectangles.
+        /// </summary>
+        /// <param name="rectangles">Rectangles</param>
+        /// <param name="point">Point</param>
+        /// <returns>Rectangles</returns>
+        public static Rectangle[] Sub(this Rectangle[] rectangles, Point point)
+        {
+            var count = rectangles.Length;
+            var output = new Rectangle[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = rectangles[i].Sub(point);
+            }
+
+            return output;
+        }
+
+        #endregion
+
+        #region Special operators
+
+        /// <summary>
+        /// Returns point from rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Point</returns>
+        public static Point GetPoint(this Rectangle rectangle)
+        {
+            return new Point
+            {
+                X = rectangle.X,
+                Y = rectangle.Y
+            };
+        }
 
         /// <summary>
         /// Returns size area.

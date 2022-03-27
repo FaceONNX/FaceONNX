@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPUPerfomanceTests", "GPUPe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntispoofingDepthClassification", "AntispoofingDepthClassification\AntispoofingDepthClassification.csproj", "{23EF2DA5-29C3-4623-9007-CBB936BF6CB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EyeBlinkDetection", "EyeBlinkDetection\EyeBlinkDetection.csproj", "{2FDDB8ED-DAD4-4290-88C4-64F6A6FDCC39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EyeBlinkDetection", "EyeBlinkDetection\EyeBlinkDetection.csproj", "{2FDDB8ED-DAD4-4290-88C4-64F6A6FDCC39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -32,7 +32,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>1</WarningLevel>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <DocumentationFile>C:\Users\Valery\Documents\GitHub\FaceONNX\netstandard\FaceONNX\FaceONNX.xml</DocumentationFile>
   </PropertyGroup>
 

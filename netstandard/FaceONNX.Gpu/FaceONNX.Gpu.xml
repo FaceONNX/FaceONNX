@@ -30,7 +30,7 @@
         </member>
         <member name="M:FaceONNX.EyeBlinkClassifier.GetEyesRectangles(System.Drawing.Point[])">
             <summary>
-            Returns left and right eye rectangles from facelandmarks.
+            Returns left and right eye rectangles from face landmarks.
             </summary>
             <param name="points">Points</param>
             <returns>Left and right eye rectangles</returns>
@@ -306,6 +306,13 @@
             <param name="point">Point</param>
             <returns>Points</returns>
         </member>
+        <member name="M:FaceONNX.Landmarks.GetRectangle(System.Drawing.Point[])">
+            <summary>
+            Returns rectangle from points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Rectangle</returns>
+        </member>
         <member name="M:FaceONNX.Landmarks.GetAngle(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
             <summary>
             Return angle of the three points.
@@ -329,13 +336,6 @@
             </summary>
             <param name="points">Points</param>
             <returns>Point</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetRectangle(System.Drawing.Point[])">
-            <summary>
-            Returns rectangle from face points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Rectangle</returns>
         </member>
         <member name="M:FaceONNX.Landmarks.GetRightEye(System.Drawing.Point[])">
             <summary>
@@ -390,6 +390,45 @@
             <summary>
             Using for face boxes operations.
             </summary>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Add(System.Drawing.Rectangle,System.Drawing.Point)">
+            <summary>
+            Returns processed rectangle.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="point">Point</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Sub(System.Drawing.Rectangle,System.Drawing.Point)">
+            <summary>
+            Returns processed rectangle.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="point">Point</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Add(System.Drawing.Rectangle[],System.Drawing.Point)">
+            <summary>
+            Returns processed rectangles.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <param name="point">Point</param>
+            <returns>Rectangles</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Sub(System.Drawing.Rectangle[],System.Drawing.Point)">
+            <summary>
+            Returns processed rectangles.
+            </summary>
+            <param name="rectangles">Rectangles</param>
+            <param name="point">Point</param>
+            <returns>Rectangles</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.GetPoint(System.Drawing.Rectangle)">
+            <summary>
+            Returns point from rectangle.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Point</returns>
         </member>
         <member name="M:FaceONNX.Rectangles.Area(System.Drawing.Size)">
             <summary>

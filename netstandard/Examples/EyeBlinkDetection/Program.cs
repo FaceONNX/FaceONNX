@@ -50,8 +50,8 @@ namespace EyeBlinkDetection
                     var left_eye_rect = eyes.Item1;
                     var right_eye_rect = eyes.Item2;
 
-                    using var left_eye = BitmapTransform.Crop(aligned, left_eye_rect);
-                    using var right_eye = BitmapTransform.Crop(aligned, right_eye_rect);
+                    using var left_eye = BitmapTransform.Crop(cropped, left_eye_rect);
+                    using var right_eye = BitmapTransform.Crop(cropped, right_eye_rect);
 
                     var left_eye_value = eyeBlinkClassifier.Forward(left_eye);
                     var right_eye_value = eyeBlinkClassifier.Forward(right_eye);

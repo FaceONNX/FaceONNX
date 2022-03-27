@@ -61,6 +61,37 @@ namespace FaceONNX
         #region Special operators
 
         /// <summary>
+        /// Returns rectangle from points.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle GetRectangle(this Point[] points)
+        {
+            int length = points.Length;
+            int xmin = int.MaxValue;
+            int ymin = int.MaxValue;
+            int xmax = int.MinValue;
+            int ymax = int.MinValue;
+
+            for (int i = 0; i < length; i++)
+            {
+                int x = points[i].X;
+                int y = points[i].Y;
+
+                if (x < xmin)
+                    xmin = x;
+                if (y < ymin)
+                    ymin = y;
+                if (x > xmax)
+                    xmax = x;
+                if (y > ymax)
+                    ymax = y;
+            }
+
+            return new Rectangle(xmin, ymin, xmax - xmin, ymax - ymin);
+        }
+
+        /// <summary>
         /// Return angle of the three points.
         /// </summary>
         /// <param name="left">Left point</param>
@@ -116,37 +147,6 @@ namespace FaceONNX
         #endregion
 
         #region Face operators
-
-        /// <summary>
-        /// Returns rectangle from face points.
-        /// </summary>
-        /// <param name="points">Points</param>
-        /// <returns>Rectangle</returns>
-        public static Rectangle GetRectangle(this Point[] points)
-        {
-            int length = points.Length;
-            int xmin = int.MaxValue;
-            int ymin = int.MaxValue;
-            int xmax = int.MinValue;
-            int ymax = int.MinValue;
-
-            for (int i = 0; i < length; i++)
-            {
-                int x = points[i].X;
-                int y = points[i].Y;
-
-                if (x < xmin)
-                    xmin = x;
-                if (y < ymin)
-                    ymin = y;
-                if (x > xmax)
-                    xmax = x;
-                if (y > ymax)
-                    ymax = y;
-            }
-
-            return new Rectangle(xmin, ymin, xmax - xmin, ymax - ymin);
-        }
 
         /// <summary>
         /// Returns right eye points.

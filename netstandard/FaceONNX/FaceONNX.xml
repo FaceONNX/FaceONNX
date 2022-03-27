@@ -30,7 +30,7 @@
         </member>
         <member name="M:FaceONNX.EyeBlinkClassifier.GetEyesRectangles(System.Drawing.Point[])">
             <summary>
-            Returns left and right eye rectangles from facelandmarks.
+            Returns left and right eye rectangles from face landmarks.
             </summary>
             <param name="points">Points</param>
             <returns>Left and right eye rectangles</returns>
