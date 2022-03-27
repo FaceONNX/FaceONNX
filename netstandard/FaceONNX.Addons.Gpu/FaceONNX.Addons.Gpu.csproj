@@ -14,7 +14,7 @@
 		<Product>FaceONNX.Addons.Gpu</Product>
 		<AssemblyVersion>2.0.0.1</AssemblyVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
+		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks gpu</PackageTags>
 		<RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
