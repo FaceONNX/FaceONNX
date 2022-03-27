@@ -13,6 +13,16 @@ Image: [selfie2.jpg] --> detected [18] faces
 <p align="center"><img width="70%" src="FaceDetection/results/oscar2.jpg" /></p>
 <p align="center"><b>Figure 1.</b> Results for <i>oscar2.jpg</i></p>  
 
+# Face landmarks extraction
+Build and run [FaceLandmarksExtraction.csproj](FaceLandmarksExtraction) to produce faces landmarks.
+```
+Image: [bruce.jpg] --> detected [1] faces
+Image: [jake.jpg] --> detected [1] faces
+Image: [kid.jpg] --> detected [1] faces
+```
+<p align="center"><img width="70%" src="FaceLandmarksExtraction/results/kid.jpg" /></p>
+<p align="center"><b>Figure 2.</b> Results for <i>kid.jpg</i></p>  
+
 # Face embeddings classification
 Build and run [FaceEmbeddingsClassification.csproj](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
 ```
@@ -52,15 +62,16 @@ Image: [real_8.jpeg] --> classified as [Real] with probability [0.9999813]
 Image: [real_9.jpeg] --> classified as [Real] with probability [1]
 ```
 
-# Face landmarks extraction
-Build and run [FaceLandmarksExtraction.csproj](FaceLandmarksExtraction) to produce faces landmarks.
+# Eye blink detection
+Build and run [EyeBlinkDetection.csproj](EyeBlinkDetection) to detect eye blink.
 ```
-Image: [bruce.jpg] --> detected [1] faces
-Image: [jake.jpg] --> detected [1] faces
-Image: [kid.jpg] --> detected [1] faces
+Image: [closed_closed.jpg] --> detected [1] faces
+Image: [closed_open.jpg] --> detected [1] faces
+Image: [open_open.jpg] --> detected [1] faces
 ```
-<p align="center"><img width="70%" src="FaceLandmarksExtraction/results/kid.jpg" /></p>
-<p align="center"><b>Figure 2.</b> Results for <i>kid.jpg</i></p>  
+
+<p align="center"><img width="70%" src="EyeBlinkDetection/results/open_open.jpg" /></p>
+<p align="center"><b>Figure 3.</b> Results for <i>open_open.jpg</i></p> 
 
 # Gender classification
 Build and run [GenderClassification.csproj](GenderClassification) to classify faces as "Male" or "Female".
