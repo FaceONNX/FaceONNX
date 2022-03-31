@@ -24,8 +24,7 @@ using FaceONNX;
 ```
 To get started with **FaceONNX**, it is recommended to look at the folder with [examples](https://github.com/FaceONNX/FaceONNX/tree/main/netstandard/Examples).  
 
-# References
-[Python implementation](https://github.com/FaceONNX/pyfaceonnx)  
+# References 
 [ONNX models](https://github.com/FaceONNX/FaceONNX.Models)  
 
 # License
