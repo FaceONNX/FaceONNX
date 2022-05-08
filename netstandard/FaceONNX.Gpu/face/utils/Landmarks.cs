@@ -61,6 +61,52 @@ namespace FaceONNX
         #region Special operators
 
         /// <summary>
+        /// Rotates points by angle.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <param name="centerPoint">Center point</param>
+        /// <param name="angle">Angle</param>
+        /// <returns>Points</returns>
+        public static Point[] Rotate(this Point[] points, Point centerPoint, float angle)
+        {
+            int length = points.Length;
+            var output = new Point[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                output[i] = Rotate(points[i], centerPoint, angle);
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Rotates point by angle.
+        /// </summary>
+        /// <param name="pointToRotate">The point to rotate.</param>
+        /// <param name="centerPoint">The center point of rotation.</param>
+        /// <param name="angleInDegrees">The rotation angle in degrees.</param>
+        /// <returns>Rotated point</returns>
+        public static Point Rotate(this Point pointToRotate, Point centerPoint, double angleInDegrees)
+        {
+            double angleInRadians = angleInDegrees * (Math.PI / 180);
+            double cosTheta = Math.Cos(angleInRadians);
+            double sinTheta = Math.Sin(angleInRadians);
+
+            return new Point
+            {
+                X =
+                    (int)
+                    (cosTheta * (pointToRotate.X - centerPoint.X) -
+                    sinTheta * (pointToRotate.Y - centerPoint.Y) + centerPoint.X),
+                Y =
+                    (int)
+                    (sinTheta * (pointToRotate.X - centerPoint.X) +
+                    cosTheta * (pointToRotate.Y - centerPoint.Y) + centerPoint.Y)
+            };
+        }
+
+        /// <summary>
         /// Returns rectangle from points.
         /// </summary>
         /// <param name="points">Points</param>

@@ -44,7 +44,8 @@ namespace GPUPerfomanceTests
                 tic = Environment.TickCount;
 
                 var points = faceLandmarksExtractor.Forward(bitmap);
-                using var aligned = FaceLandmarksExtractor.Align(bitmap, points);
+                var angle = FaceLandmarksExtractor.GetRotationAngle(points);
+                using var aligned = FaceLandmarksExtractor.Align(bitmap, angle);
                 var embeddings = faceEmbedder.Forward(aligned);
 
                 toc = Environment.TickCount - tic;

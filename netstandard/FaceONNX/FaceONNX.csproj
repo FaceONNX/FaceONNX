@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX</AssemblyName>
     <LangVersion>8.0</LangVersion>
-    <Version>2.0.0.1</Version>
+    <Version>2.0.2.1</Version>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>

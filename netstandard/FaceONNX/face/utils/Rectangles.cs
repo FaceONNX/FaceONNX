@@ -87,6 +87,39 @@ namespace FaceONNX
         #region Special operators
 
         /// <summary>
+        /// Returns four points from rectangle.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Points</returns>
+        public static Point[] ToPoints(this Rectangle rectangle)
+        {
+            return new Point[]
+            {
+                new Point (rectangle.Left, rectangle.Top),
+                new Point (rectangle.Right, rectangle.Top),
+                new Point (rectangle.Right, rectangle.Bottom),
+                new Point (rectangle.Left, rectangle.Bottom)
+            };
+        }
+
+        /// <summary>
+        /// Returns rectangle from four points.
+        /// </summary>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        public static Rectangle FromPoints(this Point[] points)
+        {
+            if (points.Length != 4)
+                throw new ArgumentException("A rectangle can only be built using four points.");
+
+            return Rectangle.FromLTRB(
+                points[0].X,
+                points[0].Y,
+                points[2].X,
+                points[2].Y);
+        }
+
+        /// <summary>
         /// Returns point from rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle</param>

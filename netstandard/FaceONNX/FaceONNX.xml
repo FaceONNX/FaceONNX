@@ -158,13 +158,28 @@
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Drawing.Point[])">
+        <member name="F:FaceONNX.FaceLandmarksExtractor.Rotate">
             <summary>
-            Returns aligned face.
+            Rotate filter.
             </summary>
-            <param name="image">Bitmap</param>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Size,System.Drawing.Point[],System.Single)">
+            <summary>
+            Returns aligned points.
+            </summary>
             <param name="points">Points</param>
-            <returns>Bitmap</returns>
+            <param name="angle">Angle</param>
+            <param name="imageSize">Image size</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Size,System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Returns aligned rectangle.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <param name="angle">Angle</param>
+            <param name="imageSize">Image size</param>
+            <returns>Rectangle</returns>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Single)">
             <summary>
@@ -321,6 +336,24 @@
             <param name="point">Point</param>
             <returns>Points</returns>
         </member>
+        <member name="M:FaceONNX.Landmarks.Rotate(System.Drawing.Point[],System.Drawing.Point,System.Single)">
+            <summary>
+            Rotates points by angle.
+            </summary>
+            <param name="points">Points</param>
+            <param name="centerPoint">Center point</param>
+            <param name="angle">Angle</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.Rotate(System.Drawing.Point,System.Drawing.Point,System.Double)">
+            <summary>
+            Rotates point by angle.
+            </summary>
+            <param name="pointToRotate">The point to rotate.</param>
+            <param name="centerPoint">The center point of rotation.</param>
+            <param name="angleInDegrees">The rotation angle in degrees.</param>
+            <returns>Rotated point</returns>
+        </member>
         <member name="M:FaceONNX.Landmarks.GetRectangle(System.Drawing.Point[])">
             <summary>
             Returns rectangle from points.
@@ -437,6 +470,20 @@
             <param name="rectangles">Rectangles</param>
             <param name="point">Point</param>
             <returns>Rectangles</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.ToPoints(System.Drawing.Rectangle)">
+            <summary>
+            Returns four points from rectangle.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.FromPoints(System.Drawing.Point[])">
+            <summary>
+            Returns rectangle from four points.
+            </summary>
+            <param name="points"></param>
+            <returns></returns>
         </member>
         <member name="M:FaceONNX.Rectangles.GetPoint(System.Drawing.Rectangle)">
             <summary>

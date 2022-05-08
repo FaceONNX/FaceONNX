@@ -84,20 +84,62 @@ namespace FaceONNX
 			return points;
 		}
 
-        #endregion
+		#endregion
 
-        #region Static methods
+		#region Static methods
 
-        /// <summary>
-        /// Returns aligned face.
-        /// </summary>
-        /// <param name="image">Bitmap</param>
-        /// <param name="points">Points</param>
-        /// <returns>Bitmap</returns>
-        public static Bitmap Align(Bitmap image, Point[] points)
+		/// <summary>
+		/// Rotate filter.
+		/// </summary>
+		private static readonly Rotate Rotate = new Rotate(0, Color.Black);
+
+		/// <summary>
+		/// Returns aligned points.
+		/// </summary>
+		/// <param name="points">Points</param>
+		/// <param name="angle">Angle</param>
+		/// <param name="imageSize">Image size</param>
+		/// <returns>Points</returns>
+		public static Point[] Align(Size imageSize, Point[] points, float angle)
 		{
-			var angle = GetRotationAngle(points);
-			return Align(image, angle);
+			// rotate points
+			var rotated_points = points.Rotate(
+				new Point
+				{
+					X = imageSize.Width / 2,
+					Y = imageSize.Height / 2
+				}, angle);
+
+			return rotated_points;
+		}
+
+		/// <summary>
+		/// Returns aligned rectangle.
+		/// </summary>
+		/// <param name="rectangle">Rectangle</param>
+		/// <param name="angle">Angle</param>
+		/// <param name="imageSize">Image size</param>
+		/// <returns>Rectangle</returns>
+		public static Rectangle Align(Size imageSize, Rectangle rectangle, float angle)
+		{
+			// rotate rectangle points
+			var rectangle_rotated_points = rectangle.ToPoints().Rotate(new Point
+			{
+				X = imageSize.Width / 2,
+				Y = imageSize.Height / 2
+			}, angle);
+
+			// get mean point
+			var mean_point = Landmarks.GetMeanPoint(rectangle_rotated_points);
+
+			// inverse transform
+			var rectangle_rotated_points_inverted = rectangle_rotated_points.Rotate(new Point
+			{
+				X = mean_point.X,
+				Y = mean_point.Y
+			}, -angle);
+
+			return rectangle_rotated_points_inverted.FromPoints();
 		}
 
 		/// <summary>
@@ -108,7 +150,10 @@ namespace FaceONNX
 		/// <returns>Bitmap</returns>
 		public static Bitmap Align(Bitmap image, float angle)
         {
-			return BitmapTransform.Rotate(image, angle, Color.Black);
+            var clone = (Bitmap)image.Clone();
+            Rotate.Angle = 360 - angle;
+            Rotate.Apply(clone);
+            return clone;
 		}
 
 		/// <summary>
