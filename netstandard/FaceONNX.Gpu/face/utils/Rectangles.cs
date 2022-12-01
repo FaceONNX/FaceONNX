@@ -54,7 +54,7 @@ namespace FaceONNX
         {
             var count = rectangles.Length;
             var output = new Rectangle[count];
-            
+
             for (int i = 0; i < count; i++)
             {
                 output[i] = rectangles[i].Add(point);
@@ -266,7 +266,7 @@ namespace FaceONNX
 
             for (int i = 0; i < length; i++)
             {
-                newRectangles[i] = Rectangles.ToBox(rectangles[i]);
+                newRectangles[i] = rectangles[i].ToBox();
             }
 
             return newRectangles;
@@ -285,7 +285,7 @@ namespace FaceONNX
 
             for (int i = 0; i < length; i++)
             {
-                newRectangles[i] = Rectangles.ToBox(rectangles[i], factor);
+                newRectangles[i] = rectangles[i].ToBox(factor);
             }
 
             return newRectangles;

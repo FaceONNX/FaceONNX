@@ -65,15 +65,10 @@ namespace FaceONNX
 			// session run
 			var t = new DenseTensor<float>(inputData, dimentions);
 			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
-			var results = _session.Run(inputs).ToArray();
-			var length = results.Length;
+            using var outputs = _session.Run(inputs);
+            var results = outputs.ToArray();
+            var length = results.Length;
 			var confidences = results[length - 1].AsTensor<float>().ToArray();
-
-			// dispose
-			foreach (var result in results)
-			{
-				result.Dispose();
-			}
 
 			return confidences;
 		}

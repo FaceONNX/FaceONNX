@@ -4,6 +4,7 @@ using Microsoft.ML.OnnxRuntime.Tensors;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using UMapx.Core;
 using UMapx.Imaging;
@@ -14,32 +15,32 @@ namespace FaceONNX
     /// Defines face depth classifier.
     /// </summary>
     public class FaceDepthClassifier : IFaceClassifier
-	{
-		#region Private data
-		/// <summary>
-		/// Inference session.
-		/// </summary>
-		private readonly InferenceSession _session;
-		#endregion
+    {
+        #region Private data
+        /// <summary>
+        /// Inference session.
+        /// </summary>
+        private readonly InferenceSession _session;
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		/// <summary>
-		/// Initializes face depth classifier.
-		/// </summary>
-		public FaceDepthClassifier()
-		{
-			_session = new InferenceSession(Resources.depth_googlenet_slim);
-		}
+        /// <summary>
+        /// Initializes face depth classifier.
+        /// </summary>
+        public FaceDepthClassifier()
+        {
+            _session = new InferenceSession(Resources.depth_googlenet_slim);
+        }
 
-		/// <summary>
-		/// Initializes face depth classifier.
-		/// </summary>
-		/// <param name="options">Session options</param>
-		public FaceDepthClassifier(SessionOptions options)
-		{
-			_session = new InferenceSession(Resources.depth_googlenet_slim, options);
-		}
+        /// <summary>
+        /// Initializes face depth classifier.
+        /// </summary>
+        /// <param name="options">Session options</param>
+        public FaceDepthClassifier(SessionOptions options)
+        {
+            _session = new InferenceSession(Resources.depth_googlenet_slim, options);
+        }
 
         #endregion
 
@@ -54,69 +55,67 @@ namespace FaceONNX
 
         #region Methods
 
-		/// <inheritdoc/>
-		public float[] Forward(Bitmap image)
-		{
-			var size = new Size(224, 224);
-			using var clone = BitmapTransform.Resize(image, size);
-			int width = clone.Width;
-			int height = clone.Height;
-			var inputMeta = _session.InputMetadata;
-			var name = inputMeta.Keys.ToArray()[0];
+        /// <inheritdoc/>
+        public float[] Forward(Bitmap image)
+        {
+            var size = new Size(224, 224);
+            using var clone = image.Resize(size);
+            int width = clone.Width;
+            int height = clone.Height;
+            var inputMeta = _session.InputMetadata;
+            var name = inputMeta.Keys.ToArray()[0];
 
-			// pre-processing
-			var dimentions = new int[] { 1, 1, height, width };
-			var tensors = clone.ToFloatTensor(false);
-			tensors.Compute(127.0f, Matrice.Sub);
-			var inputData = tensors.Average();
+            // pre-processing
+            var dimentions = new int[] { 1, 1, height, width };
+            var bmData = clone.LockBits(new Rectangle(0, 0, clone.Width, clone.Height),
+                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            var tensors = bmData.ToFloatTensor(false);
+            tensors.Compute(127.0f, Matrice.Sub);
+            var inputData = tensors.Average();
+            clone.Unlock(bmData);
 
-			// session run
-			var t = new DenseTensor<float>(inputData, dimentions);
-			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
-			var results = _session.Run(inputs).ToArray();
-			var length = results.Length;
-			var confidences = results[length - 1].AsTensor<float>().ToArray();
+            // session run
+            var t = new DenseTensor<float>(inputData, dimentions);
+            var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
+            using var outputs = _session.Run(inputs);
+            var results = outputs.ToArray();
+            var length = results.Length;
+            var confidences = results[length - 1].AsTensor<float>().ToArray();
 
-			// dispose
-			foreach (var result in results)
-			{
-				result.Dispose();
-			}
+            return confidences;
+        }
 
-			return confidences;
-		}
+        #endregion
 
-		#endregion
+        #region IDisposable
 
-		#region IDisposable
+        private bool _disposed;
 
-		private bool _disposed;
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-		/// <inheritdoc/>
-		public void Dispose()
-		{
-			Dispose(true);
-			GC.SuppressFinalize(this);
-		}
+        private void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _session?.Dispose();
+                }
 
-		private void Dispose(bool disposing)
-		{
-			if (!_disposed)
-			{
-				if (disposing)
-				{
-					_session?.Dispose();
-				}
+                _disposed = true;
+            }
+        }
 
-				_disposed = true;
-			}
-		}
+        ~FaceDepthClassifier()
+        {
+            Dispose(false);
+        }
 
-		~FaceDepthClassifier()
-		{
-			Dispose(false);
-		}
-
-		#endregion
-	}
+        #endregion
+    }
 }

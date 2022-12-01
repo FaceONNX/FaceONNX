@@ -74,7 +74,7 @@ namespace FaceONNX
 
             for (int i = 0; i < length; i++)
             {
-                output[i] = Rotate(points[i], centerPoint, angle);
+                output[i] = points[i].Rotate(centerPoint, angle);
             }
 
             return output;

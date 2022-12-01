@@ -117,11 +117,11 @@ namespace FaceONNX
             var length = Count;
             var min = float.MaxValue;
             var index = -1;
-            
+
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Distance.Euclidean(Vectors[i], vector);
+                var d = Vectors[i].Euclidean(vector);
 
                 if (d < min)
                 {
@@ -131,7 +131,7 @@ namespace FaceONNX
             }
 
             // result
-            var label = (index != -1) ? Labels?[index] : string.Empty;
+            var label = index != -1 ? Labels?[index] : string.Empty;
             return (label, min);
         }
 
@@ -149,7 +149,7 @@ namespace FaceONNX
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Distance.Cosine(Vectors[i], vector);
+                var d = Vectors[i].Cosine(vector);
 
                 if (d > max)
                 {
@@ -159,7 +159,7 @@ namespace FaceONNX
             }
 
             // result
-            var label = (index != -1) ? Labels?[index] : string.Empty;
+            var label = index != -1 ? Labels?[index] : string.Empty;
             return (label, max);
         }
 

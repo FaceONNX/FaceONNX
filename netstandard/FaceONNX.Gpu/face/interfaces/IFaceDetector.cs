@@ -3,9 +3,9 @@ using System.Drawing;
 
 namespace FaceONNX
 {
-	/// <summary>
-	/// Defines face detector interface.
-	/// </summary>
+    /// <summary>
+    /// Defines face detector interface.
+    /// </summary>
     public interface IFaceDetector : IDisposable
     {
         #region Interface

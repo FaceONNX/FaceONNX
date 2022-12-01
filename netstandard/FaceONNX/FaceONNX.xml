@@ -128,6 +128,11 @@
             </summary>
             <param name="options">Session options</param>
         </member>
+        <member name="P:FaceONNX.FaceEmbedder.EmbeddingSize">
+            <summary>
+            Returns size of the embedding vector.
+            </summary>
+        </member>
         <member name="M:FaceONNX.FaceEmbedder.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
@@ -157,11 +162,6 @@
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
-        </member>
-        <member name="F:FaceONNX.FaceLandmarksExtractor.Rotate">
-            <summary>
-            Rotate filter.
-            </summary>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Size,System.Drawing.Point[],System.Single)">
             <summary>
