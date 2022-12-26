@@ -26,39 +26,39 @@ Image: [kid.jpg] --> detected [1] faces
 # Face embeddings classification
 Build and run [FaceEmbeddingsClassification.csproj](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
 ```
-Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0,96517545]
-Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0,8623285]
-Image: [brad_3.jpg] --> classified as [Brad Pitt] with similarity [0,8151555]
-Image: [nicole_1.jpg] --> classified as [Nicole Kidman] with similarity [0,8584538]
-Image: [nicole_2.jpg] --> classified as [Nicole Kidman] with similarity [0,8298364]
-Image: [nicole_3.jpg] --> classified as [Nicole Kidman] with similarity [0,8977611]
-Image: [sarah_1.jpg] --> classified as [Sarah Paulson] with similarity [0,9042954]
-Image: [sarah_2.jpg] --> classified as [Sarah Paulson] with similarity [0,8464778]
-Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0,84192747]
+Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0.94335526]
+Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0.8139772]
+Image: [brad_3.jpg] --> classified as [Brad Pitt] with similarity [0.8076731]
+Image: [nicole_1.jpg] --> classified as [Nicole Kidman] with similarity [0.78143287]
+Image: [nicole_2.jpg] --> classified as [Nicole Kidman] with similarity [0.68206125]
+Image: [nicole_3.jpg] --> classified as [Nicole Kidman] with similarity [0.7733428]
+Image: [sarah_1.jpg] --> classified as [Sarah Paulson] with similarity [0.86542726]
+Image: [sarah_2.jpg] --> classified as [Sarah Paulson] with similarity [0.8108772]
+Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0.86128604]
 ```
 
 # Antispoofing depth classification
 Build and run [AntispoofingDepthClassification.csproj](AntispoofingDepthClassification) to classify face depth as "Fake" or "Real".
 ```
-Image: [fake_1.jpeg] --> classified as [Fake] with probability [0.9840763]
+Image: [fake_1.jpeg] --> classified as [Fake] with probability [0.9795725]
 Image: [fake_10.jpeg] --> classified as [Fake] with probability [0.9999999]
 Image: [fake_2.jpeg] --> classified as [Fake] with probability [1]
 Image: [fake_3.jpeg] --> classified as [Fake] with probability [1]
 Image: [fake_4.jpeg] --> classified as [Fake] with probability [1]
-Image: [fake_5.jpeg] --> classified as [Fake] with probability [0.99999964]
-Image: [fake_6.jpeg] --> classified as [Fake] with probability [0.99999976]
+Image: [fake_5.jpeg] --> classified as [Fake] with probability [0.9999993]
+Image: [fake_6.jpeg] --> classified as [Fake] with probability [0.9999995]
 Image: [fake_7.jpeg] --> classified as [Fake] with probability [1]
 Image: [fake_8.jpeg] --> classified as [Fake] with probability [1]
-Image: [fake_9.jpeg] --> classified as [Fake] with probability [0.99999714]
+Image: [fake_9.jpeg] --> classified as [Fake] with probability [0.99999833]
 Image: [real_1.jpeg] --> classified as [Real] with probability [0.99999976]
-Image: [real_10.jpeg] --> classified as [Real] with probability [0.9999999]
-Image: [real_2.jpeg] --> classified as [Real] with probability [0.9999927]
+Image: [real_10.jpeg] --> classified as [Real] with probability [0.99999976]
+Image: [real_2.jpeg] --> classified as [Real] with probability [0.9999925]
 Image: [real_3.jpeg] --> classified as [Real] with probability [0.9999993]
-Image: [real_4.jpeg] --> classified as [Real] with probability [0.9999974]
-Image: [real_5.jpeg] --> classified as [Real] with probability [0.9999989]
+Image: [real_4.jpeg] --> classified as [Real] with probability [0.999997]
+Image: [real_5.jpeg] --> classified as [Real] with probability [0.99999917]
 Image: [real_6.jpeg] --> classified as [Real] with probability [1]
-Image: [real_7.jpeg] --> classified as [Real] with probability [0.9997955]
-Image: [real_8.jpeg] --> classified as [Real] with probability [0.9999813]
+Image: [real_7.jpeg] --> classified as [Real] with probability [0.9998418]
+Image: [real_8.jpeg] --> classified as [Real] with probability [0.9999691]
 Image: [real_9.jpeg] --> classified as [Real] with probability [1]
 ```
 
@@ -83,15 +83,15 @@ Image: [CF601.jpg] --> detected [1] faces
 Image: [CF602.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Female] gender with probability [1]
 Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0,99999154]
+        [Face #1]: --> classified as [Female] gender with probability [0.9999863]
 Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0,9968484]
+        [Face #1]: --> classified as [Female] gender with probability [0.9978607]
 Image: [CM722.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Male] gender with probability [1]
 Image: [CM725.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Male] gender with probability [1]
 Image: [CM726.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [0,9999999]
+        [Face #1]: --> classified as [Male] gender with probability [0.99999976]
 Image: [CM739.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Male] gender with probability [1]
 Image: [CM742.jpg] --> detected [1] faces
@@ -102,25 +102,25 @@ Image: [CM742.jpg] --> detected [1] faces
 Build and run [EmotionAndBeautyEstimation.csproj](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
 ```
 Image: [CF600.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [8,3/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [8.2/10.0] beauty
 Image: [CF601.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [6,6/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [6.3/10.0] beauty
 Image: [CF602.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,2/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [8/10.0] beauty
 Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,9/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [8.3/10.0] beauty
 Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [7,3/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [7.2/10.0] beauty
 Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8,9/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [8.8/10.0] beauty
 Image: [CM725.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [5,8/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [6.7/10.0] beauty
 Image: [CM726.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [6,3/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [6.6/10.0] beauty
 Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [happiness] emotion and [7,5/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [7.9/10.0] beauty
 Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [neutral] emotion and [8/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [7.9/10.0] beauty
 ```
 
 # GPU Perfomance tests
