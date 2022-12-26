@@ -27,6 +27,13 @@ namespace FaceONNX
         /// <returns>Rectangles</returns>
         Rectangle[] Forward(Bitmap image);
 
+        /// <summary>
+        /// Returns face detection results.
+        /// </summary>
+        /// <param name="image">Image in BGR terms</param>
+        /// <returns>Rectangles</returns>
+        Rectangle[] Forward(float[][,] image);
+
         #endregion
     }
 }

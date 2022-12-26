@@ -57,35 +57,49 @@ namespace FaceONNX
 		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
-			var size = new Size(224, 224);
-			using var clone = BitmapTransform.Resize(image, size);
-			int width = clone.Width;
-			int height = clone.Height;
-			var inputMeta = _session.InputMetadata;
-			var name = inputMeta.Keys.ToArray()[0];
+            var rgb = image.ToRGB(false);
+            return Forward(rgb);
+        }
 
-			// pre-processing
-			var dimentions = new int[] { 1, 3, height, width };
-			var tensors = clone.ToFloatTensor(false);
-			tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
-			var inputData = tensors.Merge(true);
+        /// <inheritdoc/>
+        public float[] Forward(float[][,] image)
+        {
+            if (image.Length != 3)
+                throw new ArgumentException("Image must be in BGR terms");
 
-			// session run
-			var t = new DenseTensor<float>(inputData, dimentions);
-			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
+            var size = new Size(224, 224);
+            var resized = new float[3][,];
+
+            for (int i = 0; i < image.Length; i++)
+            {
+                resized[i] = image[i].Resize(size.Height, size.Width);
+            }
+
+            var inputMeta = _session.InputMetadata;
+            var name = inputMeta.Keys.ToArray()[0];
+
+            // pre-processing
+            var dimentions = new int[] { 1, 3, size.Height, size.Width };
+            var tensors = resized.ToFloatTensor(false);
+            tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
+            var inputData = tensors.Merge(true);
+
+            // session run
+            var t = new DenseTensor<float>(inputData, dimentions);
+            var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
             using var outputs = _session.Run(inputs);
             var results = outputs.ToArray();
             var length = results.Length;
-			var confidences = results[length - 1].AsTensor<float>().ToArray();
+            var confidences = results[length - 1].AsTensor<float>().ToArray();
 
-			return confidences;
-		}
+            return confidences;
+        }
 
-		#endregion
+        #endregion
 
-		#region IDisposable
+        #region IDisposable
 
-		private bool _disposed;
+        private bool _disposed;
 
 		/// <inheritdoc/>
 		public void Dispose()

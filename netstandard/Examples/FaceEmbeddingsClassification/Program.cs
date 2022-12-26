@@ -37,7 +37,7 @@ namespace FaceEmbeddingsClassification
             
             foreach (var score in scores)
             {
-                var bitmap =new Bitmap(score);
+                using var bitmap = new Bitmap(score);
                 var embedding = GetEmbedding(bitmap);
                 var proto = embeddings.FromSimilarity(embedding);
                 var label = proto.Item1;

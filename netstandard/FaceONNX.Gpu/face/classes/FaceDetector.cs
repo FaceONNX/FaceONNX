@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Numerics;
+using System.Xml.Linq;
 using UMapx.Core;
 using UMapx.Imaging;
 
@@ -67,22 +69,36 @@ namespace FaceONNX
         /// <inheritdoc/>
         public Rectangle[] Forward(Bitmap image)
         {
+            var rgb = image.ToRGB(false);
+            return Forward(rgb);
+        }
+
+        /// <inheritdoc/>
+        public Rectangle[] Forward(float[][,] image)
+        {
+            if (image.Length != 3)
+                throw new ArgumentException("Image must be in BGR terms");
+
+            var width = image[0].GetLength(1);
+            var height = image[0].GetLength(0);
+
             var size = new Size(640, 480);
-            using var clone = image.Resize(size);
-            int width = clone.Width;
-            int height = clone.Height;
+            var resized = new float[3][,];
+
+            for (int i = 0; i < image.Length; i++)
+            {
+                resized[i] = image[i].Resize(size.Height, size.Width);
+            }
+
             var inputMeta = _session.InputMetadata;
             var name = inputMeta.Keys.ToArray()[0];
 
             // pre-processing
-            var dimentions = new int[] { 1, 3, height, width };
-            var bmData = clone.LockBits(new Rectangle(0, 0, clone.Width, clone.Height),
-                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-            var tensors = bmData.ToFloatTensor(true);
+            var dimentions = new int[] { 1, 3, size.Height, size.Width };
+            var tensors = resized.ToFloatTensor(true);
             tensors.Compute(new float[] { 127.0f, 127.0f, 127.0f }, Matrice.Sub);
             tensors.Compute(128, Matrice.Div);
             var inputData = tensors.Merge(true);
-            clone.Unlock(bmData);
 
             // session run
             var t = new DenseTensor<float>(inputData, dimentions);
@@ -103,12 +119,11 @@ namespace FaceONNX
                     boxes_picked.Add(
                         Rectangle.FromLTRB
                             (
-                                (int)(boxes[j + 0] * image.Width),
-                                (int)(boxes[j + 1] * image.Height),
-                                (int)(boxes[j + 2] * image.Width),
-                                (int)(boxes[j + 3] * image.Height)
-                            ).ToBox(
-));
+                                (int)(boxes[j + 0] * width),
+                                (int)(boxes[j + 1] * height),
+                                (int)(boxes[j + 2] * width),
+                                (int)(boxes[j + 3] * height)
+                            ).ToBox());
                 }
             }
 

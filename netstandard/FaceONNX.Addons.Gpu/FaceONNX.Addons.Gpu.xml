@@ -33,6 +33,9 @@
         <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Single[0:,0:][])">
+            <inheritdoc/>
+        </member>
         <member name="M:FaceONNX.FaceAgeClassifier.Dispose">
             <inheritdoc/>
         </member>
@@ -58,6 +61,9 @@
             <param name="options">Session options</param>
         </member>
         <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceBeautyClassifier.Dispose">
@@ -92,6 +98,9 @@
         <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.Forward(System.Single[0:,0:][])">
+            <inheritdoc/>
+        </member>
         <member name="M:FaceONNX.FaceEmotionClassifier.Dispose">
             <inheritdoc/>
         </member>
@@ -122,6 +131,9 @@
             </summary>
         </member>
         <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Drawing.Bitmap)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
         <member name="M:FaceONNX.FaceGenderClassifier.Dispose">

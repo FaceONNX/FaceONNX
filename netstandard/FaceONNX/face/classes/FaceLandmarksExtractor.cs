@@ -48,21 +48,35 @@ namespace FaceONNX
         /// <inheritdoc/>
         public Point[] Forward(Bitmap image)
         {
+            var rgb = image.ToRGB(false);
+            return Forward(rgb);
+        }
+
+        /// <inheritdoc/>
+        public Point[] Forward(float[][,] image)
+        {
+            if (image.Length != 3)
+                throw new ArgumentException("Image must be in BGR terms");
+
+            // resize
+            var width = image[0].GetLength(1);
+            var height = image[0].GetLength(0);
             var size = new Size(112, 112);
-            using var clone = image.Resize(size);
-            int width = clone.Width;
-            int height = clone.Height;
+            var resized = new float[3][,];
+
+            for (int i = 0; i < image.Length; i++)
+            {
+                resized[i] = image[i].Resize(size.Height, size.Width);
+            }
+
             var inputMeta = _session.InputMetadata;
             var name = inputMeta.Keys.ToArray()[0];
 
             // pre-processing
-            var dimentions = new int[] { 1, 3, height, width };
-            var bmData = clone.LockBits(new Rectangle(0, 0, clone.Width, clone.Height),
-                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-            var tensors = bmData.ToFloatTensor(true);
+            var dimentions = new int[] { 1, 3, size.Height, size.Width };
+            var tensors = resized.ToFloatTensor(true);
             tensors.Compute(255.0f, Matrice.Div);
             var inputData = tensors.Merge(true);
-            clone.Unlock(bmData);
 
             // session run
             var t = new DenseTensor<float>(inputData, dimentions);
@@ -76,8 +90,8 @@ namespace FaceONNX
             for (int i = 0, j = 0; i < (length = confidences.Length); i += 2)
             {
                 points[j++] = new Point(
-                    (int)(confidences[i + 0] * image.Width),
-                    (int)(confidences[i + 1] * image.Height));
+                    (int)(confidences[i + 0] * width),
+                    (int)(confidences[i + 1] * height));
             }
 
             return points;
@@ -145,6 +159,24 @@ namespace FaceONNX
         public static Bitmap Align(Bitmap image, float angle)
         {
             return image.Rotate(angle);
+        }
+
+        /// <summary>
+        /// Returns aligned face.
+        /// </summary>
+        /// <param name="image">Image in BGR terms</param>
+        /// <param name="angle">Angle</param>
+        /// <returns>Bitmap</returns>
+        public static float[][,] Align(float[][,] image, float angle)
+        {
+            var aligned = new float[3][,];
+
+            for (int i = 0; i < image.Length; i++)
+            {
+                aligned[i] = image[i].Rotate(-angle);
+            }
+
+            return aligned;
         }
 
         /// <summary>

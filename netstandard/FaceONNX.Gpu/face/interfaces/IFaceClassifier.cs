@@ -17,6 +17,13 @@ namespace FaceONNX
         /// <returns>Array</returns>
         float[] Forward(Bitmap image);
 
+        /// <summary>
+        /// Returns face recognition results.
+        /// </summary>
+        /// <param name="image">Image in BGR terms</param>
+        /// <returns>Array</returns>
+        float[] Forward(float[][,] image);
+
         #endregion
     }
 }

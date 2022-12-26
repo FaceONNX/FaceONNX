@@ -57,41 +57,55 @@ namespace FaceONNX
 		/// <inheritdoc/>
 		public float[] Forward(Bitmap image)
 		{
-			var size = new Size(48, 48);
-			using var clone = BitmapTransform.Resize(image, size);
-			int width = clone.Width;
-			int height = clone.Height;
-			var inputMeta = _session.InputMetadata;
-			var name = inputMeta.Keys.ToArray()[0];
+            var rgb = image.ToRGB(false);
+            return Forward(rgb);
+        }
 
-			// pre-processing
-			var dimentions = new int[] { 1, 1, height, width };
-			var tensors = clone.ToFloatTensor(true);
-			tensors.Compute(256, Matrice.Div);
-			var inputData = tensors.Average();
+        /// <inheritdoc/>
+        public float[] Forward(float[][,] image)
+        {
+            if (image.Length != 3)
+                throw new ArgumentException("Image must be in BGR terms");
 
-			// session run
-			var t = new DenseTensor<float>(inputData, dimentions);
-			var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
+            var size = new Size(48, 48);
+            var resized = new float[3][,];
+
+            for (int i = 0; i < image.Length; i++)
+            {
+                resized[i] = image[i].Resize(size.Height, size.Width);
+            }
+
+            var inputMeta = _session.InputMetadata;
+            var name = inputMeta.Keys.ToArray()[0];
+
+            // pre-processing
+            var dimentions = new int[] { 1, 1, size.Height, size.Width };
+            var tensors = resized.ToFloatTensor(true);
+            tensors.Compute(256, Matrice.Div);
+            var inputData = tensors.Average();
+
+            // session run
+            var t = new DenseTensor<float>(inputData, dimentions);
+            var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor(name, t) };
             using var outputs = _session.Run(inputs);
             var results = outputs.ToArray();
             var length = results.Length;
-			var confidences = Matrice.Compute(results[length - 1].AsTensor<float>().ToArray(), Maths.Exp);
+            var confidences = Matrice.Compute(results[length - 1].AsTensor<float>().ToArray(), Maths.Exp);
 
-			// dispose
-			foreach (var result in results)
-			{
-				result.Dispose();
-			}
+            // dispose
+            foreach (var result in results)
+            {
+                result.Dispose();
+            }
 
-			return confidences;
-		}
+            return confidences;
+        }
 
-		#endregion
+        #endregion
 
-		#region IDisposable
+        #region IDisposable
 
-		private bool _disposed;
+        private bool _disposed;
 
 		/// <inheritdoc/>
 		public void Dispose()
