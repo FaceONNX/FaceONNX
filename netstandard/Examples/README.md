@@ -4,7 +4,7 @@
 # Face detection
 Build and run [FaceDetection.csproj](FaceDetection) to produce face detection results.
 ```
-Image: [oscar.jpg] --> detected [13] faces
+Image: [oscar.jpg] --> detected [12] faces
 Image: [oscar2.jpg] --> detected [4] faces
 Image: [selfie.jpg] --> detected [5] faces
 Image: [selfie2.jpg] --> detected [18] faces
