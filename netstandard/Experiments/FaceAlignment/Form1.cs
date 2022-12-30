@@ -24,7 +24,7 @@ namespace FaceAlignment
                 PointPen = new Pen(Color.Yellow, 6)
             };
 
-            Console.WriteLine("FaceONNX: Face rotation landmarks");
+            Console.WriteLine("FaceONNX: Face alignment");
         }
 
         #endregion

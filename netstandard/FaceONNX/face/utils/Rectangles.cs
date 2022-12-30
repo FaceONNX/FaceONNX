@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using UMapx.Core;
 
 namespace FaceONNX
 {
@@ -339,6 +338,31 @@ namespace FaceONNX
                 Y = y - dh / 2,
                 Width = w + dw,
                 Height = h + dh,
+            };
+        }
+
+        /// <summary>
+        /// Implements scale operator.
+        /// </summary>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle Scale(this Rectangle rectangle)
+        {
+            var r = (int)Math.Sqrt(rectangle.Width * rectangle.Width + rectangle.Height * rectangle.Height);
+            var dx = r - rectangle.Width;
+            var dy = r - rectangle.Height;
+
+            var x = rectangle.X - dx / 2;
+            var y = rectangle.Y - dy / 2;
+            var w = rectangle.Width + dx;
+            var h = rectangle.Height + dy;
+
+            return new Rectangle
+            {
+                X = x,
+                Y = y,
+                Width = w,
+                Height = h
             };
         }
 

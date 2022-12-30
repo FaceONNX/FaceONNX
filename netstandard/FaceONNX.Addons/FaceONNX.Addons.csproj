@@ -4,8 +4,8 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>FaceONNX.Addons</AssemblyName>
 		<LangVersion>8.0</LangVersion>
-		<Version>2.1.0.3</Version>
-		<FileVersion>2.1.0.3</FileVersion>
+		<Version>2.1.0.4</Version>
+		<FileVersion>2.1.0.4</FileVersion>
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
 		<Description>Face analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -13,7 +13,7 @@
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons</PackageId>
 		<Product>FaceONNX.Addons</Product>
-		<AssemblyVersion>2.1.0.3</AssemblyVersion>
+		<AssemblyVersion>2.1.0.4</AssemblyVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
 		<RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>

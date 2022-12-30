@@ -126,55 +126,6 @@ namespace FaceONNX
         #region Static methods
 
         /// <summary>
-        /// Returns aligned points.
-        /// </summary>
-        /// <param name="points">Points</param>
-        /// <param name="angle">Angle</param>
-        /// <param name="imageSize">Image size</param>
-        /// <returns>Points</returns>
-        public static Point[] Align(Size imageSize, Point[] points, float angle)
-        {
-            // rotate points
-            var rotated_points = points.Rotate(
-                new Point
-                {
-                    X = imageSize.Width / 2,
-                    Y = imageSize.Height / 2
-                }, angle);
-
-            return rotated_points;
-        }
-
-        /// <summary>
-        /// Returns aligned rectangle.
-        /// </summary>
-        /// <param name="rectangle">Rectangle</param>
-        /// <param name="angle">Angle</param>
-        /// <param name="imageSize">Image size</param>
-        /// <returns>Rectangle</returns>
-        public static Rectangle Align(Size imageSize, Rectangle rectangle, float angle)
-        {
-            // rotate rectangle points
-            var rectangle_rotated_points = rectangle.ToPoints().Rotate(new Point
-            {
-                X = imageSize.Width / 2,
-                Y = imageSize.Height / 2
-            }, angle);
-
-            // get mean point
-            var mean_point = Landmarks.GetMeanPoint(rectangle_rotated_points);
-
-            // inverse transform
-            var rectangle_rotated_points_inverted = rectangle_rotated_points.Rotate(new Point
-            {
-                X = mean_point.X,
-                Y = mean_point.Y
-            }, -angle);
-
-            return rectangle_rotated_points_inverted.FromPoints();
-        }
-
-        /// <summary>
         /// Returns aligned face.
         /// </summary>
         /// <param name="image">Bitmap</param>
@@ -194,9 +145,16 @@ namespace FaceONNX
         /// <returns>Bitmap</returns>
         public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle)
         {
-            using var aligned = FaceLandmarksExtractor.Align(image, angle);
-            var alignedRectangle = FaceLandmarksExtractor.Align(image.Size, rectangle, angle);
-            return aligned.Crop(alignedRectangle);
+            var scaledRectangle = rectangle.Scale();
+            using var cropped = image.Crop(scaledRectangle);
+            using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
+            var cropRectangle = rectangle.Sub(new Point
+            {
+                X = scaledRectangle.X,
+                Y = scaledRectangle.Y
+            });
+
+            return aligned.Crop(cropRectangle);
         }
 
         /// <summary>
@@ -236,20 +194,34 @@ namespace FaceONNX
             if (length != 3)
                 throw new ArgumentException("Image must be in BGR terms");
 
-            var height = image[0].GetLength(0);
-            var width = image[0].GetLength(1);
+            var scaledRectangle = rectangle.Scale();
+            var cropped = new float[length][,];
 
-            var aligned = FaceLandmarksExtractor.Align(image, angle);
-            var alignedRectangle = FaceLandmarksExtractor.Align(new Size(width, height), rectangle, angle);
+            for (int i = 0; i < length; i++)
+            {
+                cropped[i] = image[i].Crop(
+                    scaledRectangle.Y, 
+                    scaledRectangle.X, 
+                    scaledRectangle.Height, 
+                    scaledRectangle.Width);
+            }
+
+            var aligned = FaceLandmarksExtractor.Align(cropped, angle);
+            var cropRectangle = rectangle.Sub(new Point
+            {
+                X = scaledRectangle.X,
+                Y = scaledRectangle.Y
+            });
+
             var output = new float[length][,];
 
             for (int i = 0; i < length; i++)
             {
                 output[i] = aligned[i].Crop(
-                    alignedRectangle.Y, 
-                    alignedRectangle.X, 
-                    alignedRectangle.Height, 
-                    alignedRectangle.Width);
+                    cropRectangle.Y,
+                    cropRectangle.X,
+                    cropRectangle.Height,
+                    cropRectangle.Width);
             }
 
             return output;

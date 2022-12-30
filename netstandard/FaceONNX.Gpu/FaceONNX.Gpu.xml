@@ -184,24 +184,6 @@
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Size,System.Drawing.Point[],System.Single)">
-            <summary>
-            Returns aligned points.
-            </summary>
-            <param name="points">Points</param>
-            <param name="angle">Angle</param>
-            <param name="imageSize">Image size</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Size,System.Drawing.Rectangle,System.Single)">
-            <summary>
-            Returns aligned rectangle.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="angle">Angle</param>
-            <param name="imageSize">Image size</param>
-            <returns>Rectangle</returns>
-        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Single)">
             <summary>
             Returns aligned face.
@@ -682,6 +664,13 @@
             <param name="kx">Factor for x axis</param>
             <param name="ky">Factor for y axis</param>
             <returns></returns>
+        </member>
+        <member name="M:FaceONNX.Rectangles.Scale(System.Drawing.Rectangle)">
+            <summary>
+            Implements scale operator.
+            </summary>
+            <param name="rectangle">Rectangle</param>
+            <returns>Rectangle</returns>
         </member>
         <member name="T:FaceONNX.Properties.Resources">
             <summary>
