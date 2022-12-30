@@ -62,18 +62,12 @@ namespace FaceEmbeddingsClassification
             if (!rectangle.IsEmpty)
             {
                 // landmarks
-                using var cropped = BitmapTransform.Crop(image, rectangle);
-                var points = _faceLandmarksExtractor.Forward(cropped);
+                var points = _faceLandmarksExtractor.Forward(image, rectangle);
                 var angle = points.GetRotationAngle();
 
-                // new alignment
-                using var aligned = FaceLandmarksExtractor.Align(image, angle);
-                var aligned_rectangle = FaceLandmarksExtractor.Align(image.Size, rectangle, angle);
-                using var aligned_cropped = aligned.Crop(aligned_rectangle);
-
-                // old alignment
-                //using var aligned_cropped = FaceLandmarksExtractor.Align(cropped, angle);
-                return _faceEmbedder.Forward(aligned_cropped);
+                // alignment
+                using var aligned = FaceLandmarksExtractor.Align(image, rectangle, angle);
+                return _faceEmbedder.Forward(aligned);
             }
 
             return new float[512];
