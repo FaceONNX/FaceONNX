@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using UMapx.Core;
 
 namespace FaceONNX
 {
@@ -332,6 +333,93 @@ namespace FaceONNX
             }
 
             return eye;
+        }
+
+        #endregion
+
+        #region Symmetry and rotation angle
+
+        /// <summary>
+        /// Returns rotation angle from points.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <returns>Angle</returns>
+        public static float GetRotationAngle(this Point[] points)
+        {
+            var left = Landmarks.GetMeanPoint(points.GetLeftEye());
+            var right = Landmarks.GetMeanPoint(points.GetRightEye());
+            var point = left.GetSupportedPoint(right);
+            var angle = left.GetAngle(right, point);
+
+            return angle;
+        }
+
+        /// <summary>
+        /// Returns symmetry coefficient of face.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <returns>Symmetry coefficient [0, 1]</returns>
+        public static float GetSymmetryCoefficient(this Point[] points)
+        {
+            if (points.Length != 68)
+                throw new ArgumentException("Face points are not correct.");
+
+            var nose = points.GetNose();
+            var leftEye = points.GetLeftEye();
+            var rightEye = points.GetRightEye();
+
+            var noseCenterPoint = nose[0];
+
+            var leftEyeLeftPoint = leftEye[0];
+            var leftEyeRightPoint = leftEye[3];
+
+            var rightEyeLeftPoint = rightEye[0];
+            var rightEyeRightPoint = rightEye[3];
+
+            var mouthUpperSymmetry = GetSymmetry(noseCenterPoint, leftEyeLeftPoint, rightEyeRightPoint);
+            var mouthLowerSymmetry = GetSymmetry(noseCenterPoint, leftEyeRightPoint, rightEyeLeftPoint);
+
+            return (mouthUpperSymmetry + mouthLowerSymmetry) / 2.0f;
+        }
+
+        /// <summary>
+        /// Returns symmetry.
+        /// </summary>
+        /// <param name="a">Center point</param>
+        /// <param name="b">Value</param>
+        /// <param name="c">Value</param>
+        /// <returns>Value</returns>
+        private static float GetSymmetry(Point a, Point b, Point c)
+        {
+            var distLeft = Abs(a, b);
+            var distRight = Abs(a, c);
+
+            return GetSymmetry(distLeft, distRight);
+        }
+
+        /// <summary>
+        /// Returns symmetry.
+        /// </summary>
+        /// <param name="a">Value</param>
+        /// <param name="b">Value</param>
+        /// <returns>Value</returns>
+        private static float GetSymmetry(float a, float b)
+        {
+            var v = a / b;
+            return v > 1.0 ? 1.0f / v : v;
+        }
+
+        /// <summary>
+        /// Returns distance for two points.
+        /// </summary>
+        /// <param name="a">Point</param>
+        /// <param name="b">Point</param>
+        /// <returns>Value</returns>
+        private static float Abs(Point a, Point b)
+        {
+            var abX = a.X - b.X;
+            var abY = a.Y - b.Y;
+            return (float)Maths.Sqrt(abX * abX + abY * abY);
         }
 
         #endregion

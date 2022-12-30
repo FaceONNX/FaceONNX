@@ -1,7 +1,6 @@
 ﻿using FaceONNX;
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using UMapx.Imaging;
@@ -65,7 +64,7 @@ namespace FaceEmbeddingsClassification
                 // landmarks
                 using var cropped = BitmapTransform.Crop(image, rectangle);
                 var points = _faceLandmarksExtractor.Forward(cropped);
-                var angle = FaceLandmarksExtractor.GetRotationAngle(points);
+                var angle = points.GetRotationAngle();
 
                 // new alignment
                 using var aligned = FaceLandmarksExtractor.Align(image, angle);

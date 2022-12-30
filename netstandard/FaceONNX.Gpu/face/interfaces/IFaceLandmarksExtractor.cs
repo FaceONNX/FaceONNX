@@ -20,9 +20,25 @@ namespace FaceONNX
         /// <summary>
         /// Returns face recognition results.
         /// </summary>
+        /// <param name="image">Bitmap</param>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Point</returns>
+        Point[] Forward(Bitmap image, Rectangle rectangle);
+
+        /// <summary>
+        /// Returns face recognition results.
+        /// </summary>
         /// <param name="image">Image in BGR terms</param>
         /// <returns>Point</returns>
         Point[] Forward(float[][,] image);
+
+        /// <summary>
+        /// Returns face recognition results.
+        /// </summary>
+        /// <param name="image">Image in BGR terms</param>
+        /// <param name="rectangle">Rectangle</param>
+        /// <returns>Point</returns>
+        Point[] Forward(float[][,] image, Rectangle rectangle);
 
         #endregion
     }

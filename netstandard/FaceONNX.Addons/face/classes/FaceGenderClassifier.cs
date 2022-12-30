@@ -10,10 +10,10 @@ using UMapx.Imaging;
 
 namespace FaceONNX
 {
-    /// <summary>
-    /// Defines face gender classifier.
-    /// </summary>
-    public class FaceGenderClassifier : IFaceClassifier
+	/// <summary>
+	/// Defines face gender classifier.
+	/// </summary>
+	public class FaceGenderClassifier : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>

@@ -10,10 +10,10 @@ using UMapx.Imaging;
 
 namespace FaceONNX
 {
-    /// <summary>
-    /// Defines face age classifier.
-    /// </summary>
-    public class FaceAgeClassifier : IFaceClassifier
+	/// <summary>
+	/// Defines face age classifier.
+	/// </summary>
+	public class FaceAgeClassifier : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>

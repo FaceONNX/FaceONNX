@@ -175,6 +175,12 @@
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Single[0:,0:][],System.Drawing.Rectangle)">
+            <inheritdoc/>
+        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
@@ -204,20 +210,31 @@
             <param name="angle">Angle</param>
             <returns>Bitmap</returns>
         </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Returns aligned face.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="rectangle">Rectangle</param>
+            <param name="angle">Angle</param>
+            <returns>Bitmap</returns>
+        </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Single)">
             <summary>
             Returns aligned face.
             </summary>
             <param name="image">Image in BGR terms</param>
             <param name="angle">Angle</param>
-            <returns>Bitmap</returns>
+            <returns>Image in BGR terms</returns>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.GetRotationAngle(System.Drawing.Point[])">
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Drawing.Rectangle,System.Single)">
             <summary>
-            Returns rotation angle from points.
+            Returns aligned face.
             </summary>
-            <param name="points">Points</param>
-            <returns>Angle</returns>
+            <param name="image">Image in BGR terms</param>
+            <param name="rectangle">Rectangle</param>
+            <param name="angle">Angle</param>
+            <returns>Image in BGR terms</returns>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">
             <inheritdoc/>
@@ -282,11 +299,27 @@
             <param name="image">Bitmap</param>
             <returns>Point</returns>
         </member>
+        <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Bitmap</param>
+            <param name="rectangle">Rectangle</param>
+            <returns>Point</returns>
+        </member>
         <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Single[0:,0:][])">
             <summary>
             Returns face recognition results.
             </summary>
             <param name="image">Image in BGR terms</param>
+            <returns>Point</returns>
+        </member>
+        <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Single[0:,0:][],System.Drawing.Rectangle)">
+            <summary>
+            Returns face recognition results.
+            </summary>
+            <param name="image">Image in BGR terms</param>
+            <param name="rectangle">Rectangle</param>
             <returns>Point</returns>
         </member>
         <member name="T:FaceONNX.Embeddings">
@@ -477,6 +510,45 @@
             </summary>
             <param name="points">Points</param>
             <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.GetRotationAngle(System.Drawing.Point[])">
+            <summary>
+            Returns rotation angle from points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Angle</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.GetSymmetryCoefficient(System.Drawing.Point[])">
+            <summary>
+            Returns symmetry coefficient of face.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Symmetry coefficient [0, 1]</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.GetSymmetry(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Center point</param>
+            <param name="b">Value</param>
+            <param name="c">Value</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.GetSymmetry(System.Single,System.Single)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Value</param>
+            <param name="b">Value</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.Landmarks.Abs(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns distance for two points.
+            </summary>
+            <param name="a">Point</param>
+            <param name="b">Point</param>
+            <returns>Value</returns>
         </member>
         <member name="T:FaceONNX.Rectangles">
             <summary>

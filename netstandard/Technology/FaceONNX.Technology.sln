@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceRotationLandmarks", "..\Technology\FaceRotationLandmarks\FaceRotationLandmarks.csproj", "{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Technology", "Technology", "{67C958E1-E848-43AF-BBE5-8AFA669BE779}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX", "..\FaceONNX\FaceONNX.csproj", "{95BE865F-AB5E-4B44-972B-5D21187886B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons", "..\FaceONNX.Addons\FaceONNX.Addons.csproj", "{E878C140-5E1E-4321-9270-90194E863505}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Addons.Gpu", "..\FaceONNX.Addons.Gpu\FaceONNX.Addons.Gpu.csproj", "{B02561CE-3700-4E85-8FC8-929922F26D10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceONNX.Gpu", "..\FaceONNX.Gpu\FaceONNX.Gpu.csproj", "{FD0A4F83-A9A0-4399-A895-70CA07BF161C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceAlignment", "..\Technology\FaceAlignment\FaceAlignment.csproj", "{1741B68E-25B0-4582-A471-B2542E5F6204}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95BE865F-AB5E-4B44-972B-5D21187886B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BE865F-AB5E-4B44-972B-5D21187886B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BE865F-AB5E-4B44-972B-5D21187886B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BE865F-AB5E-4B44-972B-5D21187886B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E878C140-5E1E-4321-9270-90194E863505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E878C140-5E1E-4321-9270-90194E863505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E878C140-5E1E-4321-9270-90194E863505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E878C140-5E1E-4321-9270-90194E863505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B02561CE-3700-4E85-8FC8-929922F26D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B02561CE-3700-4E85-8FC8-929922F26D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B02561CE-3700-4E85-8FC8-929922F26D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B02561CE-3700-4E85-8FC8-929922F26D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0A4F83-A9A0-4399-A895-70CA07BF161C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0A4F83-A9A0-4399-A895-70CA07BF161C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0A4F83-A9A0-4399-A895-70CA07BF161C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0A4F83-A9A0-4399-A895-70CA07BF161C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1741B68E-25B0-4582-A471-B2542E5F6204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1741B68E-25B0-4582-A471-B2542E5F6204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1741B68E-25B0-4582-A471-B2542E5F6204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1741B68E-25B0-4582-A471-B2542E5F6204}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB9D4035-8575-4CBB-B4C9-605BCDAD41AD} = {67C958E1-E848-43AF-BBE5-8AFA669BE779}
+		{1741B68E-25B0-4582-A471-B2542E5F6204} = {67C958E1-E848-43AF-BBE5-8AFA669BE779}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01FD9540-BC1B-49CE-964B-E3D5C5C720D2}
+	EndGlobalSection
+EndGlobal
