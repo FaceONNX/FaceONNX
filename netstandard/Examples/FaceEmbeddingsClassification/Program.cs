@@ -3,7 +3,6 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using UMapx.Imaging;
 
 namespace FaceEmbeddingsClassification
 {
