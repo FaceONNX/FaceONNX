@@ -26,15 +26,15 @@ Image: [kid.jpg] --> detected [1] faces
 # Face embeddings classification
 Build and run [FaceEmbeddingsClassification.csproj](FaceEmbeddingsClassification) to classify faces as "Brad Pitt", "Nicole Kidman" or "Sarah Paulson".
 ```
-Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0.94335526]
-Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0.8139772]
-Image: [brad_3.jpg] --> classified as [Brad Pitt] with similarity [0.8076731]
-Image: [nicole_1.jpg] --> classified as [Nicole Kidman] with similarity [0.78143287]
-Image: [nicole_2.jpg] --> classified as [Nicole Kidman] with similarity [0.68206125]
-Image: [nicole_3.jpg] --> classified as [Nicole Kidman] with similarity [0.7733428]
-Image: [sarah_1.jpg] --> classified as [Sarah Paulson] with similarity [0.86542726]
-Image: [sarah_2.jpg] --> classified as [Sarah Paulson] with similarity [0.8108772]
-Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0.86128604]
+Image: [brad_1.jpg] --> classified as [Brad Pitt] with similarity [0.9386111]
+Image: [brad_2.jpg] --> classified as [Brad Pitt] with similarity [0.804166]
+Image: [brad_3.jpg] --> classified as [Brad Pitt] with similarity [0.8095629]
+Image: [nicole_1.jpg] --> classified as [Nicole Kidman] with similarity [0.7544222]
+Image: [nicole_2.jpg] --> classified as [Nicole Kidman] with similarity [0.6763656]
+Image: [nicole_3.jpg] --> classified as [Nicole Kidman] with similarity [0.7735812]
+Image: [sarah_1.jpg] --> classified as [Sarah Paulson] with similarity [0.8556999]
+Image: [sarah_2.jpg] --> classified as [Sarah Paulson] with similarity [0.7966937]
+Image: [sarah_3.jpg] --> classified as [Sarah Paulson] with similarity [0.86441386]
 ```
 
 # Antispoofing depth classification
