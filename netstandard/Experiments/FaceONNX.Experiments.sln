@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceAlignment", "FaceAlignm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceRotationLandmarks", "FaceRotationLandmarks\FaceRotationLandmarks.csproj", "{D23A7DE1-400A-4A95-85AB-3251419A39C4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealSenseFaceID", "RealSenseFaceID\RealSenseFaceID.csproj", "{107D825D-BA8D-41E3-B08A-033162169B1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{D23A7DE1-400A-4A95-85AB-3251419A39C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D23A7DE1-400A-4A95-85AB-3251419A39C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D23A7DE1-400A-4A95-85AB-3251419A39C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{107D825D-BA8D-41E3-B08A-033162169B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107D825D-BA8D-41E3-B08A-033162169B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107D825D-BA8D-41E3-B08A-033162169B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107D825D-BA8D-41E3-B08A-033162169B1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B10D53D1-CC11-4CDC-B8C5-76400826FCDB} = {67C958E1-E848-43AF-BBE5-8AFA669BE779}
 		{D23A7DE1-400A-4A95-85AB-3251419A39C4} = {67C958E1-E848-43AF-BBE5-8AFA669BE779}
+		{107D825D-BA8D-41E3-B08A-033162169B1E} = {67C958E1-E848-43AF-BBE5-8AFA669BE779}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01FD9540-BC1B-49CE-964B-E3D5C5C720D2}
