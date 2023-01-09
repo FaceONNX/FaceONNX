@@ -1,5 +1,5 @@
 <p align="center"><img width="25%" src="https://github.com/FaceONNX/FaceONNX/raw/main/docs/FaceONNX.png" /></p>
-<p align="center"> Face analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
+<p align="center"> Face recognition and analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
 # FaceONNX
 **FaceONNX** is a face analytics library based on [ONNX](https://onnx.ai/) runtime. It containts ready-made deep neural networks for face
