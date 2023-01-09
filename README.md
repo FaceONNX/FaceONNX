@@ -2,7 +2,7 @@
 <p align="center"> Face recognition and analytics library based on deep neural networks and <b>ONNX</b> runtime </p>  
 
 # FaceONNX
-**FaceONNX** is a face analytics library based on [ONNX](https://onnx.ai/) runtime. It containts ready-made deep neural networks for face
+**FaceONNX** is a face recognition and analytics library based on [ONNX](https://onnx.ai/) runtime. It containts ready-made deep neural networks for face
 * detection and landmarks extraction,
 * gender and age classification,
 * emotion and beauty classification,
