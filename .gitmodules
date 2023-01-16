@@ -1,3 +1,0 @@
-[submodule "netstandard/FaceONNX.Models"]
-	path = netstandard/FaceONNX.Models
-	url = https://github.com/FaceONNX/FaceONNX.Models
