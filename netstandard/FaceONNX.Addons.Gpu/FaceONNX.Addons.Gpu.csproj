@@ -4,21 +4,21 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>FaceONNX.Addons.Gpu</AssemblyName>
 		<LangVersion>8.0</LangVersion>
-		<Version>2.1.0.4</Version>
-		<FileVersion>2.1.0.4</FileVersion>
+		<Version>2.2.0.1</Version>
+		<FileVersion>2.2.0.1</FileVersion>
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
-		<Description>Face analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
-		<Copyright>Valery Asiryan, © 2022</Copyright>
+		<Description>Face recognition and analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
+		<Copyright>Valery Asiryan, © 2020-2023</Copyright>
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons.Gpu</PackageId>
 		<Product>FaceONNX.Addons.Gpu</Product>
-		<AssemblyVersion>2.1.0.4</AssemblyVersion>
+		<AssemblyVersion>2.2.0.1</AssemblyVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks gpu</PackageTags>
-		<RepositoryUrl>https://github.com/asiryan/FaceONNX</RepositoryUrl>
+		<RepositoryUrl>https://github.com/FaceONNX/FaceONNX</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageProjectUrl>https://github.com/asiryan/FaceONNX</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/FaceONNX/FaceONNX</PackageProjectUrl>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageIcon>FaceONNX.png</PackageIcon>
 		<NeutralLanguage>en</NeutralLanguage>
@@ -27,6 +27,7 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Optimize>True</Optimize>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
