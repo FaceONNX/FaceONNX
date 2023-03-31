@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using UMapx.Core;
+using UMapx.Imaging;
 
 namespace GenderClassification
 {
@@ -32,7 +33,8 @@ namespace GenderClassification
                 {
                     Console.Write($"\t[Face #{i++}]: ");
 
-                    var output = faceGenderClassifier.Forward(bitmap);
+                    var cropped = BitmapTransform.Crop(bitmap, face);
+                    var output = faceGenderClassifier.Forward(cropped);
                     var max = Matrice.Max(output, out int gender);
                     var label = labels[gender];
 
