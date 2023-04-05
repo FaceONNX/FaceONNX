@@ -8,7 +8,7 @@
 	<FileVersion>2.2.0.4</FileVersion>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
-    <Description>Face recognition and analytics library based on deep neural networks and ONNX runtime.</Description>
+    <Description>Face recognition and analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
 	<Copyright>Valery Asiryan, © 2020-2023</Copyright>
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX.Gpu</PackageId>
