@@ -324,8 +324,8 @@ namespace FaceONNX
         /// <returns></returns>
         public static Rectangle Scale(this Rectangle rectangle, float kx = 0.0f, float ky = 0.0f)
         {
-            var x = rectangle.X;
-            var y = rectangle.Y;
+            var x = rectangle.X < 0 ? 0 : rectangle.X;
+            var y = rectangle.Y < 0 ? 0 : rectangle.Y;
             var w = rectangle.Width;
             var h = rectangle.Height;
 
@@ -352,8 +352,8 @@ namespace FaceONNX
             var dx = r - rectangle.Width;
             var dy = r - rectangle.Height;
 
-            var x = rectangle.X - dx / 2;
-            var y = rectangle.Y - dy / 2;
+            var x = rectangle.X < 0 ? 0 : rectangle.X - dx / 2;
+            var y = rectangle.Y < 0 ? 0 : rectangle.Y - dy / 2;
             var w = rectangle.Width + dx;
             var h = rectangle.Height + dy;
 
