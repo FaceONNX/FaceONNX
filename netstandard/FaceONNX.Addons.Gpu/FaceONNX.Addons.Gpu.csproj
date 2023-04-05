@@ -73,7 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FaceONNX.Gpu" Version="2.2.0.3" />
+	  <PackageReference Include="FaceONNX.Gpu" Version="2.2.0.4" />
 	</ItemGroup>
 
 </Project>
