@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UMapx.Core;
 
-namespace FaceONNX
+namespace FaceEmbeddingsClassification
 {
     /// <summary>
     /// Defines the embeddings database.

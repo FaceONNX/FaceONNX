@@ -151,6 +151,99 @@
         <member name="M:FaceONNX.FaceEmbedder.Dispose">
             <inheritdoc/>
         </member>
+        <member name="T:FaceONNX.FaceLandmarks">
+            <summary>
+            Using for face points operations.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetRightEye(System.Drawing.Point[])">
+            <summary>
+            Returns right eye points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetLeftEye(System.Drawing.Point[])">
+            <summary>
+            Returns left eye points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetMouth(System.Drawing.Point[])">
+            <summary>
+            Returns mouth points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetFace(System.Drawing.Point[])">
+            <summary>
+            Returns face points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetLeftBrow(System.Drawing.Point[])">
+            <summary>
+            Returns left brow points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetRightBrow(System.Drawing.Point[])">
+            <summary>
+            Returns right brow points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetNose(System.Drawing.Point[])">
+            <summary>
+            Returns nose points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Points</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetRotationAngle(System.Drawing.Point[])">
+            <summary>
+            Returns rotation angle from points.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Angle</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetSymmetryCoefficient(System.Drawing.Point[])">
+            <summary>
+            Returns symmetry coefficient of face.
+            </summary>
+            <param name="points">Points</param>
+            <returns>Symmetry coefficient [0, 1]</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetSymmetry(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Center point</param>
+            <param name="b">Value</param>
+            <param name="c">Value</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.GetSymmetry(System.Single,System.Single)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Value</param>
+            <param name="b">Value</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.Abs(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns distance for two points.
+            </summary>
+            <param name="a">Point</param>
+            <param name="b">Point</param>
+            <returns>Value</returns>
+        </member>
         <member name="T:FaceONNX.FaceLandmarksExtractor">
             <summary>
             Defines face landmarks extractor.
@@ -303,374 +396,6 @@
             <param name="image">Image in BGR terms</param>
             <param name="rectangle">Rectangle</param>
             <returns>Point</returns>
-        </member>
-        <member name="T:FaceONNX.Embeddings">
-            <summary>
-            Defines the embeddings database.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Embeddings.#ctor">
-            <summary>
-            Initializes the embeddings database.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Embeddings.#ctor(System.Collections.Generic.List{System.Single[]},System.Collections.Generic.List{System.String})">
-            <summary>
-            Initializes the embeddings database.
-            </summary>
-            <param name="vectors">Vectors</param>
-            <param name="labels">Labels</param>
-        </member>
-        <member name="M:FaceONNX.Embeddings.Add(System.Single[],System.String)">
-            <summary>
-            Adds embedding to embeddings database.
-            </summary>
-            <param name="vector">Vector</param>
-            <param name="label">Label</param>
-        </member>
-        <member name="M:FaceONNX.Embeddings.Remove(System.Int32)">
-            <summary>
-            Removes embedding from embeddings database.
-            </summary>
-            <param name="index">Index</param>
-        </member>
-        <member name="M:FaceONNX.Embeddings.Remove(System.String)">
-            <summary>
-            Removes embedding from embeddings database.
-            </summary>
-            <param name="label">Label</param>
-        </member>
-        <member name="M:FaceONNX.Embeddings.Clear">
-            <summary>
-            Clears embeddings database.
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Embeddings.Count">
-            <summary>
-            Returns embeddings database count.
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Embeddings.Vectors">
-            <summary>
-            Gets or sets vectors.
-            </summary>
-        </member>
-        <member name="P:FaceONNX.Embeddings.Labels">
-            <summary>
-            Gets or sets labels.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Embeddings.FromDistance(System.Single[])">
-            <summary>
-            Score vector from database by Euclidean distance.
-            </summary>
-            <param name="vector">Vector</param>
-            <returns>Label</returns>
-        </member>
-        <member name="M:FaceONNX.Embeddings.FromSimilarity(System.Single[])">
-            <summary>
-            Score vector from database by cosine similarity.
-            </summary>
-            <param name="vector">Vector</param>
-            <returns>Label and value</returns>
-        </member>
-        <member name="T:FaceONNX.Landmarks">
-            <summary>
-            Using for face points operations.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Landmarks.Add(System.Drawing.Point[],System.Drawing.Point)">
-            <summary>
-            Returns processed points.
-            </summary>
-            <param name="points">Points</param>
-            <param name="point">Point</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.Sub(System.Drawing.Point[],System.Drawing.Point)">
-            <summary>
-            Returns processed points.
-            </summary>
-            <param name="points">Points</param>
-            <param name="point">Point</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.Rotate(System.Drawing.Point[],System.Drawing.Point,System.Single)">
-            <summary>
-            Rotates points by angle.
-            </summary>
-            <param name="points">Points</param>
-            <param name="centerPoint">Center point</param>
-            <param name="angle">Angle</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.Rotate(System.Drawing.Point,System.Drawing.Point,System.Double)">
-            <summary>
-            Rotates point by angle.
-            </summary>
-            <param name="pointToRotate">The point to rotate.</param>
-            <param name="centerPoint">The center point of rotation.</param>
-            <param name="angleInDegrees">The rotation angle in degrees.</param>
-            <returns>Rotated point</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetRectangle(System.Drawing.Point[])">
-            <summary>
-            Returns rectangle from points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetAngle(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Return angle of the three points.
-            </summary>
-            <param name="left">Left point</param>
-            <param name="right">Right point</param>
-            <param name="support">Supported point</param>
-            <returns>Angle</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetSupportedPoint(System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Returns supported point.
-            </summary>
-            <param name="left">Left point</param>
-            <param name="right">Right point</param>
-            <returns>Point</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetMeanPoint(System.Drawing.Point[])">
-            <summary>
-            Returns mean point.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Point</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetRightEye(System.Drawing.Point[])">
-            <summary>
-            Returns right eye points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetLeftEye(System.Drawing.Point[])">
-            <summary>
-            Returns left eye points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetMouth(System.Drawing.Point[])">
-            <summary>
-            Returns mouth points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetFace(System.Drawing.Point[])">
-            <summary>
-            Returns face points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetLeftBrow(System.Drawing.Point[])">
-            <summary>
-            Returns left brow points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetRightBrow(System.Drawing.Point[])">
-            <summary>
-            Returns right brow points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetNose(System.Drawing.Point[])">
-            <summary>
-            Returns nose points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetRotationAngle(System.Drawing.Point[])">
-            <summary>
-            Returns rotation angle from points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Angle</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetSymmetryCoefficient(System.Drawing.Point[])">
-            <summary>
-            Returns symmetry coefficient of face.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Symmetry coefficient [0, 1]</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetSymmetry(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Returns symmetry.
-            </summary>
-            <param name="a">Center point</param>
-            <param name="b">Value</param>
-            <param name="c">Value</param>
-            <returns>Value</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.GetSymmetry(System.Single,System.Single)">
-            <summary>
-            Returns symmetry.
-            </summary>
-            <param name="a">Value</param>
-            <param name="b">Value</param>
-            <returns>Value</returns>
-        </member>
-        <member name="M:FaceONNX.Landmarks.Abs(System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Returns distance for two points.
-            </summary>
-            <param name="a">Point</param>
-            <param name="b">Point</param>
-            <returns>Value</returns>
-        </member>
-        <member name="T:FaceONNX.Rectangles">
-            <summary>
-            Using for face boxes operations.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Add(System.Drawing.Rectangle,System.Drawing.Point)">
-            <summary>
-            Returns processed rectangle.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="point">Point</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Sub(System.Drawing.Rectangle,System.Drawing.Point)">
-            <summary>
-            Returns processed rectangle.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="point">Point</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Add(System.Drawing.Rectangle[],System.Drawing.Point)">
-            <summary>
-            Returns processed rectangles.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <param name="point">Point</param>
-            <returns>Rectangles</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Sub(System.Drawing.Rectangle[],System.Drawing.Point)">
-            <summary>
-            Returns processed rectangles.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <param name="point">Point</param>
-            <returns>Rectangles</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.ToPoints(System.Drawing.Rectangle)">
-            <summary>
-            Returns four points from rectangle.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.FromPoints(System.Drawing.Point[])">
-            <summary>
-            Returns rectangle from four points.
-            </summary>
-            <param name="points"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.GetPoint(System.Drawing.Rectangle)">
-            <summary>
-            Returns point from rectangle.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Point</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Area(System.Drawing.Size)">
-            <summary>
-            Returns size area.
-            </summary>
-            <param name="size">Size</param>
-            <returns>Area</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Area(System.Drawing.Rectangle)">
-            <summary>
-            Returns rectangle area.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Area</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Max(System.Drawing.Rectangle[])">
-            <summary>
-            Returns the maximum rectangle.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Min(System.Drawing.Rectangle[])">
-            <summary>
-            Returns the minimum rectangle.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle)">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle,System.Single)">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="scale">Factor</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.ToBox(System.Drawing.Rectangle[])">
-            <summary>
-            Returns rectangle scaled to box.
-            </summary>
-            <param name="rectangles">Rectangle</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.ToBox(System.Single,System.Drawing.Rectangle[])">
-            <summary>
-            Returns rectangle scaled to box with image size.
-            </summary>
-            <param name="rectangles">Rectangles</param>
-            <param name="factor">Factor</param>
-            <returns>Rectangle</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.IoU(System.Drawing.Rectangle,System.Drawing.Rectangle)">
-            <summary>
-            Implements IoU operator.
-            </summary>
-            <param name="a">First rectangle</param>
-            <param name="b">Second rectangle</param>
-            <returns>Value</returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Scale(System.Drawing.Rectangle,System.Single,System.Single)">
-            <summary>
-            Implements scale operator.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <param name="kx">Factor for x axis</param>
-            <param name="ky">Factor for y axis</param>
-            <returns></returns>
-        </member>
-        <member name="M:FaceONNX.Rectangles.Scale(System.Drawing.Rectangle)">
-            <summary>
-            Implements scale operator.
-            </summary>
-            <param name="rectangle">Rectangle</param>
-            <returns>Rectangle</returns>
         </member>
         <member name="T:FaceONNX.Properties.Resources">
             <summary>
