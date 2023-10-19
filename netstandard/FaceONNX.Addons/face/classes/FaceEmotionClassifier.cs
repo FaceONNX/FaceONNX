@@ -48,7 +48,7 @@ namespace FaceONNX
         /// <summary>
         /// Returns the labels.
         /// </summary>
-        public static string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
+        public static readonly string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
 
 		#endregion
 

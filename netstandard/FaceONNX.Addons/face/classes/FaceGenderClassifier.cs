@@ -48,7 +48,7 @@ namespace FaceONNX
         /// <summary>
         /// Returns the labels.
         /// </summary>
-        public static string[] Labels = new string[] { "Male", "Female" };
+        public static readonly string[] Labels = new string[] { "Male", "Female" };
 
 		#endregion
 

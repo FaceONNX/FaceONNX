@@ -48,7 +48,7 @@ namespace FaceONNX
         /// <summary>
         /// Returns the labels.
         /// </summary>
-        public static string[] Labels = new string[] { "<2", "3-7", "8-14", "15-24", "25-37", "38-47", "48-59", ">60" };
+        public static readonly string[] Labels = new string[] { "<2", "3-7", "8-14", "15-24", "25-37", "38-47", "48-59", ">60" };
 
         #endregion
 
