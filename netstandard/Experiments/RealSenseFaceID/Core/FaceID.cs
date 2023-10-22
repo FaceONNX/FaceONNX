@@ -163,7 +163,7 @@ namespace RealSenseFaceID.Core
             // crop and align
             using var cropped = BitmapTransform.Crop(frame, rectangle);
             var points = _faceLandmarksExtractor.Forward(cropped);
-            var angle = Landmarks.GetRotationAngle(points);
+            var angle = FaceLandmarks.GetRotationAngle(points);
             using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
 
             // extract embeddings
@@ -197,7 +197,7 @@ namespace RealSenseFaceID.Core
         {
             // crop and align
             using var depthCropped = DepthTransform.Crop(depth, rectangle).Equalize().FromDepth();
-            var angle = Landmarks.GetRotationAngle(points);
+            var angle = FaceLandmarks.GetRotationAngle(points);
             using var depthCroppedAligned = FaceLandmarksExtractor.Align(depthCropped, angle);
 
             // classify

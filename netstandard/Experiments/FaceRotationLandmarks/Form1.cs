@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UMapx.Core;
+using UMapx.Imaging;
 using UMapx.Visualization;
 
 namespace FaceRotationLandmarks
@@ -74,7 +75,7 @@ namespace FaceRotationLandmarks
                 for (int i = 0; i < rectangles.Length; i++)
                 {
                     var points = _faceLandmarksExtractor.Forward(_bitmap, rectangles[i]);
-                    var symmetry = Landmarks.GetSymmetryCoefficient(points);
+                    var symmetry = FaceLandmarks.GetSymmetryCoefficient(points);
                     Console.WriteLine($"Face symmetry --> {symmetry}");
 
                     var paintData = new PaintData
