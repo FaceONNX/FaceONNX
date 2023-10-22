@@ -20,7 +20,7 @@ namespace FaceONNX
         public static Point[] GetRightEye(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var eye = new Point[6];
 
@@ -40,7 +40,7 @@ namespace FaceONNX
         public static Point[] GetLeftEye(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var eye = new Point[6];
 
@@ -60,7 +60,7 @@ namespace FaceONNX
         public static Point[] GetMouth(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var tongue = new Point[17];
 
@@ -80,7 +80,7 @@ namespace FaceONNX
         public static Point[] GetFace(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var tongue = new Point[17];
 
@@ -100,7 +100,7 @@ namespace FaceONNX
         public static Point[] GetLeftBrow(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var eye = new Point[5];
 
@@ -120,7 +120,7 @@ namespace FaceONNX
         public static Point[] GetRightBrow(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var eye = new Point[5];
 
@@ -140,7 +140,7 @@ namespace FaceONNX
         public static Point[] GetNose(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var eye = new Point[9];
 
@@ -179,7 +179,7 @@ namespace FaceONNX
         public static float GetSymmetryCoefficient(this Point[] points)
         {
             if (points.Length != 68)
-                throw new ArgumentException("Face points are not correct.");
+                throw new ArgumentException("The number of face points must be 68.");
 
             var nose = points.GetNose();
             var leftEye = points.GetLeftEye();

@@ -4,8 +4,8 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<AssemblyName>FaceONNX.Addons</AssemblyName>
 		<LangVersion>8.0</LangVersion>
-		<Version>2.3.0.1</Version>
-		<FileVersion>2.3.0.1</FileVersion>
+		<Version>3.0.0.1</Version>
+		<FileVersion>3.0.0.1</FileVersion>
 		<Authors>Valery Asiryan</Authors>
 		<Company>Valery Asiryan</Company>
 		<Description>Face recognition and analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -13,7 +13,7 @@
 		<RepositoryType>Open-source</RepositoryType>
 		<PackageId>FaceONNX.Addons</PackageId>
 		<Product>FaceONNX.Addons</Product>
-		<AssemblyVersion>2.3.0.1</AssemblyVersion>
+		<AssemblyVersion>3.0.0.1</AssemblyVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
 		<RepositoryUrl>https://github.com/FaceONNX/FaceONNX</RepositoryUrl>
@@ -38,6 +38,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="models\**" />
+	  <EmbeddedResource Remove="models\**" />
+	  <None Remove="models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -53,10 +59,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\FaceONNX.Models\models\onnx.addons\age_googlenet.onnx" Link="models\age_googlenet.onnx" />
-		<None Include="..\FaceONNX.Models\models\onnx.addons\beauty_resnet18.onnx" Link="models\beauty_resnet18.onnx" />
-		<None Include="..\FaceONNX.Models\models\onnx.addons\emotion_cnn.onnx" Link="models\emotion_cnn.onnx" />
-		<None Include="..\FaceONNX.Models\models\onnx.addons\gender_googlenet.onnx" Link="models\gender_googlenet.onnx" />
 		<None Include="FaceONNX.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
@@ -65,10 +67,6 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="models\" />
 	</ItemGroup>
 
 	<ItemGroup>

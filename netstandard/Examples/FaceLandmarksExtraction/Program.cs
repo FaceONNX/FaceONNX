@@ -36,12 +36,13 @@ namespace FaceLandmarksExtraction
                 foreach (var face in faces)
                 {
                     // crop face
-                    using var cropped = BitmapTransform.Crop(bitmap, face);
+                    var box = face.Box;
+                    using var cropped = BitmapTransform.Crop(bitmap, box);
                     var points = faceLandmarksExtractor.Forward(cropped);
 
                     var paintData = new PaintData()
                     {
-                        Points = points.Add(face.GetPoint()),
+                        Points = points.Add(box.GetPoint()),
                         Title = string.Empty,
                     };
 

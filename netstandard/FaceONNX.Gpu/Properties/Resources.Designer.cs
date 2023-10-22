@@ -83,16 +83,6 @@ namespace FaceONNX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] face_detector_640 {
-            get {
-                object obj = ResourceManager.GetObject("face_detector_640", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] landmarks_68_pfld {
             get {
                 object obj = ResourceManager.GetObject("landmarks_68_pfld", resourceCulture);
@@ -106,6 +96,16 @@ namespace FaceONNX.Properties {
         internal static byte[] recognition_resnet27 {
             get {
                 object obj = ResourceManager.GetObject("recognition_resnet27", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] yolov5s_face {
+            get {
+                object obj = ResourceManager.GetObject("yolov5s_face", resourceCulture);
                 return ((byte[])(obj));
             }
         }

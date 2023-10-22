@@ -56,7 +56,7 @@ namespace FaceEmbeddingsClassification
         static float[] GetEmbedding(Bitmap image)
         {
             var rectangles = faceDetector.Forward(image);
-            var rectangle = rectangles.FirstOrDefault();
+            var rectangle = rectangles.FirstOrDefault().Box;
 
             if (!rectangle.IsEmpty)
             {

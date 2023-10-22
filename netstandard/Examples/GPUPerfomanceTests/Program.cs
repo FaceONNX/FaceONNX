@@ -27,7 +27,7 @@ namespace GPUPerfomanceTests
             var time = 0;
             var tic = Environment.TickCount;
 
-            var options = useGPU ? SessionOptions.MakeSessionOptionWithCudaProvider(gpuId) : new SessionOptions();
+            using var options = useGPU ? SessionOptions.MakeSessionOptionWithCudaProvider(gpuId) : new SessionOptions();
             Console.WriteLine($"Configuring {(useGPU ? "GPU" : "CPU")} device");
 
             using var faceLandmarksExtractor = new FaceLandmarksExtractor(options);
