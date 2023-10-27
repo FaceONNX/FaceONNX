@@ -325,7 +325,7 @@
             <param name="image">Bitmap</param>
             <param name="rectangle">Rectangle</param>
             <param name="angle">Angle</param>
-            <param name="clampRectangle">Clamp rectangle or not</param>
+            <param name="clamp">Clamp crop or not</param>
             <returns>Bitmap</returns>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Single)">
@@ -336,13 +336,14 @@
             <param name="angle">Angle</param>
             <returns>Image in BGR terms</returns>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Drawing.Rectangle,System.Single)">
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Drawing.Rectangle,System.Single,System.Boolean)">
             <summary>
             Returns aligned face.
             </summary>
             <param name="image">Image in BGR terms</param>
             <param name="rectangle">Rectangle</param>
             <param name="angle">Angle</param>
+            <param name="clamp">Clamp crop or not</param>
             <returns>Image in BGR terms</returns>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">

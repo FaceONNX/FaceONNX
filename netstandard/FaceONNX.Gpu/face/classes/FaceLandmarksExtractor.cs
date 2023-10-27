@@ -142,12 +142,12 @@ namespace FaceONNX
         /// <param name="image">Bitmap</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="angle">Angle</param>
-        /// <param name="clampRectangle">Clamp rectangle or not</param>
+        /// <param name="clamp">Clamp crop or not</param>
         /// <returns>Bitmap</returns>
-        public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle, bool clampRectangle = true)
+        public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle, bool clamp = true)
         {
             var scaledRectangle = rectangle.Scale();
-            using var cropped = image.Crop(scaledRectangle, clampRectangle);
+            using var cropped = image.Crop(scaledRectangle, clamp);
             using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
             var cropRectangle = rectangle.Sub(new Point
             {
@@ -155,7 +155,7 @@ namespace FaceONNX
                 Y = scaledRectangle.Y
             });
 
-            return aligned.Crop(cropRectangle);
+            return aligned.Crop(cropRectangle, clamp);
         }
 
         /// <summary>
@@ -187,8 +187,9 @@ namespace FaceONNX
         /// <param name="image">Image in BGR terms</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="angle">Angle</param>
+        /// <param name="clamp">Clamp crop or not</param>
         /// <returns>Image in BGR terms</returns>
-        public static float[][,] Align(float[][,] image, Rectangle rectangle, float angle)
+        public static float[][,] Align(float[][,] image, Rectangle rectangle, float angle, bool clamp = true)
         {
             var length = image.Length;
 
@@ -202,9 +203,9 @@ namespace FaceONNX
             {
                 cropped[i] = image[i].Crop(
                     scaledRectangle.Y, 
-                    scaledRectangle.X, 
+                    scaledRectangle.X,
                     scaledRectangle.Height, 
-                    scaledRectangle.Width);
+                    scaledRectangle.Width, clamp);
             }
 
             var aligned = FaceLandmarksExtractor.Align(cropped, angle);
@@ -222,7 +223,7 @@ namespace FaceONNX
                     cropRectangle.Y,
                     cropRectangle.X,
                     cropRectangle.Height,
-                    cropRectangle.Width);
+                    cropRectangle.Width, clamp);
             }
 
             return output;
