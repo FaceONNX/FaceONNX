@@ -63,15 +63,15 @@ namespace FaceAlignment
                 _bitmap?.Dispose();
                 _bitmap = new Bitmap(fileName);
 
-                var rectangles = _faceDetector.Forward(_bitmap);
-                Console.WriteLine($"Detected {rectangles.Length} faces");
+                var faceDetectionResults = _faceDetector.Forward(_bitmap);
+                Console.WriteLine($"Detected {faceDetectionResults.Length} faces");
 
-                if (rectangles.Length <= 0)
+                if (faceDetectionResults.Length <= 0)
                 {
                     return;
                 }
 
-                var rectangle = Rectangles.Max(rectangles);
+                var rectangle = Rectangles.Max(faceDetectionResults.Select(x => x.Box).ToArray());
 
                 // naive alignment
                 using var cropped = BitmapTransform.Crop(_bitmap, rectangle);

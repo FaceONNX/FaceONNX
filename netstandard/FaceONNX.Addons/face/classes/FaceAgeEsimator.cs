@@ -11,44 +11,35 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
 	/// <summary>
-	/// Defines face age classifier.
+	/// Defines face age estimator.
 	/// </summary>
-	public class FaceAgeClassifier : IFaceClassifier
+	public class FaceAgeEsimator : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
 		/// Inference session.
 		/// </summary>
 		private readonly InferenceSession _session;
-		#endregion
-
-		#region Constructor
-
-		/// <summary>
-		/// Initializes face age classifier.
-		/// </summary>
-		public FaceAgeClassifier()
-		{
-			_session = new InferenceSession(Resources.age_googlenet);
-		}
-
-		/// <summary>
-		/// Initializes face age classifier.
-		/// </summary>
-		/// <param name="options">Session options</param>
-		public FaceAgeClassifier(SessionOptions options)
-		{
-			_session = new InferenceSession(Resources.age_googlenet, options);
-		}
-
         #endregion
 
-        #region Properties
+        #region Constructor
 
         /// <summary>
-        /// Returns the labels.
+        /// Initializes face age estimator.
         /// </summary>
-        public static readonly string[] Labels = new string[] { "<2", "3-7", "8-14", "15-24", "25-37", "38-47", "48-59", ">60" };
+        public FaceAgeEsimator()
+		{
+			_session = new InferenceSession(Resources.age_efficientnet_b2);
+		}
+
+        /// <summary>
+        /// Initializes face age estimator.
+        /// </summary>
+        /// <param name="options">Session options</param>
+        public FaceAgeEsimator(SessionOptions options)
+		{
+			_session = new InferenceSession(Resources.age_efficientnet_b2, options);
+		}
 
         #endregion
 
@@ -80,8 +71,10 @@ namespace FaceONNX
 
             // pre-processing
             var dimentions = new int[] { 1, 3, size.Height, size.Width };
-            var tensors = resized.ToFloatTensor(false);
-            tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
+            var tensors = resized.ToFloatTensor(true);
+            tensors.Compute(255.0f, Matrice.Div);                           // scale
+            tensors.Compute(new[] { 0.485f, 0.456f, 0.406f }, Matrice.Sub); // mean
+            tensors.Compute(new[] { 0.229f, 0.224f, 0.225f }, Matrice.Div); // std
             var inputData = tensors.Merge(true);
 
             // session run
@@ -121,7 +114,10 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceAgeClassifier()
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+		~FaceAgeEsimator()
 		{
 			Dispose(false);
 		}

@@ -124,13 +124,13 @@
   <data name="eye_blink_cnn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\faceonnx.models\models\onnx\eye_blink_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="face_detector_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\faceonnx.models\models\onnx\face_detector_640.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="landmarks_68_pfld" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\faceonnx.models\models\onnx\landmarks_68_pfld.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="recognition_resnet27" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\faceonnx.models\models\onnx\recognition_resnet27.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yolov5s_face" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yolov5s-face.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

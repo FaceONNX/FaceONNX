@@ -140,12 +140,12 @@ namespace RealSenseFaceID.Core
         /// <returns>Output</returns>
         private Rectangle DetectFace(Bitmap frame)
         {
-            var rectangles = _faceDetector.Forward(frame);
-            var count = rectangles.Length;
+            var faceDetectionResults = _faceDetector.Forward(frame);
+            var count = faceDetectionResults.Length;
 
             if (count > 0)
             {
-                return Rectangles.Max(rectangles);
+                return Rectangles.Max(faceDetectionResults.Select(x => x.Box).ToArray());
             }
 
             return Rectangle.Empty;

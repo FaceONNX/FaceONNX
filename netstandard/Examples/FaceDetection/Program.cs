@@ -15,7 +15,7 @@ namespace FaceDetection
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 
-            using var faceDetector = new FaceDetector(0.95f, 0.5f);
+            using var faceDetector = new FaceDetector();
             using var painter = new Painter()
             {
                 BoxPen = new Pen(Color.Yellow, 4),
@@ -27,13 +27,13 @@ namespace FaceDetection
             foreach (var file in files)
             {
                 using var bitmap = new Bitmap(file);
-                var output = faceDetector.Forward(bitmap);
+                var outputs = faceDetector.Forward(bitmap);
 
-                foreach (var rectangle in output)
+                foreach (var output in outputs)
                 {
                     var paintData = new PaintData()
                     {
-                        Rectangle = rectangle,
+                        Rectangle = output.Box,
                         Title = string.Empty
                     };
                     using var graphics = Graphics.FromImage(bitmap);
@@ -42,7 +42,7 @@ namespace FaceDetection
 
                 var filename = Path.GetFileName(file);
                 bitmap.Save(Path.Combine(path, filename));
-                Console.WriteLine($"Image: [{filename}] --> detected [{output.Length}] faces");
+                Console.WriteLine($"Image: [{filename}] --> detected [{outputs.Length}] faces");
             }
 
             Console.WriteLine("Done.");

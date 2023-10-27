@@ -138,6 +138,9 @@ namespace FaceONNX
             }
         }
 
+        /// <summary>
+        /// Destructor.
+        /// </summary>
         ~EyeBlinkClassifier()
         {
             Dispose(false);

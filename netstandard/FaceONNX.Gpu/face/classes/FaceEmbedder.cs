@@ -118,6 +118,9 @@ namespace FaceONNX
             }
         }
 
+        /// <summary>
+        /// Destructor.
+        /// </summary>
         ~FaceEmbedder()
         {
             Dispose(false);

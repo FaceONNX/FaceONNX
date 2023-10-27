@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX.Gpu</AssemblyName>
     <LangVersion>8.0</LangVersion>
-	<Version>2.3.0.1</Version>
-	<FileVersion>2.3.0.1</FileVersion>
+	<Version>3.0.0.1</Version>
+	<FileVersion>3.0.0.1</FileVersion>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face recognition and analytics library based on deep neural networks and ONNX runtime. Gpu implementation.</Description>
@@ -13,7 +13,7 @@
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX.Gpu</PackageId>
     <Product>FaceONNX.Gpu</Product>
-    <AssemblyVersion>2.3.0.1</AssemblyVersion>
+    <AssemblyVersion>3.0.0.1</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks gpu</PackageTags>
     <RepositoryUrl>https://github.com/FaceONNX/FaceONNX</RepositoryUrl>
@@ -39,8 +39,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="models\**" />
+    <EmbeddedResource Remove="models\**" />
+    <None Remove="models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.9.0" />
-    <PackageReference Include="UMapx" Version="5.2.9.2" />
+    <PackageReference Include="UMapx" Version="5.2.9.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,11 +65,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\FaceONNX.Models\models\onnx\depth_googlenet_slim.onnx" Link="models\depth_googlenet_slim.onnx" />
-    <None Include="..\FaceONNX.Models\models\onnx\face_detector_640.onnx" Link="models\face_detector_640.onnx" />
-    <None Include="..\FaceONNX.Models\models\onnx\landmarks_68_pfld.onnx" Link="models\landmarks_68_pfld.onnx" />
-    <None Include="..\FaceONNX.Models\models\onnx\recognition_resnet27.onnx" Link="models\recognition_resnet27.onnx" />
-    <None Include="..\FaceONNX.Models\models\onnx\eye_blink_cnn.onnx" Link="models\eye_blink_cnn.onnx" />
     <None Include="FaceONNX.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -72,10 +73,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="models\" />
   </ItemGroup>
 
 </Project>

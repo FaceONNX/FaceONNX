@@ -29,7 +29,7 @@ namespace FaceONNX
 		/// </summary>
 		public FaceGenderClassifier()
 		{
-			_session = new InferenceSession(Resources.gender_googlenet);
+			_session = new InferenceSession(Resources.gender_efficientnet_b2);
 		}
 
 		/// <summary>
@@ -38,7 +38,7 @@ namespace FaceONNX
 		/// <param name="options">Session options</param>
 		public FaceGenderClassifier(SessionOptions options)
 		{
-			_session = new InferenceSession(Resources.gender_googlenet, options);
+			_session = new InferenceSession(Resources.gender_efficientnet_b2, options);
 		}
 
         #endregion
@@ -80,8 +80,10 @@ namespace FaceONNX
 
             // pre-processing
             var dimentions = new int[] { 1, 3, size.Height, size.Width };
-            var tensors = resized.ToFloatTensor(false);
-            tensors.Compute(new float[] { 104, 117, 123 }, Matrice.Sub);
+            var tensors = resized.ToFloatTensor(true);
+            tensors.Compute(255.0f, Matrice.Div);                           // scale
+            tensors.Compute(new[] { 0.485f, 0.456f, 0.406f }, Matrice.Sub); // mean
+            tensors.Compute(new[] { 0.229f, 0.224f, 0.225f }, Matrice.Div); // std
             var inputData = tensors.Merge(true);
 
             // session run
@@ -127,7 +129,10 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceGenderClassifier()
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~FaceGenderClassifier()
 		{
 			Dispose(false);
 		}

@@ -40,7 +40,8 @@ namespace EyeBlinkDetection
                 foreach (var face in faces)
                 {
                     // crop and align face
-                    using var cropped = BitmapTransform.Crop(bitmap, face);
+                    var box = face.Box;
+                    using var cropped = BitmapTransform.Crop(bitmap, box);
                     var points = faceLandmarksExtractor.Forward(cropped);
 
                     // eye blink detection
@@ -59,9 +60,10 @@ namespace EyeBlinkDetection
                     // landmarks extraction results
                     using var graphics = Graphics.FromImage(bitmap);
 
+                    var point = box.GetPoint();
                     var paintData = new PaintData
                     {
-                        Points = points.Add(face.GetPoint()),
+                        Points = points.Add(point),
                         Title = string.Empty,
                     };
 
@@ -70,13 +72,13 @@ namespace EyeBlinkDetection
                     // drawing eye bling detection results
                     var paintLeftEyeData = new PaintData
                     {
-                        Rectangle = left_eye_rect.Add(face.GetPoint()),
+                        Rectangle = left_eye_rect.Add(point),
                         Labels = ToString(left_eye_value)
                     };
 
                     var paintRightEyeData = new PaintData
                     {
-                        Rectangle = right_eye_rect.Add(face.GetPoint()),
+                        Rectangle = right_eye_rect.Add(point),
                         Labels = ToString(right_eye_value)
                     };
 

@@ -10,10 +10,10 @@ using UMapx.Imaging;
 
 namespace FaceONNX
 {
-    /// <summary>
-    /// Defines face beauty classifier.
-    /// </summary>
-    public class FaceBeautyClassifier : IFaceClassifier
+	/// <summary>
+	/// Defines face beauty classifier.
+	/// </summary>
+	public class FaceBeautyClassifier : IFaceClassifier
     {
 		#region Private data
 		/// <summary>
@@ -113,7 +113,10 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceBeautyClassifier()
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~FaceBeautyClassifier()
 		{
 			Dispose(false);
 		}

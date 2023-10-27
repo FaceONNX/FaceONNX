@@ -41,6 +41,11 @@
         <member name="M:FaceONNX.EyeBlinkClassifier.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.FaceDepthClassifier">
             <summary>
             Defines face depth classifier.
@@ -76,6 +81,11 @@
         <member name="M:FaceONNX.FaceDepthClassifier.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.FaceDetector">
             <summary>
             Defines face detector.
@@ -86,26 +96,36 @@
             Inference session.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceDetector.#ctor(System.Single,System.Single)">
+        <member name="M:FaceONNX.FaceDetector.#ctor(System.Single,System.Single,System.Single)">
             <summary>
             Initializes face detector.
             </summary>
+            <param name="detectionThreshold">Detection threshold</param>
             <param name="confidenceThreshold">Confidence threshold</param>
             <param name="nmsThreshold">NonMaxSuppression threshold</param>
         </member>
-        <member name="M:FaceONNX.FaceDetector.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions,System.Single,System.Single)">
+        <member name="M:FaceONNX.FaceDetector.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions,System.Single,System.Single,System.Single)">
             <summary>
             Initializes face detector.
             </summary>
             <param name="options">Session options</param>
+            <param name="detectionThreshold">Detection threshold</param>
             <param name="confidenceThreshold">Confidence threshold</param>
             <param name="nmsThreshold">NonMaxSuppression threshold</param>
+        </member>
+        <member name="P:FaceONNX.FaceDetector.DetectionThreshold">
+            <inheritdoc/>
         </member>
         <member name="P:FaceONNX.FaceDetector.ConfidenceThreshold">
             <inheritdoc/>
         </member>
         <member name="P:FaceONNX.FaceDetector.NmsThreshold">
             <inheritdoc/>
+        </member>
+        <member name="F:FaceONNX.FaceDetector.Labels">
+            <summary>
+            Gets labels.
+            </summary>
         </member>
         <member name="M:FaceONNX.FaceDetector.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
@@ -115,6 +135,14 @@
         </member>
         <member name="M:FaceONNX.FaceDetector.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceDetector.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceDetector.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.FaceEmbedder">
             <summary>
@@ -150,6 +178,11 @@
         </member>
         <member name="M:FaceONNX.FaceEmbedder.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceEmbedder.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.FaceLandmarks">
             <summary>
@@ -314,6 +347,11 @@
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.IFaceClassifier">
             <summary>
             Defines face classifier interface.
@@ -353,14 +391,14 @@
             Returns face detection results.
             </summary>
             <param name="image">Bitmap</param>
-            <returns>Rectangles</returns>
+            <returns>FaceDetectionResult</returns>
         </member>
         <member name="M:FaceONNX.IFaceDetector.Forward(System.Single[0:,0:][])">
             <summary>
             Returns face detection results.
             </summary>
             <param name="image">Image in BGR terms</param>
-            <returns>Rectangles</returns>
+            <returns>FaceDetectionResult</returns>
         </member>
         <member name="T:FaceONNX.IFaceLandmarksExtractor">
             <summary>
@@ -397,6 +435,49 @@
             <param name="rectangle">Rectangle</param>
             <returns>Point</returns>
         </member>
+        <member name="T:FaceONNX.NonMaxSuppressionExensions">
+            <summary>
+            Using for NonMaxSuppression operations.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.NonMaxSuppressionExensions.AgnosticNMSFiltration(System.Collections.Generic.List{System.Single[]},System.Single)">
+            <summary>
+            Agnostic NMS filtration (without regard classes of recognized objects)
+            </summary>
+            <param name="results">Results</param>
+            <param name="nmsThreshold">Threshold</param>
+            <returns>Results</returns>
+        </member>
+        <member name="T:FaceONNX.FaceDetectionResult">
+            <summary>
+            Defines object detection result.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Id">
+            <summary>
+            Gets or sets label id.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Score">
+            <summary>
+            Gets or sets score.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Rectangle">
+            <summary>
+            Gets or sets rectangle.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Box">
+            <summary>
+            Gets box.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Empty">
+            <summary>
+            Empty object detection result.
+            </summary>
+        </member>
         <member name="T:FaceONNX.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -423,17 +504,17 @@
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Properties.Resources.face_detector_640">
-            <summary>
-              Looks up a localized resource of type System.Byte[].
-            </summary>
-        </member>
         <member name="P:FaceONNX.Properties.Resources.landmarks_68_pfld">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
         <member name="P:FaceONNX.Properties.Resources.recognition_resnet27">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:FaceONNX.Properties.Resources.yolov5s_face">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
