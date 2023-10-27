@@ -74,7 +74,7 @@ namespace FaceAlignment
                 var rectangle = Rectangles.Max(faceDetectionResults.Select(x => x.Box).ToArray());
 
                 // naive alignment
-                using var cropped = BitmapTransform.Crop(_bitmap, rectangle, false);
+                using var cropped = BitmapTransform.Crop(_bitmap, rectangle);
                 var points1 = _faceLandmarksExtractor.Forward(cropped);
                 var angle1 = points1.GetRotationAngle();
 
@@ -85,7 +85,7 @@ namespace FaceAlignment
                 var points2 = _faceLandmarksExtractor.Forward(_bitmap, rectangle);
                 var angle2 = points2.GetRotationAngle();
                 _strongAligned?.Dispose();
-                _strongAligned = FaceLandmarksExtractor.Align(_bitmap, rectangle, angle2);
+                _strongAligned = FaceLandmarksExtractor.Align(_bitmap, rectangle, angle2, false);
 
                 // display results
                 var paintData = new PaintData
