@@ -11,7 +11,7 @@ namespace AgeGenderClassification
     {
         static void Main()
         {
-            Console.WriteLine("FaceONNX: Gender classification");
+            Console.WriteLine("FaceONNX: Age and gender classification");
             var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             using var faceDetector = new FaceDetector();
             using var faceLandmarksExtractor = new FaceLandmarksExtractor();
