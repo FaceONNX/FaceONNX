@@ -73,7 +73,7 @@ Image: [open_open.jpg] --> detected [1] faces
 <p align="center"><img width="70%" src="EyeBlinkDetection/results/open_open.jpg" /></p>
 <p align="center"><b>Figure 3.</b> Results for <i>open_open.jpg</i></p> 
 
-# Gender classification
+# Age & gender classification
 Build and run [AgeGenderClassification.csproj](AgeGenderClassification) to classify faces as "Male" or "Female".
 ```
 Image: [CF600.jpg] --> detected [1] faces
