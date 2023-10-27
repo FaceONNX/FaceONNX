@@ -142,11 +142,12 @@ namespace FaceONNX
         /// <param name="image">Bitmap</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="angle">Angle</param>
+        /// <param name="clampRectangle">Clamp rectangle or not</param>
         /// <returns>Bitmap</returns>
-        public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle)
+        public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle, bool clampRectangle = true)
         {
             var scaledRectangle = rectangle.Scale();
-            using var cropped = image.Crop(scaledRectangle);
+            using var cropped = image.Crop(scaledRectangle, clampRectangle);
             using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
             var cropRectangle = rectangle.Sub(new Point
             {

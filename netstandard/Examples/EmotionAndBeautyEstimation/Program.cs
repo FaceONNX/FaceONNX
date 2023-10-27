@@ -39,7 +39,7 @@ namespace EmotionAndBeautyEstimation
                     var box = face.Box;
                     var points = faceLandmarksExtractor.Forward(bitmap, box);
                     var angle = points.GetRotationAngle();
-                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle);
+                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle, false);
                     var emotion = faceEmotionClassifier.Forward(aligned);
                     var max = Matrice.Max(emotion, out int argmax);
                     var emotionLabel = FaceEmotionClassifier.Labels[argmax];

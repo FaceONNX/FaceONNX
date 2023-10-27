@@ -318,13 +318,14 @@
             <param name="angle">Angle</param>
             <returns>Bitmap</returns>
         </member>
-        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Drawing.Rectangle,System.Single)">
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Drawing.Bitmap,System.Drawing.Rectangle,System.Single,System.Boolean)">
             <summary>
             Returns aligned face.
             </summary>
             <param name="image">Bitmap</param>
             <param name="rectangle">Rectangle</param>
             <param name="angle">Angle</param>
+            <param name="clampRectangle">Clamp rectangle or not</param>
             <returns>Bitmap</returns>
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Align(System.Single[0:,0:][],System.Single)">
