@@ -113,7 +113,10 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceBeautyClassifier()
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~FaceBeautyClassifier()
 		{
 			Dispose(false);
 		}

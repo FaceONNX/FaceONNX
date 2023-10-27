@@ -253,6 +253,9 @@ namespace FaceONNX
             }
         }
 
+        /// <summary>
+        /// Destructor.
+        /// </summary>
         ~FaceLandmarksExtractor()
         {
             Dispose(false);

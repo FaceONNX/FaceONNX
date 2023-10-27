@@ -127,7 +127,10 @@ namespace FaceONNX
 			}
 		}
 
-		~FaceEmotionClassifier()
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~FaceEmotionClassifier()
 		{
 			Dispose(false);
 		}

@@ -4,9 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using UMapx.Core;
-using UMapx.Imaging;
 
-namespace GenderClassification
+namespace AgeGenderClassification
 {
     class Program
     {
@@ -15,7 +14,9 @@ namespace GenderClassification
             Console.WriteLine("FaceONNX: Gender classification");
             var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             using var faceDetector = new FaceDetector();
+            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
             using var faceGenderClassifier = new FaceGenderClassifier();
+            using var faceAgeEstimator = new FaceAgeEsimator();
             var labels = FaceGenderClassifier.Labels;
 
             Console.WriteLine($"Processing {files.Length} images");
@@ -33,12 +34,17 @@ namespace GenderClassification
                 {
                     Console.Write($"\t[Face #{i++}]: ");
 
-                    var cropped = BitmapTransform.Crop(bitmap, face);
-                    var output = faceGenderClassifier.Forward(cropped);
+                    var box = face.Box;
+                    var points = faceLandmarksExtractor.Forward(bitmap, box);
+                    var angle = points.GetRotationAngle();
+                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle);
+
+                    var output = faceGenderClassifier.Forward(aligned);
                     var max = Matrice.Max(output, out int gender);
                     var label = labels[gender];
+                    var age = faceAgeEstimator.Forward(aligned);
 
-                    Console.WriteLine($"--> classified as [{label}] gender with probability [{output.Max()}]");
+                    Console.WriteLine($"--> classified as [{label}] gender with probability [{output.Max()}] and [{age.First()}] ages");
                 }
             }
 

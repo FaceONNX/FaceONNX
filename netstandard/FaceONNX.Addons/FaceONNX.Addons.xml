@@ -4,40 +4,40 @@
         <name>FaceONNX.Addons</name>
     </assembly>
     <members>
-        <member name="T:FaceONNX.FaceAgeClassifier">
+        <member name="T:FaceONNX.FaceAgeEsimator">
             <summary>
-            Defines face age classifier.
+            Defines face age estimator.
             </summary>
         </member>
-        <member name="F:FaceONNX.FaceAgeClassifier._session">
+        <member name="F:FaceONNX.FaceAgeEsimator._session">
             <summary>
             Inference session.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.#ctor">
+        <member name="M:FaceONNX.FaceAgeEsimator.#ctor">
             <summary>
-            Initializes face age classifier.
+            Initializes face age estimator.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+        <member name="M:FaceONNX.FaceAgeEsimator.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
-            Initializes face age classifier.
+            Initializes face age estimator.
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="F:FaceONNX.FaceAgeClassifier.Labels">
+        <member name="M:FaceONNX.FaceAgeEsimator.Forward(System.Drawing.Bitmap)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceAgeEsimator.Forward(System.Single[0:,0:][])">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceAgeEsimator.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceAgeEsimator.Finalize">
             <summary>
-            Returns the labels.
+            Destructor.
             </summary>
-        </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Drawing.Bitmap)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.Forward(System.Single[0:,0:][])">
-            <inheritdoc/>
-        </member>
-        <member name="M:FaceONNX.FaceAgeClassifier.Dispose">
-            <inheritdoc/>
         </member>
         <member name="T:FaceONNX.FaceBeautyClassifier">
             <summary>
@@ -68,6 +68,11 @@
         </member>
         <member name="M:FaceONNX.FaceBeautyClassifier.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceBeautyClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.FaceEmotionClassifier">
             <summary>
@@ -104,6 +109,11 @@
         <member name="M:FaceONNX.FaceEmotionClassifier.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceEmotionClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.FaceGenderClassifier">
             <summary>
             Defines face gender classifier.
@@ -139,6 +149,11 @@
         <member name="M:FaceONNX.FaceGenderClassifier.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.FaceGenderClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.Addons.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -155,7 +170,7 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.age_googlenet">
+        <member name="P:FaceONNX.Addons.Properties.Resources.age_efficientnet_b2">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
@@ -170,7 +185,7 @@
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:FaceONNX.Addons.Properties.Resources.gender_googlenet">
+        <member name="P:FaceONNX.Addons.Properties.Resources.gender_efficientnet_b2">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

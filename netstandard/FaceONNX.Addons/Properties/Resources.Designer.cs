@@ -19,7 +19,7 @@ namespace FaceONNX.Addons.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace FaceONNX.Addons.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] age_googlenet {
+        internal static byte[] age_efficientnet_b2 {
             get {
-                object obj = ResourceManager.GetObject("age_googlenet", resourceCulture);
+                object obj = ResourceManager.GetObject("age_efficientnet_b2", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace FaceONNX.Addons.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] gender_googlenet {
+        internal static byte[] gender_efficientnet_b2 {
             get {
-                object obj = ResourceManager.GetObject("gender_googlenet", resourceCulture);
+                object obj = ResourceManager.GetObject("gender_efficientnet_b2", resourceCulture);
                 return ((byte[])(obj));
             }
         }

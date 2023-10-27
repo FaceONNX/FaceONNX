@@ -41,6 +41,11 @@
         <member name="M:FaceONNX.EyeBlinkClassifier.Dispose">
             <inheritdoc/>
         </member>
+        <member name="M:FaceONNX.EyeBlinkClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
         <member name="T:FaceONNX.FaceDepthClassifier">
             <summary>
             Defines face depth classifier.
@@ -75,6 +80,11 @@
         </member>
         <member name="M:FaceONNX.FaceDepthClassifier.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceDepthClassifier.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.FaceDetector">
             <summary>
@@ -168,6 +178,11 @@
         </member>
         <member name="M:FaceONNX.FaceEmbedder.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceEmbedder.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.FaceLandmarks">
             <summary>
@@ -331,6 +346,11 @@
         </member>
         <member name="M:FaceONNX.FaceLandmarksExtractor.Dispose">
             <inheritdoc/>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarksExtractor.Finalize">
+            <summary>
+            Destructor.
+            </summary>
         </member>
         <member name="T:FaceONNX.IFaceClassifier">
             <summary>

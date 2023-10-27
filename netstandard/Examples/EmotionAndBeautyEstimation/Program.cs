@@ -4,17 +4,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using UMapx.Core;
-using UMapx.Imaging;
 
 namespace EmotionAndBeautyEstimation
 {
     class Program
     {
-        static FaceDetector _faceDetector;
-        static FaceLandmarksExtractor _faceLandmarksExtractor;
-        static FaceEmotionClassifier _faceEmotionClassifier;
-        static FaceBeautyClassifier _faceBeautyClassifier;
-
         static void Main()
         {
             Console.WriteLine("FaceONNX: Emotion and beauty estimation");
@@ -22,10 +16,10 @@ namespace EmotionAndBeautyEstimation
             var path = @"..\..\..\results";
             Directory.CreateDirectory(path);
 
-            _faceDetector = new FaceDetector();
-            _faceLandmarksExtractor = new FaceLandmarksExtractor();
-            _faceEmotionClassifier = new FaceEmotionClassifier();
-            _faceBeautyClassifier = new FaceBeautyClassifier();
+            using var faceDetector = new FaceDetector();
+            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceEmotionClassifier = new FaceEmotionClassifier();
+            using var faceBeautyClassifier = new FaceBeautyClassifier();
 
             Console.WriteLine($"Processing {files.Length} images");
 
@@ -33,7 +27,7 @@ namespace EmotionAndBeautyEstimation
             {
                 using var bitmap = new Bitmap(file);
                 var filename = Path.GetFileName(file);
-                var faces = _faceDetector.Forward(bitmap);
+                var faces = faceDetector.Forward(bitmap);
                 int i = 1;
 
                 Console.WriteLine($"Image: [{filename}] --> detected [{faces.Length}] faces");
@@ -42,34 +36,22 @@ namespace EmotionAndBeautyEstimation
                 {
                     Console.Write($"\t[Face #{i++}]: ");
 
-                    var labels = GetEmotionAndBeauty(bitmap, face);
+                    var box = face.Box;
+                    var points = faceLandmarksExtractor.Forward(bitmap, box);
+                    var angle = points.GetRotationAngle();
+                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle);
+                    var emotion = faceEmotionClassifier.Forward(aligned);
+                    var max = Matrice.Max(emotion, out int argmax);
+                    var emotionLabel = FaceEmotionClassifier.Labels[argmax];
+                    var beauty = faceBeautyClassifier.Forward(aligned);
+                    var beautyLabel = $"{Math.Round(2 * beauty.Max(), 1)}/10.0";
+
+                    Console.WriteLine($"--> classified as [{emotionLabel}] emotion and [{beautyLabel}] beauty");
                 }
             }
 
-            _faceDetector.Dispose();
-            _faceLandmarksExtractor.Dispose();
-            _faceEmotionClassifier.Dispose();
-            _faceBeautyClassifier.Dispose();
-
             Console.WriteLine("Done.");
             Console.ReadKey();
-        }
-
-        static string[] GetEmotionAndBeauty(Bitmap image, Rectangle face)
-        {
-            using var cropped = BitmapTransform.Crop(image, face);
-            var points = _faceLandmarksExtractor.Forward(cropped);
-            var angle = points.GetRotationAngle();
-            using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
-            var emotion = _faceEmotionClassifier.Forward(aligned);
-            var max = Matrice.Max(emotion, out int argmax);
-            var emotionLabel = FaceEmotionClassifier.Labels[argmax];
-            var beauty = _faceBeautyClassifier.Forward(aligned);
-            var beautyLabel = $"{Math.Round(2 * beauty.Max(), 1)}/10.0";
-
-            Console.WriteLine($"--> classified as [{emotionLabel}] emotion and [{beautyLabel}] beauty");
-
-            return new string[] { emotionLabel, beautyLabel };
         }
     }
 }

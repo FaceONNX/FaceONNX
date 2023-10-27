@@ -121,6 +121,9 @@ namespace FaceONNX
             }
         }
 
+        /// <summary>
+        /// Destructor.
+        /// </summary>
         ~FaceDepthClassifier()
         {
             Dispose(false);
