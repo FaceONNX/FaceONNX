@@ -16,7 +16,7 @@ namespace AgeGenderClassification
             using var faceDetector = new FaceDetector();
             using var faceLandmarksExtractor = new FaceLandmarksExtractor();
             using var faceGenderClassifier = new FaceGenderClassifier();
-            using var faceAgeEstimator = new FaceAgeEsimator();
+            using var faceAgeEstimator = new FaceAgeEstimator();
             var labels = FaceGenderClassifier.Labels;
 
             Console.WriteLine($"Processing {files.Length} images");

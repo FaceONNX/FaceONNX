@@ -4,37 +4,37 @@
         <name>FaceONNX.Addons.Gpu</name>
     </assembly>
     <members>
-        <member name="T:FaceONNX.FaceAgeEsimator">
+        <member name="T:FaceONNX.FaceAgeEstimator">
             <summary>
             Defines face age estimator.
             </summary>
         </member>
-        <member name="F:FaceONNX.FaceAgeEsimator._session">
+        <member name="F:FaceONNX.FaceAgeEstimator._session">
             <summary>
             Inference session.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.#ctor">
+        <member name="M:FaceONNX.FaceAgeEstimator.#ctor">
             <summary>
             Initializes face age estimator.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+        <member name="M:FaceONNX.FaceAgeEstimator.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
             Initializes face age estimator.
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.Forward(System.Drawing.Bitmap)">
+        <member name="M:FaceONNX.FaceAgeEstimator.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.Forward(System.Single[0:,0:][])">
+        <member name="M:FaceONNX.FaceAgeEstimator.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.Dispose">
+        <member name="M:FaceONNX.FaceAgeEstimator.Dispose">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceAgeEsimator.Finalize">
+        <member name="M:FaceONNX.FaceAgeEstimator.Finalize">
             <summary>
             Destructor.
             </summary>

@@ -13,7 +13,7 @@ namespace FaceONNX
 	/// <summary>
 	/// Defines face age estimator.
 	/// </summary>
-	public class FaceAgeEsimator : IFaceClassifier
+	public class FaceAgeEstimator : IFaceClassifier
 	{
 		#region Private data
 		/// <summary>
@@ -27,7 +27,7 @@ namespace FaceONNX
         /// <summary>
         /// Initializes face age estimator.
         /// </summary>
-        public FaceAgeEsimator()
+        public FaceAgeEstimator()
 		{
 			_session = new InferenceSession(Resources.age_efficientnet_b2);
 		}
@@ -36,7 +36,7 @@ namespace FaceONNX
         /// Initializes face age estimator.
         /// </summary>
         /// <param name="options">Session options</param>
-        public FaceAgeEsimator(SessionOptions options)
+        public FaceAgeEstimator(SessionOptions options)
 		{
 			_session = new InferenceSession(Resources.age_efficientnet_b2, options);
 		}
@@ -117,7 +117,7 @@ namespace FaceONNX
         /// <summary>
         /// Destructor.
         /// </summary>
-		~FaceAgeEsimator()
+		~FaceAgeEstimator()
 		{
 			Dispose(false);
 		}
