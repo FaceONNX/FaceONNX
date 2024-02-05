@@ -23,7 +23,7 @@ C# interface
 ```c#
 using FaceONNX;
 ```
-To get started with **FaceONNX**, it is recommended to look at the folder with [examples](netstandard/Examples).  
+To get started with **FaceONNX**, it is recommended to look at the folder with [examples](netstandard/Examples) and [experiments](netstandard/Experiments).  
 
 # References 
 [ONNX models](https://github.com/FaceONNX/FaceONNX.Models)  
