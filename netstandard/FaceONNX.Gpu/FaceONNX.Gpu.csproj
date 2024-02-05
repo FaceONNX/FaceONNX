@@ -35,7 +35,7 @@
     <WarningLevel>1</WarningLevel>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>True</Optimize>
-    <DocumentationFile>C:\Users\Valery\Documents\GitHub\FaceONNX\netstandard\FaceONNX.Gpu\FaceONNX.Gpu.xml</DocumentationFile>
+    <DocumentationFile>FaceONNX.Gpu.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

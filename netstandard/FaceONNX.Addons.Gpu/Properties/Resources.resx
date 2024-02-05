@@ -122,10 +122,10 @@
     <value>..\Resources\age_efficientnet_b2.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="beauty_resnet18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\faceonnx.models\models\onnx.addons\beauty_resnet18.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\beauty_resnet18.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="emotion_cnn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\faceonnx.models\models\onnx.addons\emotion_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\emotion_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="gender_efficientnet_b2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gender_efficientnet_b2.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

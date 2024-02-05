@@ -34,7 +34,7 @@
     <WarningLevel>1</WarningLevel>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>True</Optimize>
-    <DocumentationFile>C:\Users\Valery\Documents\GitHub\FaceONNX\netstandard\FaceONNX\FaceONNX.xml</DocumentationFile>
+    <DocumentationFile>FaceONNX.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
