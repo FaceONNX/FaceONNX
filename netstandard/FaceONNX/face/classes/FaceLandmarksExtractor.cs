@@ -52,14 +52,14 @@ namespace FaceONNX
         }
 
         /// <inheritdoc/>
-        public Point[] Forward(Bitmap image, Rectangle rectangle)
+        public Point[] Forward(Bitmap image, Rectangle rectangle, bool clamp = true)
         {
             var rgb = image.ToRGB(false);
             return Forward(rgb, rectangle);
         }
 
         /// <inheritdoc/>
-        public Point[] Forward(float[][,] image, Rectangle rectangle)
+        public Point[] Forward(float[][,] image, Rectangle rectangle, bool clamp = true)
         {
             var length = image.Length;
             var cropped = new float[length][,];
@@ -70,7 +70,8 @@ namespace FaceONNX
                     rectangle.Y, 
                     rectangle.X, 
                     rectangle.Height, 
-                    rectangle.Width);
+                    rectangle.Width,
+                    clamp);
             }
 
             return Forward(cropped);
