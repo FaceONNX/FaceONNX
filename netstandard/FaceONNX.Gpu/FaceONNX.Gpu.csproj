@@ -46,7 +46,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.9.0" />
-    <PackageReference Include="UMapx" Version="5.2.9.6" />
+    <PackageReference Include="UMapx" Version="6.0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
