@@ -119,18 +119,18 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="depth_googlenet_slim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depth_googlenet_slim.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\..\FaceONNX.Models\models\onnx\depth_googlenet_slim.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="eye_blink_cnn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_blink_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\..\FaceONNX.Models\models\onnx\eye_blink_cnn.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="landmarks_68_pfld" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\landmarks_68_pfld.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\..\FaceONNX.Models\models\onnx\landmarks_68_pfld.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="recognition_resnet27" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recognition_resnet27.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\..\FaceONNX.Models\models\onnx\recognition_resnet27.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="yolov5s_face" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yolov5s-face.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\..\FaceONNX.Models\models\onnx\yolov5s-face.onnx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
