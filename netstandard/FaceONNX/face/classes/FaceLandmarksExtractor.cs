@@ -55,7 +55,7 @@ namespace FaceONNX
         public Point[] Forward(Bitmap image, Rectangle rectangle, bool clamp = true)
         {
             var rgb = image.ToRGB(false);
-            return Forward(rgb, rectangle);
+            return Forward(rgb, rectangle, clamp);
         }
 
         /// <inheritdoc/>
