@@ -16,7 +16,8 @@ namespace FaceEmbeddingsClassification
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
-            var fits = Directory.GetFiles(@"./images/fit", "*.*", SearchOption.AllDirectories);
+            var imagePath = Path.Combine(".", "images", "fit"); // Ensure x-plat path creation
+            var fits = Directory.GetFiles(imagePath, "*.*", SearchOption.AllDirectories);
             faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
@@ -31,7 +32,8 @@ namespace FaceEmbeddingsClassification
             }
 
             Console.WriteLine($"Embeddings count: {embeddings.Count}");
-            var scores = Directory.GetFiles(@"./images/score");
+            var scorePath = Path.Combine(".", "images", "score"); // Ensure x-plat path creation
+            var scores = Directory.GetFiles(scorePath);
             Console.WriteLine($"Processing {scores.Length} images");
             
             foreach (var score in scores)
