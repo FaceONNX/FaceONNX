@@ -1,8 +1,9 @@
 ﻿using FaceONNX;
 using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp;
 
 namespace FaceEmbeddingsClassification
 {
@@ -15,7 +16,7 @@ namespace FaceEmbeddingsClassification
         static void Main()
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
-            var fits = Directory.GetFiles(@"..\..\..\images\fit", "*.*", SearchOption.AllDirectories);
+            var fits = Directory.GetFiles(@"./images/fit", "*.*", SearchOption.AllDirectories);
             faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
@@ -23,20 +24,20 @@ namespace FaceEmbeddingsClassification
 
             foreach (var fit in fits)
             {
-                using var bitmap = new Bitmap(fit);
-                var embedding = GetEmbedding(bitmap);
+                using var theImage = SixLabors.ImageSharp.Image.Load<Rgb24>(fit);
+                var embedding = GetEmbedding(theImage);
                 var name = Path.GetFileNameWithoutExtension(fit);
                 embeddings.Add(embedding, name);
             }
 
             Console.WriteLine($"Embeddings count: {embeddings.Count}");
-            var scores = Directory.GetFiles(@"..\..\..\images\score");
+            var scores = Directory.GetFiles(@"./images/score");
             Console.WriteLine($"Processing {scores.Length} images");
             
             foreach (var score in scores)
             {
-                using var bitmap = new Bitmap(score);
-                var embedding = GetEmbedding(bitmap);
+                using var theImage = SixLabors.ImageSharp.Image.Load<Rgb24>(score);
+                var embedding = GetEmbedding(theImage);
                 var proto = embeddings.FromSimilarity(embedding);
                 var label = proto.Item1;
                 var similarity = proto.Item2;
@@ -53,19 +54,40 @@ namespace FaceEmbeddingsClassification
             Console.ReadKey();
         }
 
-        static float[] GetEmbedding(Bitmap image)
+        static float[] GetEmbedding(Image<Rgb24> image)
         {
-            var rectangles = faceDetector.Forward(image);
+            var array = new []
+            {
+                new float [image.Height,image.Width],
+                new float [image.Height,image.Width],
+                new float [image.Height,image.Width]
+            };            
+            
+            image.ProcessPixelRows(pixelAccessor =>
+            {
+                for ( var y = 0; y < pixelAccessor.Height; y++ )
+                {
+                    var row = pixelAccessor.GetRowSpan(y);
+                    for(var x = 0; x < pixelAccessor.Width; x++ )
+                    {
+                        array[0][y, x] = row[x].R;
+                        array[1][y, x] = row[x].G;
+                        array[2][y, x] = row[x].B;
+                    }
+                }
+            });
+
+            var rectangles = faceDetector.Forward(array);
             var rectangle = rectangles.FirstOrDefault().Box;
 
             if (!rectangle.IsEmpty)
             {
                 // landmarks
-                var points = _faceLandmarksExtractor.Forward(image, rectangle);
+                var points = _faceLandmarksExtractor.Forward(array, rectangle);
                 var angle = points.GetRotationAngle();
 
                 // alignment
-                using var aligned = FaceLandmarksExtractor.Align(image, rectangle, angle);
+                var aligned = FaceLandmarksExtractor.Align(array, rectangle, angle);
                 return _faceEmbedder.Forward(aligned);
             }
 

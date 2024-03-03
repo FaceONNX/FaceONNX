@@ -1,16 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\FaceONNX\FaceONNX.csproj" />
-  </ItemGroup>
 
 	<ItemGroup>
 		<RuntimeHostConfigurationOption Include="System.Runtime.Loader.UseRidGraph" Value="true" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="FaceONNX" Version="3.0.1.3" />
+	  <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.17.1" />
+	  <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.17.1" />
+	  <PackageReference Include="SixLabors.ImageSharp" Version="3.1.2" />
 	</ItemGroup>
 
 </Project>
