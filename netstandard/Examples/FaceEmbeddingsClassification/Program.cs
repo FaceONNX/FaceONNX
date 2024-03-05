@@ -17,7 +17,7 @@ namespace FaceEmbeddingsClassification
         {
             Console.WriteLine("FaceONNX: Face embeddings classification");
             var imagePath = Path.Combine(".", "images", "fit"); // Ensure x-plat path creation
-            var fits = Directory.GetFiles(imagePath, "*.*", SearchOption.AllDirectories);
+            var fits = Directory.GetFiles(imagePath, "*.jpg", SearchOption.AllDirectories);
             faceDetector = new FaceDetector();
             _faceLandmarksExtractor = new FaceLandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
@@ -72,9 +72,9 @@ namespace FaceEmbeddingsClassification
                     var row = pixelAccessor.GetRowSpan(y);
                     for(var x = 0; x < pixelAccessor.Width; x++ )
                     {
-                        array[0][y, x] = row[x].R;
-                        array[1][y, x] = row[x].G;
-                        array[2][y, x] = row[x].B;
+                        array[0][y, x] = row[x].R / 255.0F;
+                        array[1][y, x] = row[x].G / 255.0F;
+                        array[2][y, x] = row[x].B / 255.0F;
                     }
                 }
             });
