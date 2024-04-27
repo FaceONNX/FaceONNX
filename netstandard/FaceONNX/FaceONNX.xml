@@ -31,7 +31,7 @@
         <member name="M:FaceONNX.EyeBlinkClassifier.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.EyeBlinkClassifier.GetEyesRectangles(System.Drawing.Point[])">
+        <member name="M:FaceONNX.EyeBlinkClassifier.GetEyesRectangles(FaceONNX.FaceLandmarks)">
             <summary>
             Returns left and right eye rectangles from face landmarks.
             </summary>
@@ -184,99 +184,6 @@
             Destructor.
             </summary>
         </member>
-        <member name="T:FaceONNX.FaceLandmarks">
-            <summary>
-            Using for face points operations.
-            </summary>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetRightEye(System.Drawing.Point[])">
-            <summary>
-            Returns right eye points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetLeftEye(System.Drawing.Point[])">
-            <summary>
-            Returns left eye points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetMouth(System.Drawing.Point[])">
-            <summary>
-            Returns mouth points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetFace(System.Drawing.Point[])">
-            <summary>
-            Returns face points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetLeftBrow(System.Drawing.Point[])">
-            <summary>
-            Returns left brow points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetRightBrow(System.Drawing.Point[])">
-            <summary>
-            Returns right brow points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetNose(System.Drawing.Point[])">
-            <summary>
-            Returns nose points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Points</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetRotationAngle(System.Drawing.Point[])">
-            <summary>
-            Returns rotation angle from points.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Angle</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetSymmetryCoefficient(System.Drawing.Point[])">
-            <summary>
-            Returns symmetry coefficient of face.
-            </summary>
-            <param name="points">Points</param>
-            <returns>Symmetry coefficient [0, 1]</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetSymmetry(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Returns symmetry.
-            </summary>
-            <param name="a">Center point</param>
-            <param name="b">Value</param>
-            <param name="c">Value</param>
-            <returns>Value</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.GetSymmetry(System.Single,System.Single)">
-            <summary>
-            Returns symmetry.
-            </summary>
-            <param name="a">Value</param>
-            <param name="b">Value</param>
-            <returns>Value</returns>
-        </member>
-        <member name="M:FaceONNX.FaceLandmarks.Abs(System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Returns distance for two points.
-            </summary>
-            <param name="a">Point</param>
-            <param name="b">Point</param>
-            <returns>Value</returns>
-        </member>
         <member name="T:FaceONNX.FaceLandmarksExtractor">
             <summary>
             Defines face landmarks extractor.
@@ -412,7 +319,7 @@
             Returns face recognition results.
             </summary>
             <param name="image">Bitmap</param>
-            <returns>Point</returns>
+            <returns>FaceLandmarks</returns>
         </member>
         <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Drawing.Bitmap,System.Drawing.Rectangle,System.Boolean)">
             <summary>
@@ -421,14 +328,14 @@
             <param name="image">Bitmap</param>
             <param name="rectangle">Rectangle</param>
             <param name="clamp">Clamp or not</param>
-            <returns>Point</returns>
+            <returns>FaceLandmarks</returns>
         </member>
         <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Single[0:,0:][])">
             <summary>
             Returns face recognition results.
             </summary>
             <param name="image">Image in BGR terms</param>
-            <returns>Point</returns>
+            <returns>FaceLandmarks</returns>
         </member>
         <member name="M:FaceONNX.IFaceLandmarksExtractor.Forward(System.Single[0:,0:][],System.Drawing.Rectangle,System.Boolean)">
             <summary>
@@ -437,7 +344,7 @@
             <param name="image">Image in BGR terms</param>
             <param name="rectangle">Rectangle</param>
             <param name="clamp">Clamp or not</param>
-            <returns>Point</returns>
+            <returns>FaceLandmarks</returns>
         </member>
         <member name="T:FaceONNX.NonMaxSuppressionExensions">
             <summary>
@@ -451,6 +358,31 @@
             <param name="results">Results</param>
             <param name="nmsThreshold">Threshold</param>
             <returns>Results</returns>
+        </member>
+        <member name="M:FaceONNX.PointsExtensions.Abs(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns distance for two points.
+            </summary>
+            <param name="a">Point</param>
+            <param name="b">Point</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.PointsExtensions.GetSymmetry(System.Drawing.Point,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Center point</param>
+            <param name="b">Value</param>
+            <param name="c">Value</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:FaceONNX.PointsExtensions.GetSymmetry(System.Single,System.Single)">
+            <summary>
+            Returns symmetry.
+            </summary>
+            <param name="a">Value</param>
+            <param name="b">Value</param>
+            <returns>Value</returns>
         </member>
         <member name="T:FaceONNX.FaceDetectionResult">
             <summary>
@@ -477,9 +409,81 @@
             Gets box.
             </summary>
         </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Points">
+            <summary>
+            Gets or sets points.
+            </summary>
+        </member>
         <member name="P:FaceONNX.FaceDetectionResult.Empty">
             <summary>
             Empty object detection result.
+            </summary>
+        </member>
+        <member name="T:FaceONNX.FaceLandmarks">
+            <summary>
+            Defines face landmarks.
+            </summary>
+        </member>
+        <member name="F:FaceONNX.FaceLandmarks._points">
+            <summary>
+            Face points.
+            </summary>
+        </member>
+        <member name="M:FaceONNX.FaceLandmarks.#ctor(System.Drawing.Point[])">
+            <summary>
+            Initializes face landmarks.
+            </summary>
+            <param name="points">Points</param>
+            <exception cref="T:System.ArgumentException">Exception of incorrect points array size</exception>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.All">
+            <summary>
+            Returns all face points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.RightEye">
+            <summary>
+            Returns right eye points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.LeftEye">
+            <summary>
+            Returns left eye points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.Mouth">
+            <summary>
+            Returns mouth points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.Face">
+            <summary>
+            Returns face points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.LeftBrow">
+            <summary>
+            Returns left brow points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.RightBrow">
+            <summary>
+            Returns right brow points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.Nose">
+            <summary>
+            Returns nose points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.RotationAngle">
+            <summary>
+            Returns rotation angle from points.
+            </summary>
+        </member>
+        <member name="P:FaceONNX.FaceLandmarks.SymmetryCoefficient">
+            <summary>
+            Returns symmetry coefficient of face.
             </summary>
         </member>
         <member name="T:FaceONNX.Properties.Resources">

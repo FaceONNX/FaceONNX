@@ -477,6 +477,11 @@
             Gets box.
             </summary>
         </member>
+        <member name="P:FaceONNX.FaceDetectionResult.Points">
+            <summary>
+            Gets or sets points.
+            </summary>
+        </member>
         <member name="P:FaceONNX.FaceDetectionResult.Empty">
             <summary>
             Empty object detection result.

@@ -14,8 +14,8 @@ namespace FaceONNX
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Bitmap</param>
-        /// <returns>Point</returns>
-        Point[] Forward(Bitmap image);
+        /// <returns>FaceLandmarks</returns>
+        FaceLandmarks Forward(Bitmap image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -23,15 +23,15 @@ namespace FaceONNX
         /// <param name="image">Bitmap</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
-        /// <returns>Point</returns>
-        Point[] Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
+        /// <returns>FaceLandmarks</returns>
+        FaceLandmarks Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
 
         /// <summary>
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Image in BGR terms</param>
-        /// <returns>Point</returns>
-        Point[] Forward(float[][,] image);
+        /// <returns>FaceLandmarks</returns>
+        FaceLandmarks Forward(float[][,] image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -39,8 +39,8 @@ namespace FaceONNX
         /// <param name="image">Image in BGR terms</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
-        /// <returns>Point</returns>
-        Point[] Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
+        /// <returns>FaceLandmarks</returns>
+        FaceLandmarks Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
 
         #endregion
     }

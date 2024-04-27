@@ -222,7 +222,7 @@ namespace FaceONNX
                         Rectangle = rectangle,
                         Id = argmax,
                         Score = max,
-                        //Points = points
+                        Points = points
                     });
                 }
             }

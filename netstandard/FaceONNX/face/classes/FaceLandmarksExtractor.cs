@@ -45,21 +45,21 @@ namespace FaceONNX
         #region Methods
 
         /// <inheritdoc/>
-        public Point[] Forward(Bitmap image)
+        public FaceLandmarks Forward(Bitmap image)
         {
             var rgb = image.ToRGB(false);
             return Forward(rgb);
         }
 
         /// <inheritdoc/>
-        public Point[] Forward(Bitmap image, Rectangle rectangle, bool clamp = true)
+        public FaceLandmarks Forward(Bitmap image, Rectangle rectangle, bool clamp = true)
         {
             var rgb = image.ToRGB(false);
             return Forward(rgb, rectangle, clamp);
         }
 
         /// <inheritdoc/>
-        public Point[] Forward(float[][,] image, Rectangle rectangle, bool clamp = true)
+        public FaceLandmarks Forward(float[][,] image, Rectangle rectangle, bool clamp = true)
         {
             var length = image.Length;
             var cropped = new float[length][,];
@@ -78,7 +78,7 @@ namespace FaceONNX
         }
 
         /// <inheritdoc/>
-        public Point[] Forward(float[][,] image)
+        public FaceLandmarks Forward(float[][,] image)
         {
             if (image.Length != 3)
                 throw new ArgumentException("Image must be in BGR terms");
@@ -119,7 +119,7 @@ namespace FaceONNX
                     (int)(confidences[i + 1] * height));
             }
 
-            return points;
+            return new FaceLandmarks(points);
         }
 
         #endregion

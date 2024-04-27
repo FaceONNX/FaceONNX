@@ -97,15 +97,15 @@ namespace FaceONNX
         /// </summary>
         /// <param name="points">Points</param>
         /// <returns>Left and right eye rectangles</returns>
-        public static (Rectangle, Rectangle) GetEyesRectangles(Point[] points)
+        public static (Rectangle, Rectangle) GetEyesRectangles(FaceLandmarks points)
         {
             var factor_y = 0.5f;
 
-            var left_eye_rect = points.GetLeftEye()
+            var left_eye_rect = points.LeftEye
                 .GetRectangle()
                 .Scale(0.0f, factor_y);
 
-            var right_eye_rect = points.GetRightEye()
+            var right_eye_rect = points.RightEye
                 .GetRectangle()
                 .Scale(0.0f, factor_y);
 
