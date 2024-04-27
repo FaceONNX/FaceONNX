@@ -17,7 +17,7 @@ namespace EmotionAndBeautyEstimation
             Directory.CreateDirectory(path);
 
             using var faceDetector = new FaceDetector();
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceLandmarksExtractor = new Face68LandmarksExtractor();
             using var faceEmotionClassifier = new FaceEmotionClassifier();
             using var faceBeautyClassifier = new FaceBeautyClassifier();
 
@@ -38,8 +38,8 @@ namespace EmotionAndBeautyEstimation
 
                     var box = face.Box;
                     var points = faceLandmarksExtractor.Forward(bitmap, box);
-                    var angle = points.GetRotationAngle();
-                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle, false);
+                    var angle = points.RotationAngle;
+                    using var aligned = FaceProcessingExtensions.Align(bitmap, box, angle, false);
                     var emotion = faceEmotionClassifier.Forward(aligned);
                     var max = Matrice.Max(emotion, out int argmax);
                     var emotionLabel = FaceEmotionClassifier.Labels[argmax];

@@ -8,7 +8,7 @@ namespace FaceONNX
     /// <summary>
     /// Using for face processing.
     /// </summary>
-    public class FaceProcessingExtensions
+    public static class FaceProcessingExtensions
     {
         #region Static methods
 
@@ -18,7 +18,7 @@ namespace FaceONNX
         /// <param name="image">Bitmap</param>
         /// <param name="angle">Angle</param>
         /// <returns>Bitmap</returns>
-        public static Bitmap Align(Bitmap image, float angle)
+        public static Bitmap Align(this Bitmap image, float angle)
         {
             return image.Rotate(angle);
         }
@@ -31,7 +31,7 @@ namespace FaceONNX
         /// <param name="angle">Angle</param>
         /// <param name="clamp">Clamp crop or not</param>
         /// <returns>Bitmap</returns>
-        public static Bitmap Align(Bitmap image, Rectangle rectangle, float angle, bool clamp = true)
+        public static Bitmap Align(this Bitmap image, Rectangle rectangle, float angle, bool clamp = true)
         {
             var scaledRectangle = rectangle.Scale();
             using var cropped = image.Crop(scaledRectangle, clamp);
@@ -51,7 +51,7 @@ namespace FaceONNX
         /// <param name="image">Image in BGR terms</param>
         /// <param name="angle">Angle</param>
         /// <returns>Image in BGR terms</returns>
-        public static float[][,] Align(float[][,] image, float angle)
+        public static float[][,] Align(this float[][,] image, float angle)
         {
             var length = image.Length;
 
@@ -76,7 +76,7 @@ namespace FaceONNX
         /// <param name="angle">Angle</param>
         /// <param name="clamp">Clamp crop or not</param>
         /// <returns>Image in BGR terms</returns>
-        public static float[][,] Align(float[][,] image, Rectangle rectangle, float angle, bool clamp = true)
+        public static float[][,] Align(this float[][,] image, Rectangle rectangle, float angle, bool clamp = true)
         {
             var length = image.Length;
 

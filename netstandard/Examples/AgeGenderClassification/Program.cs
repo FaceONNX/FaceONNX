@@ -14,7 +14,7 @@ namespace AgeGenderClassification
             Console.WriteLine("FaceONNX: Age and gender classification");
             var files = Directory.GetFiles(@"..\..\..\images", "*.*", SearchOption.AllDirectories);
             using var faceDetector = new FaceDetector();
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceLandmarksExtractor = new Face68LandmarksExtractor();
             using var faceGenderClassifier = new FaceGenderClassifier();
             using var faceAgeEstimator = new FaceAgeEstimator();
             var labels = FaceGenderClassifier.Labels;
@@ -36,8 +36,8 @@ namespace AgeGenderClassification
 
                     var box = face.Box;
                     var points = faceLandmarksExtractor.Forward(bitmap, box);
-                    var angle = points.GetRotationAngle();
-                    using var aligned = FaceLandmarksExtractor.Align(bitmap, box, angle, false);
+                    var angle = points.RotationAngle;
+                    using var aligned = FaceProcessingExtensions.Align(bitmap, box, angle, false);
 
                     var output = faceGenderClassifier.Forward(aligned);
                     var max = Matrice.Max(output, out int gender);

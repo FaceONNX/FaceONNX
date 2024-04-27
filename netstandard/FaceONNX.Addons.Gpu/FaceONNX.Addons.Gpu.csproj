@@ -71,7 +71,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FaceONNX.Gpu" Version="3.0.1.3" />
+	  <ProjectReference Include="..\FaceONNX.Gpu\FaceONNX.Gpu.csproj" />
 	</ItemGroup>
 
 </Project>
