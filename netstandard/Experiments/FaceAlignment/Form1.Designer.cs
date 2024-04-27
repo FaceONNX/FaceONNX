@@ -11,7 +11,7 @@ namespace FaceAlignment
         private Bitmap _naiveAligned;
         private Bitmap _strongAligned;
         private readonly FaceDetector _faceDetector;
-        private readonly FaceLandmarksExtractor _faceLandmarksExtractor;
+        private readonly Face68LandmarksExtractor _faceLandmarksExtractor;
         private readonly Painter _painter;
 
         /// <summary>

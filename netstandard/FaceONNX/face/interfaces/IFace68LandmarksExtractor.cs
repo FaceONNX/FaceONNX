@@ -4,9 +4,9 @@ using System.Drawing;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face landmarks extractor interface.
+    /// Defines face landmarks 68 extractor interface.
     /// </summary>
-    public interface IFaceLandmarksExtractor : IDisposable
+    public interface IFace68LandmarksExtractor : IDisposable
     {
         #region Interface
 
@@ -15,7 +15,7 @@ namespace FaceONNX
         /// </summary>
         /// <param name="image">Bitmap</param>
         /// <returns>FaceLandmarks</returns>
-        FaceLandmarks Forward(Bitmap image);
+        Face68Landmarks Forward(Bitmap image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -24,14 +24,14 @@ namespace FaceONNX
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
         /// <returns>FaceLandmarks</returns>
-        FaceLandmarks Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
+        Face68Landmarks Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
 
         /// <summary>
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Image in BGR terms</param>
         /// <returns>FaceLandmarks</returns>
-        FaceLandmarks Forward(float[][,] image);
+        Face68Landmarks Forward(float[][,] image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -40,7 +40,7 @@ namespace FaceONNX
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
         /// <returns>FaceLandmarks</returns>
-        FaceLandmarks Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
+        Face68Landmarks Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
 
         #endregion
     }

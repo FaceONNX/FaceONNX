@@ -5,27 +5,27 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face landmarks.
+    /// Defines face 68 landmarks class.
     /// </summary>
-    public class FaceLandmarks
+    public class Face68Landmarks
     {
         #region Fields
 
         /// <summary>
         /// Face points.
         /// </summary>
-        protected readonly Point[] _points;
+        private readonly Point[] _points;
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Initializes face landmarks.
+        /// Initializes face 68 landmarks class.
         /// </summary>
         /// <param name="points">Points</param>
         /// <exception cref="ArgumentException">Exception of incorrect points array size</exception>
-        public FaceLandmarks(Point[] points)
+        public Face68Landmarks(Point[] points)
         {
             if (points.Length != 68)
                 throw new ArgumentException("The number of face points must be 68.");
@@ -214,6 +214,38 @@ namespace FaceONNX
 
                 return (mouthUpperSymmetry + mouthLowerSymmetry) / 2.0f;
             }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Returns left eye rectangle from face landmarks.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <param name="factor_x">Scale factor for OX</param>
+        /// <param name="factor_y">Scale factor for OY</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle GetLeftEyeRectangle(Face68Landmarks points, float factor_x = 0.0f, float factor_y = 0.5f)
+        {
+            return points.LeftEye
+                .GetRectangle()
+                .Scale(factor_x, factor_y);
+        }
+
+        /// <summary>
+        /// Returns right eye rectangle from face landmarks.
+        /// </summary>
+        /// <param name="points">Points</param>
+        /// <param name="factor_x">Scale factor for OX</param>
+        /// <param name="factor_y">Scale factor for OY</param>
+        /// <returns>Rectangle</returns>
+        public static Rectangle GetRightEyeRectangle(Face68Landmarks points, float factor_x = 0.0f, float factor_y = 0.5f)
+        {
+            return points.RightEye
+                .GetRectangle()
+                .Scale(factor_x, factor_y);
         }
 
         #endregion

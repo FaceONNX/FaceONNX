@@ -217,12 +217,14 @@ namespace FaceONNX
                         };
                     }
 
+                    var landmarks = new Face5Landmarks(points);
+
                     detectionResults.Add(new FaceDetectionResult
                     {
                         Rectangle = rectangle,
                         Id = argmax,
                         Score = max,
-                        Points = points
+                        Points = landmarks
                     });
                 }
             }

@@ -11,7 +11,7 @@ namespace FaceONNX
     internal static class NonMaxSuppressionExensions
     {
         /// <summary>
-        /// Agnostic NMS filtration (without regard classes of recognized objects)
+        /// Agnostic NMS filtration (without regard classes of recognized objects).
         /// </summary>
         /// <param name="results">Results</param>
         /// <param name="nmsThreshold">Threshold</param>

@@ -24,7 +24,7 @@ namespace FaceRotationLandmarks
             this.BackgroundImageLayout = ImageLayout.Zoom;
 
             _faceDetector = new FaceDetector();
-            _faceLandmarksExtractor = new FaceLandmarksExtractor();
+            _faceLandmarksExtractor = new Face68LandmarksExtractor();
             _painter = new Painter
             {
                 PointPen = new Pen(Color.Yellow, 6)
@@ -76,12 +76,12 @@ namespace FaceRotationLandmarks
                 {
                     var box = faceDetectionResults[i].Box;
                     var points = _faceLandmarksExtractor.Forward(_bitmap, box);
-                    var symmetry = FaceLandmarks.GetSymmetryCoefficient(points);
+                    var symmetry = points.SymmetryCoefficient;
                     Console.WriteLine($"Face symmetry --> {symmetry}");
 
                     var paintData = new PaintData
                     {
-                        Points = points.Add(new Point
+                        Points = points.All.Add(new Point
                         {
                             X = box.X,
                             Y = box.Y

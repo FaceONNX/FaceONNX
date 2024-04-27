@@ -18,8 +18,8 @@ namespace RealSenseFaceID
     {
         #region Fields
 
-        private readonly IVideoDepthSource _realSenseVideoSource;
-        private static readonly object _locker = new object();
+        private readonly RealSenseVideoSource _realSenseVideoSource;
+        private static readonly object _locker = new();
         private readonly FaceID _faceVerification;
         private readonly Painter _painter;
         private Thread _thread;
@@ -65,6 +65,8 @@ namespace RealSenseFaceID
         {
             _realSenseVideoSource?.SignalToStop();
             _faceVerification?.Dispose();
+            _painter?.Dispose();
+            _realSenseVideoSource?.Dispose();
         }
 
         #endregion
@@ -94,7 +96,7 @@ namespace RealSenseFaceID
             {
                 lock (_locker)
                 {
-                    if (_frame is object)
+                    if (_frame != null)
                     {
                         _frame.Dispose();
                         _frame = null;
@@ -183,7 +185,7 @@ namespace RealSenseFaceID
             var paintData = new PaintData
             {
                 Rectangle = verificationResult.Rectangle,
-                Points = verificationResult.Landmarks,
+                Points = verificationResult.Landmarks.All,
                 Labels = new string[] { verificationResult.Label,
                         verificationResult.Live.ToString() }
             };
@@ -191,7 +193,7 @@ namespace RealSenseFaceID
             // color drawing
             var printColor = Frame;
 
-            if (printColor is object)
+            if (printColor != null)
             {
                 lock (_locker)
                 {
@@ -205,9 +207,9 @@ namespace RealSenseFaceID
             }
 
             // depth drawing
-            var printDepth = Depth?.Equalize()?.FromDepth();
+            using var printDepth = Depth?.Equalize()?.FromDepth();
 
-            if (printDepth is object)
+            if (printDepth != null)
             {
                 lock (_locker)
                 {

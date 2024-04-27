@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using FaceONNX;
+using System.Drawing;
 
 namespace RealSenseFaceID.Core
 {
@@ -25,6 +26,6 @@ namespace RealSenseFaceID.Core
         /// <summary>
         /// Face landmarks.
         /// </summary>
-        public Point[] Landmarks { get; set; }
+        public Face68Landmarks Landmarks { get; set; }
     }
 }

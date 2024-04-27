@@ -35,9 +35,9 @@ namespace FaceONNX
         }
 
         /// <summary>
-        /// Gets or sets points.
+        /// Gets or sets face 5 landmarks.
         /// </summary>
-        public Point[] Points { get; set; }
+        public Face5Landmarks Points { get; set; }
 
         /// <summary>
         /// Empty object detection result.
@@ -51,7 +51,7 @@ namespace FaceONNX
                     Rectangle = Rectangle.Empty,
                     Score = 0,
                     Id = -1,
-                    Points = new Point[] { }
+                    Points = new Face5Landmarks(new Point[5])
                 };
             }
         }
