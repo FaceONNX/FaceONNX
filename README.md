@@ -7,7 +7,7 @@
 * detection and landmarks extraction,
 * gender and age classification,
 * emotion and beauty classification,
-* embeddings comparison etc.  
+* embeddings comparison and more.  
 
 # Version
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
