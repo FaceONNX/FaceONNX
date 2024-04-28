@@ -261,7 +261,7 @@
         </member>
         <member name="T:FaceONNX.IFace68LandmarksExtractor">
             <summary>
-            Defines face landmarks 68 extractor interface.
+            Defines face 68 landmarks extractor interface.
             </summary>
         </member>
         <member name="M:FaceONNX.IFace68LandmarksExtractor.Forward(System.Drawing.Bitmap)">
