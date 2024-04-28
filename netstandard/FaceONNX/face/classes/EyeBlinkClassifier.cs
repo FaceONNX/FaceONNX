@@ -90,30 +90,6 @@ namespace FaceONNX
 
         #endregion
 
-        #region Static
-
-        /// <summary>
-        /// Returns left and right eye rectangles from face landmarks.
-        /// </summary>
-        /// <param name="points">Points</param>
-        /// <returns>Left and right eye rectangles</returns>
-        public static (Rectangle, Rectangle) GetEyesRectangles(Point[] points)
-        {
-            var factor_y = 0.5f;
-
-            var left_eye_rect = points.GetLeftEye()
-                .GetRectangle()
-                .Scale(0.0f, factor_y);
-
-            var right_eye_rect = points.GetRightEye()
-                .GetRectangle()
-                .Scale(0.0f, factor_y);
-
-            return (left_eye_rect, right_eye_rect);
-        }
-
-        #endregion
-
         #region IDisposable
 
         private bool _disposed;

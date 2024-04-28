@@ -17,7 +17,7 @@ namespace FaceLandmarksExtraction
             Directory.CreateDirectory(path);
 
             using var faceDetector = new FaceDetector();
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceLandmarksExtractor = new Face68LandmarksExtractor();
             using var painter = new Painter()
             {
                 PointPen = new Pen(Color.Yellow, 4),
@@ -42,7 +42,7 @@ namespace FaceLandmarksExtraction
 
                     var paintData = new PaintData()
                     {
-                        Points = points.Add(box.GetPoint()),
+                        Points = points.All.Add(box.GetPoint()),
                         Title = string.Empty,
                     };
 

@@ -18,7 +18,7 @@ namespace FaceAlignment
             this.BackgroundImageLayout = ImageLayout.Zoom;
 
             _faceDetector = new FaceDetector();
-            _faceLandmarksExtractor = new FaceLandmarksExtractor();
+            _faceLandmarksExtractor = new Face68LandmarksExtractor();
             _painter = new Painter
             {
                 PointPen = new Pen(Color.Yellow, 6)
@@ -71,32 +71,56 @@ namespace FaceAlignment
                     return;
                 }
 
-                var rectangle = Rectangles.Max(faceDetectionResults.Select(x => x.Box).ToArray());
+                var faceDetectionResult = faceDetectionResults.OrderBy(x => x.Box.Area()).FirstOrDefault();
+                var rectangle = faceDetectionResult.Box;
 
+                // I implementation
                 // naive alignment
                 using var cropped = BitmapTransform.Crop(_bitmap, rectangle);
                 var points1 = _faceLandmarksExtractor.Forward(cropped);
-                var angle1 = points1.GetRotationAngle();
+                var angle1 = points1.RotationAngle;
 
                 _naiveAligned?.Dispose();
-                _naiveAligned = FaceLandmarksExtractor.Align(cropped, angle1);
+                _naiveAligned = FaceProcessingExtensions.Align(cropped, angle1);
 
                 // strong alignment
                 var points2 = _faceLandmarksExtractor.Forward(_bitmap, rectangle);
-                var angle2 = points2.GetRotationAngle();
+                var angle2 = points2.RotationAngle;
                 _strongAligned?.Dispose();
-                _strongAligned = FaceLandmarksExtractor.Align(_bitmap, rectangle, angle2, false);
+                _strongAligned = FaceProcessingExtensions.Align(_bitmap, rectangle, angle2, false);
 
                 // display results
                 var paintData = new PaintData
                 {
-                    Points = points2.Add(new Point
+                    Points = points2.All.Add(new Point
                     {
                         X = rectangle.X,
                         Y = rectangle.Y
                     }),
                     Rectangle = rectangle
                 };
+
+                //// II implementation
+                //// naive alignment
+                //using var cropped = BitmapTransform.Crop(_bitmap, rectangle);
+                //var points1 = faceDetectionResult.Points;
+                //var angle1 = points1.RotationAngle;
+
+                //_naiveAligned?.Dispose();
+                //_naiveAligned = FaceProcessingExtensions.Align(cropped, angle1);
+
+                //// strong alignment
+                //var points2 = faceDetectionResult.Points;
+                //var angle2 = points2.RotationAngle;
+                //_strongAligned?.Dispose();
+                //_strongAligned = FaceProcessingExtensions.Align(_bitmap, rectangle, angle2, false);
+
+                //// display results
+                //var paintData = new PaintData
+                //{
+                //    Points = faceDetectionResult.Points.All,
+                //    Rectangle = rectangle
+                //};
 
                 using var g = Graphics.FromImage(_bitmap);
                 _painter.Draw(g, paintData);

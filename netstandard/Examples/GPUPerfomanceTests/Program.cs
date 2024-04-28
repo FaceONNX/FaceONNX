@@ -30,7 +30,7 @@ namespace GPUPerfomanceTests
             using var options = useGPU ? SessionOptions.MakeSessionOptionWithCudaProvider(gpuId) : new SessionOptions();
             Console.WriteLine($"Configuring {(useGPU ? "GPU" : "CPU")} device");
 
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor(options);
+            using var faceLandmarksExtractor = new Face68LandmarksExtractor(options);
             using var faceEmbedder = new FaceEmbedder(options);
 
             var toc = Environment.TickCount - tic;
@@ -44,8 +44,8 @@ namespace GPUPerfomanceTests
                 tic = Environment.TickCount;
 
                 var points = faceLandmarksExtractor.Forward(bitmap);
-                var angle = points.GetRotationAngle();
-                using var aligned = FaceLandmarksExtractor.Align(bitmap, angle);
+                var angle = points.RotationAngle;
+                using var aligned = FaceProcessingExtensions.Align(bitmap, angle);
                 var embeddings = faceEmbedder.Forward(aligned);
 
                 toc = Environment.TickCount - tic;

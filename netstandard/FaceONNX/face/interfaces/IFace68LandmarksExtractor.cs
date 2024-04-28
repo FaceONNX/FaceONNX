@@ -4,9 +4,9 @@ using System.Drawing;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face landmarks extractor interface.
+    /// Defines face landmarks 68 extractor interface.
     /// </summary>
-    public interface IFaceLandmarksExtractor : IDisposable
+    public interface IFace68LandmarksExtractor : IDisposable
     {
         #region Interface
 
@@ -14,8 +14,8 @@ namespace FaceONNX
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Bitmap</param>
-        /// <returns>Point</returns>
-        Point[] Forward(Bitmap image);
+        /// <returns>FaceLandmarks</returns>
+        Face68Landmarks Forward(Bitmap image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -23,15 +23,15 @@ namespace FaceONNX
         /// <param name="image">Bitmap</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
-        /// <returns>Point</returns>
-        Point[] Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
+        /// <returns>FaceLandmarks</returns>
+        Face68Landmarks Forward(Bitmap image, Rectangle rectangle, bool clamp = true);
 
         /// <summary>
         /// Returns face recognition results.
         /// </summary>
         /// <param name="image">Image in BGR terms</param>
-        /// <returns>Point</returns>
-        Point[] Forward(float[][,] image);
+        /// <returns>FaceLandmarks</returns>
+        Face68Landmarks Forward(float[][,] image);
 
         /// <summary>
         /// Returns face recognition results.
@@ -39,8 +39,8 @@ namespace FaceONNX
         /// <param name="image">Image in BGR terms</param>
         /// <param name="rectangle">Rectangle</param>
         /// <param name="clamp">Clamp or not</param>
-        /// <returns>Point</returns>
-        Point[] Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
+        /// <returns>FaceLandmarks</returns>
+        Face68Landmarks Forward(float[][,] image, Rectangle rectangle, bool clamp = true);
 
         #endregion
     }

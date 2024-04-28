@@ -17,7 +17,7 @@ namespace EyeBlinkDetection
             Directory.CreateDirectory(path);
 
             using var faceDetector = new FaceDetector();
-            using var faceLandmarksExtractor = new FaceLandmarksExtractor();
+            using var faceLandmarksExtractor = new Face68LandmarksExtractor();
             using var eyeBlinkClassifier = new EyeBlinkClassifier();
 
             using var painter = new Painter()
@@ -45,10 +45,8 @@ namespace EyeBlinkDetection
                     var points = faceLandmarksExtractor.Forward(cropped);
 
                     // eye blink detection
-                    var eyes = EyeBlinkClassifier.GetEyesRectangles(points);
-
-                    var left_eye_rect = eyes.Item1;
-                    var right_eye_rect = eyes.Item2;
+                    var left_eye_rect = Face68Landmarks.GetLeftEyeRectangle(points);
+                    var right_eye_rect = Face68Landmarks.GetRightEyeRectangle(points);
 
                     using var left_eye = BitmapTransform.Crop(cropped, left_eye_rect);
                     using var right_eye = BitmapTransform.Crop(cropped, right_eye_rect);
@@ -63,7 +61,7 @@ namespace EyeBlinkDetection
                     var point = box.GetPoint();
                     var paintData = new PaintData
                     {
-                        Points = points.Add(point),
+                        Points = points.All.Add(point),
                         Title = string.Empty,
                     };
 
@@ -96,7 +94,7 @@ namespace EyeBlinkDetection
         private static string[] ToString(float[] tensor)
         {
             var value = Math.Round(tensor[0], 1);
-            return new string[] { value.ToString() };
+            return [value.ToString()];
         }
     }
 }

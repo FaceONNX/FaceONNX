@@ -15,11 +15,11 @@ namespace RealSenseFaceID.Core
     {
         #region Fields
 
-        private readonly IFaceDetector _faceDetector;
-        private readonly IFaceLandmarksExtractor _faceLandmarksExtractor;
-        private readonly IFaceClassifier _faceDepthClassifier;
-        private readonly IFaceClassifier _eyeBlinkClassifier;
-        private readonly IFaceClassifier _faceEmbedder;
+        private readonly FaceDetector _faceDetector;
+        private readonly Face68LandmarksExtractor _faceLandmarksExtractor;
+        private readonly FaceDepthClassifier _faceDepthClassifier;
+        private readonly EyeBlinkClassifier _eyeBlinkClassifier;
+        private readonly FaceEmbedder _faceEmbedder;
         private readonly bool _useEyesTracking;
         private readonly Embeddings _embeddings;
 
@@ -44,7 +44,7 @@ namespace RealSenseFaceID.Core
         {
             var sessionOptions = useCUDA ? SessionOptions.MakeSessionOptionWithCudaProvider(0) : new SessionOptions();
             _faceDetector = new FaceDetector(sessionOptions);
-            _faceLandmarksExtractor = new FaceLandmarksExtractor(sessionOptions);
+            _faceLandmarksExtractor = new Face68LandmarksExtractor(sessionOptions);
             _faceDepthClassifier = new FaceDepthClassifier(sessionOptions);
             _eyeBlinkClassifier = new EyeBlinkClassifier(sessionOptions);
             _faceEmbedder = new FaceEmbedder(sessionOptions);
@@ -124,7 +124,7 @@ namespace RealSenseFaceID.Core
             {
                 Label = label,
                 Rectangle = rectangle,
-                Landmarks = points.Add(rectangle.GetPoint()),
+                Landmarks = new Face68Landmarks(points.All.Add(rectangle.GetPoint())),
                 Live = frame_liveness && depth_liveness
             };
         }
@@ -158,13 +158,13 @@ namespace RealSenseFaceID.Core
         /// <param name="rectangle">Rectangle</param>
         /// <param name="useEyesTracking">Use eye tracking or not</param>
         /// <returns>Output</returns>
-        private (Point[], float[], bool) ProcessFace(Bitmap frame, Rectangle rectangle, bool useEyesTracking)
+        private (Face68Landmarks, float[], bool) ProcessFace(Bitmap frame, Rectangle rectangle, bool useEyesTracking)
         {
             // crop and align
             using var cropped = BitmapTransform.Crop(frame, rectangle);
             var points = _faceLandmarksExtractor.Forward(cropped);
-            var angle = FaceLandmarks.GetRotationAngle(points);
-            using var aligned = FaceLandmarksExtractor.Align(cropped, angle);
+            var angle = points.RotationAngle;
+            using var aligned = FaceProcessingExtensions.Align(cropped, angle);
 
             // extract embeddings
             var vector = _faceEmbedder.Forward(aligned);
@@ -173,9 +173,8 @@ namespace RealSenseFaceID.Core
             if (useEyesTracking)
             {
                 // eye blink detection
-                var eyes = EyeBlinkClassifier.GetEyesRectangles(points);
-                using var left_eye = BitmapTransform.Crop(cropped, eyes.Item1);
-                using var right_eye = BitmapTransform.Crop(cropped, eyes.Item2);
+                using var left_eye = BitmapTransform.Crop(cropped, Face68Landmarks.GetLeftEyeRectangle(points));
+                using var right_eye = BitmapTransform.Crop(cropped, Face68Landmarks.GetRightEyeRectangle(points));
                 var left_eye_value = _eyeBlinkClassifier.Forward(left_eye).First();
                 var right_eye_value = _eyeBlinkClassifier.Forward(right_eye).First();
 
@@ -193,12 +192,12 @@ namespace RealSenseFaceID.Core
         /// <param name="rectangle">Rectangle</param>
         /// <param name="points">Points</param>
         /// <returns>Output</returns>
-        private bool ProcessFaceDepth(ushort[,] depth, Rectangle rectangle, Point[] points)
+        private bool ProcessFaceDepth(ushort[,] depth, Rectangle rectangle, Face68Landmarks points)
         {
             // crop and align
             using var depthCropped = DepthTransform.Crop(depth, rectangle).Equalize().FromDepth();
-            var angle = FaceLandmarks.GetRotationAngle(points);
-            using var depthCroppedAligned = FaceLandmarksExtractor.Align(depthCropped, angle);
+            var angle = points.RotationAngle;
+            using var depthCroppedAligned = FaceProcessingExtensions.Align(depthCropped, angle);
 
             // classify
             var depth_output = _faceDepthClassifier.Forward(depthCroppedAligned);
