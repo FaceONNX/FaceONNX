@@ -41,7 +41,7 @@
         </member>
         <member name="T:FaceONNX.Face68LandmarksExtractor">
             <summary>
-            Defines face landmarks extractor.
+            Defines face 68 landmarks extractor.
             </summary>
         </member>
         <member name="F:FaceONNX.Face68LandmarksExtractor._session">
@@ -51,12 +51,12 @@
         </member>
         <member name="M:FaceONNX.Face68LandmarksExtractor.#ctor">
             <summary>
-            Initializes face landmarks extractor.
+            Initializes face 68 landmarks extractor.
             </summary>
         </member>
         <member name="M:FaceONNX.Face68LandmarksExtractor.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
-            Initializes face landmarks extractor.
+            Initializes face 68 landmarks extractor.
             </summary>
             <param name="options">Session options</param>
         </member>

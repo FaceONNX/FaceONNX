@@ -11,7 +11,7 @@ using UMapx.Imaging;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face landmarks extractor.
+    /// Defines face 68 landmarks extractor.
     /// </summary>
     public class Face68LandmarksExtractor : IFace68LandmarksExtractor
     {
@@ -27,14 +27,14 @@ namespace FaceONNX
         #region Constructor
 
         /// <summary>
-        /// Initializes face landmarks extractor.
+        /// Initializes face 68 landmarks extractor.
         /// </summary>
         public Face68LandmarksExtractor()
         {
             _session = new InferenceSession(Resources.landmarks_68_pfld);
         }
         /// <summary>
-        /// Initializes face landmarks extractor.
+        /// Initializes face 68 landmarks extractor.
         /// </summary>
         /// <param name="options">Session options</param>
         public Face68LandmarksExtractor(SessionOptions options)
