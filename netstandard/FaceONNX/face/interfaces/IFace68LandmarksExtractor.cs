@@ -4,7 +4,7 @@ using System.Drawing;
 namespace FaceONNX
 {
     /// <summary>
-    /// Defines face landmarks 68 extractor interface.
+    /// Defines face 68 landmarks extractor interface.
     /// </summary>
     public interface IFace68LandmarksExtractor : IDisposable
     {
