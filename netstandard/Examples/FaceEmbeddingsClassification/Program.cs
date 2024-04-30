@@ -10,7 +10,7 @@ namespace FaceEmbeddingsClassification
     class Program
     {
         static FaceDetector faceDetector;
-        static FaceLandmarksExtractor _faceLandmarksExtractor;
+        static Face68LandmarksExtractor _faceLandmarksExtractor;
         static FaceEmbedder _faceEmbedder;
 
         static void Main()
@@ -22,7 +22,7 @@ namespace FaceEmbeddingsClassification
             var fits = Directory.GetFiles(imagePath);
 
             faceDetector = new FaceDetector();
-            _faceLandmarksExtractor = new FaceLandmarksExtractor();
+            _faceLandmarksExtractor = new Face68LandmarksExtractor();
             _faceEmbedder = new FaceEmbedder();
             var embeddings = new Embeddings();
 
@@ -72,10 +72,10 @@ namespace FaceEmbeddingsClassification
             {
                 // landmarks
                 var points = _faceLandmarksExtractor.Forward(array, rectangle);
-                var angle = points.GetRotationAngle();
+                var angle = points.RotationAngle;
 
                 // alignment
-                var aligned = FaceLandmarksExtractor.Align(array, rectangle, angle);
+                var aligned = FaceProcessingExtensions.Align(array, rectangle, angle);
                 return _faceEmbedder.Forward(aligned);
             }
 

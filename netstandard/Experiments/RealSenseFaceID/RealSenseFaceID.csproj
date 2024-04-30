@@ -8,11 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="librealsense.x64" Version="2.45.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.9.0" />
     <PackageReference Include="UMapx.Video.RealSense" Version="5.2.4.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FaceONNX.Gpu\FaceONNX.Gpu.csproj" />
+    <ProjectReference Include="..\..\FaceONNX\FaceONNX.csproj" />
   </ItemGroup>
 
   <ItemGroup>

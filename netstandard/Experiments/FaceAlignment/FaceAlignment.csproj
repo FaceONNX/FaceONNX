@@ -9,7 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FaceONNX.Gpu\FaceONNX.Gpu.csproj" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FaceONNX\FaceONNX.csproj" />
   </ItemGroup>
 
   <ItemGroup>
