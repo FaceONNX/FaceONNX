@@ -11,10 +11,10 @@
 
 # Version
 You can build **FaceONNX** from sources or install to your own project using nuget package manager.
-| Assembly | Specification | OS | Platform | Package | Algebra |
-|-------------|:-------------:|:-------------:|:--------------:|:--------------:|:--------------:|
-| [FaceONNX](netstandard/FaceONNX) | .NET Standard 2.0 | Cross-platform | CPU | [NuGet](https://www.nuget.org/packages/FaceONNX/) | [UMapx](https://github.com/asiryan/UMapx) |
-| [FaceONNX.Addons](netstandard/FaceONNX.Addons) | .NET Standard 2.0 | Cross-platform | CPU | [NuGet](https://www.nuget.org/packages/FaceONNX.Addons/) | [UMapx](https://github.com/asiryan/UMapx) |
+| Assembly | Specification | OS | Package | Algebra |
+|-------------|:-------------:|:-------------:|:--------------:|:--------------:|
+| [FaceONNX](netstandard/FaceONNX) | .NET Standard 2.0 | Cross-platform | [NuGet](https://www.nuget.org/packages/FaceONNX/) | [UMapx](https://github.com/asiryan/UMapx) |
+| [FaceONNX.Addons](netstandard/FaceONNX.Addons) | .NET Standard 2.0 | Cross-platform | [NuGet](https://www.nuget.org/packages/FaceONNX.Addons/) | [UMapx](https://github.com/asiryan/UMapx) |
 
 # Installation
 C# interface  
