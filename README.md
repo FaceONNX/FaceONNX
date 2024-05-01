@@ -15,8 +15,6 @@ You can build **FaceONNX** from sources or install to your own project using nug
 |-------------|:-------------:|:-------------:|:--------------:|:--------------:|:--------------:|
 | [FaceONNX](netstandard/FaceONNX) | .NET Standard 2.0 | Cross-platform | CPU | [NuGet](https://www.nuget.org/packages/FaceONNX/) | [UMapx](https://github.com/asiryan/UMapx) |
 | [FaceONNX.Addons](netstandard/FaceONNX.Addons) | .NET Standard 2.0 | Cross-platform | CPU | [NuGet](https://www.nuget.org/packages/FaceONNX.Addons/) | [UMapx](https://github.com/asiryan/UMapx) |
-| [FaceONNX.Gpu](netstandard/FaceONNX.Gpu) | .NET Standard 2.0 | Cross-platform | GPU | [NuGet](https://www.nuget.org/packages/FaceONNX.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
-| [FaceONNX.Addons.Gpu](netstandard/FaceONNX.Addons.Gpu) | .NET Standard 2.0 | Cross-platform | GPU | [NuGet](https://www.nuget.org/packages/FaceONNX.Addons.Gpu/) | [UMapx](https://github.com/asiryan/UMapx) |
 
 # Installation
 C# interface  
