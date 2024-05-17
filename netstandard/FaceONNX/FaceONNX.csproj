@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FaceONNX</AssemblyName>
     <LangVersion>8.0</LangVersion>
-	<Version>4.0.1.1</Version>
-	<FileVersion>4.0.1.1</FileVersion>
+	<Version>4.0.2.1</Version>
+	<FileVersion>4.0.2.1</FileVersion>
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face recognition and analytics library based on deep neural networks and ONNX runtime.</Description>
@@ -13,7 +13,7 @@
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX</PackageId>
     <Product>FaceONNX</Product>
-    <AssemblyVersion>4.0.1.1</AssemblyVersion>
+    <AssemblyVersion>4.0.2.1</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>face detection recognition age gender classification landmarks extraction beauty estimation onnx neural-networks</PackageTags>
     <RepositoryUrl>https://github.com/FaceONNX/FaceONNX</RepositoryUrl>
@@ -26,14 +26,14 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>1</WarningLevel>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
     <DocumentationFile>FaceONNX.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -45,7 +45,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.9.0" />
-    <PackageReference Include="UMapx" Version="6.0.0.1" />
+    <PackageReference Include="UMapx" Version="6.0.1.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using UMapx.Core;
 
 namespace FaceONNX
@@ -42,7 +43,7 @@ namespace FaceONNX
         /// <param name="a">Value</param>
         /// <param name="b">Value</param>
         /// <returns>Value</returns>
-        private static float GetSymmetry(float a, float b)
+        public static float GetSymmetry(this float a, float b)
         {
             var v = a / b;
             return v > 1.0 ? 1.0f / v : v;
