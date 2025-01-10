@@ -78,50 +78,50 @@ Image: [open_open.jpg] --> detected [1] faces
 Build and run [AgeGenderClassification.csproj](AgeGenderClassification) to classify faces as "Male" or "Female".
 ```
 Image: [CF600.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0.9998264] and [34.42393] ages
+        [Face #1]: --> classified as [Female] gender with probability [0.9998809] and [32.879906] ages
 Image: [CF601.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0.99999976] and [30.10187] ages
+        [Face #1]: --> classified as [Female] gender with probability [1] and [29.398697] ages
 Image: [CF602.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0.9111187] and [15.594303] ages
+        [Face #1]: --> classified as [Female] gender with probability [0.95159125] and [15.895367] ages
 Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0.9989963] and [15.32464] ages
+        [Face #1]: --> classified as [Female] gender with probability [0.9992029] and [14.933592] ages
 Image: [CF604.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Female] gender with probability [0.9995233] and [26.72597] ages
+        [Face #1]: --> classified as [Female] gender with probability [0.9995809] and [26.391033] ages
 Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [0.9995109] and [21.628685] ages
+        [Face #1]: --> classified as [Male] gender with probability [0.9994949] and [20.577349] ages
 Image: [CM725.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [0.9999999] and [33.206005] ages
+        [Face #1]: --> classified as [Male] gender with probability [1] and [31.717274] ages
 Image: [CM726.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [1] and [22.117985] ages
+        [Face #1]: --> classified as [Male] gender with probability [0.9999999] and [22.148514] ages
 Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [0.9998927] and [30.164104] ages
+        [Face #1]: --> classified as [Male] gender with probability [0.9999255] and [29.917862] ages
 Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Male] gender with probability [1] and [24.632973] ages
+        [Face #1]: --> classified as [Male] gender with probability [1] and [24.737411] ages
 ```
 
 # Emotion & beauty estimation
 Build and run [EmotionAndBeautyEstimation.csproj](EmotionAndBeautyEstimation) to classify face emotion and estimate face beauty. 
 ```
 Image: [CF600.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Happiness] emotion and [7.9/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [8.1/10.0] beauty
 Image: [CF601.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Happiness] emotion and [6.7/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [6.6/10.0] beauty
 Image: [CF602.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Neutral] emotion and [8.2/10.0] beauty
 Image: [CF603.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Happiness] emotion and [8.1/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [8/10.0] beauty
 Image: [CF604.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Neutral] emotion and [7.4/10.0] beauty
 Image: [CM722.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Neutral] emotion and [9.6/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [9.5/10.0] beauty
 Image: [CM725.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Neutral] emotion and [6.3/10.0] beauty
 Image: [CM726.jpg] --> detected [1] faces
         [Face #1]: --> classified as [Neutral] emotion and [6.8/10.0] beauty
 Image: [CM739.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Happiness] emotion and [7.9/10.0] beauty
+        [Face #1]: --> classified as [Happiness] emotion and [8.3/10.0] beauty
 Image: [CM742.jpg] --> detected [1] faces
-        [Face #1]: --> classified as [Neutral] emotion and [8.4/10.0] beauty
+        [Face #1]: --> classified as [Neutral] emotion and [8.3/10.0] beauty
 ```
 
 # GPU Perfomance tests
