@@ -10,33 +10,33 @@ using UMapx.Imaging;
 
 namespace FaceONNX
 {
-	/// <summary>
-	/// Defines face beauty classifier.
-	/// </summary>
-	public class FaceBeautyClassifier : IFaceClassifier
+    /// <summary>
+    /// Defines face beauty estimator.
+    /// </summary>
+    public class FaceBeautyEstimator : IFaceClassifier
     {
 		#region Private data
 		/// <summary>
 		/// Inference session.
 		/// </summary>
 		private readonly InferenceSession _session;
-		#endregion
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		/// <summary>
-		/// Initializes face beauty classifier.
-		/// </summary>
-		public FaceBeautyClassifier()
+        /// <summary>
+        /// Initializes face beauty estimator.
+        /// </summary>
+        public FaceBeautyEstimator()
 		{
 			_session = new InferenceSession(Resources.beauty_resnet18);
 		}
 
-		/// <summary>
-		/// Initializes face beauty classifier.
-		/// </summary>
-		/// <param name="options">Session options</param>
-		public FaceBeautyClassifier(SessionOptions options)
+        /// <summary>
+        /// Initializes face beauty estimator.
+        /// </summary>
+        /// <param name="options">Session options</param>
+        public FaceBeautyEstimator(SessionOptions options)
 		{
 			_session = new InferenceSession(Resources.beauty_resnet18, options);
 		}
@@ -63,7 +63,7 @@ namespace FaceONNX
 
             for (int i = 0; i < image.Length; i++)
             {
-                resized[i] = image[i].Resize(size.Height, size.Width);
+                resized[i] = image[i].Resize(size.Height, size.Width, InterpolationMode.Bilinear);
             }
 
             var inputMeta = _session.InputMetadata;
@@ -116,7 +116,7 @@ namespace FaceONNX
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~FaceBeautyClassifier()
+        ~FaceBeautyEstimator()
 		{
 			Dispose(false);
 		}

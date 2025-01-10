@@ -48,7 +48,7 @@ namespace FaceONNX
         /// <summary>
         /// Returns the labels.
         /// </summary>
-        public static readonly string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disguest", "Fear" };
+        public static readonly string[] Labels = new string[] { "Neutral", "Happiness", "Surprise", "Sadness", "Anger", "Disgust", "Fear" };
 
 		#endregion
 
@@ -72,7 +72,7 @@ namespace FaceONNX
 
             for (int i = 0; i < image.Length; i++)
             {
-                resized[i] = image[i].Resize(size.Height, size.Width);
+                resized[i] = image[i].Resize(size.Height, size.Width, InterpolationMode.Bilinear);
             }
 
             var inputMeta = _session.InputMetadata;

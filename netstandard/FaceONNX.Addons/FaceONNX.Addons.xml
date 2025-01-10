@@ -39,37 +39,37 @@
             Destructor.
             </summary>
         </member>
-        <member name="T:FaceONNX.FaceBeautyClassifier">
+        <member name="T:FaceONNX.FaceBeautyEstimator">
             <summary>
-            Defines face beauty classifier.
+            Defines face beauty estimator.
             </summary>
         </member>
-        <member name="F:FaceONNX.FaceBeautyClassifier._session">
+        <member name="F:FaceONNX.FaceBeautyEstimator._session">
             <summary>
             Inference session.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.#ctor">
+        <member name="M:FaceONNX.FaceBeautyEstimator.#ctor">
             <summary>
-            Initializes face beauty classifier.
+            Initializes face beauty estimator.
             </summary>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
+        <member name="M:FaceONNX.FaceBeautyEstimator.#ctor(Microsoft.ML.OnnxRuntime.SessionOptions)">
             <summary>
-            Initializes face beauty classifier.
+            Initializes face beauty estimator.
             </summary>
             <param name="options">Session options</param>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Drawing.Bitmap)">
+        <member name="M:FaceONNX.FaceBeautyEstimator.Forward(System.Drawing.Bitmap)">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.Forward(System.Single[0:,0:][])">
+        <member name="M:FaceONNX.FaceBeautyEstimator.Forward(System.Single[0:,0:][])">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.Dispose">
+        <member name="M:FaceONNX.FaceBeautyEstimator.Dispose">
             <inheritdoc/>
         </member>
-        <member name="M:FaceONNX.FaceBeautyClassifier.Finalize">
+        <member name="M:FaceONNX.FaceBeautyEstimator.Finalize">
             <summary>
             Destructor.
             </summary>

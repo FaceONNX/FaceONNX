@@ -101,7 +101,7 @@ namespace FaceONNX
 
             for (int i = 0; i < image.Length; i++)
             {
-                resized[i] = image[i].ResizePreserved(size.Height, size.Width, 0.0f, InterpolationMode.Bicubic);
+                resized[i] = image[i].ResizePreserved(size.Height, size.Width, 0.0f, InterpolationMode.Bilinear);
             }
 
             // yolo params

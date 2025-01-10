@@ -19,7 +19,7 @@ namespace EmotionAndBeautyEstimation
             using var faceDetector = new FaceDetector();
             using var faceLandmarksExtractor = new Face68LandmarksExtractor();
             using var faceEmotionClassifier = new FaceEmotionClassifier();
-            using var faceBeautyClassifier = new FaceBeautyClassifier();
+            using var faceBeautyEstimator = new FaceBeautyEstimator();
 
             Console.WriteLine($"Processing {files.Length} images");
 
@@ -43,7 +43,7 @@ namespace EmotionAndBeautyEstimation
                     var emotion = faceEmotionClassifier.Forward(aligned);
                     var max = Matrice.Max(emotion, out int argmax);
                     var emotionLabel = FaceEmotionClassifier.Labels[argmax];
-                    var beauty = faceBeautyClassifier.Forward(aligned);
+                    var beauty = faceBeautyEstimator.Forward(aligned);
                     var beautyLabel = $"{Math.Round(2 * beauty.Max(), 1)}/10.0";
 
                     Console.WriteLine($"--> classified as [{emotionLabel}] emotion and [{beautyLabel}] beauty");
