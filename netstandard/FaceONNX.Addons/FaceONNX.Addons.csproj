@@ -70,7 +70,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FaceONNX" Version="4.0.4.1" />
+	  <PackageReference Include="FaceONNX" Version="4.0.4.2" />
 	</ItemGroup>
 
 </Project>
