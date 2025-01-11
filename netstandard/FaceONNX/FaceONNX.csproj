@@ -9,7 +9,7 @@
     <Authors>Valery Asiryan</Authors>
     <Company>Valery Asiryan</Company>
     <Description>Face recognition and analytics library based on deep neural networks and ONNX runtime.</Description>
-    <Copyright>Valery Asiryan, © 2020-2024</Copyright>
+    <Copyright>Valery Asiryan, © 2020-2025</Copyright>
     <RepositoryType>Open-source</RepositoryType>
     <PackageId>FaceONNX</PackageId>
     <Product>FaceONNX</Product>
