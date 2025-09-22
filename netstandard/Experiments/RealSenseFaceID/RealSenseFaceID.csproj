@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="librealsense.x64" Version="2.45.1" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.9.0" />
-    <PackageReference Include="UMapx.Video.RealSense" Version="5.2.4.5" />
+    <PackageReference Include="UMapx.Video.RealSense" Version="7.5.1.1" />
   </ItemGroup>
 
   <ItemGroup>
