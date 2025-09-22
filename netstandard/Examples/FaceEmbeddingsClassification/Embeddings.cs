@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using UMapx.Core;
+using UMapx.Distance;
 
 namespace FaceEmbeddingsClassification
 {
@@ -114,6 +114,7 @@ namespace FaceEmbeddingsClassification
         /// <returns>Label</returns>
         public (string, float) FromDistance(float[] vector)
         {
+            var euclidean = new Euclidean();
             var length = Count;
             var min = float.MaxValue;
             var index = -1;
@@ -121,7 +122,7 @@ namespace FaceEmbeddingsClassification
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Vectors[i].Euclidean(vector);
+                var d = euclidean.Compute(Vectors[i], vector);
 
                 if (d < min)
                 {
@@ -142,6 +143,7 @@ namespace FaceEmbeddingsClassification
         /// <returns>Label and value</returns>
         public (string, float) FromSimilarity(float[] vector)
         {
+            var cosine = new Cosine(true);
             var length = Vectors.Count;
             var max = float.MinValue;
             var index = -1;
@@ -149,7 +151,7 @@ namespace FaceEmbeddingsClassification
             // do job
             for (var i = 0; i < length; i++)
             {
-                var d = Vectors[i].Cosine(vector);
+                var d = cosine.Compute(Vectors[i], vector);
 
                 if (d > max)
                 {
